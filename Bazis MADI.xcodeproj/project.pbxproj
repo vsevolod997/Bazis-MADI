@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
 		424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D1238ED431008C5EBD /* SceneDelegate.swift */; };
-		424525D4238ED431008C5EBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D3238ED431008C5EBD /* ViewController.swift */; };
+		424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D3238ED431008C5EBD /* LoginViewController.swift */; };
 		424525D7238ED431008C5EBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424525D5238ED431008C5EBD /* Main.storyboard */; };
 		424525D9238ED435008C5EBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424525D8238ED435008C5EBD /* Assets.xcassets */; };
 		424525DC238ED435008C5EBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424525DA238ED435008C5EBD /* LaunchScreen.storyboard */; };
+		424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */; };
+		424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E5238EE133008C5EBD /* Title1LabelUILabel.swift */; };
+		424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */; };
+		424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */; };
+		424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		424525CF238ED431008C5EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424525D1238ED431008C5EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		424525D3238ED431008C5EBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		424525D3238ED431008C5EBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		424525D6238ED431008C5EBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		424525D8238ED435008C5EBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424525DB238ED435008C5EBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		424525DD238ED435008C5EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableVIewControllerTableViewController.swift; sourceTree = "<group>"; };
+		424525E5238EE133008C5EBD /* Title1LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title1LabelUILabel.swift; sourceTree = "<group>"; };
+		424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title2LabelUILabel.swift; sourceTree = "<group>"; };
+		424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButton1UIButton.swift; sourceTree = "<group>"; };
+		424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldUITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +68,16 @@
 			children = (
 				424525CF238ED431008C5EBD /* AppDelegate.swift */,
 				424525D1238ED431008C5EBD /* SceneDelegate.swift */,
-				424525D3238ED431008C5EBD /* ViewController.swift */,
+				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
+				424525D3238ED431008C5EBD /* LoginViewController.swift */,
 				424525D5238ED431008C5EBD /* Main.storyboard */,
 				424525D8238ED435008C5EBD /* Assets.xcassets */,
 				424525DA238ED435008C5EBD /* LaunchScreen.storyboard */,
 				424525DD238ED435008C5EBD /* Info.plist */,
+				424525E5238EE133008C5EBD /* Title1LabelUILabel.swift */,
+				424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */,
+				424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */,
+				424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */,
 			);
 			path = "Bazis MADI";
 			sourceTree = "<group>";
@@ -138,8 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424525D4238ED431008C5EBD /* ViewController.swift in Sources */,
+				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
+				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
+				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
+				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
+				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
+				424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
