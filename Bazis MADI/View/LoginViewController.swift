@@ -7,40 +7,53 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LoginViewController: UIViewController {
 
-    
     @IBOutlet weak var loginTextField: LoginTextFieldUITextField!
-    
     @IBOutlet weak var passworldTextField: LoginTextFieldUITextField!
+    @IBOutlet weak var inputButton: InputButton1UIButton!
+    @IBOutlet weak var errorLabel: ErrorLabel!
+    
+    var controller = LoginController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        controller.delegate = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
         view.addGestureRecognizer(tap)
     }
 
-
     @objc func tapView(_ gestueRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
-        print("tap")
-    }
-    @IBAction func inputButton(_ sender: Any) {
-    }
-    @IBAction func forgetPassword(_ sender: Any) {
     }
     
+    //MARK: - нажатие кнопки входа
+    @IBAction func inputButton(_ sender: Any) {
+        let login = loginTextField.text
+        let psw = passworldTextField.text
+        
+        controller.loginUser(login: login, password: psw)
+    }
+    
+    //MARK: - нажатие кнопки не могу войти
+    @IBAction func forgetPassword(_ sender: Any) {
+        
+        controller.userForgot()
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == loginTextField {
+            errorLabel.text = ""
             loginTextField.text = ""
         }
         if textField == passworldTextField {
+            errorLabel.text = ""
             passworldTextField.text = ""
         }
     }
@@ -52,9 +65,23 @@ extension LoginViewController: UITextFieldDelegate {
         }
         if textField == passworldTextField {
             passworldTextField.resignFirstResponder()
-            
         }
+        
         return true
+    }
+}
+extension LoginViewController: LoginViewProtocol {
+    func showNextView(_ controller: LoginController, view: UIViewController, data: UserModel) {
+        view.modalPresentationStyle = .fullScreen
+        present(view, animated: true)
+    }
+    
+    func showError(_ controller: LoginController, error: String) {
+        errorLabel.text = error
+        inputButton.clickError()
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
     }
     
 }

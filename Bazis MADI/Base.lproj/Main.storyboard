@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Bazis_MADI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Bazis_MADI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя пользователя" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pby-3O-5Xo" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
                                 <rect key="frame" x="89" y="438" width="236" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                 <connections>
@@ -44,7 +44,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATu-03-RdY" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
                                 <rect key="frame" x="89" y="498" width="236" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
@@ -52,15 +52,22 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Вход" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vc0-HQ-gNr" customClass="Title1LabelUILabel" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="120" y="364" width="174" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="120" y="365" width="174" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ia-K7-Bsd" customClass="ErrorLabel" customModule="Bazis_MADI" customModuleProvider="target">
+                                <rect key="frame" x="32" y="541" width="352" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdQ-Vw-Akr" customClass="InputButton1UIButton" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="159" y="555" width="93" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="160" y="639" width="94" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="ВОЙТИ"/>
                                 <connections>
@@ -82,6 +89,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="5ia-K7-Bsd" id="FWh-DS-w79"/>
+                        <outlet property="inputButton" destination="MdQ-Vw-Akr" id="iUk-dD-H5Z"/>
                         <outlet property="loginTextField" destination="Pby-3O-5Xo" id="9sa-8N-V4a"/>
                         <outlet property="passworldTextField" destination="ATu-03-RdY" id="4M8-o9-q9o"/>
                     </connections>
@@ -89,6 +98,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="112.5"/>
+        </scene>
+        <!--Главная-->
+        <scene sceneID="Fzd-Ug-phA">
+            <objects>
+                <viewController id="2Th-uN-R4E" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Jc-XI-SMD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="AfI-z6-dO3"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Главная" image="square.and.arrow.down" catalog="system" selectedImage="person.fill" id="VNZ-Qu-086"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j7g-hi-n8Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283" y="-1406"/>
+        </scene>
+        <!--Диалоги-->
+        <scene sceneID="3HD-Ki-4JT">
+            <objects>
+                <viewController id="I8Y-5l-Ij1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tPW-Jf-m8f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3xa-Ud-b20"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Диалоги" id="oYE-Ha-rdk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQz-Nw-Z2V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283" y="-704"/>
         </scene>
         <!--Home TableV Iew Controller Table View Controller-->
         <scene sceneID="MsZ-7R-qaO">
@@ -116,16 +157,16 @@
                                                     <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ФИО" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9K-Wj-2k3" customClass="Title1LabelUILabel" customModule="Bazis_MADI" customModuleProvider="target">
-                                                    <rect key="frame" x="118" y="15" width="276" height="51"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FIO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9K-Wj-2k3" customClass="Title1LabelUILabel" customModule="Bazis_MADI" customModuleProvider="target">
+                                                    <rect key="frame" x="118" y="11" width="275" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Группа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd9-aC-8Q7" customClass="Title2LabelUILabel" customModule="Bazis_MADI" customModuleProvider="target">
-                                                    <rect key="frame" x="118" y="74" width="276" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <rect key="frame" x="118" y="78" width="275" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -146,7 +187,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Успеваемость" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXb-w3-UHX">
                                                     <rect key="frame" x="75" y="14" width="224" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -168,7 +209,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Портфолио" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oQ-L8-Lao">
                                                     <rect key="frame" x="75" y="12" width="198" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -189,7 +230,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Изменить пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-2F-CZu">
                                                     <rect key="frame" x="75" y="11" width="228" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -217,7 +258,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выход" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-OI-ynS">
                                                     <rect key="frame" x="75" y="9" width="152" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <color key="textColor" red="0.77272830184946206" green="0.1832084166652779" blue="0.1503263315744609" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
@@ -239,18 +280,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mNv-7p-mOJ"/>
                     <connections>
+                        <outlet property="grupLabel" destination="cd9-aC-8Q7" id="xHk-Wt-Ds4"/>
+                        <outlet property="userFullNameLabel" destination="x9K-Wj-2k3" id="VRh-u9-I9l"/>
                         <outlet property="userLabel" destination="K8c-Un-KnZ" id="6Sq-QV-l4c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKU-KP-RIs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3191.1999999999998" y="95.320197044334975"/>
+            <point key="canvasLocation" x="3189.8550724637685" y="95.089285714285708"/>
         </scene>
-        <!--Item-->
+        <!--Личный кабинет-->
         <scene sceneID="qVO-cK-YJz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1lS-TG-y7t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ccy-JK-cCn"/>
+                <navigationController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="1lS-TG-y7t" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Личный кабинет" id="ccy-JK-cCn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5j3-hv-RvH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -268,7 +312,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fpV-dF-Cwg">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OtL-YM-Fl6" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="studUser" automaticallyAdjustsScrollViewInsets="NO" id="OtL-YM-Fl6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="ubp-X3-ozh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tta-6d-o5X">
@@ -277,6 +321,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="2Th-uN-R4E" kind="relationship" relationship="viewControllers" id="epM-jA-3ep"/>
+                        <segue destination="I8Y-5l-Ij1" kind="relationship" relationship="viewControllers" id="eah-Vz-5r6"/>
                         <segue destination="1lS-TG-y7t" kind="relationship" relationship="viewControllers" id="OTF-cd-6fi"/>
                     </connections>
                 </tabBarController>
@@ -290,7 +336,9 @@
         <image name="User" width="384" height="448"/>
         <image name="edit" width="512" height="512"/>
         <image name="fon" width="810" height="809"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="portfolio" width="512" height="512"/>
+        <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>
         <image name="statistic" width="512" height="512"/>
         <image name="userExit" width="512" height="512"/>
     </resources>
