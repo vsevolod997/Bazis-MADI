@@ -9,20 +9,20 @@
 import UIKit
 
 class Title2LabelUILabel: UILabel {
-
-       override init(frame: CGRect) {
-           super.init(frame: frame)
-           setup()
-       }
-       
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           setup()
-       }
-       
-       fileprivate func setup(){
-           font = UIFont(name: "Arial", size: 14)
-           textColor = UIColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))
-       }
-
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    fileprivate func setup(){
+        font = UIFont(name: "Arial", size: 14)
+        textColor = SystemColor.grayColor
+    }
+    
 }

@@ -40,11 +40,10 @@ class LoginViewController: UIViewController {
     
     //MARK: - нажатие кнопки не могу войти
     @IBAction func forgetPassword(_ sender: Any) {
-        
         controller.userForgot()
     }
 }
-
+//MARK: - LoginController UITextFieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -70,6 +69,8 @@ extension LoginViewController: UITextFieldDelegate {
         return true
     }
 }
+
+//MARK: - LoginController LoginViewProtiocol
 extension LoginViewController: LoginViewProtocol {
     func showNextView(_ controller: LoginController, view: UIViewController, data: UserModel) {
         view.modalPresentationStyle = .fullScreen

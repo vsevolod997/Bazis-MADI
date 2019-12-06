@@ -12,6 +12,9 @@ class HttpService {
     //MARK: - метод логина пользователя 
     class func getUserAccount(login: String, password: String, completion: @escaping(Error?, UserModel?, UserModelError?)->Void){
         
+        //let key = KeySessionController() может когда к сессиям прийдем
+        let userData = UserDataController()
+        
         let postString = "json=1&psw=\(password)&usr=\(login)"
         let urlStr = "https://bazis.madi.ru/stud/login.php"
         guard let url = URL(string: urlStr) else {return}
@@ -25,7 +28,12 @@ class HttpService {
                 guard let datas = data else { return }
                 do{
                     let data = try JSONDecoder().decode(UserModel.self, from: datas)
+                    
+                    let userLogin = UserLoginData(login: login, password: password)
+                    userData.setUserData(user: userLogin)//запоминаем логин и пароль
+                    UserLogin.userNow.user = data
                     completion(nil, data, nil)
+                    
                 } catch let jsonError {
                     completion(jsonError, nil, nil)
                     do{

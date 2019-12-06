@@ -28,7 +28,7 @@ class InputButton1UIButton: UIButton {
         let textColor = UIColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        backgroundColor = UIColor(#colorLiteral(red: 0.5741485357, green: 0.5741624236, blue: 0.574154973, alpha: 1))
+        backgroundColor = SystemColor.grayColor
         layer.cornerRadius = 17
         alpha = 0.9
     }

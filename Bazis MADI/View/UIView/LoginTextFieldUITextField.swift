@@ -28,7 +28,7 @@ class LoginTextFieldUITextField: UITextField {
         textAlignment = .center
         
         font = UIFont(name: "Arial", size: 18)
-        textColor = UIColor(#colorLiteral(red: 0, green: 0.3093259037, blue: 0.5303913355, alpha: 1))
+        textColor = SystemColor.blueColor
     }
     
 

@@ -18,6 +18,11 @@
 		424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */; };
 		424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */; };
 		424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */; };
+		4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245396E2399623200126ED6 /* CloseViewUIView.swift */; };
+		42453971239A518E00126ED6 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453970239A518E00126ED6 /* SystemColor.swift */; };
+		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
+		425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FD2398E9E2001D26AA /* UserDataController.swift */; };
+		425468012398ED18001D26AA /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425468002398ED18001D26AA /* UserLoginData.swift */; };
 		426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0DE2391456A003362B1 /* UserLogin.swift */; };
 		426AD0E323914961003362B1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E223914961003362B1 /* UserModel.swift */; };
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
@@ -39,6 +44,11 @@
 		424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title2LabelUILabel.swift; sourceTree = "<group>"; };
 		424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButton1UIButton.swift; sourceTree = "<group>"; };
 		424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldUITextField.swift; sourceTree = "<group>"; };
+		4245396E2399623200126ED6 /* CloseViewUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseViewUIView.swift; sourceTree = "<group>"; };
+		42453970239A518E00126ED6 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
+		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
+		425467FD2398E9E2001D26AA /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
+		425468002398ED18001D26AA /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
 		426AD0DE2391456A003362B1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		426AD0E223914961003362B1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
@@ -92,8 +102,10 @@
 		425467F82397A9AA001D26AA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				426AD0E423914AC4003362B1 /* HttpService.swift */,
+				425467FF2398EA38001D26AA /* HttpService */,
+				425467FB2397B656001D26AA /* KeySessionController.swift */,
 				426AD0E623917617003362B1 /* LoginController.swift */,
+				425467FD2398E9E2001D26AA /* UserDataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -103,6 +115,7 @@
 			children = (
 				426AD0E223914961003362B1 /* UserModel.swift */,
 				426AD0DE2391456A003362B1 /* UserLogin.swift */,
+				425468002398ED18001D26AA /* UserLoginData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,11 +123,20 @@
 		425467FA2397A9CE001D26AA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42453970239A518E00126ED6 /* SystemColor.swift */,
 				426AD0DD2391440D003362B1 /* UIView */,
 				424525D3238ED431008C5EBD /* LoginViewController.swift */,
 				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		425467FF2398EA38001D26AA /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				426AD0E423914AC4003362B1 /* HttpService.swift */,
+			);
+			path = HttpService;
 			sourceTree = "<group>";
 		};
 		426AD0DD2391440D003362B1 /* UIView */ = {
@@ -125,6 +147,7 @@
 				424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */,
 				424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */,
 				426AD0EA23940F22003362B1 /* ErrorLabel.swift */,
+				4245396E2399623200126ED6 /* CloseViewUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -202,7 +225,11 @@
 			files = (
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
+				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
+				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
+				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
+				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
@@ -213,6 +240,7 @@
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
+				4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZVKQ6JXF49;
 				INFOPLIST_FILE = "Bazis MADI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +406,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZVKQ6JXF49;
 				INFOPLIST_FILE = "Bazis MADI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

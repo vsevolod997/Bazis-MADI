@@ -23,7 +23,7 @@ class Title1LabelUILabel: UILabel {
     
     fileprivate func setup(){
         font = UIFont(name: "HelveticaNeue", size: 22)
-        textColor = UIColor(#colorLiteral(red: 0.01158582047, green: 0.3091317415, blue: 0.5136013627, alpha: 1))
+        textColor = SystemColor.blueColor
     }
     
 }
