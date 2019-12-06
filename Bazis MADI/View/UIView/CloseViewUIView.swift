@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: -  uiView как заглушка при получении данных.
 class CloseViewUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)

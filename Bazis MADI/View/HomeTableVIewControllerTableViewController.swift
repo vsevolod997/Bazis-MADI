@@ -27,19 +27,20 @@ class HomeTableViewController: UITableViewController {
         setData()
     }
 
+    //MARK: - получение данных о текущем пользователе
     private func setData(){
-        if let user = UserLogin.userNow.user {
+        if let user = UserLogin.userNow.user { // сюда попадаем если прошли процедуру логина во вью
             userFullNameLabel.text = user.user_fio
             grupLabel.text = user.user_group
             
             let data = user.user_fio.split(separator: " ")
             userLabel.text = String(data[0].first!) + "" + String(data[1].first!)
-        } else {
+        } else { // иначе показали окно загрузки загрузку,
             showVC()
             let userLogin = UserDataController()
             if let user = userLogin.getUserData() {
-                HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in
-                    if let user = model {
+                HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
+                    if let user = model { // !получили\\ заролнили поля пользователя
                         DispatchQueue.main.async {
                             self.userFullNameLabel.text = user.user_fio
                             self.grupLabel.text = user.user_group
@@ -48,7 +49,7 @@ class HomeTableViewController: UITableViewController {
                             self.userLabel.text = String(data[0].first!) + "" + String(data[1].first!)
                             self.removeVC()
                         }
-                    } else {
+                    } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         DispatchQueue.main.async {
                             self.removeVC()
                             self.exitUser()
@@ -61,7 +62,6 @@ class HomeTableViewController: UITableViewController {
     
     private func showVC() {
         closeVC = CloseViewUIView(frame: self.view.bounds)
-        //closeVC.frame = view.bounds
         view.addSubview(closeVC)
     }
     
