@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeTableViewController: UITableViewController {
 
@@ -14,19 +15,34 @@ class HomeTableViewController: UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var grupLabel: Title2LabelUILabel!
     
-    var closeVC = CloseViewUIView()
+    let userLogin = UserDataController()
+    var closeVC: CloseViewUIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setData()
+        setupView()
+    }
+    
+    //MARK: - настройки окна стартовые
+    private func setupView() {
         userLabel.layer.masksToBounds = true
         userLabel.layer.cornerRadius = 15
         
-        self.title = "Личный кабинет"
-        
-        setData()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Личный кабинет"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.title = "Назад"
+    }
+    
+    
     //MARK: - получение данных о текущем пользователе
     private func setData(){
         if let user = UserLogin.userNow.user { // сюда попадаем если прошли процедуру логина во вью
@@ -37,7 +53,6 @@ class HomeTableViewController: UITableViewController {
             userLabel.text = String(data[0].first!) + "" + String(data[1].first!)
         } else { // иначе показали окно загрузки загрузку,
             showVC()
-            let userLogin = UserDataController()
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
@@ -89,19 +104,42 @@ class HomeTableViewController: UITableViewController {
     
     //MARK: - нажатие на таблицу
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 && indexPath.section == 3{
+        print(indexPath.row, indexPath.section)
+        if indexPath.row == 0 && indexPath.section == 3 {
            exitUser()
+        }
+        if indexPath.row == 2 && indexPath.section == 1 {
+            changedPasViewShow()
         }
         
     }
     
-    private func exitUser(){
-        let userDataController = UserDataController()
-        userDataController.clearUserData()
-        
+    private func changedPasViewShow(){
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "login")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        let vc = sb.instantiateViewController(identifier: "password")
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    private func exitUser(){
+        let alertActions = UIAlertController(title: "Внимание!", message: "Вы хотите выйти из аккаунта?", preferredStyle: .alert)
+        let actionYes = UIAlertAction(title: "Выход", style: .destructive) { (exit) in
+            self.userLogin.clearUserData()
+            
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(identifier: "login")
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+            
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        }
+        
+        let actionNo = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertActions.addAction(actionNo)
+        alertActions.addAction(actionYes)
+        
+        self.present(alertActions, animated: true)
     }
 }
+

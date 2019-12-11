@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         controller.delegate = self
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
         view.addGestureRecognizer(tap)
     }

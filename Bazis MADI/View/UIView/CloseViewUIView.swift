@@ -12,7 +12,7 @@ import UIKit
 class CloseViewUIView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        print("im init")
         setupBackground()
         createSubView()
         createActivityView()
@@ -34,13 +34,6 @@ class CloseViewUIView: UIView {
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(blurEffectView)
-        
-        
-        
-        let activityView = UIActivityIndicatorView(style: .large)
-        activityView.startAnimating()
-        activityView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        //activityView.center = center
     }
     
     fileprivate func createSubView() {

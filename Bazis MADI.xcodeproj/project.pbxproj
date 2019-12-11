@@ -20,6 +20,8 @@
 		424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */; };
 		4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4245396E2399623200126ED6 /* CloseViewUIView.swift */; };
 		42453971239A518E00126ED6 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453970239A518E00126ED6 /* SystemColor.swift */; };
+		42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */; };
+		42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453974239BED7200126ED6 /* PasswordChangeController.swift */; };
 		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
 		425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FD2398E9E2001D26AA /* UserDataController.swift */; };
 		425468012398ED18001D26AA /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425468002398ED18001D26AA /* UserLoginData.swift */; };
@@ -28,6 +30,10 @@
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
+		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
+		42A75FD423A14D8C0083B3EC /* Raspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD323A14D8C0083B3EC /* Raspisanie.swift */; };
+		42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */; };
+		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,8 @@
 		424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldUITextField.swift; sourceTree = "<group>"; };
 		4245396E2399623200126ED6 /* CloseViewUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseViewUIView.swift; sourceTree = "<group>"; };
 		42453970239A518E00126ED6 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
+		42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
+		42453974239BED7200126ED6 /* PasswordChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeController.swift; sourceTree = "<group>"; };
 		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
 		425467FD2398E9E2001D26AA /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 		425468002398ED18001D26AA /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
@@ -54,6 +62,10 @@
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
+		42A75FD323A14D8C0083B3EC /* Raspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raspisanie.swift; sourceTree = "<group>"; };
+		42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanie.swift; sourceTree = "<group>"; };
+		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +118,7 @@
 				425467FB2397B656001D26AA /* KeySessionController.swift */,
 				426AD0E623917617003362B1 /* LoginController.swift */,
 				425467FD2398E9E2001D26AA /* UserDataController.swift */,
+				42453974239BED7200126ED6 /* PasswordChangeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -113,9 +126,11 @@
 		425467F92397A9BC001D26AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42453970239A518E00126ED6 /* SystemColor.swift */,
 				426AD0E223914961003362B1 /* UserModel.swift */,
 				426AD0DE2391456A003362B1 /* UserLogin.swift */,
 				425468002398ED18001D26AA /* UserLoginData.swift */,
+				42A75FD323A14D8C0083B3EC /* Raspisanie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,10 +138,12 @@
 		425467FA2397A9CE001D26AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42453970239A518E00126ED6 /* SystemColor.swift */,
 				426AD0DD2391440D003362B1 /* UIView */,
 				424525D3238ED431008C5EBD /* LoginViewController.swift */,
 				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
+				42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */,
+				42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */,
+				42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				426AD0E423914AC4003362B1 /* HttpService.swift */,
+				42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */,
 			);
 			path = HttpService;
 			sourceTree = "<group>";
@@ -223,15 +241,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */,
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
 				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
+				42A75FD423A14D8C0083B3EC /* Raspisanie.swift in Sources */,
+				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
+				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
+				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
+				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,

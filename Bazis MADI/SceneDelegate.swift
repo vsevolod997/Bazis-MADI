@@ -17,13 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        if let userLogin = userLoginData.getUserData() {
+        if let userLogin = userLoginData.getUserData() { // есть данные смотрим их верность в другом окне
             showUser(windowScene: windowScene)
         } else {
             showLogin(windowScene: windowScene)
         }
     }
-    
+    //MARK: - отобразить окно сотрудника
     private func showUser(windowScene: UIWindowScene) {
         print("Show User")
         let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.windowScene = windowScene
         self.window?.rootViewController = vc
     }
-
+    //MARK: - отобразить окно логина
     private func showLogin(windowScene: UIWindowScene) {
         print("Show Login")
         let sb = UIStoryboard(name: "Main", bundle: nil)
