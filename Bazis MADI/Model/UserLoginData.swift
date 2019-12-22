@@ -11,4 +11,5 @@ import Foundation
 struct UserLoginData {
     var login: String
     var password: String
+    var typeUser: String
 }

@@ -36,8 +36,9 @@ class PasswordChangeViewController: UIViewController {
     
     @IBAction func ChangedPaswordButton(_ sender: Any) {
         
-        
     }
+    
+    
 }
 //MARK: - UITextFieldDelegate
 extension PasswordChangeViewController: UITextFieldDelegate {
@@ -46,9 +47,11 @@ extension PasswordChangeViewController: UITextFieldDelegate {
         if textField == oldPswTextField {
             oldPswTextField.text = ""
         }
+        
         if textField == newPswTextField {
             newPswTextField.text = ""
         }
+        
         if textField == conformNewPswTextField {
             conformNewPswTextField.text = ""
         }

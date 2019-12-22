@@ -46,6 +46,7 @@ class LoginController {
                         guard let user = userModel else { return }
                         DispatchQueue.main.async {
                             UserLogin.userNow.user = user
+                            print(user)
                             let sb = UIStoryboard(name: "Main", bundle: nil)
                             let view = sb.instantiateViewController(identifier: "studUser")
                             self.delegate?.showNextView(self, view: view, data: user)

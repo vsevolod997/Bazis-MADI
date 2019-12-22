@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK: - класс для работы с аккаунтом
 class UserDataController {
     
     let defaults = UserDefaults.standard
@@ -16,13 +17,15 @@ class UserDataController {
     func setUserData(user: UserLoginData) {
         defaults.set(user.login, forKey: "login")
         defaults.set(user.password, forKey: "password")
+        defaults.set(user.typeUser, forKey: "typeUser")
     }
     // MARK: - получение данных пользователя который заходил крайний раз
     func getUserData() -> UserLoginData? {
         let log = defaults.string(forKey: "login")
         let pas = defaults.string(forKey: "password")
-        if let login = log, let password = pas {
-            let userData = UserLoginData(login: login, password: password)
+        let type = defaults.string(forKey: "typeUser")
+        if let login = log, let password = pas, let userType = type {
+            let userData = UserLoginData(login: login, password: password, typeUser: userType)
             return userData
         } else {
             return nil
@@ -32,5 +35,6 @@ class UserDataController {
     func clearUserData() {
         defaults.removeObject(forKey: "login")
         defaults.removeObject(forKey: "password")
+        defaults.removeObject(forKey: "typeUser")
     }
 }

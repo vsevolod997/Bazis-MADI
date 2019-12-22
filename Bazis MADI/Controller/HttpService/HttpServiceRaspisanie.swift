@@ -9,24 +9,23 @@
 import Foundation
 
 class HttpServiceRaspisanie {
-    class func getRaspisData(groupName: String, complition: @escaping(Error?, Raspisanie?) -> Void){
-        
+    
+    //MARK: - получение списка расписания
+    class func getRaspisData(groupName: String, complition: @escaping(Error?, RaspisanieModel?) -> Void) {
         let urlStr = "https://bazis.madi.ru/stud/schedule.php?group=\(groupName)"
-        guard let url = URL(string: urlStr) else {return}
-        var urlReqest = URLRequest(url: url)
-        urlReqest.httpMethod = "GET"
+        guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        let url = URL(string: urlsStr)!
+        let urlReqest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in
             if let err = error {
-                print(err)
+                complition(err, nil)
             } else {
                 guard let datas = data else { return }
                 do{
-                    print(datas)
-                    let data = try JSONDecoder().decode(Raspisanie.self, from: datas)
-                    print("data", datas)
+                    let dataEncode = try JSONDecoder().decode(RaspisanieModel.self, from: datas)
+                    complition(nil, dataEncode)
                 } catch let jsonError {
-                    
-                    print(jsonError)
+                    complition(jsonError, nil)
                 }
             }
         }

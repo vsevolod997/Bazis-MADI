@@ -67,7 +67,7 @@ class HomeTableViewController: UITableViewController {
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         DispatchQueue.main.async {
                             self.removeVC()
-                            self.exitUser()
+                            self.showLoginView()
                         }
                     }
                 }
@@ -106,14 +106,14 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row, indexPath.section)
         if indexPath.row == 0 && indexPath.section == 3 {
-           exitUser()
+           exitUserButton()
         }
         if indexPath.row == 2 && indexPath.section == 1 {
             changedPasViewShow()
         }
-        
     }
     
+    //MARK: - переход к окну смены пароля
     private func changedPasViewShow(){
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "password")
@@ -121,18 +121,11 @@ class HomeTableViewController: UITableViewController {
         
     }
     
-    private func exitUser(){
+    private func exitUserButton(){
         let alertActions = UIAlertController(title: "Внимание!", message: "Вы хотите выйти из аккаунта?", preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Выход", style: .destructive) { (exit) in
             self.userLogin.clearUserData()
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(identifier: "login")
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-            
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
+            self.showLoginView()
         }
         
         let actionNo = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
@@ -140,6 +133,16 @@ class HomeTableViewController: UITableViewController {
         alertActions.addAction(actionYes)
         
         self.present(alertActions, animated: true)
+    }
+    
+    private func showLoginView(){
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "login")
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
     }
 }
 

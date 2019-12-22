@@ -10,9 +10,10 @@ import UIKit
 
 //MARK: -  uiView как заглушка при получении данных.
 class CloseViewUIView: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("im init")
+        //print("im init")
         setupBackground()
         createSubView()
         createActivityView()

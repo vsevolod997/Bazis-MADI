@@ -8,20 +8,24 @@
 
 import Foundation
 
-
-struct Raspisanie: Decodable {
+struct RaspisanieModel: Decodable {
+    var status: Bool
     var date: String
     var typeWeek: String
-    var groupname: String
-    var monday: [DaylyRaspisanie]
-    var tuesday: [DaylyRaspisanie]
-    var wednesday: [DaylyRaspisanie]
-    var thursday: [DaylyRaspisanie]
-    var friday: [DaylyRaspisanie]
-    var saturday: [DaylyRaspisanie]
+    var result: WeakRaspisanie?
+    var error: String?
 }
 
-struct DaylyRaspisanie: Decodable {
+struct WeakRaspisanie: Decodable {
+    var monday: [DailyRaspisanie]
+    var tuesday: [DailyRaspisanie]
+    var wednesday: [DailyRaspisanie]
+    var thursday: [DailyRaspisanie]
+    var friday: [DailyRaspisanie]
+    var saturday: [DailyRaspisanie]
+}
+
+struct DailyRaspisanie: Decodable {
     var time: String?
     var name: String
     var typeLesson: String?

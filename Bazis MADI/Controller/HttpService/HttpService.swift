@@ -29,7 +29,7 @@ class HttpService {
                 do{
                     let data = try JSONDecoder().decode(UserModel.self, from: datas)
                     
-                    let userLogin = UserLoginData(login: login, password: password)
+                    let userLogin = UserLoginData(login: login, password: password, typeUser: data.user_type)
                     userData.setUserData(user: userLogin)//запоминаем логин и пароль
                     UserLogin.userNow.user = data
                     completion(nil, data, nil)

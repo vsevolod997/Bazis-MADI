@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
 		424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D1238ED431008C5EBD /* SceneDelegate.swift */; };
 		424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D3238ED431008C5EBD /* LoginViewController.swift */; };
@@ -31,12 +32,13 @@
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
 		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
-		42A75FD423A14D8C0083B3EC /* Raspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD323A14D8C0083B3EC /* Raspisanie.swift */; };
+		42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */; };
 		42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		424525CF238ED431008C5EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424525D1238ED431008C5EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
-		42A75FD323A14D8C0083B3EC /* Raspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Raspisanie.swift; sourceTree = "<group>"; };
+		42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieModel.swift; sourceTree = "<group>"; };
 		42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanie.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,7 +132,7 @@
 				426AD0E223914961003362B1 /* UserModel.swift */,
 				426AD0DE2391456A003362B1 /* UserLogin.swift */,
 				425468002398ED18001D26AA /* UserLoginData.swift */,
-				42A75FD323A14D8C0083B3EC /* Raspisanie.swift */,
+				42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +168,7 @@
 				424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */,
 				426AD0EA23940F22003362B1 /* ErrorLabel.swift */,
 				4245396E2399623200126ED6 /* CloseViewUIView.swift */,
+				4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -247,7 +250,7 @@
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
 				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
-				42A75FD423A14D8C0083B3EC /* Raspisanie.swift in Sources */,
+				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
@@ -265,6 +268,7 @@
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
 				4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */,
+				4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
