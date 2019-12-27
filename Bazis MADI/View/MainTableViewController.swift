@@ -26,17 +26,17 @@ class MainTableViewController: UITableViewController {
         
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
+        
         setupView()
         getDataRaspisanie()
     }
     
     //MARK: - Обработка получения расписания
     private func getDataRaspisanie() {
-        
+        self.showVC()
         if let user = UserLogin.userNow.user {
             raspisanieSet(groupName: user.user_group)
         } else {// иначе показали окно загрузки загрузку,
-            self.showVC()
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
@@ -69,9 +69,25 @@ class MainTableViewController: UITableViewController {
                                 self.raspisanieTable.setupView()
                                 self.removeVC()
                             }
+                            self.selectWeakType(raspisanieData: raspis)
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    // MARK: отображение текущего типа недели
+    private func selectWeakType(raspisanieData: RaspisanieModel) {
+        if raspisanieData.typeWeek == "Числитель" {
+            DispatchQueue.main.async {
+                self.changedView.selectedSegmentIndex = 0
+            }
+        }
+        
+        if raspisanieData.typeWeek == "Знаменатель" {
+            DispatchQueue.main.async {
+                self.changedView.selectedSegmentIndex = 1
             }
         }
     }
@@ -91,8 +107,7 @@ class MainTableViewController: UITableViewController {
         let date = Date()
         let calendar = Calendar.current
         let weekday = calendar.component(.weekday, from: date)
-        dataControl.currentPage = weekday - 1
-        
+        dataControl.currentPage = weekday - 2
         
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
@@ -114,10 +129,27 @@ class MainTableViewController: UITableViewController {
         generator.impactOccurred()
     }
     
+    //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
+    @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
+        //raspisanieTable.removeFromSuperview()
+        raspisanieTable.setupView()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: date)
+        dataControl.currentPage = weekday - 2
+        
+    }
+    
 }
 
 //MARK: - TableRaspisanieDataSource
 extension MainTableViewController: TableRaspisanieDataSource {
+     //MARK: - передача данных о типе недели
+    func raraspisanieWeakNow(_ parametrView: TableRaspisanieUIView) -> Bool {
+        return changedView.selectedSegmentIndex == 0 ? true : false
+    }
+    
     //MARK: - передача данных о текущем дне
     func raspisanieDayNow(_ parametrView: TableRaspisanieUIView) -> Int {
         
@@ -125,8 +157,7 @@ extension MainTableViewController: TableRaspisanieDataSource {
         let calendar = Calendar.current
         let weekday = calendar.component(.weekday, from: date)
         
-        print("weekday", weekday - 1)
-        return weekday - 1
+        return weekday - 2
     }
     
     //MARK: - Передача данных текущего расписания по дням
@@ -156,6 +187,25 @@ extension MainTableViewController: TableRaspisanieDataSource {
 
 extension MainTableViewController: TableRaspisanieDelegate {
     func changedDay(_ parametrView: TableRaspisanieUIView, didSelectItem index: Int) {
-        dataControl.currentPage
+        dataControl.currentPage = index
     }
 }
+
+extension MainTableViewController {
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = .white
+            let title = Title1LabelUILabel()
+            title.text = "Расписание"
+            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+            view.addSubview(title)
+            return view
+        }
+        
+        return UIView()
+    }
+}
+

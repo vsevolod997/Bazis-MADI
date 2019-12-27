@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
+		4214FDC523B12EDD00F543C9 /* WeakRaspisanieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC423B12EDD00F543C9 /* WeakRaspisanieController.swift */; };
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
 		424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D1238ED431008C5EBD /* SceneDelegate.swift */; };
 		424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D3238ED431008C5EBD /* LoginViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
+		4214FDC423B12EDD00F543C9 /* WeakRaspisanieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRaspisanieController.swift; sourceTree = "<group>"; };
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		424525CF238ED431008C5EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424525D1238ED431008C5EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				426AD0E623917617003362B1 /* LoginController.swift */,
 				425467FD2398E9E2001D26AA /* UserDataController.swift */,
 				42453974239BED7200126ED6 /* PasswordChangeController.swift */,
+				4214FDC423B12EDD00F543C9 /* WeakRaspisanieController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */,
 				42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */,
 				42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */,
+				4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,7 +172,6 @@
 				424525E9238FBB1D008C5EBD /* InputButton1UIButton.swift */,
 				426AD0EA23940F22003362B1 /* ErrorLabel.swift */,
 				4245396E2399623200126ED6 /* CloseViewUIView.swift */,
-				4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
+				4214FDC523B12EDD00F543C9 /* WeakRaspisanieController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,

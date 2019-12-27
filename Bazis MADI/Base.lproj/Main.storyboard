@@ -125,6 +125,9 @@
                                                         <segment title="Знаменатель"/>
                                                     </segments>
                                                     <color key="selectedSegmentTintColor" red="0.12610858680000001" green="0.30407720799999999" blue="0.4980638027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <connections>
+                                                        <action selector="changetTypeWeak:" destination="Rnu-tp-8Zy" eventType="valueChanged" id="3LL-bA-hwD"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -136,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="qHT-2B-7Tt">
+                                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="qHT-2B-7Tt">
                                                     <rect key="frame" x="142" y="315" width="131" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <color key="pageIndicatorTintColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -365,7 +368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKU-KP-RIs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189.8550724637685" y="95.089285714285708"/>
+            <point key="canvasLocation" x="3236" y="70"/>
         </scene>
         <!--Смена пароля-->
         <scene sceneID="nzZ-UO-ZyT">
@@ -375,8 +378,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fon" translatesAutoresizingMaskIntoConstraints="NO" id="gUo-hD-EoU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fon" translatesAutoresizingMaskIntoConstraints="NO" id="gUo-hD-EoU">
+                                <rect key="frame" x="-1" y="0.0" width="414" height="896.00000000000023"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Новый пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jb0-Gh-uDX" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
                                 <rect key="frame" x="80" y="435" width="252" height="34"/>
@@ -432,6 +435,13 @@
                                     <action selector="ChangedPaswordButton:" destination="lhV-Bo-g98" eventType="touchUpInside" id="1hY-af-iEQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9V-8k-2Ac">
+                                <rect key="frame" x="186" y="159" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -451,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqP-qy-lpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3189.8550724637685" y="850.44642857142856"/>
+            <point key="canvasLocation" x="3168" y="877"/>
         </scene>
         <!--Личный кабинет-->
         <scene sceneID="qVO-cK-YJz">
@@ -492,7 +502,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRm-dK-uRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372.4637681159422" y="95.758928571428569"/>
+            <point key="canvasLocation" x="1236" y="95"/>
         </scene>
         <!--Главная-->
         <scene sceneID="JWI-Dy-cfN">

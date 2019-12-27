@@ -44,13 +44,13 @@ class CloseViewUIView: UIView {
         
         let widthLabel = 200
         let startX = self.center.x - CGFloat(widthLabel/2)
-        label.frame = CGRect(x: Int(startX), y: 60, width: widthLabel, height: 50)
+        label.frame = CGRect(x: Int(startX), y: 120, width: widthLabel, height: 50)
         self.addSubview(label)
     }
     
     fileprivate func createActivityView() {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.frame = CGRect(x: 0, y: 15, width: 46, height: 46)
+        activityIndicator.frame = CGRect(x: 0, y: 50, width: 46, height: 46)
         activityIndicator.center.x = center.x
         activityIndicator.startAnimating()
         self.addSubview(activityIndicator)

@@ -13,6 +13,9 @@ protocol TableRaspisanieDataSource {
     func raspisanieTableData(_ parametrView: TableRaspisanieUIView,  indexDay: Int) -> [DailyRaspisanie]?
     
     func raspisanieDayNow(_ parametrView: TableRaspisanieUIView) -> Int
+    
+    func raraspisanieWeakNow(_  parametrView: TableRaspisanieUIView) -> Bool // true  числитель
+    // false знвменатель
 }
 
 protocol TableRaspisanieDelegate {
@@ -22,6 +25,8 @@ protocol TableRaspisanieDelegate {
 // MARK: - окно расписания
 class TableRaspisanieUIView: UIView {
     
+    
+    let weakController = WeakRaspisanieController()
     let scrollView = UIScrollView()
     var dayNow: Int = 0
     
@@ -62,18 +67,16 @@ class TableRaspisanieUIView: UIView {
     @objc func swipeScrollView(_ recognizer: UISwipeGestureRecognizer) {
         
         if recognizer.direction == .left {
-            print("left")//
             if dayNow < 5 {
                 dayNow += 1
-                scrollDay(changedDay: dayNow)
+                scrollDay(changedDay: dayNow, scrollSize: 20)
             }
         }
         
         if recognizer.direction == .right {
-            print("rigth")//
             if dayNow > 0 {
                 dayNow -= 1
-                scrollDay(changedDay: dayNow)
+                scrollDay(changedDay: dayNow, scrollSize: 60)
             }
         }
         
@@ -82,24 +85,34 @@ class TableRaspisanieUIView: UIView {
     
     //MARK: - настройка отображение окна
     public func setupView() {
+        
+        removeAllSuperviews()
+        
         createBakground()
         
-        var startX: CGFloat = 30.0
+        var startX: CGFloat = 30.0 // стартовая точка отрисовки окон
+        
+        guard let typeWeak = raspisanieViewDataSource?.raraspisanieWeakNow(self) else { return }
         
         for i in 0...6 {
             let dailyRaspisanie =
                 raspisanieViewDataSource?.raspisanieTableData(self, indexDay: i)
-            
             if let day = dailyRaspisanie {
-                let origrin = CGPoint(x: startX, y: 10.0)
-                createDayliView(startPoint: origrin, count: 3)
+                
+                if let presetRaspisanie = weakController.getOnlyChangedDayType(dayRasp: day, typeWeak: typeWeak) {
+                    
+                    let origrin = CGPoint(x: startX, y: 10.0)
+                    
+                    createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: presetRaspisanie)
+                }
+                
                 startX += self.frame.width - 40
             }
         }
         
         if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
             dayNow = day
-            scrollDay(changedDay: dayNow)
+            scrollDay(changedDay: dayNow, scrollSize: 40)
         }
     }
     
@@ -107,25 +120,39 @@ class TableRaspisanieUIView: UIView {
     private func createBakground() {
         scrollView.contentSize = CGSize(width: self.frame.width * 6, height: self.frame.height)
         self.addSubview(scrollView)
-        scrollView.backgroundColor = .systemYellow
+        scrollView.backgroundColor = .white
         scrollView.isScrollEnabled = false
         scrollView.showsHorizontalScrollIndicator = false
     }
     
     //MARK: - создание view для отображения расписания в определенный день
-    private func createDayliView(startPoint: CGPoint, count: Int) {
-        let view = DayRaspisUIView()
+    private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie]) {
         let sizeDayView = CGSize(width: self.frame.width - 60 , height: self.frame.height - 20)
-        view.frame = CGRect(origin: startPoint, size: sizeDayView)
+        let frame = CGRect(origin: startPoint, size: sizeDayView)
+        let view = DayRaspisUIView(frame: frame)
+        view.createDayliView(dayWeak: weakDay) // создание отобрвдения дня недели
+        view.createDayliRasp(daylyRasp: daylyRaspisanie) // создание расписания
         scrollView.addSubview(view)
     }
     
-    private func scrollDay(changedDay: Int) {
+    
+    //MARK: - прокрутка окна отображения расписания
+    private func scrollDay(changedDay: Int, scrollSize: CGFloat) {
         
-        UIView.animate(withDuration: 0.3) {
-            let scrollX = CGFloat(changedDay) * (self.frame.width - 40)
+        UIView.animate(withDuration: 0.3, animations: {
+            let scrollX = CGFloat(changedDay) * (self.frame.width - scrollSize)
             self.scrollView.contentOffset = CGPoint(x: scrollX, y: 0.0)
+        }) { (complite) in
+            UIView.animate(withDuration: 0.1) {
+                let scrollX = CGFloat(changedDay) * (self.frame.width - 40)
+                self.scrollView.contentOffset = CGPoint(x: scrollX, y: 0.0)
+            }
         }
+    }
+    
+    //MARK: - Удаление старых окон при перезагрузки
+    public func removeAllSuperviews() {
+        self.subviews.forEach( { $0.removeFromSuperview() })
     }
 
 }
