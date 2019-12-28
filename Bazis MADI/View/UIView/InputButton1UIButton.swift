@@ -20,11 +20,11 @@ class InputButton1UIButton: UIButton {
         setup()
     }
     
-    private func setup(){
+    private func setup() {
         setStyle()
     }
     
-    private func setStyle(){
+    private func setStyle() {
         let textColor = UIColor(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
@@ -45,7 +45,7 @@ class InputButton1UIButton: UIButton {
         }
     }
     
-   public func clickError(){
+   public func clickError() {
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2

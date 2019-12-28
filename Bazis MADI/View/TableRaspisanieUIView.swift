@@ -152,7 +152,7 @@ class TableRaspisanieUIView: UIView {
     
     //MARK: - Удаление старых окон при перезагрузки
     public func removeAllSuperviews() {
-        self.subviews.forEach( { $0.removeFromSuperview() })
+        scrollView.subviews.forEach( { $0.removeFromSuperview() })
     }
 
 }

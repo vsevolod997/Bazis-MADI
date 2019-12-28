@@ -15,9 +15,9 @@ class WeakRaspisanieController {
         var result:[DailyRaspisanie]
         
         if typeWeak {
-            result = dayRasp.filter( {$0.typeWeek == "Числитель"})
+            result = dayRasp.filter( {$0.typeWeek == "Числитель" || $0.typeWeek == "Еженедельно"})
         } else {
-            result = dayRasp.filter( {$0.typeWeek == "Знаменатель"})
+            result = dayRasp.filter( {$0.typeWeek == "Знаменатель" || $0.typeWeek == "Еженедельно"})
         }
         return result
     }

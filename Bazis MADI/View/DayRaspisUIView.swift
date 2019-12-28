@@ -23,21 +23,6 @@ class DayRaspisUIView: UIView {
         createTitleView()
     }
     
-   //override func draw(_ rect: CGRect) {
-   //
-   //    if let line = UIGraphicsGetCurrentContext() {
-   //        let firsPoint = CGPoint(x: 25, y: 60)
-   //        let secondPoint = CGPoint(x: self.frame.width - 25, y: 60)
-   //        line.move(to: firsPoint)
-   //        line.addLine(to: secondPoint)
-   //
-   //        line.setStrokeColor(SystemColor.grayColor.cgColor)
-   //        line.setLineWidth(3)
-   //        line.setLineCap(.round)
-   //        line.strokePath()
-   //    }
-   //}
-    
     //MARK: - настройка окна
     private func setupView() {
            self.backgroundColor = UIColor.white
@@ -62,15 +47,40 @@ class DayRaspisUIView: UIView {
         self.addSubview(dayTitle)
     }
     
-    public func createDayliRasp(daylyRasp: [DailyRaspisanie] ) {
+    
+    fileprivate func homeDayCreate() {
+        let title = Title1LabelUILabel()
+        title.text = "День самостоятельной работы!"
+        title.frame = CGRect(x: self.frame.width / 2 - 125, y: 100, width: 250, height: 65)
+        title.numberOfLines = 2
+        title.textAlignment = .center
+        self.addSubview(title)
+    }
+    
+    //MARK: - Отображение пар в текущий день
+    public func createDayliRasp(daylyRasp: [DailyRaspisanie]) {
+        let originX = 10.0
+        var originY = 60.0
+        let heigtView = 50.0
+        
         if daylyRasp.count == 0 {
-            let title = 
+            homeDayCreate()
         }
         for rasp in daylyRasp {
-            print("///",rasp)
+            if rasp.name == "День самостоятельной работы" {
+                homeDayCreate()
+            } else {
+                let width =  self.frame.width - 20
+                let frameClasses = CGRect(x: originX, y: originY, width: Double(width), height: heigtView)
+                let classesView = ClassesUIView(frame: frameClasses)
+                self.addSubview(classesView)
+                classesView.setupDate(dailyRasp: rasp)
+                
+                originY += 5 + heigtView
+            }
         }
-        print("|||")
     }
+    
     
     //MARK: - Создание "шапки"  таблицы
     private func createTitleView() {
@@ -84,12 +94,13 @@ class DayRaspisUIView: UIView {
         self.addSubview(title)
         
         
-        let startX2 = self.frame.width/2 - 50
+        let startX2 = self.frame.width/2 - 60
         startY = 32
         let titleName = Title2LabelUILabel()
-        titleName.text = "Предмет"
+        titleName.text = "Наименование дисциплины"
         titleName.textAlignment = .center
-        titleName.frame = CGRect(x: Double(startX2), y: startY, width: 100.0, height: 26.0)
+        titleName.numberOfLines = 2
+        titleName.frame = CGRect(x: Double(startX2), y: startY - 10, width: 120.0, height: 35)
         
         self.addSubview(titleName)
         

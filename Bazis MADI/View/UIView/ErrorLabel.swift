@@ -21,7 +21,7 @@ class ErrorLabel: UILabel {
         setup()
     }
     
-    fileprivate func setup(){
+    fileprivate func setup() {
         font = UIFont(name: "HelveticaNeue", size: 24)
         textColor = SystemColor.redColor
     }

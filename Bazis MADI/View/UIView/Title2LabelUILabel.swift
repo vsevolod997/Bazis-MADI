@@ -20,7 +20,7 @@ class Title2LabelUILabel: UILabel {
         setup()
     }
     
-    fileprivate func setup(){
+    fileprivate func setup() {
         font = UIFont(name: "Arial", size: 14)
         textColor = SystemColor.grayColor
     }

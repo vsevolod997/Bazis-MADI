@@ -21,7 +21,7 @@ class LoginTextFieldUITextField: UITextField {
         setup()
     }
     
-    private func setup(){
+    private func setup() {
         borderStyle = .none
         backgroundColor = .white
         layer.cornerRadius = 12
