@@ -106,8 +106,12 @@
 		424525CE238ED431008C5EBD /* Bazis MADI */ = {
 			isa = PBXGroup;
 			children = (
-				425467FA2397A9CE001D26AA /* View */,
-				425467F92397A9BC001D26AA /* Model */,
+				426AD0DD2391440D003362B1 /* UIView */,
+				42453970239A518E00126ED6 /* SystemColor.swift */,
+				42CDC02D23BB9A2200A86A42 /* PasswordChangedController */,
+				42CDC02923BB99B800A86A42 /* UserHomeView */,
+				42CDC02423BB980D00A86A42 /* MainView */,
+				42CDC01F23BB96A600A86A42 /* LoginView */,
 				425467F82397A9AA001D26AA /* Controller */,
 				424525CF238ED431008C5EBD /* AppDelegate.swift */,
 				424525D1238ED431008C5EBD /* SceneDelegate.swift */,
@@ -122,50 +126,9 @@
 		425467F82397A9AA001D26AA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				425467FF2398EA38001D26AA /* HttpService */,
 				425467FB2397B656001D26AA /* KeySessionController.swift */,
-				426AD0E623917617003362B1 /* LoginController.swift */,
-				425467FD2398E9E2001D26AA /* UserDataController.swift */,
-				42453974239BED7200126ED6 /* PasswordChangeController.swift */,
-				4214FDC423B12EDD00F543C9 /* WeakRaspisanieController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		425467F92397A9BC001D26AA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				42453970239A518E00126ED6 /* SystemColor.swift */,
-				426AD0E223914961003362B1 /* UserModel.swift */,
-				426AD0DE2391456A003362B1 /* UserLogin.swift */,
-				425468002398ED18001D26AA /* UserLoginData.swift */,
-				42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		425467FA2397A9CE001D26AA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				426AD0DD2391440D003362B1 /* UIView */,
-				424525D3238ED431008C5EBD /* LoginViewController.swift */,
-				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
-				42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */,
-				42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */,
-				42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */,
-				4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */,
-				42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		425467FF2398EA38001D26AA /* HttpService */ = {
-			isa = PBXGroup;
-			children = (
-				426AD0E423914AC4003362B1 /* HttpService.swift */,
-				42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */,
-			);
-			path = HttpService;
 			sourceTree = "<group>";
 		};
 		426AD0DD2391440D003362B1 /* UIView */ = {
@@ -180,6 +143,163 @@
 				42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		42CDC01F23BB96A600A86A42 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02223BB96D600A86A42 /* Controller */,
+				42CDC02123BB96C900A86A42 /* View */,
+				42CDC02023BB96BF00A86A42 /* Model */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		42CDC02023BB96BF00A86A42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				426AD0E223914961003362B1 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42CDC02123BB96C900A86A42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				424525D3238ED431008C5EBD /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42CDC02223BB96D600A86A42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02323BB97D800A86A42 /* HTTPService */,
+				426AD0E623917617003362B1 /* LoginController.swift */,
+				425467FD2398E9E2001D26AA /* UserDataController.swift */,
+				426AD0DE2391456A003362B1 /* UserLogin.swift */,
+				425468002398ED18001D26AA /* UserLoginData.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42CDC02323BB97D800A86A42 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				426AD0E423914AC4003362B1 /* HttpService.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		42CDC02423BB980D00A86A42 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02723BB987200A86A42 /* Controller */,
+				42CDC02623BB986500A86A42 /* View */,
+				42CDC02523BB985400A86A42 /* Model */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		42CDC02523BB985400A86A42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42CDC02623BB986500A86A42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */,
+				4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */,
+				42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42CDC02723BB987200A86A42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02823BB995600A86A42 /* HTTPService */,
+				42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */,
+				4214FDC423B12EDD00F543C9 /* WeakRaspisanieController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42CDC02823BB995600A86A42 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		42CDC02923BB99B800A86A42 /* UserHomeView */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02C23BB99E200A86A42 /* Controller */,
+				42CDC02B23BB99D900A86A42 /* View */,
+				42CDC02A23BB99D300A86A42 /* Model */,
+			);
+			path = UserHomeView;
+			sourceTree = "<group>";
+		};
+		42CDC02A23BB99D300A86A42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42CDC02B23BB99D900A86A42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42CDC02C23BB99E200A86A42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42CDC02D23BB9A2200A86A42 /* PasswordChangedController */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC03023BB9A4B00A86A42 /* Controller */,
+				42CDC02F23BB9A4400A86A42 /* View */,
+				42CDC02E23BB9A3C00A86A42 /* Model */,
+			);
+			path = PasswordChangedController;
+			sourceTree = "<group>";
+		};
+		42CDC02E23BB9A3C00A86A42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42CDC02F23BB9A4400A86A42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42CDC03023BB9A4B00A86A42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42453974239BED7200126ED6 /* PasswordChangeController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -61,7 +61,7 @@ class DayRaspisUIView: UIView {
     public func createDayliRasp(daylyRasp: [DailyRaspisanie]) {
         let originX = 10.0
         var originY = 60.0
-        let heigtView = 50.0
+        let heigtView = 65.0
         
         if daylyRasp.count == 0 {
             homeDayCreate()
@@ -76,7 +76,7 @@ class DayRaspisUIView: UIView {
                 self.addSubview(classesView)
                 classesView.setupDate(dailyRasp: rasp)
                 
-                originY += 5 + heigtView
+                originY += 7 + heigtView
             }
         }
     }
@@ -88,26 +88,26 @@ class DayRaspisUIView: UIView {
         var startY = 32.0
         let title = Title2LabelUILabel()
         title.text = "Время"
-        title.textAlignment = .center
+        title.textAlignment = .left
         title.frame = CGRect(x: startX, y: startY, width: 100, height: 26.0)
         
         self.addSubview(title)
         
         
-        let startX2 = self.frame.width/2 - 60
+        let startX2 = self.frame.width/2 - 70
         startY = 32
         let titleName = Title2LabelUILabel()
-        titleName.text = "Наименование дисциплины"
+        titleName.text = "Дисциплина"
         titleName.textAlignment = .center
         titleName.numberOfLines = 2
-        titleName.frame = CGRect(x: Double(startX2), y: startY - 10, width: 120.0, height: 35)
+        titleName.frame = CGRect(x: Double(startX2), y: startY, width: 120.0, height: 26.0)
         
         self.addSubview(titleName)
         
         let startX3 = self.frame.width - 110
         let titleNum = Title2LabelUILabel()
-        titleNum.text = "Кабинет"
-        titleNum.textAlignment = .center
+        titleNum.text = "Аудитория"
+        titleNum.textAlignment = .right
         titleNum.frame = CGRect(x: Double(startX3), y: startY, width: 100.0, height: 26.0)
         
         self.addSubview(titleNum)

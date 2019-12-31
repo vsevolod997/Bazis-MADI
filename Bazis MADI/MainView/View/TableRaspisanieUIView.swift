@@ -38,6 +38,9 @@ class TableRaspisanieUIView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addGestRecognoizer()
+        
+        print(self.frame.width)
+        print(self.frame.height)
     }
     
     public var delegate: TableRaspisanieDelegate?
@@ -85,27 +88,20 @@ class TableRaspisanieUIView: UIView {
     
     //MARK: - настройка отображение окна
     public func setupView() {
-        
         removeAllSuperviews()
-        
         createBakground()
         
         var startX: CGFloat = 30.0 // стартовая точка отрисовки окон
-        
         guard let typeWeak = raspisanieViewDataSource?.raraspisanieWeakNow(self) else { return }
         
         for i in 0...6 {
             let dailyRaspisanie =
                 raspisanieViewDataSource?.raspisanieTableData(self, indexDay: i)
             if let day = dailyRaspisanie {
-                
                 if let presetRaspisanie = weakController.getOnlyChangedDayType(dayRasp: day, typeWeak: typeWeak) {
-                    
                     let origrin = CGPoint(x: startX, y: 10.0)
-                    
                     createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: presetRaspisanie)
                 }
-                
                 startX += self.frame.width - 40
             }
         }
@@ -116,7 +112,7 @@ class TableRaspisanieUIView: UIView {
         }
     }
     
-    //MARK: -  настройка бекграунда
+    //MARK: -  настройка бекграунда создание скрола
     private func createBakground() {
         scrollView.contentSize = CGSize(width: self.frame.width * 6, height: self.frame.height)
         self.addSubview(scrollView)
@@ -127,6 +123,7 @@ class TableRaspisanieUIView: UIView {
     
     //MARK: - создание view для отображения расписания в определенный день
     private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie]) {
+        //print(self.frame.width - 60, self.frame.height - 20 )
         let sizeDayView = CGSize(width: self.frame.width - 60 , height: self.frame.height - 20)
         let frame = CGRect(origin: startPoint, size: sizeDayView)
         let view = DayRaspisUIView(frame: frame)

@@ -17,13 +17,12 @@ class MainTableViewController: UITableViewController {
     let userLogin = UserDataController()
     var closeVC: CloseViewUIView! //окно для закрывания загрузки
     let homeController = HomeTableViewController()
+    let weakRaspisanie = WeakRaspisanieController()
     
     var allRaspisanie: RaspisanieModel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
         
@@ -41,7 +40,6 @@ class MainTableViewController: UITableViewController {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
                         self.raspisanieSet(groupName: user.user_group)
-                        
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         DispatchQueue.main.async {
                             self.showLoginView()
@@ -54,14 +52,13 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - Запрос расписания по группе
     private func raspisanieSet(groupName: String) {
-        
         HttpServiceRaspisanie.getRaspisData(groupName: groupName) { (error, raspisanie) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
                 } else {
                     if let raspis = raspisanie {
-                        if let errorLoad = raspis.error{
+                        if let errorLoad = raspis.error {
                             print(errorLoad)
                         } else {
                             DispatchQueue.main.async {
@@ -77,17 +74,19 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    // MARK: отображение текущего типа недели
+    // MARK: Отображение текущего типа недели
     private func selectWeakType(raspisanieData: RaspisanieModel) {
         if raspisanieData.typeWeek == "Числитель" {
             DispatchQueue.main.async {
                 self.changedView.selectedSegmentIndex = 0
+                self.raspisanieTable.setupView()
             }
         }
         
         if raspisanieData.typeWeek == "Знаменатель" {
             DispatchQueue.main.async {
                 self.changedView.selectedSegmentIndex = 1
+                self.raspisanieTable.setupView()
             }
         }
     }
@@ -103,12 +102,7 @@ class MainTableViewController: UITableViewController {
     
     //MARK: - Настройки окна
     private func setupView() {
-        
-        let date = Date()
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        dataControl.currentPage = weekday - 2
-        
+        dataControl.currentPage = weakRaspisanie.getToday()
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
         
@@ -133,14 +127,10 @@ class MainTableViewController: UITableViewController {
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
         //raspisanieTable.removeFromSuperview()
         raspisanieTable.setupView()
+        let weekday = weakRaspisanie.getToday()
         
-        let date = Date()
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        dataControl.currentPage = weekday - 2
-        
+        dataControl.currentPage = weekday
     }
-    
 }
 
 //MARK: - TableRaspisanieDataSource
@@ -152,12 +142,7 @@ extension MainTableViewController: TableRaspisanieDataSource {
     
     //MARK: - передача данных о текущем дне
     func raspisanieDayNow(_ parametrView: TableRaspisanieUIView) -> Int {
-        
-        let date = Date()
-        let calendar = Calendar.current
-        let weekday = calendar.component(.weekday, from: date)
-        
-        return weekday - 2
+        return weakRaspisanie.getToday()
     }
     
     //MARK: - Передача данных текущего расписания по дням
@@ -190,7 +175,7 @@ extension MainTableViewController: TableRaspisanieDelegate {
         dataControl.currentPage = index
     }
 }
-
+//MARK: - отображения
 extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -202,9 +187,9 @@ extension MainTableViewController {
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
+            
             return view
         }
-        
         return UIView()
     }
 }

@@ -21,4 +21,17 @@ class WeakRaspisanieController {
         }
         return result
     }
+    
+    public func getToday() -> Int {
+        let date = Date()
+        let calendar = Calendar.current
+        var weekday = calendar.component(.weekday, from: date)
+        weekday -= 2
+        
+        if weekday < 0 {
+            return 0
+        } else {
+             return weekday
+        }
+    }
 }
