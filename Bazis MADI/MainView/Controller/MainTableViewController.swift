@@ -17,9 +17,11 @@ class MainTableViewController: UITableViewController {
     let userLogin = UserDataController()
     var closeVC: CloseViewUIView! //окно для закрывания загрузки
     let homeController = HomeTableViewController()
-    let weakRaspisanie = WeakRaspisanieController()
+    let weakRaspisanie = WeekRaspisanieController()
     
     var allRaspisanie: RaspisanieModel!
+    var isWeekNow: Bool = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +65,7 @@ class MainTableViewController: UITableViewController {
                         } else {
                             DispatchQueue.main.async {
                                 self.allRaspisanie = raspis
-                                self.raspisanieTable.setupView()
+                                self.raspisanieTable.setupView(weekInCalendar: .now)
                                 self.removeVC()
                             }
                             self.selectWeakType(raspisanieData: raspis)
@@ -79,14 +81,14 @@ class MainTableViewController: UITableViewController {
         if raspisanieData.typeWeek == "Числитель" {
             DispatchQueue.main.async {
                 self.changedView.selectedSegmentIndex = 0
-                self.raspisanieTable.setupView()
+                self.raspisanieTable.setupView(weekInCalendar: .now)
             }
         }
         
         if raspisanieData.typeWeek == "Знаменатель" {
             DispatchQueue.main.async {
                 self.changedView.selectedSegmentIndex = 1
-                self.raspisanieTable.setupView()
+                self.raspisanieTable.setupView(weekInCalendar: .now)
             }
         }
     }
@@ -113,7 +115,6 @@ class MainTableViewController: UITableViewController {
     
     //MARK: - Возврат к окну логина
     private func showLoginView() {
-        
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "login")
         vc.modalPresentationStyle = .fullScreen
@@ -125,17 +126,23 @@ class MainTableViewController: UITableViewController {
     
     //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
-        //raspisanieTable.removeFromSuperview()
-        raspisanieTable.setupView()
+        isWeekNow = !isWeekNow
+        
+        if isWeekNow {
+            raspisanieTable.setupView(weekInCalendar: .now)
+        } else {
+            raspisanieTable.setupView(weekInCalendar: .next)
+        }
+        
         let weekday = weakRaspisanie.getToday()
         
         dataControl.currentPage = weekday
     }
 }
 
-//MARK: - TableRaspisanieDataSource
+    //MARK: - TableRaspisanieDataSource
 extension MainTableViewController: TableRaspisanieDataSource {
-     //MARK: - передача данных о типе недели
+    //MARK: - передача данных о типе недели
     func raraspisanieWeakNow(_ parametrView: TableRaspisanieUIView) -> Bool {
         return changedView.selectedSegmentIndex == 0 ? true : false
     }

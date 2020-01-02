@@ -35,10 +35,21 @@ class DayRaspisUIView: UIView {
        }
 
     //MARK: - Создание отображения сегодняшенего дня
-    public func createDayliView(dayWeak: Int) {
+    public func createDayliView(dayWeak: Int, dayDate: String) {
+        // создание отображения текущего дня недели
+        let startDateX = self.frame.width/2
+        let startDateY = 4.0
+        let dateTitle = Title1LabelUILabel()
+        dateTitle.text = dayDate
+        dateTitle.textAlignment = .right
+        dateTitle.frame = CGRect(x: Double(startDateX), y: startDateY, width: Double(startDateX - 10.0), height: 26.0)
+        
+        self.addSubview(dateTitle)
+        
+        // создание отображения текущего дня недели
         let startX = 10
         let startY = 4
-        
+
         let dayTitle = Title1LabelUILabel()
         let textDay = intToDay(indexDay: dayWeak)
         dayTitle.text = textDay
@@ -82,7 +93,7 @@ class DayRaspisUIView: UIView {
     }
     
     
-    //MARK: - Создание "шапки"  таблицы
+    //MARK: - Создание "шапки" таблицы
     private func createTitleView() {
         let startX = 10.0
         var startY = 32.0
@@ -129,7 +140,7 @@ class DayRaspisUIView: UIView {
         self.layer.addSublayer(lineLayer)
     }
     
-    //MARK: - перевод индекса дня в текстовое представление
+    //MARK: - Перевод индекса дня в текстовое представление
     private func intToDay(indexDay: Int ) -> String {
         switch indexDay {
         case 0:

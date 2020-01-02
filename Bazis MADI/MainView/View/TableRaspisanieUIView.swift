@@ -25,8 +25,7 @@ protocol TableRaspisanieDelegate {
 // MARK: - окно расписания
 class TableRaspisanieUIView: UIView {
     
-    
-    let weakController = WeakRaspisanieController()
+    let weakController = WeekRaspisanieController()
     let scrollView = UIScrollView()
     var dayNow: Int = 0
     
@@ -38,16 +37,13 @@ class TableRaspisanieUIView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         addGestRecognoizer()
-        
-        print(self.frame.width)
-        print(self.frame.height)
     }
     
     public var delegate: TableRaspisanieDelegate?
     
     public var raspisanieViewDataSource: TableRaspisanieDataSource? {
         didSet{
-            setupView()
+            setupView(weekInCalendar: .now)
         }
     }
     
@@ -67,6 +63,7 @@ class TableRaspisanieUIView: UIView {
         self.addGestureRecognizer(swipeLeftGesture)
     }
     
+    //MARK: - жесты "перелиствания" дня недели
     @objc func swipeScrollView(_ recognizer: UISwipeGestureRecognizer) {
         
         if recognizer.direction == .left {
@@ -87,12 +84,13 @@ class TableRaspisanieUIView: UIView {
     }
     
     //MARK: - настройка отображение окна
-    public func setupView() {
+    public func setupView(weekInCalendar: Week) {
         removeAllSuperviews()
         createBakground()
         
         var startX: CGFloat = 30.0 // стартовая точка отрисовки окон
         guard let typeWeak = raspisanieViewDataSource?.raraspisanieWeakNow(self) else { return }
+        let dayliTitle = weakController.getDateWeek(week: weekInCalendar)
         
         for i in 0...6 {
             let dailyRaspisanie =
@@ -100,7 +98,7 @@ class TableRaspisanieUIView: UIView {
             if let day = dailyRaspisanie {
                 if let presetRaspisanie = weakController.getOnlyChangedDayType(dayRasp: day, typeWeak: typeWeak) {
                     let origrin = CGPoint(x: startX, y: 10.0)
-                    createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: presetRaspisanie)
+                    createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: presetRaspisanie, date: dayliTitle[i])
                 }
                 startX += self.frame.width - 40
             }
@@ -122,12 +120,11 @@ class TableRaspisanieUIView: UIView {
     }
     
     //MARK: - создание view для отображения расписания в определенный день
-    private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie]) {
-        //print(self.frame.width - 60, self.frame.height - 20 )
+    private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie], date: String) {
         let sizeDayView = CGSize(width: self.frame.width - 60 , height: self.frame.height - 20)
         let frame = CGRect(origin: startPoint, size: sizeDayView)
         let view = DayRaspisUIView(frame: frame)
-        view.createDayliView(dayWeak: weakDay) // создание отобрвдения дня недели
+        view.createDayliView(dayWeak: weakDay, dayDate: date) // создание отобрвдения дня недели
         view.createDayliRasp(daylyRasp: daylyRaspisanie) // создание расписания
         scrollView.addSubview(view)
     }
@@ -151,5 +148,4 @@ class TableRaspisanieUIView: UIView {
     public func removeAllSuperviews() {
         scrollView.subviews.forEach( { $0.removeFromSuperview() })
     }
-
 }
