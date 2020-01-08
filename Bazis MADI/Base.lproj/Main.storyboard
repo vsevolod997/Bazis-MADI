@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="112.5"/>
+            <point key="canvasLocation" x="135" y="96"/>
         </scene>
         <!--Главная-->
         <scene sceneID="l2O-Dr-p6b">
@@ -147,7 +147,7 @@
                                                 </pageControl>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-wq-vJb" customClass="TableRaspisanieUIView" customModule="Bazis_MADI" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="364"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
@@ -206,7 +206,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="3xa-Ud-b20"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Диалоги" id="oYE-Ha-rdk"/>
+                    <tabBarItem key="tabBarItem" title="Диалоги" image="chat" id="oYE-Ha-rdk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQz-Nw-Z2V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,14 +454,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqP-qy-lpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3168" y="877"/>
+            <point key="canvasLocation" x="3380" y="830"/>
         </scene>
         <!--Личный кабинет-->
         <scene sceneID="qVO-cK-YJz">
             <objects>
                 <navigationController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="1lS-TG-y7t" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Личный кабинет" id="ccy-JK-cCn"/>
+                    <tabBarItem key="tabBarItem" title="Личный кабинет" image="businessman" id="ccy-JK-cCn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5j3-hv-RvH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -495,13 +495,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BRm-dK-uRq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="95"/>
+            <point key="canvasLocation" x="1165" y="96"/>
         </scene>
         <!--Главная-->
         <scene sceneID="JWI-Dy-cfN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rp6-GC-MaS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Главная" id="fFP-Cg-pkU"/>
+                    <tabBarItem key="tabBarItem" title="Главная" image="home" id="fFP-Cg-pkU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8lW-VD-NQ1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -514,14 +514,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssw-Xr-Vn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2257.971014492754" y="-1398.2142857142856"/>
+            <point key="canvasLocation" x="2283" y="-1398"/>
         </scene>
     </scenes>
     <resources>
         <image name="Password" width="512" height="512"/>
         <image name="User" width="384" height="448"/>
+        <image name="businessman" width="30" height="30"/>
+        <image name="chat" width="30" height="30"/>
         <image name="edit" width="512" height="512"/>
         <image name="fon" width="810" height="809"/>
+        <image name="home" width="30" height="30"/>
         <image name="password-1" width="80" height="96"/>
         <image name="portfolio" width="512" height="512"/>
         <image name="statistic" width="512" height="512"/>

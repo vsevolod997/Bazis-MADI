@@ -37,12 +37,12 @@ class DayRaspisUIView: UIView {
     //MARK: - Создание отображения сегодняшенего дня
     public func createDayliView(dayWeak: Int, dayDate: String) {
         // создание отображения текущего дня недели
-        let startDateX = self.frame.width/2
+        let startDateX = self.frame.width/2.2
         let startDateY = 4.0
         let dateTitle = Title1LabelUILabel()
         dateTitle.text = dayDate
         dateTitle.textAlignment = .right
-        dateTitle.frame = CGRect(x: Double(startDateX), y: startDateY, width: Double(startDateX - 10.0), height: 26.0)
+        dateTitle.frame = CGRect(x: Double(startDateX), y: startDateY, width: Double(self.frame.width - startDateX - 10.0), height: 26.0)
         
         self.addSubview(dateTitle)
         

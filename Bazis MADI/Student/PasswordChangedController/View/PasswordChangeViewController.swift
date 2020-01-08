@@ -10,18 +10,24 @@ import UIKit
 
 class PasswordChangeViewController: UIViewController {
 
-    
     @IBOutlet weak var oldPswTextField: LoginTextFieldUITextField!
     @IBOutlet weak var newPswTextField: LoginTextFieldUITextField!
     @IBOutlet weak var conformNewPswTextField: LoginTextFieldUITextField!
     @IBOutlet weak var errorMessLabel: ErrorLabel!
     
+    let controller = PasswordChangeController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        controller.delegate = self
         setupView()
     }
     
     private func setupView() {
+        let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
+        self.navigationItem.leftBarButtonItem = leftButton
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
         view.addGestureRecognizer(tap)
         
@@ -30,16 +36,22 @@ class PasswordChangeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
     
+    @objc func backButtonPress() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @objc func tapView(_ gestueRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
     
     @IBAction func ChangedPaswordButton(_ sender: Any) {
-        
+        let oldPas = oldPswTextField.text!
+        let newPas = newPswTextField.text!
+        let conformPas = conformNewPswTextField.text!
+        controller.changePassword(oldPass: oldPas, newPassword: newPas, conformPass: conformPas)
     }
-    
-    
 }
+
 //MARK: - UITextFieldDelegate
 extension PasswordChangeViewController: UITextFieldDelegate {
     
@@ -58,7 +70,6 @@ extension PasswordChangeViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         view.endEditing(true)
         return true
     }
@@ -67,7 +78,8 @@ extension PasswordChangeViewController: UITextFieldDelegate {
 extension PasswordChangeViewController: PasswordChangeViewProtocol {
     
     func showError(_ controller: PasswordChangeController, error: String) {
-        print("error")
+        errorMessLabel.text = error
+        print(error)
     }
     
     func dismisController(_ controller: PasswordChangeController) {

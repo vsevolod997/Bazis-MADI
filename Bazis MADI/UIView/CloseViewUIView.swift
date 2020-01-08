@@ -13,7 +13,6 @@ class CloseViewUIView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //print("im init")
         setupBackground()
         createSubView()
         createActivityView()

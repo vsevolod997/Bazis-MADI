@@ -56,7 +56,6 @@ class PasswordChangeController {
         
     }
     
-    
     private func presentError(mess: String) {
         delegate?.showError(self, error: mess)
     }

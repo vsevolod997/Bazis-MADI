@@ -18,23 +18,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         if let userLogin = userLoginData.getUserData() { // есть данные смотрим их верность в другом окне
-            showUser(windowScene: windowScene)
+            
+            if userLogin.typeUser == "1" {
+                showUser(windowScene: windowScene)
+            }
+            if userLogin.typeUser == "0" {
+                showUserTeacher(windowScene: windowScene)
+            }
+            
         } else {
             showLogin(windowScene: windowScene)
         }
     }
-    //MARK: - отобразить окно сотрудника
+    //MARK: - отобразить окно студента
     private func showUser(windowScene: UIWindowScene) {
-        print("Show User")
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "studUser")
         self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         self.window?.windowScene = windowScene
         self.window?.rootViewController = vc
     }
+    
+    //MARK: - отобразить окно препода
+    private func showUserTeacher(windowScene: UIWindowScene) {
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "studUser")
+        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        self.window?.windowScene = windowScene
+        self.window?.rootViewController = vc
+    }
+    
     //MARK: - отобразить окно логина
     private func showLogin(windowScene: UIWindowScene) {
-        print("Show Login")
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "login")
         

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Всеволод Андрющенко. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 //MARK: - текущий тип недели
 enum Week: String {
@@ -24,6 +24,77 @@ class WeekRaspisanieController {
             result = dayRasp.filter( {$0.typeWeek == "Знаменатель" || $0.typeWeek == "Еженедельно"})
         }
         return result
+    }
+    
+    //MARK: - выборка предметов по типу дня недели для препода
+    public func getOnlyChangedDayTypeTeacher (dayRasp: [DailyRaspisanieTeacher], typeWeak: Bool) -> [DailyRaspisanieTeacher]? {
+        var result:[DailyRaspisanieTeacher]
+        
+        if typeWeak {
+            result = dayRasp.filter( {$0.typeWeek == "Числитель" || $0.typeWeek == "Еженедельно"})
+        } else {
+            result = dayRasp.filter( {$0.typeWeek == "Знаменатель" || $0.typeWeek == "Еженедельно"})
+        }
+        return result
+    }
+    
+    //MARK: - максимальное число предметов в день
+    public func getMaxParInAllWeek(allRaspisanie: WeakRaspisanieTeacher) -> Int {
+        var buffCountDay:[Int] = []
+        
+        if let monday = allRaspisanie.monday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: monday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: monday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let tuesday = allRaspisanie.tuesday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: tuesday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: tuesday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let wednesday = allRaspisanie.wednesday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: wednesday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: wednesday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let thursday = allRaspisanie.thursday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: thursday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: thursday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let friday = allRaspisanie.friday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: friday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: friday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let saturday = allRaspisanie.saturday {
+            if let a = getOnlyChangedDayTypeTeacher(dayRasp: saturday, typeWeak: false)?.count {
+                buffCountDay.append(a)
+            }
+            if let b = getOnlyChangedDayTypeTeacher(dayRasp: saturday, typeWeak: true)?.count {
+                buffCountDay.append(b)
+            }
+        }
+        if let max = buffCountDay.max() {
+            return max
+        } else {
+            return 4
+        }
     }
     
     //MARK: - возврат текущего дня нелеи
@@ -141,10 +212,16 @@ class WeekRaspisanieController {
             let dateNowStr = formatter.string(from: Date.today())
             
             if dateStr == dateNowStr {
-                dateInString.append("Сегодня, " + dateStr)
+                if  UIDevice.current.modelName == "iPhone 5s" || UIDevice.current.modelName == "iPhone SE"  {
+                    dateInString.append("Сегодня")
+                } else {
+                    dateInString.append("Сегодня, " + dateStr)
+                    
+                }
             } else {
                 dateInString.append(dateStr)
             }
+            
         }
         
         return dateInString

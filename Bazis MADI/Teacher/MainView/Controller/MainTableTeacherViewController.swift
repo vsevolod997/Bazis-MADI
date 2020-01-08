@@ -1,16 +1,16 @@
 //
-//  MainViewController.swift
+//  MainTableTeacherViewController.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 08.12.2019.
-//  Copyright © 2019 Всеволод Андрющенко. All rights reserved.
+//  Created by Всеволод Андрющенко on 03.01.2020.
+//  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
-//MARK: - главная страница
-class MainTableViewController: UITableViewController {
 
-    @IBOutlet weak var raspisanieTable: TableRaspisanieUIView!
+class MainTableTeacherViewController: UITableViewController {
+    
+    @IBOutlet weak var raspisanieTable: TableRaspisanieTeacherUIVIew!
     @IBOutlet weak var changedView: UISegmentedControl!
     @IBOutlet weak var dataControl: UIPageControl!
     
@@ -19,15 +19,15 @@ class MainTableViewController: UITableViewController {
     let homeController = HomeTableViewController()
     let weakRaspisanie = WeekRaspisanieController()
     
-    var allRaspisanie: RaspisanieModel!
+    var allRaspisanie: RaspisanieModelTeacher!
     var isWeekNow: Bool = true
     
+    var dayCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
-        
         setupView()
         getDataRaspisanie()
     }
@@ -36,12 +36,12 @@ class MainTableViewController: UITableViewController {
     private func getDataRaspisanie() {
         self.showVC()
         if let user = UserLogin.userNow.user {
-            raspisanieSet(groupName: user.user_group)
+            raspisanieSet(teacherName: user.user_fio)
         } else {// иначе показали окно загрузки загрузку,
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
-                        self.raspisanieSet(groupName: user.user_group)
+                        self.raspisanieSet(teacherName: user.user_fio)
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         DispatchQueue.main.async {
                             self.showLoginView()
@@ -52,9 +52,12 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Запрос расписания по группе
-    private func raspisanieSet(groupName: String) {
-        HttpServiceRaspisanie.getRaspisData(groupName: groupName) { (error, raspisanie) in
+    // MARK: - Запрос расписания по ФИО пользователя
+    private func raspisanieSet(teacherName: String) {
+        let dataTeacher = teacherName.split(separator: " ")
+        let bufStrTeacer = String(dataTeacher[0]) + " " + String(dataTeacher[1].first!) + "." + String(dataTeacher[2].first!) + "."
+        print(bufStrTeacer)
+        HttpServiceRaspisanieTeacher.getRaspisData(teacherName: bufStrTeacer) { (error, raspisanie) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
@@ -65,7 +68,9 @@ class MainTableViewController: UITableViewController {
                         } else {
                             DispatchQueue.main.async {
                                 self.allRaspisanie = raspis
+                                self.dayCount = self.countDayliView(teacherRaspisanie: raspis)
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
+                                self.dataControl.numberOfPages = self.dayCount
                                 self.removeVC()
                             }
                             self.selectWeakType(raspisanieData: raspis)
@@ -77,7 +82,7 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: Отображение текущего типа недели
-    private func selectWeakType(raspisanieData: RaspisanieModel) {
+    private func selectWeakType(raspisanieData: RaspisanieModelTeacher) {
         if raspisanieData.typeWeek == "Числитель" {
             DispatchQueue.main.async {
                 self.changedView.selectedSegmentIndex = 0
@@ -133,27 +138,53 @@ class MainTableViewController: UITableViewController {
         } else {
             raspisanieTable.setupView(weekInCalendar: .next)
         }
-        
         let weekday = weakRaspisanie.getToday()
         
-        dataControl.currentPage = weekday
+        dataControl.currentPage = dayCount / weekday
+    }
+    
+    // MARK: - подсчет кол ва загятых дней в неделю
+    private func countDayliView(teacherRaspisanie: RaspisanieModelTeacher) -> Int {
+        var count = 0
+        if let raspisnie = allRaspisanie {
+            if ((raspisnie.result?.monday) != nil) {
+                count += 1
+            }
+            if ((raspisnie.result?.tuesday) != nil) {
+                count += 1
+            }
+            if ((raspisnie.result?.wednesday) != nil) {
+                count += 1
+            }
+            if ((raspisnie.result?.thursday) != nil) {
+                count += 1
+            }
+            if ((raspisnie.result?.friday) != nil) {
+                count += 1
+            }
+            if ((raspisnie.result?.saturday) != nil) {
+                count += 1
+            }
+        }
+        return count
     }
 }
 
-    //MARK: - TableRaspisanieDataSource
-extension MainTableViewController: TableRaspisanieDataSource {
-    //MARK: - передача данных о типе недели
-    func raraspisanieWeakNow(_ parametrView: TableRaspisanieUIView) -> Bool {
-        return changedView.selectedSegmentIndex == 0 ? true : false
+//MARK: - TableRaspisanieDataSource
+extension MainTableTeacherViewController: TableRaspisanieTeacherDataSource {
+    func raspisanieDayliWorkCount(_ parameterView: TableRaspisanieTeacherUIVIew) -> Int {
+        return dayCount
     }
     
-    //MARK: - передача данных о текущем дне
-    func raspisanieDayNow(_ parametrView: TableRaspisanieUIView) -> Int {
+    func raspisanieDayNow(_ parametrView: TableRaspisanieTeacherUIVIew) -> Int {
         return weakRaspisanie.getToday()
     }
     
-    //MARK: - Передача данных текущего расписания по дням
-    func raspisanieTableData(_ parametrView: TableRaspisanieUIView, indexDay: Int) -> [DailyRaspisanie]? {
+    func raspisanieWeakNow(_ parametrView: TableRaspisanieTeacherUIVIew) -> Bool {
+        return changedView.selectedSegmentIndex == 0 ? true : false
+    }
+    
+    func raspisanieTableData(_ parametrView: TableRaspisanieTeacherUIVIew, indexDay: Int) -> [DailyRaspisanieTeacher]? {
         
         if let raspisanieData = allRaspisanie {
             switch indexDay {
@@ -177,16 +208,18 @@ extension MainTableViewController: TableRaspisanieDataSource {
     }
 }
 
-extension MainTableViewController: TableRaspisanieDelegate {
-    func changedDay(_ parametrView: TableRaspisanieUIView, didSelectItem index: Int) {
+extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
+    func changedDay(_ parametrView: TableRaspisanieTeacherUIVIew, didSelectItem index: Int) {
         dataControl.currentPage = index
     }
 }
 //MARK: - отображения
-extension MainTableViewController {
+extension MainTableTeacherViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
+        
+        switch section {
+        case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
@@ -196,8 +229,18 @@ extension MainTableViewController {
             view.addSubview(title)
             
             return view
+        case 1:
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = .white
+            let title = Title1LabelUILabel()
+            title.text = "Группы"
+            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+            view.addSubview(title)
+            
+            return view
+        default:
+            return UIView()
         }
-        return UIView()
     }
 }
-

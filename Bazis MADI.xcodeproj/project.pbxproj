@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4209120323BE58A4005307F5 /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4209120223BE58A4005307F5 /* Teacher.storyboard */; };
 		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
 		4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */; };
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
@@ -24,6 +25,8 @@
 		42453971239A518E00126ED6 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453970239A518E00126ED6 /* SystemColor.swift */; };
 		42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */; };
 		42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453974239BED7200126ED6 /* PasswordChangeController.swift */; };
+		424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36623C3846F00389B53 /* ClassesTeacherUIView.swift */; };
+		424DE36923C398EA00389B53 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36823C398EA00389B53 /* Device.swift */; };
 		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
 		425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FD2398E9E2001D26AA /* UserDataController.swift */; };
 		425468012398ED18001D26AA /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425468002398ED18001D26AA /* UserLoginData.swift */; };
@@ -35,12 +38,18 @@
 		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
 		42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */; };
 		42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */; };
+		42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8315A23BFA4F80012BC66 /* MainTableTeacherViewController.swift */; };
+		42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8315C23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift */; };
+		42A8315F23C0B5280012BC66 /* RaspisanieModelTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8315E23C0B5280012BC66 /* RaspisanieModelTeacher.swift */; };
+		42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */; };
+		42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
 		42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4209120223BE58A4005307F5 /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
 		4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRaspisanieController.swift; sourceTree = "<group>"; };
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +69,8 @@
 		42453970239A518E00126ED6 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		42453974239BED7200126ED6 /* PasswordChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeController.swift; sourceTree = "<group>"; };
+		424DE36623C3846F00389B53 /* ClassesTeacherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTeacherUIView.swift; sourceTree = "<group>"; };
+		424DE36823C398EA00389B53 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
 		425467FD2398E9E2001D26AA /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 		425468002398ED18001D26AA /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
@@ -71,6 +82,11 @@
 		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
 		42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieModel.swift; sourceTree = "<group>"; };
 		42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanie.swift; sourceTree = "<group>"; };
+		42A8315A23BFA4F80012BC66 /* MainTableTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableTeacherViewController.swift; sourceTree = "<group>"; };
+		42A8315C23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieTeacerViewController.swift; sourceTree = "<group>"; };
+		42A8315E23C0B5280012BC66 /* RaspisanieModelTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieModelTeacher.swift; sourceTree = "<group>"; };
+		42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanieTeacher.swift; sourceTree = "<group>"; };
+		42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayliRaspisPrepodUIView.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
 		42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title3LabelUILabel.swift; sourceTree = "<group>"; };
@@ -87,6 +103,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4209120623BF9808005307F5 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				42A8315623BFA4350012BC66 /* MainView */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		4209120723BF9822005307F5 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				42CDC02423BB980D00A86A42 /* MainView */,
+				42CDC02923BB99B800A86A42 /* UserHomeView */,
+				42CDC02D23BB9A2200A86A42 /* PasswordChangedController */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 		424525C3238ED431008C5EBD = {
 			isa = PBXGroup;
 			children = (
@@ -106,19 +140,20 @@
 		424525CE238ED431008C5EBD /* Bazis MADI */ = {
 			isa = PBXGroup;
 			children = (
-				426AD0DD2391440D003362B1 /* UIView */,
-				42453970239A518E00126ED6 /* SystemColor.swift */,
-				42CDC02D23BB9A2200A86A42 /* PasswordChangedController */,
-				42CDC02923BB99B800A86A42 /* UserHomeView */,
-				42CDC02423BB980D00A86A42 /* MainView */,
 				42CDC01F23BB96A600A86A42 /* LoginView */,
+				426AD0DD2391440D003362B1 /* UIView */,
+				4209120623BF9808005307F5 /* Teacher */,
+				4209120723BF9822005307F5 /* Student */,
+				42453970239A518E00126ED6 /* SystemColor.swift */,
 				425467F82397A9AA001D26AA /* Controller */,
 				424525CF238ED431008C5EBD /* AppDelegate.swift */,
 				424525D1238ED431008C5EBD /* SceneDelegate.swift */,
 				424525D5238ED431008C5EBD /* Main.storyboard */,
+				4209120223BE58A4005307F5 /* Teacher.storyboard */,
 				424525D8238ED435008C5EBD /* Assets.xcassets */,
 				424525DA238ED435008C5EBD /* LaunchScreen.storyboard */,
 				424525DD238ED435008C5EBD /* Info.plist */,
+				424DE36823C398EA00389B53 /* Device.swift */,
 			);
 			path = "Bazis MADI";
 			sourceTree = "<group>";
@@ -143,6 +178,51 @@
 				42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		42A8315623BFA4350012BC66 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				42A8315923BFA4800012BC66 /* Model */,
+				42A8315823BFA4730012BC66 /* View */,
+				42A8315723BFA4530012BC66 /* Controller */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		42A8315723BFA4530012BC66 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42A8316023C0B8460012BC66 /* HTTPService */,
+				42A8315A23BFA4F80012BC66 /* MainTableTeacherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42A8315823BFA4730012BC66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42A8315C23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift */,
+				42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */,
+				424DE36623C3846F00389B53 /* ClassesTeacherUIView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42A8315923BFA4800012BC66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42A8315E23C0B5280012BC66 /* RaspisanieModelTeacher.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42A8316023C0B8460012BC66 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 		42CDC01F23BB96A600A86A42 /* LoginView */ = {
@@ -361,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				424525DC238ED435008C5EBD /* LaunchScreen.storyboard in Resources */,
+				4209120323BE58A4005307F5 /* Teacher.storyboard in Resources */,
 				424525D9238ED435008C5EBD /* Assets.xcassets in Resources */,
 				424525D7238ED431008C5EBD /* Main.storyboard in Resources */,
 			);
@@ -373,12 +454,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */,
 				42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */,
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
 				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
+				42A8315F23C0B5280012BC66 /* RaspisanieModelTeacher.swift in Sources */,
+				424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
@@ -389,16 +473,20 @@
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
+				424DE36923C398EA00389B53 /* Device.swift in Sources */,
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
+				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
+				42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */,
 				424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */,
 				426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */,
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
+				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
 				4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */,
 				4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */,
 			);

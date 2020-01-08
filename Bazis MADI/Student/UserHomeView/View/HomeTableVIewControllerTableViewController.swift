@@ -32,19 +32,11 @@ class HomeTableViewController: UITableViewController {
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+         self.title = "Личный кабинет"
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "Личный кабинет"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.title = "Назад"
-    }
-    
-    
     //MARK: - получение данных о текущем пользователе
-    private func setData(){
+    private func setData() {
         if let user = UserLogin.userNow.user { // сюда попадаем если прошли процедуру логина во вью
             userFullNameLabel.text = user.user_fio
             grupLabel.text = user.user_group
@@ -106,7 +98,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row, indexPath.section)
         if indexPath.row == 0 && indexPath.section == 3 {
-           exitUserButton()
+            exitUserButton()
         }
         if indexPath.row == 2 && indexPath.section == 1 {
             changedPasViewShow()
@@ -114,14 +106,14 @@ class HomeTableViewController: UITableViewController {
     }
     
     //MARK: - переход к окну смены пароля
-    private func changedPasViewShow(){
+    private func changedPasViewShow() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "password")
-        self.navigationController?.pushViewController(vc, animated: true)
+        guard let vc = sb.instantiateViewController(identifier: "password") as? PasswordChangeViewController else { return }
         
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func exitUserButton(){
+    private func exitUserButton() {
         let alertActions = UIAlertController(title: "Внимание!", message: "Вы хотите выйти из аккаунта?", preferredStyle: .alert)
         let actionYes = UIAlertAction(title: "Выход", style: .destructive) { (exit) in
             self.userLogin.clearUserData()
@@ -135,7 +127,7 @@ class HomeTableViewController: UITableViewController {
         self.present(alertActions, animated: true)
     }
     
-    private func showLoginView(){
+    private func showLoginView() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "login")
         vc.modalPresentationStyle = .fullScreen
