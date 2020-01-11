@@ -10,6 +10,7 @@ import UIKit
 //MARK: - главная страница
 class MainTableViewController: UITableViewController {
 
+    @IBOutlet weak var raspisanieExamTable: TableRaspisanieExamsUIView!
     @IBOutlet weak var raspisanieTable: TableRaspisanieUIView!
     @IBOutlet weak var changedView: UISegmentedControl!
     @IBOutlet weak var dataControl: UIPageControl!
@@ -19,29 +20,34 @@ class MainTableViewController: UITableViewController {
     let homeController = HomeTableViewController()
     let weakRaspisanie = WeekRaspisanieController()
     
+    var examRaspisanie: RaspisanieExamModel!
     var allRaspisanie: RaspisanieModel!
     var isWeekNow: Bool = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        raspisanieExamTable.raspisanieExamsDataSource = self
+        
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
         
         setupView()
-        getDataRaspisanie()
+        getUserData()
     }
     
     //MARK: - Обработка получения расписания
-    private func getDataRaspisanie() {
+    private func getUserData() {
         self.showVC()
         if let user = UserLogin.userNow.user {
-            raspisanieSet(groupName: user.user_group)
+            getUserRaspisanie(groupName: user.user_group)
+            getExamRaspisanie(groupName: user.user_group)
         } else {// иначе показали окно загрузки загрузку,
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
-                        self.raspisanieSet(groupName: user.user_group)
+                        self.getUserRaspisanie(groupName: user.user_group)
+                        self.getExamRaspisanie(groupName: user.user_group)
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         DispatchQueue.main.async {
                             self.showLoginView()
@@ -53,8 +59,8 @@ class MainTableViewController: UITableViewController {
     }
     
     // MARK: - Запрос расписания по группе
-    private func raspisanieSet(groupName: String) {
-        HttpServiceRaspisanie.getRaspisData(groupName: groupName) { (error, raspisanie) in
+    private func getUserRaspisanie(groupName: String) {
+        HttpServiceRaspisanie.getRaspisanieData(groupName: groupName) { (error, raspisanie) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
@@ -66,9 +72,29 @@ class MainTableViewController: UITableViewController {
                             DispatchQueue.main.async {
                                 self.allRaspisanie = raspis
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
+                        
                                 self.removeVC()
                             }
                             self.selectWeakType(raspisanieData: raspis)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // MARK: - получение данных текущего расписания экзаменов
+    private func getExamRaspisanie(groupName:String) {
+        HttpServiceRaspisanie.getRaspisanieExamData(groupName: groupName) { (error, examData) in
+            if error != nil {
+                 print(error)
+            } else {
+                if let examRaspis = examData {
+                    if let error = examRaspis.error{
+                        print(error)
+                    } else {
+                        DispatchQueue.main.async {
+                            self.examRaspisanie = examRaspis
+                            self.raspisanieExamTable.setupTableExams()
                         }
                     }
                 }
@@ -176,13 +202,20 @@ extension MainTableViewController: TableRaspisanieDataSource {
         return nil
     }
 }
-
+//MARK: - Отображение выбранного окна
 extension MainTableViewController: TableRaspisanieDelegate {
     func changedDay(_ parametrView: TableRaspisanieUIView, didSelectItem index: Int) {
         dataControl.currentPage = index
     }
 }
-//MARK: - отображения
+//MARK: - Дата сорс расписания экзаменов
+extension MainTableViewController: TableRaspisanieExamsDataSource {
+    func raspisanieExamsTableData(_ parametrView: TableRaspisanieExamsUIView) -> [Exam]? {
+        return examRaspisanie?.result
+    }
+}
+
+//MARK: - Отображение секций 
 extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -192,7 +225,7 @@ extension MainTableViewController {
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
-            let title = Title1LabelUILabel()
+            let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
@@ -202,12 +235,23 @@ extension MainTableViewController {
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
-            let title = Title1LabelUILabel()
-            title.text = "Преподаватели"
+            let title = Title4LabelUILabel()
+            title.text = "Расписание по преподавателям"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             
             return view
+            case 2:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = SystemColor.blueColor
+                let title = Title4LabelUILabel()
+                title.textColor = .white
+                title.text = "Расписание экзаменов"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
         default:
             return UIView()
         }

@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="2283" y="-704"/>
         </scene>
-        <!--Home Table View Controller-->
+        <!--Home Table Teacer Controller-->
         <scene sceneID="5Yr-dn-gG1">
             <objects>
-                <tableViewController id="rEn-0c-D7F" customClass="HomeTableViewController" customModule="Bazis_MADI" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rEn-0c-D7F" customClass="HomeTableTeacerController" customModule="Bazis_MADI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ffY-Ed-4Yj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,51 +177,8 @@
                             </tableViewSection>
                             <tableViewSection id="dew-iB-tZR">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="fvv-Po-t7m">
-                                        <rect key="frame" x="0.0" y="196" width="414" height="53"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fvv-Po-t7m" id="i5W-R4-Xxz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Успеваемость" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHv-qE-YIl">
-                                                    <rect key="frame" x="75" y="14" width="223" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="statistic" translatesAutoresizingMaskIntoConstraints="NO" id="B1H-WK-4HO">
-                                                    <rect key="frame" x="16" y="9" width="35" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="9Im-Ih-uo7">
-                                        <rect key="frame" x="0.0" y="249" width="414" height="53"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Im-Ih-uo7" id="1yd-FK-kyc">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Портфолио" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHl-qj-STe">
-                                                    <rect key="frame" x="75" y="12" width="198" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="portfolio" translatesAutoresizingMaskIntoConstraints="NO" id="XVe-yE-jDa">
-                                                    <rect key="frame" x="16" y="9" width="35" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="54p-Py-NZ4">
-                                        <rect key="frame" x="0.0" y="302" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="196" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="54p-Py-NZ4" id="HVy-Qk-Hyd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
@@ -249,7 +206,7 @@
                             <tableViewSection id="vAy-cv-3II">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="53" id="Zx8-PR-mDg">
-                                        <rect key="frame" x="0.0" y="467" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="361" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zx8-PR-mDg" id="Mul-KD-oea">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
@@ -273,106 +230,20 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="rEn-0c-D7F" id="xeh-pa-v7V"/>
-                            <outlet property="delegate" destination="rEn-0c-D7F" id="mQk-4g-CRx"/>
+                            <outlet property="dataSource" destination="rEn-0c-D7F" id="tCz-oP-Ca6"/>
+                            <outlet property="delegate" destination="rEn-0c-D7F" id="n8H-cI-Mgu"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="tAt-Dd-Gya"/>
                     <connections>
-                        <outlet property="grupLabel" destination="ZFe-J0-9tp" id="RIE-E0-uTl"/>
-                        <outlet property="userFullNameLabel" destination="oHR-X5-SVb" id="SIN-Du-Nr0"/>
-                        <outlet property="userLabel" destination="vs0-HJ-b6U" id="hGc-tM-J15"/>
+                        <outlet property="typeLabel" destination="ZFe-J0-9tp" id="KDz-dX-ZlQ"/>
+                        <outlet property="userFullNameLabel" destination="oHR-X5-SVb" id="VhF-gN-go6"/>
+                        <outlet property="userLabel" destination="vs0-HJ-b6U" id="dpr-Uv-7dg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxy-oC-dM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3380" y="94"/>
-        </scene>
-        <!--Смена пароля-->
-        <scene sceneID="7JM-Hk-4BD">
-            <objects>
-                <viewController storyboardIdentifier="password" title="Смена пароля" id="7NE-6H-YFv" customClass="PasswordChangeViewController" customModule="Bazis_MADI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QG3-Vc-NMc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fon" translatesAutoresizingMaskIntoConstraints="NO" id="6zY-wC-ZLT">
-                                <rect key="frame" x="-1" y="0.0" width="414" height="896.00000000000023"/>
-                            </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Новый пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gme-5J-JWJ" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="80" y="435" width="252" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7NE-6H-YFv" id="4i7-bn-dLJ"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Старый пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVj-t1-LUs" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="80" y="355" width="252" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7NE-6H-YFv" id="C2o-sc-jZX"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Подтвердите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wc2-HE-Ef5" customClass="LoginTextFieldUITextField" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="80" y="487" width="252" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7NE-6H-YFv" id="f7Z-VY-god"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLT-J2-x45" customClass="ErrorLabel" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="19" y="544" width="375" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="password-1" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-sR-M9F">
-                                <rect key="frame" x="19" y="353" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Password" translatesAutoresizingMaskIntoConstraints="NO" id="hTZ-aU-Ua8">
-                                <rect key="frame" x="19" y="429" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Password" translatesAutoresizingMaskIntoConstraints="NO" id="RSv-rn-IlI">
-                                <rect key="frame" x="19" y="485" width="39" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLZ-FQ-XCW" customClass="InputButton1UIButton" customModule="Bazis_MADI" customModuleProvider="target">
-                                <rect key="frame" x="127" y="621" width="159" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Сменить пароль"/>
-                                <connections>
-                                    <action selector="ChangedPaswordButton:" destination="7NE-6H-YFv" eventType="touchUpInside" id="a9F-4r-Y4X"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6zY-wC-ZLT" firstAttribute="top" secondItem="QG3-Vc-NMc" secondAttribute="top" id="2Kg-Lo-VUt"/>
-                            <constraint firstItem="6zY-wC-ZLT" firstAttribute="leading" secondItem="xR4-rB-Ze1" secondAttribute="leading" id="djV-Yu-YJq"/>
-                            <constraint firstAttribute="bottom" secondItem="6zY-wC-ZLT" secondAttribute="bottom" id="j8k-Li-QAV"/>
-                            <constraint firstItem="6zY-wC-ZLT" firstAttribute="trailing" secondItem="xR4-rB-Ze1" secondAttribute="trailing" id="w9b-kH-KK0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="xR4-rB-Ze1"/>
-                    </view>
-                    <connections>
-                        <outlet property="conformNewPswTextField" destination="wc2-HE-Ef5" id="KTY-9B-SN6"/>
-                        <outlet property="errorMessLabel" destination="OLT-J2-x45" id="Iml-sC-VrA"/>
-                        <outlet property="newPswTextField" destination="gme-5J-JWJ" id="POM-Yh-Lme"/>
-                        <outlet property="oldPswTextField" destination="HVj-t1-LUs" id="zU3-EM-z1M"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IqB-oz-bCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3380" y="830"/>
         </scene>
         <!--Личный кабинет-->
         <scene sceneID="a0H-j4-MrR">
@@ -436,15 +307,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Password" width="512" height="512"/>
         <image name="businessman" width="30" height="30"/>
         <image name="chat" width="30" height="30"/>
         <image name="edit" width="512" height="512"/>
-        <image name="fon" width="810" height="809"/>
         <image name="home" width="30" height="30"/>
-        <image name="password-1" width="80" height="96"/>
-        <image name="portfolio" width="512" height="512"/>
-        <image name="statistic" width="512" height="512"/>
         <image name="userExit" width="512" height="512"/>
     </resources>
 </document>

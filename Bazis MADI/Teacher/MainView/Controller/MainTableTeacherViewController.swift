@@ -223,7 +223,7 @@ extension MainTableTeacherViewController {
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
-            let title = Title1LabelUILabel()
+            let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
@@ -233,12 +233,13 @@ extension MainTableTeacherViewController {
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
-            let title = Title1LabelUILabel()
+            let title = Title4LabelUILabel()
             title.text = "Группы"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             
             return view
+            
         default:
             return UIView()
         }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct RaspisanieModel: Decodable {
     var status: Bool
     var date: String
