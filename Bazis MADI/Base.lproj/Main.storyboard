@@ -164,7 +164,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-lC-j0I">
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdk-lC-j0I" customClass="TableRaspisanieByTeacherUIView" customModule="Bazis_MADI" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -204,6 +204,7 @@
                     <connections>
                         <outlet property="changedView" destination="fQz-aR-aaI" id="mH2-gy-d94"/>
                         <outlet property="dataControl" destination="qHT-2B-7Tt" id="uxl-zy-u75"/>
+                        <outlet property="raspisanieByTeacher" destination="fdk-lC-j0I" id="BKP-Hk-U7d"/>
                         <outlet property="raspisanieExamTable" destination="Acn-AB-G1T" id="bzY-dg-5he"/>
                         <outlet property="raspisanieTable" destination="gTG-wq-vJb" id="sbO-X1-Stz"/>
                     </connections>
@@ -246,7 +247,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="АВ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8c-Un-KnZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="АВ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8c-Un-KnZ" customClass="UserTitleUILabel" customModule="Bazis_MADI" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="90" height="90"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.12610858680000001" green="0.30407720799999999" blue="0.4980638027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

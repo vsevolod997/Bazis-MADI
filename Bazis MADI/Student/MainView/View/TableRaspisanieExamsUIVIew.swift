@@ -52,7 +52,7 @@ class  TableRaspisanieExamsUIView: UIView {
         }
     }
     
-     //MARK: - отображение данных о экзамене
+     //MARK: - настройка скрол вью
     private func createBackground(count: Int) {
         scrollView.contentSize = CGSize(width: (self.frame.width/1.3 + 10) * CGFloat(count), height: self.frame.height)
         self.addSubview(scrollView)

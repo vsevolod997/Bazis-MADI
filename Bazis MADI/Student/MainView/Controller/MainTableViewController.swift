@@ -10,6 +10,8 @@ import UIKit
 //MARK: - главная страница
 class MainTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var raspisanieByTeacher: TableRaspisanieByTeacherUIView!
     @IBOutlet weak var raspisanieExamTable: TableRaspisanieExamsUIView!
     @IBOutlet weak var raspisanieTable: TableRaspisanieUIView!
     @IBOutlet weak var changedView: UISegmentedControl!
@@ -28,6 +30,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         raspisanieExamTable.raspisanieExamsDataSource = self
+        raspisanieByTeacher.raspisanieByTeacherDataSource = self
         
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
@@ -72,7 +75,8 @@ class MainTableViewController: UITableViewController {
                             DispatchQueue.main.async {
                                 self.allRaspisanie = raspis
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
-                        
+                                self.raspisanieByTeacher.setupDataView()
+                                
                                 self.removeVC()
                             }
                             self.selectWeakType(raspisanieData: raspis)
@@ -86,7 +90,7 @@ class MainTableViewController: UITableViewController {
     private func getExamRaspisanie(groupName:String) {
         HttpServiceRaspisanie.getRaspisanieExamData(groupName: groupName) { (error, examData) in
             if error != nil {
-                 print(error)
+                 print(error as! String)
             } else {
                 if let examRaspis = examData {
                     if let error = examRaspis.error{
@@ -164,6 +168,10 @@ class MainTableViewController: UITableViewController {
         
         dataControl.currentPage = weekday
     }
+    //MARK: -  нажатие кнопки "все при просмотре расписания преподавателей"
+    @objc func allTeacherButton() {
+        print("Swow All Teacher")
+    }
 }
 
     //MARK: - TableRaspisanieDataSource
@@ -214,6 +222,45 @@ extension MainTableViewController: TableRaspisanieExamsDataSource {
         return examRaspisanie?.result
     }
 }
+//MARK: - Дата сорс расписания по преподам
+extension MainTableViewController: TableRaspisanieByTeacherDataSource {
+    func raspisanieByTeacherTableData(_ parametrView: TableRaspisanieByTeacherUIView) -> [String]? {
+        var allPars: [DailyRaspisanie] = []
+        
+        if let raspisanieData = allRaspisanie {
+            
+            if let monday = raspisanieData.result?.monday {
+                allPars.append(contentsOf: monday)
+            }
+            if let tuesday = raspisanieData.result?.tuesday {
+                allPars.append(contentsOf: tuesday)
+            }
+            if let wednesday = raspisanieData.result?.wednesday {
+                allPars.append(contentsOf: wednesday)
+            }
+            if let thursday = raspisanieData.result?.thursday {
+                allPars.append(contentsOf: thursday)
+            }
+            if let friday = raspisanieData.result?.friday {
+                allPars.append(contentsOf: friday)
+            }
+            if let saturday = raspisanieData.result?.saturday {
+                allPars.append(contentsOf: saturday)
+            }
+        }
+        
+        var result: [String] = []
+        
+        for pars in allPars {
+            if let name = pars.teacher {
+                if !result.contains(name) && name != "" {
+                    result.append(name)
+                }
+            }
+        }
+        return result.sorted()
+    }
+}
 
 //MARK: - Отображение секций 
 extension MainTableViewController {
@@ -236,22 +283,34 @@ extension MainTableViewController {
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
             let title = Title4LabelUILabel()
-            title.text = "Расписание по преподавателям"
+            
+            if !SystemDevice().isNormalDevice {
+                title.text = "По преподавателям"
+            } else {
+                title.text = "Расписание по преподавателям"
+            }// проверка устройства
+            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
+            view.addSubview(title)
+            
+            let allButton = UIButton(type: .system)
+            allButton.setTitle("Все", for: .normal)
+            allButton.titleLabel?.font = .systemFont(ofSize: 20)
+            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 50, height: 30)
+            view.addSubview(allButton)
+            allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)
+            
+            return view
+        case 2:
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = SystemColor.blueColor
+            let title = Title4LabelUILabel()
+            title.textColor = .white
+            title.text = "Расписание экзаменов"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             
             return view
-            case 2:
-                let view = UIView()
-                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-                view.backgroundColor = SystemColor.blueColor
-                let title = Title4LabelUILabel()
-                title.textColor = .white
-                title.text = "Расписание экзаменов"
-                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
-                view.addSubview(title)
-                
-                return view
         default:
             return UIView()
         }

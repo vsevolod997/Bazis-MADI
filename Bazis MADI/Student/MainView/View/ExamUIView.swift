@@ -31,7 +31,6 @@ class ExamUIView: UIView {
         let width = self.frame.width - 20
         nameLabel.frame = CGRect(x: 10, y: 10, width: width, height: 90)
         nameLabel.numberOfLines = 3
-        
         nameLabel.text = examData.name
         self.addSubview(nameLabel)
         
@@ -39,7 +38,6 @@ class ExamUIView: UIView {
         let widtTime = self.frame.width - 10.0
         timeLabel.frame = CGRect(x: 10, y: 130, width: widtTime, height: 20)
         timeLabel.text = examData.time
-        //timeLabel.textColor = SystemColor.grayColor
         self.addSubview(timeLabel)
         
         let teacherLabel = Title1LabelUILabel()

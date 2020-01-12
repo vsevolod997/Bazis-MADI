@@ -44,15 +44,16 @@ class ClassesTeacherUIView: UIView {
         self.addSubview(cabLabel)
         
         let userLabel = Title3LabelUILabel()
-        if  UIDevice.current.modelName == "iPhone 5s" || UIDevice.current.modelName == "iPhone SE"  {
+        if  !SystemDevice().isNormalDevice {
             userLabel.text =  dailyRasp.group
         } else {
             if let groupName = dailyRasp.group {
                 userLabel.text = "Группа: " + groupName
             } else {
-                userLabel.text = "Уточняеться!"
+                userLabel.text = "Уточняется!"
             }
-        }
+        } // проверка устройства
+        
         let width = self.frame.width/2.2
         userLabel.frame = CGRect(x:self.frame.width - width, y: 40, width: width, height: 20)
         userLabel.textAlignment = .right

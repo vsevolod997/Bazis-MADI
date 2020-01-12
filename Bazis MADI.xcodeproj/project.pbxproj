@@ -25,8 +25,11 @@
 		42453971239A518E00126ED6 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453970239A518E00126ED6 /* SystemColor.swift */; };
 		42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */; };
 		42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453974239BED7200126ED6 /* PasswordChangeController.swift */; };
+		4248818523C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818423C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift */; };
+		4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818623C9D6DF003BB98F /* RspByTeacherUIVIew.swift */; };
+		4248818923CA19AC003BB98F /* UserTitleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818823CA19AC003BB98F /* UserTitleUILabel.swift */; };
 		424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36623C3846F00389B53 /* ClassesTeacherUIView.swift */; };
-		424DE36923C398EA00389B53 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36823C398EA00389B53 /* Device.swift */; };
+		424DE36923C398EA00389B53 /* SystemDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36823C398EA00389B53 /* SystemDevice.swift */; };
 		424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */; };
 		424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */; };
 		424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */; };
@@ -50,7 +53,6 @@
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
 		42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */; };
 		42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */; };
-		42D41BF623C715970077DE0C /* TableRaspisanieByTeacherUIVIew in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF523C715970077DE0C /* TableRaspisanieByTeacherUIVIew */; };
 		42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */; };
 		42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF923C758AF0077DE0C /* ExamUIView.swift */; };
 /* End PBXBuildFile section */
@@ -76,8 +78,11 @@
 		42453970239A518E00126ED6 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		42453974239BED7200126ED6 /* PasswordChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeController.swift; sourceTree = "<group>"; };
+		4248818423C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieByTeacherUIView.swift; sourceTree = "<group>"; };
+		4248818623C9D6DF003BB98F /* RspByTeacherUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RspByTeacherUIVIew.swift; sourceTree = "<group>"; };
+		4248818823CA19AC003BB98F /* UserTitleUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTitleUILabel.swift; sourceTree = "<group>"; };
 		424DE36623C3846F00389B53 /* ClassesTeacherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTeacherUIView.swift; sourceTree = "<group>"; };
-		424DE36823C398EA00389B53 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		424DE36823C398EA00389B53 /* SystemDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDevice.swift; sourceTree = "<group>"; };
 		424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableTeacerController.swift; sourceTree = "<group>"; };
 		424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title4LabelUILabel.swift; sourceTree = "<group>"; };
 		424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieExamModel.swift; sourceTree = "<group>"; };
@@ -101,7 +106,6 @@
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
 		42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title3LabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieExamsUIVIew.swift; sourceTree = "<group>"; };
-		42D41BF523C715970077DE0C /* TableRaspisanieByTeacherUIVIew */ = {isa = PBXFileReference; lastKnownFileType = text; path = TableRaspisanieByTeacherUIVIew; sourceTree = "<group>"; };
 		42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleT1WLabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF923C758AF0077DE0C /* ExamUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +164,7 @@
 				4209120623BF9808005307F5 /* Teacher */,
 				4209120723BF9822005307F5 /* Student */,
 				42453970239A518E00126ED6 /* SystemColor.swift */,
+				424DE36823C398EA00389B53 /* SystemDevice.swift */,
 				425467F82397A9AA001D26AA /* Controller */,
 				424525CF238ED431008C5EBD /* AppDelegate.swift */,
 				424525D1238ED431008C5EBD /* SceneDelegate.swift */,
@@ -168,7 +173,6 @@
 				424525D8238ED435008C5EBD /* Assets.xcassets */,
 				424525DA238ED435008C5EBD /* LaunchScreen.storyboard */,
 				424525DD238ED435008C5EBD /* Info.plist */,
-				424DE36823C398EA00389B53 /* Device.swift */,
 			);
 			path = "Bazis MADI";
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 				42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */,
 				424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */,
 				42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */,
+				4248818823CA19AC003BB98F /* UserTitleUILabel.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -347,7 +352,8 @@
 				42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */,
 				42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */,
 				42D41BF923C758AF0077DE0C /* ExamUIView.swift */,
-				42D41BF523C715970077DE0C /* TableRaspisanieByTeacherUIVIew */,
+				4248818423C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift */,
+				4248818623C9D6DF003BB98F /* RspByTeacherUIVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,11 +532,10 @@
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
-				42D41BF623C715970077DE0C /* TableRaspisanieByTeacherUIVIew in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
 				424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */,
-				424DE36923C398EA00389B53 /* Device.swift in Sources */,
+				424DE36923C398EA00389B53 /* SystemDevice.swift in Sources */,
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */,
@@ -544,10 +549,13 @@
 				424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */,
 				426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */,
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
+				4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
+				4248818923CA19AC003BB98F /* UserTitleUILabel.swift in Sources */,
 				4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */,
+				4248818523C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift in Sources */,
 				4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

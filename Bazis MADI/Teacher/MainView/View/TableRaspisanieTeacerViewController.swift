@@ -109,8 +109,11 @@ class TableRaspisanieTeacherUIVIew: UIView {
             
             if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
                 //print(dayCount/day) это отвечвет за чек текущего дня
-                
-                dayNow = dayCount/day
+                if day > 0 {
+                    dayNow = dayCount/day
+                } else {
+                    dayNow = 0
+                }
                 scrollDay(changedDay: dayNow, scrollSize: 40)
             }
         }
