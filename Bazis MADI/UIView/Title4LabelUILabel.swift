@@ -21,7 +21,7 @@ class Title4LabelUILabel: UILabel {
     }
     
     fileprivate func setup() {
-        font = UIFont.boldSystemFont(ofSize: 22)
+        font = UIFont.boldSystemFont(ofSize: 20)
         textColor = SystemColor.blueColor
     }
 }

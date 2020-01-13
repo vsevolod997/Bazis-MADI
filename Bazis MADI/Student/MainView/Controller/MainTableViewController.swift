@@ -294,8 +294,8 @@ extension MainTableViewController {
             
             let allButton = UIButton(type: .system)
             allButton.setTitle("Все", for: .normal)
-            allButton.titleLabel?.font = .systemFont(ofSize: 20)
-            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 50, height: 30)
+            //allButton.titleLabel?.font = .systemFont(ofSize: 20)
+            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 40, height: 30)
             view.addSubview(allButton)
             allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)
             

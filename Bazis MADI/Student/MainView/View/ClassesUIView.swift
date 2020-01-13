@@ -12,6 +12,7 @@ class ClassesUIView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
     
     
@@ -19,6 +20,7 @@ class ClassesUIView: UIView {
         super.init(coder: coder)
     }
     
+    //MARK: - отображение данных по паре
     public func setupDate(dailyRasp: DailyRaspisanie) {
         
         let nameLabel = Title2LabelUILabel()
@@ -53,15 +55,19 @@ class ClassesUIView: UIView {
         
         let typeLabel = Title2LabelUILabel()
         
-        if let lesson = dailyRasp.typeLesson {
-            var bufLes = lesson
-            if let index = bufLes.firstIndex(of: "/") {
-                bufLes = String(bufLes.prefix(upTo: index))
-            }
+        if !SystemDevice().isNormalDevice {
+            let str = dailyRasp.name.components(separatedBy: " ")
+            userLabel.text = str[0]
+        } else {
+            if let lesson = dailyRasp.typeLesson {
+                var bufLes = lesson
+                if let index = bufLes.firstIndex(of: "/") {
+                    bufLes = String(bufLes.prefix(upTo: index))
+                }
 
-            typeLabel.text = bufLes
+                typeLabel.text = bufLes
+            }
         }
-        
         typeLabel.frame = CGRect(x:0, y: 40, width: self.frame.width/2, height: 20)
         
         self.addSubview(typeLabel)

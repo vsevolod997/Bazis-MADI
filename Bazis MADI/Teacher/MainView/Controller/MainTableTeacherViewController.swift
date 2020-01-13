@@ -140,7 +140,12 @@ class MainTableTeacherViewController: UITableViewController {
         }
         let weekday = weakRaspisanie.getToday()
         
-        dataControl.currentPage = dayCount / weekday
+        if weekday == 0 {
+            dataControl.currentPage = weekday
+        } else {
+            dataControl.currentPage = weekday / dayCount
+        }
+        
     }
     
     // MARK: - подсчет кол ва загятых дней в неделю
