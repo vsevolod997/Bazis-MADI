@@ -22,7 +22,7 @@ class ExamUIView: UIView {
     
     
     private func styleSetup() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground /// 
         layer.cornerRadius = 10
     }
     

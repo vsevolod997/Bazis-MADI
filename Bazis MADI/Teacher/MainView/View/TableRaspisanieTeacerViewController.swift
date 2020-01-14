@@ -108,12 +108,16 @@ class TableRaspisanieTeacherUIVIew: UIView {
             }
             
             if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
-                //print(dayCount/day) это отвечвет за чек текущего дня
-                if day > 0 {
-                    dayNow = dayCount/day
-                } else {
+                //print(day)
+                //print(dayCount)
+                if day > dayCount {
+                   dayNow = day - 1
+                } else if dayCount == 1 {
                     dayNow = 0
+                } else if dayCount == day - 1 {
+                    dayNow = day - 1
                 }
+                
                 scrollDay(changedDay: dayNow, scrollSize: 40)
             }
         }
@@ -125,7 +129,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
         let contentWidth = CGFloat(count) * self.frame.width
         scrollView.contentSize = CGSize(width: contentWidth, height: self.frame.height)
         self.addSubview(scrollView)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = .clear
         scrollView.isScrollEnabled = false
         scrollView.showsHorizontalScrollIndicator = false
     }

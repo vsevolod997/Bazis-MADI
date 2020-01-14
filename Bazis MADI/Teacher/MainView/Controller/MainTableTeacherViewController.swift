@@ -10,6 +10,7 @@ import UIKit
 
 class MainTableTeacherViewController: UITableViewController {
     
+    @IBOutlet weak var raspisanieByGroupView: TableRaspisanieByGroupUIView!
     @IBOutlet weak var raspisanieTable: TableRaspisanieTeacherUIVIew!
     @IBOutlet weak var changedView: UISegmentedControl!
     @IBOutlet weak var dataControl: UIPageControl!
@@ -26,7 +27,9 @@ class MainTableTeacherViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        raspisanieByGroupView.raspisanieByGroupDataSource = self
         raspisanieTable.raspisanieViewDataSource = self
+        
         raspisanieTable.delegate = self
         setupView()
         getDataRaspisanie()
@@ -70,6 +73,7 @@ class MainTableTeacherViewController: UITableViewController {
                                 self.allRaspisanie = raspis
                                 self.dayCount = self.countDayliView(teacherRaspisanie: raspis)
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
+                                self.raspisanieByGroupView.setupDataView()
                                 self.dataControl.numberOfPages = self.dayCount
                                 self.removeVC()
                             }
@@ -109,7 +113,18 @@ class MainTableTeacherViewController: UITableViewController {
     
     //MARK: - Настройки окна
     private func setupView() {
-        dataControl.currentPage = weakRaspisanie.getToday()
+        
+        var today = weakRaspisanie.getToday()
+        
+        if today > dayCount {
+           today = dayCount - 1
+        } else if dayCount == 1 {
+            today = 0
+        } else if dayCount == today - 1 {
+            today = dayCount - 1
+        }
+        
+        dataControl.currentPage = today
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
         
@@ -173,6 +188,11 @@ class MainTableTeacherViewController: UITableViewController {
         }
         return count
     }
+    
+    // MARK: - нажатин кнопки все, у расписания
+    @objc func selectAllGroup() {
+        
+    }
 }
 
 //MARK: - TableRaspisanieDataSource
@@ -218,6 +238,47 @@ extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
         dataControl.currentPage = index
     }
 }
+
+//MARK: - данные списка групп
+extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource {
+    func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]? {
+        var allPars: [DailyRaspisanieTeacher] = []
+        
+        if let raspisanieData = allRaspisanie {
+            
+            if let monday = raspisanieData.result?.monday {
+                allPars.append(contentsOf: monday)
+            }
+            if let tuesday = raspisanieData.result?.tuesday {
+                allPars.append(contentsOf: tuesday)
+            }
+            if let wednesday = raspisanieData.result?.wednesday {
+                allPars.append(contentsOf: wednesday)
+            }
+            if let thursday = raspisanieData.result?.thursday {
+                allPars.append(contentsOf: thursday)
+            }
+            if let friday = raspisanieData.result?.friday {
+                allPars.append(contentsOf: friday)
+            }
+            if let saturday = raspisanieData.result?.saturday {
+                allPars.append(contentsOf: saturday)
+            }
+        }
+        
+        var result: [String] = []
+        
+        for pars in allPars {
+            if let name = pars.group {
+                if !result.contains(name) && name != "" {
+                    result.append(name)
+                }
+            }
+        }
+        return result.sorted()
+    }
+}
+
 //MARK: - отображения
 extension MainTableTeacherViewController {
     
@@ -235,11 +296,26 @@ extension MainTableTeacherViewController {
             
             return view
         case 1:
+            
+            
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .white
             let title = Title4LabelUILabel()
-            title.text = "Группы"
+            if !SystemDevice().isNormalDevice {
+                title.text = "По преподавателям"
+            } else {
+                title.text = "Расписание по преподавателям"
+            }// проверка устройства
+            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
+            view.addSubview(title)
+            
+            let allButton = UIButton(type: .system)
+            allButton.setTitle("Все", for: .normal)
+            //allButton.titleLabel?.font = .systemFont(ofSize: 20)
+            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 40, height: 30)
+            view.addSubview(allButton)
+            allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             

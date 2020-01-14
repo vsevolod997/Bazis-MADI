@@ -1,22 +1,21 @@
 //
-//  TableRaspisanieByTeacerUIView.swift
+//  TableRaspisanieByGroupUIView.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 11.01.2020.
+//  Created by Всеволод Андрющенко on 13.01.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
- //MARK:  - дата сорс расписания по преподавателям
-protocol TableRaspisanieByTeacherDataSource {
-    func raspisanieByTeacherTableData(_ parametrView: TableRaspisanieByTeacherUIView) -> [String]?
+
+protocol TableRaspisanieByGroupDataSource {
+    func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]?
 }
 
-
-class TableRaspisanieByTeacherUIView: UIView {
+class TableRaspisanieByGroupUIView: UIView {
     
     let scrollView = UIScrollView()
-    var teachers:[String] = []
+    var groups :[String] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +30,7 @@ class TableRaspisanieByTeacherUIView: UIView {
         scrollView.frame = self.bounds
     }
     
-    var raspisanieByTeacherDataSource: TableRaspisanieByTeacherDataSource? {
+    var raspisanieByGroupDataSource: TableRaspisanieByGroupDataSource? {
         didSet {
             setupDataView()
         }
@@ -39,30 +38,30 @@ class TableRaspisanieByTeacherUIView: UIView {
     
     //MARK: - отображение данных
     public func setupDataView() {
-        if let dataTeacher = raspisanieByTeacherDataSource?.raspisanieByTeacherTableData(self) {
-            teachers = dataTeacher
-            let count = dataTeacher.count
+        if let dataGroup = raspisanieByGroupDataSource?.raspisanieByGroupData(self) {
+            groups = dataGroup
+            let count = dataGroup.count
             createBackground(count: count)
             var index: Int = 0
             
             var startX: CGFloat = 10.0
-            for teacher in dataTeacher {
-                let frame = CGRect(x: startX, y: 10, width: self.frame.height, height: self.frame.height)
-                let view = RspByTeacherUIVIew(frame: frame)
+            for group in dataGroup {
+                let frame = CGRect(x: startX, y: 10, width: self.frame.height + 20, height: self.frame.height)
+                let view = RspByGroupUIVIew(frame: frame)
                 view.tag = index
-                view.createView(nameUser: teacher)
+                view.createView(nameGroup: group)
                 scrollView.addSubview(view)
                 
                 let gesture = UITapGestureRecognizer(target: self, action: #selector(selectTapGesture(gesture:)))
                 view.addGestureRecognizer(gesture)
                 
                 index += 1
-                startX += self.frame.height
+                startX += self.frame.height + 10
             }
         }
     }
     
-     //MARK: - обработка данных по нажатию на форму
+    //MARK: - обработка данных по нажатию на форму
     @objc func selectTapGesture(gesture: UIGestureRecognizer) {
         if let view = gesture.view {
             UIView.animate(withDuration: 0.05, animations: {
@@ -79,7 +78,7 @@ class TableRaspisanieByTeacherUIView: UIView {
     
     //MARK: - настройка скрол вью
     private func createBackground(count: Int) {
-        scrollView.contentSize = CGSize(width: (self.frame.width/3 + 10) * CGFloat(count), height: self.frame.height)
+        scrollView.contentSize = CGSize(width: (self.frame.height + 10) * CGFloat(count), height: self.frame.height)
         self.addSubview(scrollView)
         scrollView.backgroundColor = .clear
         scrollView.showsHorizontalScrollIndicator = false
