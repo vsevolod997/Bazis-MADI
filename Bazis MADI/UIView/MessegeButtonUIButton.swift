@@ -1,15 +1,16 @@
 //
-//  InputButton1UIButton.swift
+//  MessegeButton.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 28.11.2019.
-//  Copyright © 2019 Всеволод Андрющенко. All rights reserved.
+//  Created by Всеволод Андрющенко on 15.01.2020.
+//  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-class InputButton1UIButton: UIButton {
+class MessegeButtonUIButton: UIButton {
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -28,9 +29,10 @@ class InputButton1UIButton: UIButton {
         let textColor = SystemColor.whiteColor
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        backgroundColor = SystemColor.grayColor
-        layer.cornerRadius = 17
-        alpha = 0.9
+        backgroundColor = SystemColor.blueColor
+        setImage(UIImage(named: "chat")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        tintColor = SystemColor.whiteColor
+        layer.cornerRadius = 5
     }
     
     override var isHighlighted: Bool {
@@ -39,24 +41,10 @@ class InputButton1UIButton: UIButton {
                 alpha = 0.6
                 transform = .init(scaleX: 0.9, y: 0.9)
             } else {
-                alpha = 0.9
+                alpha = 1
                 transform = .init(scaleX: 1, y: 1)
             }
         }
     }
-    
-   public func clickError() {
-        let shake = CABasicAnimation(keyPath: "position")
-        shake.duration = 0.1
-        shake.repeatCount = 2
-        shake.autoreverses = true
-        
-        let fromPoint = CGPoint(x: center.x, y: center.y-2)
-        let fromValue = NSValue(cgPoint: fromPoint)
-        
-        shake.fromValue = fromValue
-        layer.add(shake, forKey: "position")
-    }
-
 
 }

@@ -30,7 +30,9 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         raspisanieExamTable.raspisanieExamsDataSource = self
+        
         raspisanieByTeacher.raspisanieByTeacherDataSource = self
+        raspisanieByTeacher.delegate = self
         
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
@@ -135,11 +137,11 @@ class MainTableViewController: UITableViewController {
     //MARK: - Настройки окна
     private func setupView() {
         dataControl.currentPage = weakRaspisanie.getToday()
-        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
-        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
+        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
+        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
     
@@ -224,6 +226,7 @@ extension MainTableViewController: TableRaspisanieExamsDataSource {
 }
 //MARK: - Дата сорс расписания по преподам
 extension MainTableViewController: TableRaspisanieByTeacherDataSource {
+    
     func raspisanieByTeacherTableData(_ parametrView: TableRaspisanieByTeacherUIView) -> [String]? {
         var allPars: [DailyRaspisanie] = []
         
@@ -262,6 +265,15 @@ extension MainTableViewController: TableRaspisanieByTeacherDataSource {
     }
 }
 
+extension MainTableViewController: TableRaspisanieByTeacherDelegate {
+    func selectTeacherButton(_ parametrView: TableRaspisanieByTeacherUIView, teacherData: String) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "teacherInfo") as? InfioTeacherTableViewController else { return }
+        vc.teacherName = teacherData
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
 //MARK: - Отображение секций 
 extension MainTableViewController {
     
@@ -271,7 +283,7 @@ extension MainTableViewController {
         case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .white
+            view.backgroundColor = SystemColor.whiteColor
             let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -281,7 +293,7 @@ extension MainTableViewController {
         case 1:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .white
+            view.backgroundColor = SystemColor.whiteColor
             let title = Title4LabelUILabel()
             
             if !SystemDevice().isNormalDevice {

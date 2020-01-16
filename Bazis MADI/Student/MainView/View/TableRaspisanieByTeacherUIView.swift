@@ -12,6 +12,9 @@ protocol TableRaspisanieByTeacherDataSource {
     func raspisanieByTeacherTableData(_ parametrView: TableRaspisanieByTeacherUIView) -> [String]?
 }
 
+protocol TableRaspisanieByTeacherDelegate {
+    func selectTeacherButton(_ parametrView: TableRaspisanieByTeacherUIView, teacherData: String)
+}
 
 class TableRaspisanieByTeacherUIView: UIView {
     
@@ -30,6 +33,8 @@ class TableRaspisanieByTeacherUIView: UIView {
         super.layoutSubviews()
         scrollView.frame = self.bounds
     }
+    
+    public var delegate: TableRaspisanieByTeacherDelegate?
     
     var raspisanieByTeacherDataSource: TableRaspisanieByTeacherDataSource? {
         didSet {
@@ -69,12 +74,18 @@ class TableRaspisanieByTeacherUIView: UIView {
                 view.transform = .init(scaleX: 0.8, y: 0.8)
                 view.alpha = 0.8
             }) { (anim) in
+                self.delegate?.selectTeacherButton(self, teacherData: self.teachers[view.tag])
+                
                 UIView.animate(withDuration: 0.01) {
                     view.transform = .init(scaleX: 1, y: 1)
                     view.alpha = 1
                 }
             }
         }
+    }
+    
+    func showTeacherView(name: String ) {
+        
     }
     
     //MARK: - настройка скрол вью

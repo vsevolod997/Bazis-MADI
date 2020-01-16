@@ -25,10 +25,10 @@ class DayliRaspisTeacerUIView: UIView {
     
     //MARK: - настройка окна
     private func setupView() {
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = SystemColor.whiteColor
         self.layer.cornerRadius = 20
         
-        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowColor = SystemColor.grayColor.cgColor
         self.layer.shadowRadius = 8
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowOpacity = 0.6

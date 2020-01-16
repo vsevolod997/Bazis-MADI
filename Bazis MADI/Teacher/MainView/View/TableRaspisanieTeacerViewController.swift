@@ -111,7 +111,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
                 //print(day)
                 //print(dayCount)
                 if day > dayCount {
-                   dayNow = day - 1
+                   dayNow = dayCount - 1
                 } else if dayCount == 1 {
                     dayNow = 0
                 } else if dayCount == day - 1 {

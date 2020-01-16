@@ -29,7 +29,7 @@ class HomeTableTeacerController: UITableViewController {
         userLabel.layer.masksToBounds = true
         userLabel.layer.cornerRadius = 15
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SystemColor.whiteColor]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
          self.title = "Личный кабинет"
     }

@@ -50,6 +50,8 @@
 		42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */; };
 		42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
+		42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */; };
+		42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */; };
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
 		42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */; };
 		42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */; };
@@ -105,6 +107,8 @@
 		42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanieTeacher.swift; sourceTree = "<group>"; };
 		42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayliRaspisPrepodUIView.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTeacherTableViewController.swift; sourceTree = "<group>"; };
+		42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeButtonUIButton.swift; sourceTree = "<group>"; };
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
 		42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title3LabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieExamsUIVIew.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				42CB259823CF37A7007DEA69 /* InfoTeacherView */,
 				42CDC02423BB980D00A86A42 /* MainView */,
 				42CDC02923BB99B800A86A42 /* UserHomeView */,
 			);
@@ -234,6 +239,7 @@
 				424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */,
 				42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */,
 				4248818823CA19AC003BB98F /* UserTitleUILabel.swift */,
+				42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -283,6 +289,14 @@
 				42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */,
 			);
 			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		42CB259823CF37A7007DEA69 /* InfoTeacherView */ = {
+			isa = PBXGroup;
+			children = (
+				42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */,
+			);
+			path = InfoTeacherView;
 			sourceTree = "<group>";
 		};
 		42CDC01F23BB96A600A86A42 /* LoginView */ = {
@@ -538,9 +552,11 @@
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
+				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
+				42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */,
 				424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */,
 				424DE36923C398EA00389B53 /* SystemDevice.swift in Sources */,
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,

@@ -75,6 +75,7 @@ class MainTableTeacherViewController: UITableViewController {
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
                                 self.raspisanieByGroupView.setupDataView()
                                 self.dataControl.numberOfPages = self.dayCount
+                                self.setDayControl(dayCount: self.dayCount, dayNow: self.weakRaspisanie.getToday())
                                 self.removeVC()
                             }
                             self.selectWeakType(raspisanieData: raspis)
@@ -111,25 +112,24 @@ class MainTableTeacherViewController: UITableViewController {
         closeVC.removeFromSuperview()
     }
     
+    private func setDayControl(dayCount: Int, dayNow: Int) {
+        if dayNow > dayCount {
+            dataControl.currentPage = dayCount - 1
+        } else if dayCount == 1 {
+            dataControl.currentPage = 0
+        } else if dayCount == dayNow - 1 {
+            dataControl.currentPage = dayNow - 1
+        }
+    }
+    
     //MARK: - Настройки окна
     private func setupView() {
         
-        var today = weakRaspisanie.getToday()
+        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
+        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
         
-        if today > dayCount {
-           today = dayCount - 1
-        } else if dayCount == 1 {
-            today = 0
-        } else if dayCount == today - 1 {
-            today = dayCount - 1
-        }
-        
-        dataControl.currentPage = today
-        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
-        changedView.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: UIControl.State.normal)
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
     
@@ -154,12 +154,7 @@ class MainTableTeacherViewController: UITableViewController {
             raspisanieTable.setupView(weekInCalendar: .next)
         }
         let weekday = weakRaspisanie.getToday()
-        
-        if weekday == 0 {
-            dataControl.currentPage = weekday
-        } else {
-            dataControl.currentPage = weekday / dayCount
-        }
+        setDayControl(dayCount: self.dayCount, dayNow: weekday)
         
     }
     
@@ -288,7 +283,7 @@ extension MainTableTeacherViewController {
         case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .white
+            view.backgroundColor = SystemColor.whiteColor
             let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -300,7 +295,7 @@ extension MainTableTeacherViewController {
             
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .white
+            view.backgroundColor = SystemColor.whiteColor
             let title = Title4LabelUILabel()
             if !SystemDevice().isNormalDevice {
                 title.text = "По преподавателям"

@@ -22,7 +22,7 @@ class UserTitleUILabel: UILabel {
      
     fileprivate func setup() {
         font = .boldSystemFont(ofSize: 36)
-        textColor = .white
+        textColor = SystemColor.whiteColor
         backgroundColor = SystemColor.blueColor
         textAlignment = .center
         layer.masksToBounds = true

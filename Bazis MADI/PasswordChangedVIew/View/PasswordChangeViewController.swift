@@ -32,7 +32,7 @@ class PasswordChangeViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
     
