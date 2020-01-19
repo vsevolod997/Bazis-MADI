@@ -25,7 +25,7 @@ class InputButton1UIButton: UIButton {
     }
     
     private func setStyle() {
-        let textColor = SystemColor.whiteColor
+        let textColor = SystemColor.whiteTextFill
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         backgroundColor = SystemColor.grayColor

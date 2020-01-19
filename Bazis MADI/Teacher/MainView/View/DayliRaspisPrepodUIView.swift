@@ -25,7 +25,7 @@ class DayliRaspisTeacerUIView: UIView {
     
     //MARK: - настройка окна
     private func setupView() {
-        self.backgroundColor = SystemColor.whiteColor
+        self.backgroundColor = SystemColor.whiteTextFill
         self.layer.cornerRadius = 20
         
         self.layer.shadowColor = SystemColor.grayColor.cgColor

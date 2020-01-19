@@ -283,7 +283,7 @@ extension MainTableViewController {
         case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -293,7 +293,7 @@ extension MainTableViewController {
         case 1:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             
             if !SystemDevice().isNormalDevice {
@@ -317,7 +317,7 @@ extension MainTableViewController {
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = SystemColor.blueColor
             let title = Title4LabelUILabel()
-            title.textColor = .white
+            title.textColor = SystemColor.whiteColor
             title.text = "Расписание экзаменов"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)

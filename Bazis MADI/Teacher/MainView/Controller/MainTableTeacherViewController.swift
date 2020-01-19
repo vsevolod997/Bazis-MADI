@@ -283,7 +283,7 @@ extension MainTableTeacherViewController {
         case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -295,7 +295,7 @@ extension MainTableTeacherViewController {
             
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             if !SystemDevice().isNormalDevice {
                 title.text = "По преподавателям"

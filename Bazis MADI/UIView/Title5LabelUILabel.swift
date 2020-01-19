@@ -1,14 +1,14 @@
 //
-//  Title4LabelUILabel.swift
+//  Title5LabelUILabel.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 08.01.2020.
+//  Created by Всеволод Андрющенко on 19.01.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-class Title4LabelUILabel: UILabel {
+class Title5LabelUILabel: UILabel {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +21,7 @@ class Title4LabelUILabel: UILabel {
     }
     
     fileprivate func setup() {
-        font = UIFont.boldSystemFont(ofSize: 20)
-        textColor = SystemColor.blueTextColor
+        font = UIFont(name: "Title 2", size: 20)
+        textColor = SystemColor.grayColor
     }
 }

@@ -114,7 +114,7 @@ class TableRaspisanieUIView: UIView {
     private func createBakground() {
         scrollView.contentSize = CGSize(width: self.frame.width * 6, height: self.frame.height)
         self.addSubview(scrollView)
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = .clear
         scrollView.isScrollEnabled = false
         scrollView.showsHorizontalScrollIndicator = false
     }

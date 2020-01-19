@@ -9,7 +9,7 @@
 import UIKit
 
 class DayRaspisUIView: UIView {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -25,15 +25,15 @@ class DayRaspisUIView: UIView {
     
     //MARK: - настройка окна
     private func setupView() {
-           self.backgroundColor = UIColor.white
-           self.layer.cornerRadius = 20
-           
-           self.layer.shadowColor = UIColor.gray.cgColor
-           self.layer.shadowRadius = 8
-           self.layer.shadowOffset = CGSize.zero
-           self.layer.shadowOpacity = 0.6
-       }
-
+        self.backgroundColor = SystemColor.whiteTextFill
+        self.layer.cornerRadius = 20
+        
+        self.layer.shadowColor = SystemColor.grayColor.cgColor
+        self.layer.shadowRadius = 8
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowOpacity = 0.6
+    }
+    
     //MARK: - Создание отображения сегодняшенего дня
     public func createDayliView(dayWeak: Int, dayDate: String) {
         // создание отображения текущего дня недели
@@ -49,7 +49,7 @@ class DayRaspisUIView: UIView {
         // создание отображения текущего дня недели
         let startX = 10
         let startY = 4
-
+        
         let dayTitle = Title1LabelUILabel()
         let textDay = intToDay(indexDay: dayWeak)
         dayTitle.text = textDay
@@ -95,6 +95,7 @@ class DayRaspisUIView: UIView {
     
     //MARK: - Создание "шапки" таблицы
     private func createTitleView() {
+        
         let startX = 10.0
         var startY = 32.0
         let title = Title2LabelUILabel()

@@ -23,12 +23,12 @@ class LoginTextFieldUITextField: UITextField {
     
     private func setup() {
         borderStyle = .none
-        backgroundColor = SystemColor.whiteColor
+        backgroundColor = SystemColor.whiteTextFill
         layer.cornerRadius = 12
         textAlignment = .center
         
         font = UIFont(name: "Arial", size: 18)
-        textColor = SystemColor.blueColor
+        textColor = SystemColor.blueTextColor
     }
     
 

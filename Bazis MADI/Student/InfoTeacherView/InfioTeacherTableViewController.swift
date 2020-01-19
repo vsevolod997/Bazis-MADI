@@ -45,7 +45,7 @@ extension InfioTeacherTableViewController {
         case 0:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             title.text = "Преподаватель"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -55,7 +55,7 @@ extension InfioTeacherTableViewController {
         case 1:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.whiteColor
+            view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             title.text = "Расписание"
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
