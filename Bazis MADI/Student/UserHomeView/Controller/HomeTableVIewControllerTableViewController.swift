@@ -103,6 +103,10 @@ class HomeTableViewController: UITableViewController {
         if indexPath.row == 2 && indexPath.section == 1 {
             changedPasViewShow()
         }
+        if indexPath.row == 0 && indexPath.section == 1 {
+            changedUspevView()
+        }
+        
     }
     
     //MARK: - переход к окну смены пароля
@@ -111,6 +115,13 @@ class HomeTableViewController: UITableViewController {
         guard let vc = sb.instantiateViewController(identifier: "password") as? PasswordChangeViewController else { return }
         
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func changedUspevView() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "uspev") as? UspevTableViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     private func exitUserButton() {
@@ -126,6 +137,7 @@ class HomeTableViewController: UITableViewController {
         
         self.present(alertActions, animated: true)
     }
+    
     
     private func showLoginView() {
         let sb = UIStoryboard(name: "Main", bundle: nil)

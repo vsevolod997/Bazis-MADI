@@ -36,5 +36,6 @@ class UserDataController {
         defaults.removeObject(forKey: "login")
         defaults.removeObject(forKey: "password")
         defaults.removeObject(forKey: "typeUser")
+        defaults.removeObject(forKey: "key")
     }
 }

@@ -30,7 +30,6 @@ class InfioTeacherTableViewController: UITableViewController {
     
     //MARK: - настройки окна стартовые
     private func setupView() {
-        
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
          self.title = "Детальная информация"

@@ -10,9 +10,9 @@ import Foundation
 
 class KeySessionController {
     
-    let defaults  = UserDefaults.standard
+    let defaults = UserDefaults.standard
     
-    func setSessionKey(response: URLResponse?){
+    func setSessionKey(response: URLResponse?) {
         if let resp = response {
             let httpResponse = resp as! HTTPURLResponse
             let field = httpResponse.allHeaderFields["Set-Cookie"]
@@ -23,7 +23,6 @@ class KeySessionController {
             }
         }
     }
-    
     func getSessionKey() -> String?{
         return defaults.string(forKey: "key")
     }

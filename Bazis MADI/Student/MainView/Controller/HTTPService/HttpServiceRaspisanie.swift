@@ -32,6 +32,7 @@ class HttpServiceRaspisanie {
         task.resume()
     }
     
+    //MARK: - получение списка расписания экзаменов
     class func getRaspisanieExamData(groupName: String, complition: @escaping(Error?, RaspisanieExamModel?) -> Void) {
         let urlStr = "https://api.shastin.xyz/schedule.php?exams=1&group=\(groupName)"
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }

@@ -50,6 +50,11 @@
 		42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */; };
 		42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */; };
 		42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */; };
+		42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */; };
+		42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */; };
+		42B21D6423D75E9100E1EC17 /* UspevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6323D75E9100E1EC17 /* UspevData.swift */; };
+		42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */; };
+		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 		42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */; };
 		42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */; };
@@ -108,6 +113,11 @@
 		42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanieTeacher.swift; sourceTree = "<group>"; };
 		42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayliRaspisPrepodUIView.swift; sourceTree = "<group>"; };
 		42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title5LabelUILabel.swift; sourceTree = "<group>"; };
+		42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewController.swift; sourceTree = "<group>"; };
+		42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceUspev.swift; sourceTree = "<group>"; };
+		42B21D6323D75E9100E1EC17 /* UspevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevData.swift; sourceTree = "<group>"; };
+		42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewCell.swift; sourceTree = "<group>"; };
+		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTeacherTableViewController.swift; sourceTree = "<group>"; };
 		42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeButtonUIButton.swift; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				42B21D5A23D6087F00E1EC17 /* UspevView */,
 				42CB259823CF37A7007DEA69 /* InfoTeacherView */,
 				42CDC02423BB980D00A86A42 /* MainView */,
 				42CDC02923BB99B800A86A42 /* UserHomeView */,
@@ -294,6 +305,50 @@
 			path = HTTPService;
 			sourceTree = "<group>";
 		};
+		42B21D5A23D6087F00E1EC17 /* UspevView */ = {
+			isa = PBXGroup;
+			children = (
+				42B21D5D23D608C300E1EC17 /* Controller */,
+				42B21D5C23D608BA00E1EC17 /* View */,
+				42B21D5B23D608AF00E1EC17 /* Model */,
+			);
+			path = UspevView;
+			sourceTree = "<group>";
+		};
+		42B21D5B23D608AF00E1EC17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42B21D6323D75E9100E1EC17 /* UspevData.swift */,
+				42B7C86123DB505600BA320B /* UspevStructData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42B21D5C23D608BA00E1EC17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42B21D5D23D608C300E1EC17 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42B21D6023D60B6E00E1EC17 /* HttpService */,
+				42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42B21D6023D60B6E00E1EC17 /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */,
+			);
+			path = HttpService;
+			sourceTree = "<group>";
+		};
 		42CB259823CF37A7007DEA69 /* InfoTeacherView */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,7 +474,6 @@
 		42CDC02B23BB99D900A86A42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,6 +481,7 @@
 		42CDC02C23BB99E200A86A42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				424525E3238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -551,6 +606,7 @@
 				42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
+				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
@@ -558,15 +614,18 @@
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
+				42B21D6423D75E9100E1EC17 /* UspevData.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
 				42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */,
+				42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */,
 				424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */,
 				424DE36923C398EA00389B53 /* SystemDevice.swift in Sources */,
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */,
 				424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */,
+				42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
 				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
@@ -575,6 +634,7 @@
 				42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */,
 				424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */,
 				426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */,
+				42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */,
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,

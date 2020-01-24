@@ -22,7 +22,7 @@ class TitleT1WLabelUILabel: UILabel {
     }
     
     fileprivate func setup() {
-        font = UIFont(name: "Arial Rounded MT Bold", size: 22)
+        font = UIFont(name: "Arial Rounded MT Bold", size: 16)
         textColor = SystemColor.whiteColor
         textAlignment = .center
         numberOfLines = 2
