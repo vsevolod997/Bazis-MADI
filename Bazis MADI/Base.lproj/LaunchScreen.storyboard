@@ -14,18 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startView" translatesAutoresizingMaskIntoConstraints="NO" id="dZC-QJ-XW7">
-                                <rect key="frame" x="0.0" y="20" width="414" height="856"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="dZC-QJ-XW7" secondAttribute="bottom" constant="20" symbolic="YES" id="Qcb-7k-o3d"/>
-                            <constraint firstItem="dZC-QJ-XW7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YQW-bM-H08"/>
-                            <constraint firstItem="dZC-QJ-XW7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="20" symbolic="YES" id="hjP-wq-egx"/>
-                            <constraint firstItem="dZC-QJ-XW7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pe4-ae-OtO"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -34,7 +23,4 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="startView" width="500" height="500"/>
-    </resources>
 </document>

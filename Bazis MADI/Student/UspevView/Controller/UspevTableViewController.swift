@@ -44,10 +44,10 @@ class UspevTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
         self.title = "Успеваемость"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor ]
         
         let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
-        leftButton.tintColor = SystemColor.whiteColor
+        leftButton.tintColor = SystemColor.grayColor
         self.navigationItem.leftBarButtonItem = leftButton
     }
     
@@ -58,6 +58,9 @@ class UspevTableViewController: UITableViewController {
     // MARK: - нажатие на кнопку развертывания/свертывания секции 
     @objc func sectionsState(_ button: UIButton) {
         
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred()
+        
         let section = button.tag
         var indexPath = [IndexPath]()
         
@@ -66,20 +69,18 @@ class UspevTableViewController: UITableViewController {
             indexPath.append(iPath)
         }
         
-        print(indexPath.count)
-        
         let isShow = uspevList[section].isShow
         uspevList[section].isShow = !isShow
         
         if isShow {
             tableView.deleteRows(at: indexPath, with: .fade)
             UIView.animate(withDuration: 0.1) {
-                button.imageView?.transform = .init(rotationAngle: CGFloat(0.0))
+                button.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
             }
         }else {
             tableView.insertRows(at: indexPath, with: .fade)
             UIView.animate(withDuration: 0.1) {
-                button.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
+                button.imageView?.transform = .init(rotationAngle: CGFloat(0.0))
             }
         }
         
@@ -111,6 +112,8 @@ extension UspevTableViewController {
         if let ocenka = uspevList[indexPath.section].dataSem[indexPath.row].ocenka {
             if ocenka == "+" {
                 cell.markLabel.text = "Оценка: " + "Зачтено"
+            } else if ocenka == "" {
+                cell.markLabel.text = "Оценка: Нет"
             } else {
                 cell.markLabel.text = "Оценка: " + ocenka
             }
@@ -185,8 +188,29 @@ extension UspevTableViewController {
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50
     }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        view.backgroundColor = SystemColor.whiteTextFill
+        
+        let button = UIButton()
+        button.frame = CGRect(x: 0, y: 10, width: self.view.frame.width , height: 50)
+        let textColor = SystemColor.blueTextColor
+        button.contentVerticalAlignment = .center
+        button.contentHorizontalAlignment = .center
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        button.setTitle( ". . .", for: .normal)
+        button.tag = section
+        button.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
+        
+        view.addSubview(button)
+        return view
+    }
 }
 
+//MARK: - Table view Delegate
 extension UspevTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
