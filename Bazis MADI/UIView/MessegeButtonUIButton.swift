@@ -31,6 +31,7 @@ class MessegeButtonUIButton: UIButton {
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         backgroundColor = SystemColor.blueColor
         setImage(UIImage(named: "chat")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        imageEdgeInsets = .init(top: 5, left: -10 , bottom: 7, right: 18)
         tintColor = SystemColor.whiteColor
         layer.cornerRadius = 5
     }

@@ -17,11 +17,11 @@ struct RaspisanieModel: Decodable {
 }
 
 struct WeakRaspisanie: Decodable {
-    var monday: [DailyRaspisanie]
-    var tuesday: [DailyRaspisanie]
-    var wednesday: [DailyRaspisanie]
-    var thursday: [DailyRaspisanie]
-    var friday: [DailyRaspisanie]
+    var monday: [DailyRaspisanie]?
+    var tuesday: [DailyRaspisanie]?
+    var wednesday: [DailyRaspisanie]?
+    var thursday: [DailyRaspisanie]?
+    var friday: [DailyRaspisanie]?
     var saturday: [DailyRaspisanie]
 }
 

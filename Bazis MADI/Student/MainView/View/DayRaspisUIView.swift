@@ -69,27 +69,32 @@ class DayRaspisUIView: UIView {
     }
     
     //MARK: - Отображение пар в текущий день
-    public func createDayliRasp(daylyRasp: [DailyRaspisanie]) {
+    public func createDayliRasp(daylyRaspisanie: [DailyRaspisanie]?) {
         let originX = 10.0
         var originY = 60.0
         let heigtView = 65.0
         
-        if daylyRasp.count == 0 {
+        if let daylyRasp = daylyRaspisanie {
+            if daylyRasp.count == 0 {
+                homeDayCreate()
+            }
+            for rasp in daylyRasp {
+                if rasp.name == "День самостоятельной работы" {
+                    homeDayCreate()
+                } else {
+                    let width =  self.frame.width - 20
+                    let frameClasses = CGRect(x: originX, y: originY, width: Double(width), height: heigtView)
+                    let classesView = ClassesUIView(frame: frameClasses)
+                    self.addSubview(classesView)
+                    classesView.setupDate(dailyRasp: rasp)
+                    
+                    originY += 7 + heigtView
+                }
+            }
+        } else {
             homeDayCreate()
         }
-        for rasp in daylyRasp {
-            if rasp.name == "День самостоятельной работы" {
-                homeDayCreate()
-            } else {
-                let width =  self.frame.width - 20
-                let frameClasses = CGRect(x: originX, y: originY, width: Double(width), height: heigtView)
-                let classesView = ClassesUIView(frame: frameClasses)
-                self.addSubview(classesView)
-                classesView.setupDate(dailyRasp: rasp)
-                
-                originY += 7 + heigtView
-            }
-        }
+        
     }
     
     

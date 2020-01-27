@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - ячейка отображения расписания
 class UspevTableViewCell: UITableViewCell {
 
     @IBOutlet weak var teamLabel: Title5LabelUILabel!
@@ -29,6 +30,7 @@ class UspevTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
     
     public func showFull(isShow: Bool) {
         if isShow {

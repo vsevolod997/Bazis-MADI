@@ -45,12 +45,14 @@ class MainTableViewController: UITableViewController {
     private func getUserData() {
         self.showVC()
         if let user = UserLogin.userNow.user {
+            print(user)
             getUserRaspisanie(groupName: user.user_group)
             getExamRaspisanie(groupName: user.user_group)
         } else {// иначе показали окно загрузки загрузку,
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
+                        print(user)
                         self.getUserRaspisanie(groupName: user.user_group)
                         self.getExamRaspisanie(groupName: user.user_group)
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали

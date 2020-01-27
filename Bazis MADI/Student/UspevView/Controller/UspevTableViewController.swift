@@ -77,7 +77,7 @@ class UspevTableViewController: UITableViewController {
             UIView.animate(withDuration: 0.1) {
                 button.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
             }
-        }else {
+        } else {
             tableView.insertRows(at: indexPath, with: .fade)
             UIView.animate(withDuration: 0.1) {
                 button.imageView?.transform = .init(rotationAngle: CGFloat(0.0))
@@ -171,7 +171,7 @@ extension UspevTableViewController {
         titleButton.imageEdgeInsets = UIEdgeInsets(top:0, left: -20, bottom: 0, right: -40)
         titleButton.titleEdgeInsets = UIEdgeInsets(top:0, left: -40, bottom: 0, right: 0)
         titleButton.tintColor = SystemColor.whiteColor
-        titleButton.setTitle( "Семестр №\(section + 1)", for: .normal)
+        titleButton.setTitle( "Семестр № \(section + 1)", for: .normal)
         titleButton.tag = section
         titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
         titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)

@@ -92,16 +92,19 @@ class TableRaspisanieUIView: UIView {
         guard let typeWeak = raspisanieViewDataSource?.raraspisanieWeakNow(self) else { return }
         let dayliTitle = weakController.getDateWeek(week: weekInCalendar)
         
-        for i in 0...6 {
+        for i in 0...5 {
+            
+            let origrin = CGPoint(x: startX, y: 10.0)
             let dailyRaspisanie =
                 raspisanieViewDataSource?.raspisanieTableData(self, indexDay: i)
             if let day = dailyRaspisanie {
                 if let presetRaspisanie = weakController.getOnlyChangedDayType(dayRasp: day, typeWeak: typeWeak) {
-                    let origrin = CGPoint(x: startX, y: 10.0)
                     createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: presetRaspisanie, date: dayliTitle[i])
                 }
-                startX += self.frame.width - 40
+            } else {
+                createDayliView(startPoint: origrin, weakDay: i, daylyRaspisanie: nil, date: dayliTitle[i])
             }
+            startX += self.frame.width - 40
         }
         
         if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
@@ -120,12 +123,12 @@ class TableRaspisanieUIView: UIView {
     }
     
     //MARK: - создание view для отображения расписания в определенный день
-    private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie], date: String) {
+    private func createDayliView(startPoint: CGPoint, weakDay: Int, daylyRaspisanie: [DailyRaspisanie]?, date: String) {
         let sizeDayView = CGSize(width: self.frame.width - 60 , height: self.frame.height - 20)
         let frame = CGRect(origin: startPoint, size: sizeDayView)
         let view = DayRaspisUIView(frame: frame)
         view.createDayliView(dayWeak: weakDay, dayDate: date) // создание отобрвдения дня недели
-        view.createDayliRasp(daylyRasp: daylyRaspisanie) // создание расписания
+        view.createDayliRasp(daylyRaspisanie: daylyRaspisanie) // создание расписания
         scrollView.addSubview(view)
     }
     

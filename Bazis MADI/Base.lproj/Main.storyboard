@@ -618,9 +618,9 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyy-KT-RvC" customClass="MessegeButtonUIButton" customModule="Bazis_MADI" customModuleProvider="target">
                                                     <rect key="frame" x="131" y="65" width="178" height="36"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <accessibility key="accessibilityConfiguration" label="Написать"/>
-                                                    <state key="normal" title="   Написать"/>
+                                                    <state key="normal" title=" Написать"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
