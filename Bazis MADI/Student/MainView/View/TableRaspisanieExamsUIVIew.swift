@@ -69,8 +69,9 @@ class  TableRaspisanieExamsUIView: UIView {
     }
     
     private func showExamNotFound() {
-        notFoundtitle.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width - 40, height: 60)
-        notFoundtitle.center = self.center
+        print(self.frame.width)
+        notFoundtitle.frame = CGRect(x: 0, y: 30, width: self.frame.width, height: 60)
+        notFoundtitle.textAlignment = .center
         notFoundtitle.text = "В настояшее время расписание экзаменов не установленно"
         
         self.addSubview(notFoundtitle)

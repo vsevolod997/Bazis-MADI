@@ -107,7 +107,7 @@ extension UspevTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UspevTableViewCell
         cell.unameLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].disc
-        cell.typeLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].vid
+        cell.typeLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].vid + uspevList[indexPath.section].dataSem[indexPath.row].sem
         
         if let ocenka = uspevList[indexPath.section].dataSem[indexPath.row].ocenka {
             if ocenka == "+" {

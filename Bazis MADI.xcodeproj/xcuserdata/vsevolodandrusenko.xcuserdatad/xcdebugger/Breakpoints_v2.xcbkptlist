@@ -1324,8 +1324,8 @@
             filePath = "Bazis MADI/Student/UspevView/Model/UspevStructData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "modelToDataSem(uspevModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1334,7 +1334,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E1A325A2-90CC-4D2B-BFFB-EE16987E954B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"

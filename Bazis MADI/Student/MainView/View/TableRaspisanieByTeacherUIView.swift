@@ -84,10 +84,6 @@ class TableRaspisanieByTeacherUIView: UIView {
         }
     }
     
-    func showTeacherView(name: String ) {
-        
-    }
-    
     //MARK: - настройка скрол вью
     private func createBackground(count: Int) {
         scrollView.contentSize = CGSize(width: (self.frame.width/3 + 10) * CGFloat(count), height: self.frame.height)
