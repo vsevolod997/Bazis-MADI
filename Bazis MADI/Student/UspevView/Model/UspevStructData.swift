@@ -25,12 +25,10 @@ class UspevStructData {
         var uspevReturnData:[UspevStructData] = []
         
         let uspevDict = Dictionary(grouping: uspevModel, by: { $0.sem })
-        print(uspevDict)
         var resultDict = uspevDict.map { (key: String, value: [UspevModel]) in
             return (Int(key)! - 1, value)
         }
         resultDict = resultDict.sorted(by: {$0.0 < $1.0})
-        print(resultDict)
         
         var count: Int = 0
         for res in resultDict {

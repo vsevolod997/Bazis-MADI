@@ -10,11 +10,12 @@ import UIKit
 
 class UspevTableViewController: UITableViewController {
     
-    var uspevList:[UspevStructData] = []
+    var uspevListByObj:[UspevStructDataByObject] = []
+    var uspevListBySem:[UspevStructData] = []
     var cellList:[IndexPath] = []
     
-    
-    var isShow: Bool = true
+    //просмотр по семестрам или по предметам
+    var isSem: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,8 @@ class UspevTableViewController: UITableViewController {
             } else {
                 if let uspev = uspevModel {
                     DispatchQueue.main.async {
-                        self.uspevList = UspevStructData.modelToDataSem(uspevModel: uspev)
+                        self.uspevListByObj = UspevStructDataByObject.modelToDataSem(uspevModel: uspev)
+                        self.uspevListBySem = UspevStructData.modelToDataSem(uspevModel: uspev)
                         self.tableView.reloadData()
                     }
                 }
@@ -38,19 +40,46 @@ class UspevTableViewController: UITableViewController {
         }
     }
     
-    //MARK: - настройка внешнего вида таблицы
-    private func setupView() {
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
-        navigationController?.navigationBar.barTintColor = SystemColor.blueColor
-        self.title = "Успеваемость"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor ]
-        
-        let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
-        leftButton.tintColor = SystemColor.grayColor
-        self.navigationItem.leftBarButtonItem = leftButton
+    // изменение типа представления
+    @objc func selectSortedType(segment: UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            isSem = true
+        case 1:
+            isSem = false
+        default:
+            return
+        }
+        cellList = []
+        tableView.reloadData()
     }
     
+    @objc func searchBarButton() {
+        print("search")
+    }
+    
+    //MARK: - настройка внешнего вида таблицы
+    private func setupView() {
+        
+        let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."])
+        segmentControl.setWidth(100, forSegmentAt: 0)
+        segmentControl.setWidth(100, forSegmentAt: 1)
+        segmentControl.backgroundColor = SystemColor.whiteTextFill
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.selectedSegmentTintColor = SystemColor.blueColor
+        segmentControl.addTarget(self, action: #selector(selectSortedType(segment:)), for: .valueChanged)
+        
+        self.navigationItem.titleView = segmentControl
+        self.navigationItem.prompt = "Успеваемость"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
+
+        let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
+        leftButton.tintColor = SystemColor.whiteColor
+        self.navigationItem.leftBarButtonItem = leftButton
+    }
+    // MARK: - нажатие "назад"
     @objc func backButtonPress() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -63,15 +92,25 @@ class UspevTableViewController: UITableViewController {
         
         let section = button.tag
         var indexPath = [IndexPath]()
+        var isShow: Bool
         
-        for row in uspevList[section].dataSem.indices  {
-            let iPath = IndexPath(row: row, section: section)
-            indexPath.append(iPath)
+        if isSem{
+            for row in uspevListBySem[section].dataSem.indices  {
+                let iPath = IndexPath(row: row, section: section)
+                indexPath.append(iPath)
+            }
+            
+            isShow = uspevListBySem[section].isShow
+            uspevListBySem[section].isShow = !isShow
+        } else {
+            for row in uspevListByObj[section].semInfo.indices {
+                let iPath = IndexPath(row: row, section: section)
+                indexPath.append(iPath)
+            }
+            
+            isShow = uspevListByObj[section].isShow
+            uspevListByObj[section].isShow = !isShow
         }
-        
-        let isShow = uspevList[section].isShow
-        uspevList[section].isShow = !isShow
-        
         if isShow {
             tableView.deleteRows(at: indexPath, with: .fade)
             UIView.animate(withDuration: 0.1) {
@@ -83,7 +122,7 @@ class UspevTableViewController: UITableViewController {
                 button.imageView?.transform = .init(rotationAngle: CGFloat(0.0))
             }
         }
-        
+
     }
     
 }
@@ -91,98 +130,129 @@ class UspevTableViewController: UITableViewController {
 extension UspevTableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return uspevList.count
+        if isSem {
+            return uspevListBySem.count
+        } else {
+            return uspevListByObj.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if uspevList[section].isShow{
-            return uspevList[section].dataSem.count
+        if isSem {
+            if uspevListBySem[section].isShow{
+                return uspevListBySem[section].dataSem.count
+            } else {
+                return 0
+            }
         } else {
-            return 0
+            if uspevListByObj[section].isShow{
+                return uspevListByObj[section].semInfo.count
+            } else {
+                return 0
+            }
         }
-        
     }
     
+   //override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+   //    let offsetSize = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
+   //    let offset = scrollView.contentOffset.y + offsetSize
+   //
+   //    self.navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+   //}
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UspevTableViewCell
-        cell.unameLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].disc
-        cell.typeLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].vid + uspevList[indexPath.section].dataSem[indexPath.row].sem
-        
-        if let ocenka = uspevList[indexPath.section].dataSem[indexPath.row].ocenka {
-            if ocenka == "+" {
-                cell.markLabel.text = "Оценка: " + "Зачтено"
-            } else if ocenka == "" {
-                cell.markLabel.text = "Оценка: Нет"
-            } else {
-                cell.markLabel.text = "Оценка: " + ocenka
-            }
+        if isSem {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UspevTableViewCell
+            cell.data = uspevListBySem[indexPath.section].dataSem[indexPath.row]
+            
+            return cell
         } else {
-            cell.markLabel.text = "Оценка: Нет"
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellByObj", for: indexPath) as! UspevByObjTableViewCell
+            cell.data = uspevListByObj[indexPath.section].semInfo[indexPath.row]
+            
+            return cell
         }
-        
-        if let hour = uspevList[indexPath.section].dataSem[indexPath.row].hour {
-            if hour == "" {
-                cell.hourLabel.text = "Часы: -"
-            } else {
-                cell.hourLabel.text = "Часы: " + hour
-            }
-        } else {
-            cell.hourLabel.text = "Часы: -"
-        }
-        
-        if let date = uspevList[indexPath.section].dataSem[indexPath.row].date {
-            if date == "" {
-                cell.dateLabel.text = "Дата: -"
-            } else {
-                cell.dateLabel.text = "Дата: " + date
-            }
-        } else {
-            cell.dateLabel.text = "Дата: -"
-        }
-        
-        cell.teamLabel.text = uspevList[indexPath.section].dataSem[indexPath.row].tema
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if cellList.contains(indexPath) {
-            return 185
+        if isSem {
+            if cellList.contains(indexPath) {
+                return 152
+            } else {
+                return 105
+            }
         } else {
-            return 105
+            if cellList.contains(indexPath) {
+                return 105
+            } else {
+                return 55
+            }
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
-        view.backgroundColor = SystemColor.blueColor
-        
-        let titleButton = UIButton()
-        titleButton.frame = CGRect(x: 0, y: 0, width: 220, height: 30)
-        let textColor = SystemColor.whiteColor
-        titleButton.contentVerticalAlignment = .center
-        titleButton.contentHorizontalAlignment = .left
-        titleButton.setTitleColor(textColor, for: .normal)
-        titleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
-        titleButton.setImage(UIImage(named: "str")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        titleButton.imageView?.contentMode = .scaleAspectFit
-        titleButton.imageEdgeInsets = UIEdgeInsets(top:0, left: -20, bottom: 0, right: -40)
-        titleButton.titleEdgeInsets = UIEdgeInsets(top:0, left: -40, bottom: 0, right: 0)
-        titleButton.tintColor = SystemColor.whiteColor
-        titleButton.setTitle( "Семестр № \(section + 1)", for: .normal)
-        titleButton.tag = section
-        titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
-        titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
-        
-        view.addSubview(titleButton)
-        
-        return view
+        if isSem {
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
+            view.backgroundColor = SystemColor.blueColor
+            
+            let titleButton = UIButton()
+            titleButton.frame = CGRect(x: 0, y: 0, width: 220, height: 30)
+            let textColor = SystemColor.whiteColor
+            titleButton.contentVerticalAlignment = .center
+            titleButton.contentHorizontalAlignment = .left
+            titleButton.setTitleColor(textColor, for: .normal)
+            titleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+            titleButton.setImage(UIImage(named: "str")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            titleButton.imageView?.contentMode = .scaleAspectFit
+            titleButton.imageEdgeInsets = UIEdgeInsets(top:0, left: -20, bottom: 0, right: -40)
+            titleButton.titleEdgeInsets = UIEdgeInsets(top:0, left: -40, bottom: 0, right: 0)
+            titleButton.tintColor = SystemColor.whiteColor
+            titleButton.setTitle( "Семестр № \(section + 1)", for: .normal)
+            titleButton.tag = section
+            titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
+            titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
+            
+            view.addSubview(titleButton)
+            return view
+            
+        } else {
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+            view.backgroundColor = SystemColor.blueColor
+            
+            let titleButton = UIButton()
+            titleButton.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+            let textColor = SystemColor.whiteColor
+            titleButton.contentVerticalAlignment = .center
+            titleButton.contentHorizontalAlignment = .left
+            titleButton.setTitleColor(textColor, for: .normal)
+            titleButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+            titleButton.titleLabel?.numberOfLines = 2
+            titleButton.setImage(UIImage(named: "str")?.withRenderingMode(.alwaysTemplate), for: .normal)
+            titleButton.imageView?.contentMode = .scaleAspectFit
+            titleButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: -20, bottom: 10, right: -50)
+            titleButton.titleEdgeInsets = UIEdgeInsets(top:0, left: -40, bottom: 0, right: 0)
+            titleButton.tintColor = SystemColor.whiteColor
+            titleButton.setTitle(uspevListByObj[section].objectData , for: .normal)
+            titleButton.tag = section
+            titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
+            titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
+            
+            view.addSubview(titleButton)
+            return view
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        if isSem{
+            return 30
+        } else {
+            return 50
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -193,15 +263,17 @@ extension UspevTableViewController {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         view.backgroundColor = SystemColor.whiteTextFill
+        view.alpha = 0.8
         
         let button = UIButton()
-        button.frame = CGRect(x: 0, y: 10, width: self.view.frame.width , height: 50)
+        button.frame = CGRect(x: 0, y: 0, width: self.view.frame.width , height: 50)
         let textColor = SystemColor.blueTextColor
         button.contentVerticalAlignment = .center
         button.contentHorizontalAlignment = .center
         button.setTitleColor(textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
         button.setTitle( ". . .", for: .normal)
+        button.alpha = 0.8
         button.tag = section
         button.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
         
@@ -218,15 +290,24 @@ extension UspevTableViewController {
         if cellList.contains(indexPath) {
             cellList.remove(at: cellList.firstIndex(of: indexPath)!)
             tableView.reloadRows(at: [indexPath], with: .fade)
-            guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
-            
-            cell.showFull(isShow: false)
+            if isSem {
+                guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
+                cell.showFull(isShow: false)
+            } else {
+                guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
+                cell.showFull(isShow: false)
+            }
         } else {
             cellList.append(indexPath)
             tableView.reloadRows(at: [indexPath], with: .fade)
-            guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
+            if isSem{
+                guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
+                cell.showFull(isShow: true)
+            } else {
+                guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
+                cell.showFull(isShow: true)
+            }
             
-            cell.showFull(isShow: true)
         }
     }
 }

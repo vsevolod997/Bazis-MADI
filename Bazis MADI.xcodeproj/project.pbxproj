@@ -33,6 +33,8 @@
 		424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */; };
 		424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */; };
 		424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */; };
+		42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */; };
+		42524D5A23E4248400D9B97E /* UspevByObjTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524D5923E4248400D9B97E /* UspevByObjTableViewCell.swift */; };
 		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
 		425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FD2398E9E2001D26AA /* UserDataController.swift */; };
 		425468012398ED18001D26AA /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425468002398ED18001D26AA /* UserLoginData.swift */; };
@@ -96,6 +98,8 @@
 		424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableTeacerController.swift; sourceTree = "<group>"; };
 		424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title4LabelUILabel.swift; sourceTree = "<group>"; };
 		424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieExamModel.swift; sourceTree = "<group>"; };
+		42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructDataByObject.swift; sourceTree = "<group>"; };
+		42524D5923E4248400D9B97E /* UspevByObjTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevByObjTableViewCell.swift; sourceTree = "<group>"; };
 		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
 		425467FD2398E9E2001D26AA /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 		425468002398ED18001D26AA /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 			children = (
 				42B21D6323D75E9100E1EC17 /* UspevData.swift */,
 				42B7C86123DB505600BA320B /* UspevStructData.swift */,
+				42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */,
+				42524D5923E4248400D9B97E /* UspevByObjTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -603,10 +609,12 @@
 				424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
+				42524D5A23E4248400D9B97E /* UspevByObjTableViewCell.swift in Sources */,
 				42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
+				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,

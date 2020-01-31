@@ -1,29 +1,25 @@
 //
-//  UspevTableViewCell.swift
+//  UspevByObjTableViewCell.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 21.01.2020.
+//  Created by Всеволод Андрющенко on 31.01.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-//MARK: - ячейка отображения расписания
-class UspevTableViewCell: UITableViewCell {
+class UspevByObjTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var hourLabel: TitleT1WLabelUILabel!
-    @IBOutlet weak var dateLabel: TitleT1WLabelUILabel!
-    @IBOutlet weak var unameLabel: Title3LabelUILabel!
-    @IBOutlet weak var typeLabel: Title5LabelUILabel!
     @IBOutlet weak var markLabel: Title5LabelUILabel!
+    @IBOutlet weak var typeLabel: Title5LabelUILabel!
+    @IBOutlet weak var dateLabel: TitleT1WLabelUILabel!
+    @IBOutlet weak var hourLabel: TitleT1WLabelUILabel!
     
-    @IBOutlet weak var backgroundVIew: UIView!
-    @IBOutlet weak var viewTop: UIView!
-    @IBOutlet weak var viewBottom: UIView!
+    @IBOutlet weak var topView: UIView!
     
     var data: UspevModel! {
         didSet {
-            if let obj = data {
+           if let obj = data {
                 if let hour = obj.hour {
                     if hour != "" {
                         hourLabel.text = "Часы: " + hour
@@ -49,16 +45,13 @@ class UspevTableViewCell: UITableViewCell {
                         hourLabel.text = "Дата: -"
                     }
                 }
-                typeLabel.text = obj.vid
-                unameLabel.text = obj.disc
+                typeLabel.text = obj.vid  + " (сем. \(obj.sem))"
             }
         }
     }
-   
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundView?.backgroundColor = SystemColor.blueColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -67,9 +60,10 @@ class UspevTableViewCell: UITableViewCell {
     
     public func showFull(isShow: Bool) {
         if isShow {
-            viewTop.alpha = 0.0
+            topView.alpha = 0.0
         } else {
-            viewTop.alpha = 0.8
+            topView.alpha = 0.8
         }
     }
+
 }
