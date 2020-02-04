@@ -49,7 +49,7 @@ class UspevTableViewCell: UITableViewCell {
                         hourLabel.text = "Дата: -"
                     }
                 }
-                typeLabel.text = obj.vid
+                typeLabel.text = obj.vid + " (сем. \(obj.sem))"
                 unameLabel.text = obj.disc
             }
         }

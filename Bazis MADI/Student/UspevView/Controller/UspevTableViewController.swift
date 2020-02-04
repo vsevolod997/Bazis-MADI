@@ -324,7 +324,6 @@ extension UspevTableViewController {
 extension UspevTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(cellList)
         
         if isSearchResult {
             if cellList.contains(indexPath) {
@@ -366,6 +365,7 @@ extension UspevTableViewController {
     }
 }
 
+// MARK: - UISearchControllerDelegate
 extension UspevTableViewController: UISearchControllerDelegate {
     
     func presentSearchController(_ searchController: UISearchController) {
@@ -378,6 +378,7 @@ extension UspevTableViewController: UISearchControllerDelegate {
     }
 }
 
+// MARK: - UISearchResultUpdate
 extension UspevTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         cellList = []
