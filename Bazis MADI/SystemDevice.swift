@@ -12,7 +12,7 @@ import UIKit
 class SystemDevice {
     
     //MARK: - проверка на текущее уст во 
-    var isNormalDevice: Bool {
+    var isNormalDevice: Bool { // true - normal, false - нет 
         //print(UIDevice.current.modelName)
         if  UIDevice.current.modelName ==  "iPhone6,1" || UIDevice.current.modelName == "iPhone6,2" || UIDevice.current.modelName == "iPhone8,4" || UIDevice.current.modelName == "iPhone7,2" || UIDevice.current.modelName == "iPhone8,1" || UIDevice.current.modelName == "iPhone9,1" || UIDevice.current.modelName == "iPhone9,3" || UIDevice.current.modelName ==  "iPhone10,1" || UIDevice.current.modelName == "iPhone10,4" {
             return false

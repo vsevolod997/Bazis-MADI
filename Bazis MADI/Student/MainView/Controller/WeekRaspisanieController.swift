@@ -212,16 +212,14 @@ class WeekRaspisanieController {
             let dateNowStr = formatter.string(from: Date.today())
             
             if dateStr == dateNowStr {
-                if  UIDevice.current.modelName == "iPhone 5s" || UIDevice.current.modelName == "iPhone SE"  {
+                if  !SystemDevice().isNormalDevice  {
                     dateInString.append("Сегодня")
                 } else {
                     dateInString.append("Сегодня, " + dateStr)
-                    
                 }
             } else {
                 dateInString.append(dateStr)
             }
-            
         }
         
         return dateInString

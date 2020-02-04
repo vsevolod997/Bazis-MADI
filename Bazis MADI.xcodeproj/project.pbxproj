@@ -54,7 +54,7 @@
 		42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */; };
 		42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */; };
 		42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */; };
-		42B21D6423D75E9100E1EC17 /* UspevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6323D75E9100E1EC17 /* UspevData.swift */; };
+		42B21D6423D75E9100E1EC17 /* UspevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6323D75E9100E1EC17 /* UspevModel.swift */; };
 		42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */; };
 		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
@@ -119,7 +119,7 @@
 		42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title5LabelUILabel.swift; sourceTree = "<group>"; };
 		42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewController.swift; sourceTree = "<group>"; };
 		42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceUspev.swift; sourceTree = "<group>"; };
-		42B21D6323D75E9100E1EC17 /* UspevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevData.swift; sourceTree = "<group>"; };
+		42B21D6323D75E9100E1EC17 /* UspevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevModel.swift; sourceTree = "<group>"; };
 		42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewCell.swift; sourceTree = "<group>"; };
 		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 		42B21D5B23D608AF00E1EC17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42B21D6323D75E9100E1EC17 /* UspevData.swift */,
+				42B21D6323D75E9100E1EC17 /* UspevModel.swift */,
 				42B7C86123DB505600BA320B /* UspevStructData.swift */,
 				42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */,
 			);
@@ -622,7 +622,7 @@
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
-				42B21D6423D75E9100E1EC17 /* UspevData.swift in Sources */,
+				42B21D6423D75E9100E1EC17 /* UspevModel.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
 				42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */,

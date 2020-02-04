@@ -94,7 +94,7 @@ class MainTableViewController: UITableViewController {
     private func getExamRaspisanie(groupName:String) {
         HttpServiceRaspisanie.getRaspisanieExamData(groupName: groupName) { (error, examData) in
             if error != nil {
-                 print(error as! String)
+                self.raspisanieExamTable.setupTableExams()
             } else {
                 if let examRaspis = examData {
                     if let error = examRaspis.error{

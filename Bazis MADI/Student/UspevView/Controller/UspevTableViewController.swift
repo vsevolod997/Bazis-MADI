@@ -10,16 +10,24 @@ import UIKit
 
 class UspevTableViewController: UITableViewController {
     
-    var uspevListByObj:[UspevStructDataByObject] = []
-    var uspevListBySem:[UspevStructData] = []
-    var cellList:[IndexPath] = []
+    private var uspevListByObj:[UspevStructDataByObject] = []
+    private var uspevListBySem:[UspevStructData] = []
+    private var cellList:[IndexPath] = []
+    private var allMarkList:[UspevModel] = []
+    private var foundMarkList:[UspevModel] = []
+    
+    private let searchController = UISearchController() // строка поиска
     
     //просмотр по семестрам или по предметам
-    var isSem: Bool = true
+    private var isSem: Bool = true
+    private var isSearchResult: Bool {
+        guard let text = searchController.searchBar.text else { return true }
+        return !text.isEmpty && searchController.isActive
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupNavBar()
         setupDataUspev()
     }
     
@@ -30,6 +38,7 @@ class UspevTableViewController: UITableViewController {
                 
             } else {
                 if let uspev = uspevModel {
+                    self.allMarkList = uspev
                     DispatchQueue.main.async {
                         self.uspevListByObj = UspevStructDataByObject.modelToDataSem(uspevModel: uspev)
                         self.uspevListBySem = UspevStructData.modelToDataSem(uspevModel: uspev)
@@ -54,14 +63,10 @@ class UspevTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    @objc func searchBarButton() {
-        print("search")
-    }
-    
     //MARK: - настройка внешнего вида таблицы
-    private func setupView() {
+    private func setupNavBar() {
         
-        let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."])
+        let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."]) // тип отображения
         segmentControl.setWidth(100, forSegmentAt: 0)
         segmentControl.setWidth(100, forSegmentAt: 1)
         segmentControl.backgroundColor = SystemColor.whiteTextFill
@@ -69,8 +74,18 @@ class UspevTableViewController: UITableViewController {
         segmentControl.selectedSegmentTintColor = SystemColor.blueColor
         segmentControl.addTarget(self, action: #selector(selectSortedType(segment:)), for: .valueChanged)
         
-        self.navigationItem.titleView = segmentControl
-        self.navigationItem.prompt = "Успеваемость"
+        searchController.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Название предмета"
+        searchController.searchBar.setValue("Отмена", forKey: "cancelButtonText")
+        searchController.obscuresBackgroundDuringPresentation = false
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.redColor], for: .normal)
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        
+        navigationItem.titleView = segmentControl
+        navigationItem.prompt = "Успеваемость"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
@@ -94,7 +109,7 @@ class UspevTableViewController: UITableViewController {
         var indexPath = [IndexPath]()
         var isShow: Bool
         
-        if isSem{
+        if isSem {
             for row in uspevListBySem[section].dataSem.indices  {
                 let iPath = IndexPath(row: row, section: section)
                 indexPath.append(iPath)
@@ -130,66 +145,81 @@ class UspevTableViewController: UITableViewController {
 extension UspevTableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if isSem {
-            return uspevListBySem.count
+        if isSearchResult {
+            return 1
         } else {
-            return uspevListByObj.count
+            if isSem {
+                return uspevListBySem.count
+            } else {
+                return uspevListByObj.count
+            }
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isSem {
-            if uspevListBySem[section].isShow{
-                return uspevListBySem[section].dataSem.count
-            } else {
-                return 0
-            }
+        if isSearchResult {
+            return foundMarkList.count
         } else {
-            if uspevListByObj[section].isShow{
-                return uspevListByObj[section].semInfo.count
+            if isSem {
+                if uspevListBySem[section].isShow{
+                    return uspevListBySem[section].dataSem.count
+                } else {
+                    return 0
+                }
             } else {
-                return 0
+                if uspevListByObj[section].isShow{
+                    return uspevListByObj[section].semInfo.count
+                } else {
+                    return 0
+                }
             }
         }
     }
     
-   //override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-   //    let offsetSize = UIApplication.shared.windows.filter{$0.isKeyWindow}.first?.safeAreaInsets.top ?? 0
-   //    let offset = scrollView.contentOffset.y + offsetSize
-   //
-   //    self.navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
-   //}
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isSem {
+        if isSearchResult {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UspevTableViewCell
-            cell.data = uspevListBySem[indexPath.section].dataSem[indexPath.row]
+            cell.data = foundMarkList[indexPath.row]
             
             return cell
         } else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellByObj", for: indexPath) as! UspevByObjTableViewCell
-            cell.data = uspevListByObj[indexPath.section].semInfo[indexPath.row]
-            
-            return cell
+            if isSem {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UspevTableViewCell
+                cell.data = uspevListBySem[indexPath.section].dataSem[indexPath.row]
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cellByObj", for: indexPath) as! UspevByObjTableViewCell
+                cell.data = uspevListByObj[indexPath.section].semInfo[indexPath.row]
+                
+                return cell
+            }
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if isSem {
-            if cellList.contains(indexPath) {
+        if isSearchResult {
+           if cellList.contains(indexPath) {
                 return 152
             } else {
                 return 105
             }
         } else {
-            if cellList.contains(indexPath) {
-                return 105
+            if isSem {
+                if cellList.contains(indexPath) {
+                    return 152
+                } else {
+                    return 105
+                }
             } else {
-                return 55
+                if cellList.contains(indexPath) {
+                    return 105
+                } else {
+                    return 55
+                }
             }
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -248,15 +278,23 @@ extension UspevTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if isSem{
-            return 30
+        if isSearchResult {
+            return 0
         } else {
-            return 50
+            if isSem{
+                return 30
+            } else {
+                return 50
+            }
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50
+        if isSearchResult {
+            return 0
+        } else {
+            return 50
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -286,28 +324,72 @@ extension UspevTableViewController {
 extension UspevTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(cellList)
         
-        if cellList.contains(indexPath) {
-            cellList.remove(at: cellList.firstIndex(of: indexPath)!)
-            tableView.reloadRows(at: [indexPath], with: .fade)
-            if isSem {
+        if isSearchResult {
+            if cellList.contains(indexPath) {
+                cellList.remove(at: cellList.firstIndex(of: indexPath)!)
+                tableView.reloadRows(at: [indexPath], with: .fade)
                 guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
                 cell.showFull(isShow: false)
             } else {
-                guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
-                cell.showFull(isShow: false)
-            }
-        } else {
-            cellList.append(indexPath)
-            tableView.reloadRows(at: [indexPath], with: .fade)
-            if isSem{
+                cellList.append(indexPath)
+                tableView.reloadRows(at: [indexPath], with: .fade)
                 guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
-                cell.showFull(isShow: true)
-            } else {
-                guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
                 cell.showFull(isShow: true)
             }
             
+        } else {
+            if cellList.contains(indexPath) {
+                cellList.remove(at: cellList.firstIndex(of: indexPath)!)
+                tableView.reloadRows(at: [indexPath], with: .fade)
+                if isSem {
+                    guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
+                    cell.showFull(isShow: false)
+                } else {
+                    guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
+                    cell.showFull(isShow: false)
+                }
+            } else {
+                cellList.append(indexPath)
+                tableView.reloadRows(at: [indexPath], with: .fade)
+                if isSem{
+                    guard let cell = tableView.cellForRow(at: indexPath) as? UspevTableViewCell else { return }
+                    cell.showFull(isShow: true)
+                } else {
+                    guard let cell = tableView.cellForRow(at: indexPath) as? UspevByObjTableViewCell else { return }
+                    cell.showFull(isShow: true)
+                }
+                
+            }
         }
     }
 }
+
+extension UspevTableViewController: UISearchControllerDelegate {
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        cellList = []
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        cellList = []
+        tableView.reloadData()
+    }
+}
+
+extension UspevTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        cellList = []
+        filterData(searchText: searchController.searchBar.text!)
+        tableView.reloadData()
+    }
+    
+    private func filterData(searchText: String) {
+        foundMarkList = allMarkList.filter({ (uspev: UspevModel) -> Bool in
+            return uspev.disc.lowercased().contains(searchText.lowercased())
+        })
+    }
+}
+
+
