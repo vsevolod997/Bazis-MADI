@@ -15,8 +15,11 @@ class MainTableTeacherViewController: UITableViewController {
     @IBOutlet weak var changedView: UISegmentedControl!
     @IBOutlet weak var dataControl: UIPageControl!
     
+    private let notificationReload = Notification.Name("reloadData")
+    
     let userLogin = UserDataController()
     var closeVC: CloseViewUIView! //окно для закрывания загрузки
+    var errorVC: ErrorViewUIView!
     let homeController = HomeTableViewController()
     let weakRaspisanie = WeekRaspisanieController()
     
@@ -46,8 +49,14 @@ class MainTableTeacherViewController: UITableViewController {
                     if let user = model { // !получили\\ заролнили поля пользователя
                         self.raspisanieSet(teacherName: user.user_fio)
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
-                        DispatchQueue.main.async {
-                            self.showLoginView()
+                        if modelErr != nil {
+                            DispatchQueue.main.async {
+                                self.showLoginView()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showErrorView()
+                            }
                         }
                     }
                 }
@@ -59,7 +68,6 @@ class MainTableTeacherViewController: UITableViewController {
     private func raspisanieSet(teacherName: String) {
         let dataTeacher = teacherName.split(separator: " ")
         let bufStrTeacer = String(dataTeacher[0]) + " " + String(dataTeacher[1].first!) + "." + String(dataTeacher[2].first!) + "."
-        print(bufStrTeacer)
         HttpServiceRaspisanieTeacher.getRaspisData(teacherName: bufStrTeacer) { (error, raspisanie) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -100,6 +108,17 @@ class MainTableTeacherViewController: UITableViewController {
                 self.changedView.selectedSegmentIndex = 1
                 self.raspisanieTable.setupView(weekInCalendar: .now)
             }
+        }
+    }
+    
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
         }
     }
     

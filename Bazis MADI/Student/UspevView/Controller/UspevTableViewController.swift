@@ -62,8 +62,8 @@ class UspevTableViewController: UITableViewController {
         cellList = []
         tableView.reloadData()
     }
-    
-    //MARK: - настройка внешнего вида таблицы
+        
+    //MARK: - настройка внешнего вида navBar
     private func setupNavBar() {
         
         let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."]) // тип отображения
@@ -76,13 +76,20 @@ class UspevTableViewController: UITableViewController {
         
         searchController.delegate = self
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Название предмета"
+        searchController.searchBar.placeholder = "Поиск..."
         searchController.searchBar.setValue("Отмена", forKey: "cancelButtonText")
         searchController.obscuresBackgroundDuringPresentation = false
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.redColor], for: .normal)
+        let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+        if let field = searchField {
+            field.backgroundColor = .systemGroupedBackground
+            field.layer.cornerRadius = 15.0
+            //field.textColor = SystemColor.whiteColor
+            field.tintColor = SystemColor.blueColor
+        }
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
         
         navigationItem.titleView = segmentControl
         navigationItem.prompt = "Успеваемость"
@@ -94,6 +101,9 @@ class UspevTableViewController: UITableViewController {
         leftButton.tintColor = SystemColor.whiteColor
         self.navigationItem.leftBarButtonItem = leftButton
     }
+    
+    
+    
     // MARK: - нажатие "назад"
     @objc func backButtonPress() {
         self.navigationController?.popViewController(animated: true)

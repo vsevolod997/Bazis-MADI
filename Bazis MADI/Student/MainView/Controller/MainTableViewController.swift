@@ -17,14 +17,17 @@ class MainTableViewController: UITableViewController {
     @IBOutlet weak var changedView: UISegmentedControl!
     @IBOutlet weak var dataControl: UIPageControl!
     
-    let userLogin = UserDataController()
-    var closeVC: CloseViewUIView! //окно для закрывания загрузки
-    let homeController = HomeTableViewController()
-    let weakRaspisanie = WeekRaspisanieController()
+    private let userLogin = UserDataController()
+    private var closeVC: CloseViewUIView! //окно для закрывания загрузки
+    private var errorVC: ErrorViewUIView!
+    private let homeController = HomeTableViewController()
+    private let weakRaspisanie = WeekRaspisanieController()
     
-    var examRaspisanie: RaspisanieExamModel!
-    var allRaspisanie: RaspisanieModel!
-    var isWeekNow: Bool = true
+    private var examRaspisanie: RaspisanieExamModel!
+    private var allRaspisanie: RaspisanieModel!
+    private var isWeekNow: Bool = true
+    
+    private var notificationReload = Notification.Name("reloadData")
     
     
     override func viewDidLoad() {
@@ -39,25 +42,40 @@ class MainTableViewController: UITableViewController {
         
         setupView()
         getUserData()
+        addNotificationCenter()
+    }
+    
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        getUserData()
     }
     
     //MARK: - Обработка получения расписания
     private func getUserData() {
-        self.showVC()
+        self.showCloseView()
         if let user = UserLogin.userNow.user {
-            print(user)
             getUserRaspisanie(groupName: user.user_group)
             getExamRaspisanie(groupName: user.user_group)
         } else {// иначе показали окно загрузки загрузку,
             if let user = userLogin.getUserData() {
                 HttpService.getUserAccount(login: user.login, password: user.password) { (err, model, modelErr) in // пробуем получили данные по текущему log pas
                     if let user = model { // !получили\\ заролнили поля пользователя
-                        print(user)
                         self.getUserRaspisanie(groupName: user.user_group)
                         self.getExamRaspisanie(groupName: user.user_group)
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
-                        DispatchQueue.main.async {
-                            self.showLoginView()
+                        if modelErr != nil {
+                            DispatchQueue.main.async {
+                                self.showLoginView()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showErrorView()
+                            }
                         }
                     }
                 }
@@ -81,7 +99,9 @@ class MainTableViewController: UITableViewController {
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
                                 self.raspisanieByTeacher.setupDataView()
                                 
-                                self.removeVC()
+                                self.removeErrorView()
+                                self.removeCloseView()
+                                
                             }
                             self.selectWeakType(raspisanieData: raspis)
                         }
@@ -127,13 +147,26 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-    private func showVC() {
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
+    }
+    
+    private func showCloseView() {
         closeVC = CloseViewUIView(frame: self.view.frame)
         view.addSubview(closeVC)
     }
     
-    private func removeVC() {
-        closeVC.removeFromSuperview()
+    private func removeCloseView() {
+        if closeVC != nil {
+            closeVC.removeFromSuperview()
+        }
     }
     
     //MARK: - Настройки окна
@@ -161,13 +194,11 @@ class MainTableViewController: UITableViewController {
     //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
         isWeekNow = !isWeekNow
-        
         if isWeekNow {
             raspisanieTable.setupView(weekInCalendar: .now)
         } else {
             raspisanieTable.setupView(weekInCalendar: .next)
         }
-        
         let weekday = weakRaspisanie.getToday()
         
         dataControl.currentPage = weekday
@@ -308,7 +339,6 @@ extension MainTableViewController {
             
             let allButton = UIButton(type: .system)
             allButton.setTitle("Все", for: .normal)
-            //allButton.titleLabel?.font = .systemFont(ofSize: 20)
             allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 40, height: 30)
             view.addSubview(allButton)
             allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)

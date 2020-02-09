@@ -108,8 +108,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
             }
             
             if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
-                //print(day)
-                //print(dayCount)
+                
                 if day > dayCount {
                    dayNow = dayCount - 1
                 } else if dayCount == 1 {

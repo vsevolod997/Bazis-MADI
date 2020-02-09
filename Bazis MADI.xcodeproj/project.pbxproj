@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4209120323BE58A4005307F5 /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4209120223BE58A4005307F5 /* Teacher.storyboard */; };
+		420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */; };
 		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
 		4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */; };
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		4209120223BE58A4005307F5 /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
+		420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewUIView.swift; sourceTree = "<group>"; };
 		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
 		4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRaspisanieController.swift; sourceTree = "<group>"; };
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +225,6 @@
 		424DE36C23C6460700389B53 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +232,7 @@
 		424DE36D23C6461300389B53 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 				4248818823CA19AC003BB98F /* UserTitleUILabel.swift */,
 				42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */,
 				42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */,
+				420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
 				42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */,
+				420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */,
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
 				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,

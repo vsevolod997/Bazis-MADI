@@ -15,14 +15,26 @@ class HomeTableViewController: UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var grupLabel: Title2LabelUILabel!
     
-    let userLogin = UserDataController()
-    var closeVC: CloseViewUIView!
+    private let userLogin = UserDataController()
+    private var closeVC: CloseViewUIView! //   окно ожидания загрузки
+    private var errorVC: ErrorViewUIView! //   окно перезагрузки данных
+    
+    private let notificationReload = Notification.Name("reloadData")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addNotificationCenter()
         setData()
         setupView()
+    }
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        setData()
     }
     
     //MARK: - настройки окна стартовые
@@ -55,11 +67,18 @@ class HomeTableViewController: UITableViewController {
                             let data = user.user_fio.split(separator: " ")
                             self.userLabel.text = String(data[0].first!) + "" + String(data[1].first!)
                             self.removeVC()
+                            self.removeErrorView()
                         }
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
-                        DispatchQueue.main.async {
-                            self.removeVC()
-                            self.showLoginView()
+                        if modelErr != nil {
+                            DispatchQueue.main.async {
+                                self.removeVC()
+                                self.showLoginView()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showErrorView()
+                            }
                         }
                     }
                 }
@@ -73,9 +92,22 @@ class HomeTableViewController: UITableViewController {
     }
     
     private func removeVC() {
-        closeVC.removeFromSuperview()
+        if closeVC != nil {
+            closeVC.removeFromSuperview()
+        }
     }
     
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
+    }
+        
     //MARK: - setup Table View
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = UIView()
@@ -85,7 +117,7 @@ class HomeTableViewController: UITableViewController {
         
         return sectionView
     }
-
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 25
     }

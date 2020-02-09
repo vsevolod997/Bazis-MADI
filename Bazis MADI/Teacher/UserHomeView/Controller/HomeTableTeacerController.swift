@@ -14,15 +14,30 @@ class HomeTableTeacerController: UITableViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var typeLabel: Title2LabelUILabel!
     
-    let userLogin = UserDataController()
-    var closeVC: CloseViewUIView!
+    private let userLogin = UserDataController()
+    private var closeVC: CloseViewUIView!
+    private var errorVC: ErrorViewUIView!
+    
+    private let notificationReload = Notification.Name("reloadData")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setData()
         setupView()
+        addNotificationCenter()
     }
+    
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        setData()
+    }
+    
     
     //MARK: - настройки окна стартовые
     private func setupView() {
@@ -56,9 +71,15 @@ class HomeTableTeacerController: UITableViewController {
                             self.removeVC()
                         }
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
-                        DispatchQueue.main.async {
-                            self.removeVC()
-                            self.showLoginView()
+                        if modelErr != nil {
+                            DispatchQueue.main.async {
+                                self.removeVC()
+                                self.showLoginView()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showErrorView()
+                            }
                         }
                     }
                 }
@@ -74,6 +95,19 @@ class HomeTableTeacerController: UITableViewController {
     private func removeVC() {
         closeVC.removeFromSuperview()
     }
+    
+    
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
+    }
+    
     
     //MARK: - setup Table View
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
