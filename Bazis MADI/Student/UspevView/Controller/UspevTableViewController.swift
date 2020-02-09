@@ -16,6 +16,8 @@ class UspevTableViewController: UITableViewController {
     private var allMarkList:[UspevModel] = []
     private var foundMarkList:[UspevModel] = []
     
+    private var sectionsButtons: [UIButton] = []
+    
     private let searchController = UISearchController() // строка поиска
     
     //просмотр по семестрам или по предметам
@@ -60,6 +62,7 @@ class UspevTableViewController: UITableViewController {
             return
         }
         cellList = []
+        sectionsButtons = []
         tableView.reloadData()
     }
         
@@ -79,6 +82,8 @@ class UspevTableViewController: UITableViewController {
         searchController.searchBar.placeholder = "Поиск..."
         searchController.searchBar.setValue("Отмена", forKey: "cancelButtonText")
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.automaticallyShowsScopeBar = true
+        searchController.hidesNavigationBarDuringPresentation = false
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.redColor], for: .normal)
         let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
         if let field = searchField {
@@ -102,8 +107,6 @@ class UspevTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = leftButton
     }
     
-    
-    
     // MARK: - нажатие "назад"
     @objc func backButtonPress() {
         self.navigationController?.popViewController(animated: true)
@@ -118,6 +121,8 @@ class UspevTableViewController: UITableViewController {
         let section = button.tag
         var indexPath = [IndexPath]()
         var isShow: Bool
+        
+        let button = sectionsButtons[section] // кнопка по индексу 
         
         if isSem {
             for row in uspevListBySem[section].dataSem.indices  {
@@ -256,6 +261,7 @@ extension UspevTableViewController {
             titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
             titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
             
+            sectionsButtons.append(titleButton)
             view.addSubview(titleButton)
             return view
             
@@ -282,6 +288,7 @@ extension UspevTableViewController {
             titleButton.imageView?.transform = .init(rotationAngle: CGFloat(Double.pi))
             titleButton.addTarget(self, action: #selector(sectionsState(_:)), for: .touchUpInside)
             
+            sectionsButtons.append(titleButton)
             view.addSubview(titleButton)
             return view
         }
@@ -380,11 +387,15 @@ extension UspevTableViewController: UISearchControllerDelegate {
     
     func presentSearchController(_ searchController: UISearchController) {
         cellList = []
+        sectionsButtons = []
+        navigationItem.titleView?.transform = .init(translationX: 0, y: -50)
     }
     
     func didDismissSearchController(_ searchController: UISearchController) {
         cellList = []
+        sectionsButtons = []
         tableView.reloadData()
+        navigationItem.titleView?.transform = .init(translationX: 0, y: 50)
     }
 }
 

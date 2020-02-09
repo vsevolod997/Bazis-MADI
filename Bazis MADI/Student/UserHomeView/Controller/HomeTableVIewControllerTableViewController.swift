@@ -77,6 +77,7 @@ class HomeTableViewController: UITableViewController {
                             }
                         } else {
                             DispatchQueue.main.async {
+                                self.removeVC()
                                 self.showErrorView()
                             }
                         }

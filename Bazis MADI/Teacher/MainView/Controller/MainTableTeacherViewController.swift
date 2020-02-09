@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainTableTeacherViewController: UITableViewController {
     
@@ -51,10 +52,12 @@ class MainTableTeacherViewController: UITableViewController {
                     } else { // !не получили \\выкинули на экран логина если log, pas не совпали
                         if modelErr != nil {
                             DispatchQueue.main.async {
+                                self.removeVC()
                                 self.showLoginView()
                             }
                         } else {
                             DispatchQueue.main.async {
+                                self.removeVC()
                                 self.showErrorView()
                             }
                         }
@@ -165,6 +168,10 @@ class MainTableTeacherViewController: UITableViewController {
     
     //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
+        
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred()
+        
         isWeekNow = !isWeekNow
         
         if isWeekNow {

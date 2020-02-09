@@ -78,6 +78,7 @@ class HomeTableTeacerController: UITableViewController {
                             }
                         } else {
                             DispatchQueue.main.async {
+                                self.removeVC()
                                 self.showErrorView()
                             }
                         }
@@ -129,7 +130,6 @@ class HomeTableTeacerController: UITableViewController {
     
     //MARK: - нажатие на таблицу
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row, indexPath.section)
         if indexPath.row == 0 && indexPath.section == 3 {
             exitUserButton()
         }

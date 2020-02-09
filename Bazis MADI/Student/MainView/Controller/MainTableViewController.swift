@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 //MARK: - главная страница
 class MainTableViewController: UITableViewController {
 
@@ -74,6 +76,7 @@ class MainTableViewController: UITableViewController {
                             }
                         } else {
                             DispatchQueue.main.async {
+                                self.removeCloseView()
                                 self.showErrorView()
                             }
                         }
@@ -193,6 +196,9 @@ class MainTableViewController: UITableViewController {
     
     //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
+        let generator = UIImpactFeedbackGenerator(style: .rigid)
+        generator.impactOccurred()
+        
         isWeekNow = !isWeekNow
         if isWeekNow {
             raspisanieTable.setupView(weekInCalendar: .now)
