@@ -18,16 +18,16 @@ class MainTableTeacherViewController: UITableViewController {
     
     private let notificationReload = Notification.Name("reloadData")
     
-    let userLogin = UserDataController()
-    var closeVC: CloseViewUIView! //окно для закрывания загрузки
-    var errorVC: ErrorViewUIView!
-    let homeController = HomeTableViewController()
-    let weakRaspisanie = WeekRaspisanieController()
+    private let userLogin = UserDataController()
+    private var closeVC: CloseViewUIView! //окно для закрывания загрузки
+    private var errorVC: ErrorViewUIView!
+    private let homeController = HomeTableViewController()
+    private let weakRaspisanie = WeekRaspisanieController()
     
-    var allRaspisanie: RaspisanieModelTeacher!
-    var isWeekNow: Bool = true
+    private var allRaspisanie: RaspisanieModelTeacher!
+    private var isWeekNow: Bool = true
     
-    var dayCount: Int = 0
+    private var dayCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,17 @@ class MainTableTeacherViewController: UITableViewController {
         
         raspisanieTable.delegate = self
         setupView()
+        getDataRaspisanie()
+    }
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        removeVC()
+        removeErrorView()
         getDataRaspisanie()
     }
     

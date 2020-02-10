@@ -54,6 +54,8 @@ class MainTableViewController: UITableViewController {
     
     //notification
     @objc func onNotification(notification: Notification) {
+        removeCloseView()
+        removeErrorView()
         getUserData()
     }
     

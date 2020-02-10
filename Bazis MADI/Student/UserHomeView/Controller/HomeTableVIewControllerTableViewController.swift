@@ -34,6 +34,8 @@ class HomeTableViewController: UITableViewController {
     
     //notification
     @objc func onNotification(notification: Notification) {
+        removeVC()
+        removeErrorView()
         setData()
     }
     
