@@ -9,7 +9,7 @@
 import UIKit
 
 class InputButton1UIButton: UIButton {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -29,7 +29,7 @@ class InputButton1UIButton: UIButton {
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         backgroundColor = SystemColor.grayColor
-        layer.cornerRadius = 17
+        layer.cornerRadius = 15
         alpha = 0.9
     }
     
@@ -45,7 +45,19 @@ class InputButton1UIButton: UIButton {
         }
     }
     
-   public func clickError() {
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                backgroundColor = SystemColor.grayColor
+                alpha = 0.9
+            } else {
+                alpha = 0.6
+                backgroundColor = SystemColor.redColor
+            }
+        }
+    }
+    
+    public func clickError() {
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2
@@ -57,6 +69,6 @@ class InputButton1UIButton: UIButton {
         shake.fromValue = fromValue
         layer.add(shake, forKey: "position")
     }
-
-
+    
+    
 }

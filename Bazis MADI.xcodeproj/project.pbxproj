@@ -11,6 +11,7 @@
 		420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */; };
 		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
 		4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */; };
+		4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241407F23F13BD700408F9B /* HTTPServicePasswordChanged.swift */; };
 		424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525CF238ED431008C5EBD /* AppDelegate.swift */; };
 		424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D1238ED431008C5EBD /* SceneDelegate.swift */; };
 		424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424525D3238ED431008C5EBD /* LoginViewController.swift */; };
@@ -75,6 +76,7 @@
 		420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewUIView.swift; sourceTree = "<group>"; };
 		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
 		4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRaspisanieController.swift; sourceTree = "<group>"; };
+		4241407F23F13BD700408F9B /* HTTPServicePasswordChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServicePasswordChanged.swift; sourceTree = "<group>"; };
 		424525CC238ED431008C5EBD /* Bazis MADI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bazis MADI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		424525CF238ED431008C5EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424525D1238ED431008C5EBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 				42CDC02923BB99B800A86A42 /* UserHomeView */,
 			);
 			path = Student;
+			sourceTree = "<group>";
+		};
+		4241407E23F13B6C00408F9B /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				4241407F23F13BD700408F9B /* HTTPServicePasswordChanged.swift */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 		424525C3238ED431008C5EBD = {
@@ -523,6 +533,7 @@
 		42CDC03023BB9A4B00A86A42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4241407E23F13B6C00408F9B /* HTTPService */,
 				42453974239BED7200126ED6 /* PasswordChangeController.swift */,
 			);
 			path = Controller;
@@ -622,6 +633,7 @@
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
+				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,

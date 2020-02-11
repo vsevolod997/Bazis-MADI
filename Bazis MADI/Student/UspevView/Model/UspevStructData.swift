@@ -11,13 +11,15 @@ import Foundation
 //MARK: - класс для более удоьного отображения данных
 class UspevStructData {
     var isShow: Bool
+    var sredMark: Double
     var sem: Int
     var dataSem: [UspevModel]
     
-    init (sem: Int, dataSem: [UspevModel]) {
+    init (sem: Int, sredMark: Double, dataSem: [UspevModel]) {
         self.sem = sem
         self.isShow = false
         self.dataSem = dataSem
+        self.sredMark = sredMark
     }
     
     //MARK:- функция конвертации полученных данных (UspevModel) в UspevStructData
@@ -30,9 +32,22 @@ class UspevStructData {
         }
         resultDict = resultDict.sorted(by: {$0.0 < $1.0})
         
+    
         var count: Int = 0
         for res in resultDict {
-            let results = UspevStructData(sem: count, dataSem: res.1.sorted(by: {$0.vid > $1.vid}) )
+            
+            var sumMark: Double = 0.0
+            var countSum: Double = 0.0
+
+            for obj in res.1 {
+                if let mark = Double(obj.ocenka ?? "") {
+                    sumMark += mark
+                    countSum += 1
+                }
+            }
+            let sredMark = sumMark / countSum
+            
+            let results = UspevStructData(sem: count, sredMark: Double(sredMark), dataSem: res.1.sorted(by: {$0.vid > $1.vid}) )
             uspevReturnData.append(results)
             count += 1
         }

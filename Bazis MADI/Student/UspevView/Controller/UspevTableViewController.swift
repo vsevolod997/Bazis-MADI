@@ -263,6 +263,13 @@ extension UspevTableViewController {
             
             sectionsButtons.append(titleButton)
             view.addSubview(titleButton)
+            
+            let sbTitle = TitleT1WLabelUILabel()
+            let sb = String(format: "%.2f",uspevListBySem[section].sredMark)
+            sbTitle.text = "сред: \(sb)"
+                sbTitle.frame = CGRect(x: self.view.frame.width - 100, y: 0, width: 90, height: 30)
+            view.addSubview(sbTitle)
+            
             return view
             
         } else {

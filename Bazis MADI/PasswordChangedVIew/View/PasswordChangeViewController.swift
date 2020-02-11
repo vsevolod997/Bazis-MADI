@@ -14,7 +14,11 @@ class PasswordChangeViewController: UIViewController {
     @IBOutlet weak var newPswTextField: LoginTextFieldUITextField!
     @IBOutlet weak var conformNewPswTextField: LoginTextFieldUITextField!
     @IBOutlet weak var errorMessLabel: ErrorLabel!
+    @IBOutlet weak var changedPswButton: InputButton1UIButton!
     
+    @IBOutlet weak var imgOld: UIImageView!
+    @IBOutlet weak var imgConform: UIImageView!
+    @IBOutlet weak var imgNew: UIImageView!
     let controller = PasswordChangeController()
     
     override func viewDidLoad() {
@@ -24,16 +28,22 @@ class PasswordChangeViewController: UIViewController {
         setupView()
     }
     
+    //MARK: - настройка вешнего вида
     private func setupView() {
+        
+        changedPswButton.isEnabled = false
         let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
         self.navigationItem.leftBarButtonItem = leftButton
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
-        view.addGestureRecognizer(tap)
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+    }
+    
+    //MARK: - жесты
+    private func addGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
+        view.addGestureRecognizer(tap)
     }
     
     @objc func backButtonPress() {
@@ -48,7 +58,7 @@ class PasswordChangeViewController: UIViewController {
         let oldPas = oldPswTextField.text!
         let newPas = newPswTextField.text!
         let conformPas = conformNewPswTextField.text!
-        controller.changePassword(oldPass: oldPas, newPassword: newPas, conformPass: conformPas)
+        controller.changePassword(oldPass: oldPas, newPass: newPas, conformPass: conformPas)
     }
 }
 
@@ -69,6 +79,14 @@ extension PasswordChangeViewController: UITextFieldDelegate {
         }
     }
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let oldPas = oldPswTextField.text!
+        let newPas = newPswTextField.text!
+        let conformPas = conformNewPswTextField.text!
+        print(oldPas, newPas, conformPas)
+        controller.controllPasswordField(oldPass: oldPas, newPass: newPas, conformPass: conformPas)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
@@ -76,10 +94,42 @@ extension PasswordChangeViewController: UITextFieldDelegate {
 }
 
 extension PasswordChangeViewController: PasswordChangeViewProtocol {
+    func presentStatusPswTextField(_ controller: PasswordChangeController, isPswOld: Bool?, isPswNew: Bool?, isPswConform: Bool?, isEnabletButton: Bool) {
+        
+        if let old = isPswOld {
+            if old {
+                imgOld.image = UIImage(named: "okPsw")
+            } else {
+                imgOld.image = UIImage(named: "errPsw")
+            }
+        } else {
+            imgOld.image = UIImage(named: "noPsw")
+        }
+        if let new = isPswNew {
+            if new {
+                 imgNew.image = UIImage(named: "okPsw")
+            } else {
+                 imgNew.image = UIImage(named: "errPsw")
+            }
+        } else {
+            imgNew.image = UIImage(named: "noPsw")
+        }
+        if let conform = isPswConform {
+            if conform {
+                imgConform.image = UIImage(named: "okPsw")
+            } else {
+                imgConform.image = UIImage(named: "errPsw")
+            }
+        } else {
+            imgConform.image = UIImage(named: "noPsw")
+        }
+        
+        changedPswButton.isEnabled = isEnabletButton
+    }
+    
     
     func showError(_ controller: PasswordChangeController, error: String) {
         errorMessLabel.text = error
-        print(error)
     }
     
     func dismisController(_ controller: PasswordChangeController) {
