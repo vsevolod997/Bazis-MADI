@@ -67,6 +67,7 @@
 		42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */; };
 		42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */; };
 		42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF923C758AF0077DE0C /* ExamUIView.swift */; };
+		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
 		42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */; };
 		42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FC7B2C23CDC57800855FAD /* RspByGroupUIVIew.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieExamsUIVIew.swift; sourceTree = "<group>"; };
 		42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleT1WLabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF923C758AF0077DE0C /* ExamUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamUIView.swift; sourceTree = "<group>"; };
+		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
 		42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieByGroupUIView.swift; sourceTree = "<group>"; };
 		42FC7B2C23CDC57800855FAD /* RspByGroupUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RspByGroupUIVIew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -518,6 +520,7 @@
 		42CDC02E23BB9A3C00A86A42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42DEC2E823FA80C70026425A /* NewPassModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */,
 				42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
+				42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
 				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
 				42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */,

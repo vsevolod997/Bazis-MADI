@@ -31,6 +31,11 @@ class UserDataController {
             return nil
         }
     }
+    
+    func setNewPassword(newPassword: String) {
+        defaults.removeObject(forKey: "password")
+        defaults.set(newPassword, forKey: "password")
+    }
 
     func clearUserData() {
         defaults.removeObject(forKey: "login")

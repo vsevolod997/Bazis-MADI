@@ -11,7 +11,7 @@ import Foundation
 protocol PasswordChangeViewProtocol {
     // MARK: - ошибка смены пароля
     func showError(_ controller: PasswordChangeController, error: String)
-    // MARK: - показать
+    // MARK: - пароль успешно изменен, скрытие окна смены пароля
     func dismisController(_ controller: PasswordChangeController)
     //MARK: - отображение "статуса введенных данных"
     func presentStatusPswTextField(_ controller: PasswordChangeController, isPswOld: Bool?, isPswNew: Bool?, isPswConform: Bool?, isEnabletButton: Bool)
@@ -26,33 +26,24 @@ class PasswordChangeController {
     func changePassword(oldPass: String, newPass: String, conformPass: String) {
         
         let userData = UserDataController()
-        if let pswNow = userData.getUserData() {
-            if oldPass != pswNow.password {
-                presentError(mess: "Введен неверный пароль.")
-                return
-            }
+        guard let user = userData.getUserData() else { return }
+        
+        
+        if oldPass != user.password {
+            presentError(mess: "Текущий пароль введен не верно")
+            return
         }
-        if newPass != conformPass{
-            presentError(mess: "Пароли не совпадают.")
+        
+        if newPass.count < 6 || conformPass.count < 6 {
+            presentError(mess: "Новый пароль долже состоять из 6 и более символов")
+            return
+        }
+        
+        if newPass != conformPass {
+            presentError(mess: "Введенные пароли не совпадают")
             return
         } else {
-            if newPass.count > 6 {
-                presentError(mess: "Минимальная длинна пароля 6 символов.")
-                return
-            }
-            var isInt: Bool = false
-            for i in newPass {
-                if Int(String(i)) != nil {
-                    isInt = true
-                }
-            }
-            
-            if isInt != true {
-                presentError(mess: "Пароль не подходит по требованиям безопастности")
-            } else {
-                setNewPass(pas: newPass)
-            }
-            
+            setNewPass(newPas: newPass)
         }
     }
     
@@ -88,17 +79,38 @@ class PasswordChangeController {
         }
         
         var isButtonEnabled: Bool = false
-        if let passOld = isOkOldPsw, let passNew = isOkNewPsw, let passConf = isOkConform {
-            isButtonEnabled = passOld && passNew && passConf
+       
+        if oldPass == "" || newPass == "" || conformPass == "" {
+            isButtonEnabled = false
         } else {
-            isButtonEnabled = false 
+            isButtonEnabled = true
         }
-
         delegate?.presentStatusPswTextField(self, isPswOld: isOkOldPsw, isPswNew: isOkNewPsw, isPswConform: isOkConform, isEnabletButton: isButtonEnabled)
     }
     
-    private func setNewPass(pas: String) {
-        
+    private func setNewPass(newPas: String) {
+        HTTPServicePasswordChanged.paswordChanged(newPassword: newPas) { (eror, modelChanged) in
+            if eror != nil {
+                DispatchQueue.main.async {
+                    self.presentError(mess: "Произошла ошибка, возможно отсутствует интернет соединение!")
+                }
+            } else {
+                guard let model = modelChanged else { return }
+                switch model.err {
+                case 0:
+                    self.userController.setNewPassword(newPassword: newPas)
+                    DispatchQueue.main.async {
+                        self.delegate?.dismisController(self)
+                    }
+                case 1:
+                    DispatchQueue.main.async {
+                        self.presentError(mess: "Ошибка сервера, повторите попытку позже!")
+                    }
+                default:
+                    return
+                }
+            }
+        }
     }
     
     private func presentError(mess: String) {

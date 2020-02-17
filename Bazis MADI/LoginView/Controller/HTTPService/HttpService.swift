@@ -12,7 +12,6 @@ class HttpService {
     //MARK: - метод логина пользователя 
     class func getUserAccount(login: String, password: String, completion: @escaping(Error?, UserModel?, UserModelError?)->Void){
         
-        //let key = KeySessionController()
         let userData = UserDataController()
         
         let postString = "json=1&psw=\(password)&usr=\(login)"

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class PasswordChangeViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class PasswordChangeViewController: UIViewController {
         
         controller.delegate = self
         setupView()
+        addGesture()
     }
     
     //MARK: - настройка вешнего вида
@@ -83,7 +85,6 @@ extension PasswordChangeViewController: UITextFieldDelegate {
         let oldPas = oldPswTextField.text!
         let newPas = newPswTextField.text!
         let conformPas = conformNewPswTextField.text!
-        print(oldPas, newPas, conformPas)
         controller.controllPasswordField(oldPass: oldPas, newPass: newPas, conformPass: conformPas)
     }
     
@@ -93,7 +94,10 @@ extension PasswordChangeViewController: UITextFieldDelegate {
     }
 }
 
+
+//MARK: - контроллер работы с данными
 extension PasswordChangeViewController: PasswordChangeViewProtocol {
+    
     func presentStatusPswTextField(_ controller: PasswordChangeController, isPswOld: Bool?, isPswNew: Bool?, isPswConform: Bool?, isEnabletButton: Bool) {
         
         if let old = isPswOld {
@@ -129,10 +133,20 @@ extension PasswordChangeViewController: PasswordChangeViewProtocol {
     
     
     func showError(_ controller: PasswordChangeController, error: String) {
+        changedPswButton.clickError()
         errorMessLabel.text = error
     }
     
     func dismisController(_ controller: PasswordChangeController) {
-        print("dismis")
+        
+        let alertController = UIAlertController(title: nil, message: "Смена пароля успешно выполненна", preferredStyle: .alert)
+        let alertOkButton = UIAlertAction(title: "Ок", style: .cancel) { (action) in
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(alertOkButton)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "password.png",
+      "filename" : "lok.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -17,7 +17,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "password-1 Black.png",
+      "filename" : "lookWhite.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
