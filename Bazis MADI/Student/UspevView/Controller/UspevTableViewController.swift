@@ -17,11 +17,14 @@ class UspevTableViewController: UITableViewController {
     private var foundMarkList:[UspevModel] = []
     
     private var sectionsButtons: [UIButton] = []
-    
     private let searchController = UISearchController() // строка поиска
+    private let notificationReload = Notification.Name("reloadData")
+    
+    private var errorVC: ErrorViewUIView!
     
     //просмотр по семестрам или по предметам
     private var isSem: Bool = true
+    // указатель активности поиска
     private var isSearchResult: Bool {
         guard let text = searchController.searchBar.text else { return true }
         return !text.isEmpty && searchController.isActive
@@ -31,13 +34,27 @@ class UspevTableViewController: UITableViewController {
         super.viewDidLoad()
         setupNavBar()
         setupDataUspev()
+        addNotificationCenter()
+    }
+    
+    //reloadViewNotification
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        removeErrorView()
+        setupDataUspev()
     }
     
     //MARK: - получение данных по предметам
     public func setupDataUspev() {
         HttpServiceUspev.getUserUspew() { (err, uspevModel) in
-            if let error = err {
-                
+            if err != nil {
+                DispatchQueue.main.async {
+                     self.showErrorView()
+                }
             } else {
                 if let uspev = uspevModel {
                     self.allMarkList = uspev
@@ -64,6 +81,18 @@ class UspevTableViewController: UITableViewController {
         cellList = []
         sectionsButtons = []
         tableView.reloadData()
+    }
+    
+    //
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
     }
         
     //MARK: - настройка внешнего вида navBar
@@ -416,8 +445,7 @@ extension UspevTableViewController: UISearchResultsUpdating {
     
     private func filterData(searchText: String) {
         foundMarkList = allMarkList.filter({ (uspev: UspevModel) -> Bool in
-            return uspev.disc.lowercased().contains(searchText.lowercased())
-        })
+            return uspev.disc.lowercased().contains(searchText.lowercased()) })
     }
 }
 

@@ -309,7 +309,7 @@ extension MainTableViewController: TableRaspisanieByTeacherDataSource {
 extension MainTableViewController: TableRaspisanieByTeacherDelegate {
     func selectTeacherButton(_ parametrView: TableRaspisanieByTeacherUIView, teacherData: String) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "teacherInfo") as? InfioTeacherTableViewController else { return }
+        guard let vc = sb.instantiateViewController(withIdentifier: "detalRaspisanie") as? InfioTeacherTableViewController else { return }
         vc.teacherName = teacherData
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -33,8 +33,8 @@ class MainTableTeacherViewController: UITableViewController {
         super.viewDidLoad()
         raspisanieByGroupView.raspisanieByGroupDataSource = self
         raspisanieTable.raspisanieViewDataSource = self
-        
         raspisanieTable.delegate = self
+        
         setupView()
         getDataRaspisanie()
     }
@@ -277,7 +277,6 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource {
         var allPars: [DailyRaspisanieTeacher] = []
         
         if let raspisanieData = allRaspisanie {
-            
             if let monday = raspisanieData.result?.monday {
                 allPars.append(contentsOf: monday)
             }

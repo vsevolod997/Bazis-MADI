@@ -24,7 +24,6 @@ class HTTPServicePasswordChanged {
                 completion(err, nil)
             } else {
                 guard let datas = data else { return }
-                print(String(data: datas, encoding: .utf8))
                 do{
                     let data = try JSONDecoder().decode(NewPassModel.self, from: datas)
                     completion(nil, data)
