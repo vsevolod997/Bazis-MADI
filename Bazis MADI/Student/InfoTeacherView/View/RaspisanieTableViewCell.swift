@@ -19,8 +19,13 @@ class RaspisanieTableViewCell: UITableViewCell {
         didSet {
             time.text = objectData.time
             if let type = objectData.typeLesson {
-                let buf = type.split(separator: "/")
-                typeAndGroupLabel.text = String(buf[0])
+                if SystemDevice().isNormalDevice {
+                    let buf = type.split(separator: "/")
+                    typeAndGroupLabel.text = String(buf[0])
+                } else {
+                    let buf = type.split(separator: " ")
+                    typeAndGroupLabel.text = String(buf[0])
+                }
             } else {
                 typeAndGroupLabel.text = "Не установленно"
             }

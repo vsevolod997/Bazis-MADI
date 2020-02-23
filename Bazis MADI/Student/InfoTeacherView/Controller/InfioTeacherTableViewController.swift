@@ -16,11 +16,14 @@ class InfioTeacherTableViewController: UITableViewController {
 
     private let weakController = WeekRaspisanieController()
     private var raspisanie: [RaspisanieModelInfoByTeacher] = []
+    private var typeWeak: String!
     
     private var loadStatus: stateLoadData = .loading
     private let notificationReload = Notification.Name("reloadData")
     
     private var errorVC: ErrorViewUIView!
+    
+    private let weekController = WeekRaspisanieController()
     
     var teacherName: String! {
         didSet {
@@ -61,11 +64,12 @@ class InfioTeacherTableViewController: UITableViewController {
     private func getRaspisanie(name: String) {
         
         HttpServiceRaspisanieTeacher.getRaspisData(teacherName: teacherName) { (error, model) in
-            if let err = error {
+            if error != nil {
                 self.showErrorView()
             } else {
                 if let classes = model {
                     DispatchQueue.main.async {
+                        self.typeWeak = classes.typeWeek
                         self.raspisanie = RaspisanieModelInfoByTeacher.getDayliClasses(raspisanie: classes)
                         self.loadStatus = .load
                         self.tableView.reloadData()
@@ -105,15 +109,22 @@ extension InfioTeacherTableViewController {
                 return 1
             case 1:
                 return 0
+            case 2:
+                return 0
             default:
-                return raspisanie[section - 2].classesData.count
+                return raspisanie[section - 3].classesData.count
             }
         }
         
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2 + raspisanie.count
+        switch loadStatus {
+        case .loading:
+            return 2
+        case .load:
+            return 3 + raspisanie.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -125,7 +136,6 @@ extension InfioTeacherTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch loadStatus {
         case .loading:
             if indexPath.section == 0 {
@@ -149,7 +159,7 @@ extension InfioTeacherTableViewController {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "objectCell", for: indexPath) as! RaspisanieTableViewCell
-                cell.objectData = raspisanie[indexPath.section - 2].classesData[indexPath.row]
+                cell.objectData = raspisanie[indexPath.section - 3].classesData[indexPath.row]
                 return cell
             }
         }
@@ -179,13 +189,32 @@ extension InfioTeacherTableViewController {
             view.addSubview(title)
             
             return view
+        case 2:
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = .systemBackground
+            let title = Title4LabelUILabel()
+            let dayName = weekController.getTodayInStr()
             
+            if SystemDevice().isNormalDevice {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM"
+                let dateStr = formatter.string(from: Date.today())
+                title.text = "Сегодня: - " + typeWeak + ", " + dayName + " (" + dateStr + ")"
+            } else {
+                title.text = "Сегодня: - " + typeWeak + " " + dayName
+            }
+            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+            view.addSubview(title)
+            
+            return view
+             
         default:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
-            title.text = raspisanie[section - 2].dayTitle
+            title.text = raspisanie[section - 3].dayTitle
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             

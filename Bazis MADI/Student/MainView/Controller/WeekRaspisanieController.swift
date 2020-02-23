@@ -97,7 +97,7 @@ class WeekRaspisanieController {
         }
     }
     
-    //MARK: - возврат текущего дня нелеи
+    //MARK: - возврат текущего дня недели
     public func getToday() -> Int {
         let date = Date()
         let calendar = Calendar.current
@@ -109,6 +109,35 @@ class WeekRaspisanieController {
         } else {
             return weekday
         }
+    }
+    
+    public func getTodayInStr() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        var weekday = calendar.component(.weekday, from: date)
+        weekday -= 2
+        
+        if weekday < 0 {
+            weekday = 0
+        } 
+        
+        switch weekday {
+        case 0:
+            return "Пн."
+        case 1:
+            return "Вт."
+        case 2:
+            return "Ср."
+        case 3:
+            return "Чт."
+        case 4:
+            return "Пт."
+        case 5:
+            return "Сб."
+        default:
+            return "Не найдено!"
+        }
+        
     }
     
     //MARK: - получение массива из списка дней недели по дате
