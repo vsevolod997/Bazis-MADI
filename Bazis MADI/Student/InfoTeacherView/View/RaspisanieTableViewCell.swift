@@ -18,8 +18,14 @@ class RaspisanieTableViewCell: UITableViewCell {
     var objectData: DailyRaspisanieTeacher!  {
         didSet {
             time.text = objectData.time
-            typeAndGroupLabel.text = objectData.typeLesson! + " " + objectData.group!
+            if let type = objectData.typeLesson {
+                let buf = type.split(separator: "/")
+                typeAndGroupLabel.text = String(buf[0])
+            } else {
+                typeAndGroupLabel.text = "Не установленно"
+            }
             rumNumLabel.text = objectData.room
+            dayAndDateLabel.text = objectData.typeWeek + ", " + objectData.group!
         }
     }
     

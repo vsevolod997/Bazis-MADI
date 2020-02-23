@@ -8,11 +8,19 @@
 
 import UIKit
 
+enum stateLoadData {
+    case loading, load
+}
+
 class InfioTeacherTableViewController: UITableViewController {
 
-    
     private let weakController = WeekRaspisanieController()
     private var raspisanie: [RaspisanieModelInfoByTeacher] = []
+    
+    private var loadStatus: stateLoadData = .loading
+    private let notificationReload = Notification.Name("reloadData")
+    
+    private var errorVC: ErrorViewUIView!
     
     var teacherName: String! {
         didSet {
@@ -25,50 +33,83 @@ class InfioTeacherTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        addNotificationCenter()
+    }
+    
+    //reloadViewNotification
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        removeErrorView()
+        getRaspisanie(name: teacherName)
+    }
+    
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
     }
     
     private func getRaspisanie(name: String) {
         
         HttpServiceRaspisanieTeacher.getRaspisData(teacherName: teacherName) { (error, model) in
             if let err = error {
-                
+                self.showErrorView()
             } else {
                 if let classes = model {
                     DispatchQueue.main.async {
                         self.raspisanie = RaspisanieModelInfoByTeacher.getDayliClasses(raspisanie: classes)
+                        self.loadStatus = .load
                         self.tableView.reloadData()
                     }
-                } else {
-                    
                 }
             }
         }
     }
     
+    
     //MARK: - настройки окна стартовые
     private func setupView() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
-        //navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
+
+
 
 //MARK: - TableViewDataSource
 extension InfioTeacherTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 0
-        case 2:
-            return 3
-        case 3:
-            return 3
-        default:
-            return 0
+        switch loadStatus {
+        case .loading:
+            switch section {
+            case 0:
+                return 1
+            case 1:
+                return 1
+            default:
+                return 0
+            }
+        case .load:
+            switch section {
+            case 0:
+                return 1
+            case 1:
+                return 0
+            default:
+                return raspisanie[section - 2].classesData.count
+            }
         }
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,18 +125,34 @@ extension InfioTeacherTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfioTableViewCell
-            cell.name = teacherName
-            cell.pressButton = {
-                print("mess") // переход на страницу сообщений к перподу
-            }
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "objectCell", for: indexPath) as! RaspisanieTableViewCell
-            return cell
-        }
         
+        switch loadStatus {
+        case .loading:
+            if indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfioTableViewCell
+                cell.name = teacherName
+                cell.pressButton = {
+                    print("mess") // переход на страницу сообщений к перподу
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+                return cell
+            }
+        case .load:
+            if indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! InfioTableViewCell
+                cell.name = teacherName
+                cell.pressButton = {
+                    print("mess") // переход на страницу сообщений к перподу
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "objectCell", for: indexPath) as! RaspisanieTableViewCell
+                cell.objectData = raspisanie[indexPath.section - 2].classesData[indexPath.row]
+                return cell
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

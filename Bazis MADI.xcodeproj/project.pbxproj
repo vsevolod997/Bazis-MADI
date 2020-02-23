@@ -171,9 +171,9 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				42CDC02423BB980D00A86A42 /* MainView */,
 				42B21D5A23D6087F00E1EC17 /* UspevView */,
 				42CB259823CF37A7007DEA69 /* InfoTeacherView */,
-				42CDC02423BB980D00A86A42 /* MainView */,
 				42CDC02923BB99B800A86A42 /* UserHomeView */,
 			);
 			path = Student;

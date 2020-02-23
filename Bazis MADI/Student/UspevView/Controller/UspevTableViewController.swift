@@ -78,7 +78,7 @@ class UspevTableViewController: UITableViewController {
         default:
             return
         }
-        cellList = []
+        //cellList = []
         sectionsButtons = []
         tableView.reloadData()
     }
