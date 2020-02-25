@@ -78,7 +78,7 @@ class UspevTableViewController: UITableViewController {
         default:
             return
         }
-        //cellList = []
+        cellList = []
         sectionsButtons = []
         tableView.reloadData()
     }
@@ -101,6 +101,8 @@ class UspevTableViewController: UITableViewController {
         let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."]) // тип отображения
         segmentControl.setWidth(100, forSegmentAt: 0)
         segmentControl.setWidth(100, forSegmentAt: 1)
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: SystemColor.whiteTextFill]
+        segmentControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
         segmentControl.backgroundColor = SystemColor.whiteTextFill
         segmentControl.selectedSegmentIndex = 0
         segmentControl.selectedSegmentTintColor = SystemColor.blueColor
@@ -147,6 +149,7 @@ class UspevTableViewController: UITableViewController {
         let generator = UIImpactFeedbackGenerator(style: .rigid)
         generator.impactOccurred()
         
+        cellList = []
         let section = button.tag
         var indexPath = [IndexPath]()
         var isShow: Bool

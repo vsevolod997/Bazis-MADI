@@ -194,8 +194,8 @@ extension InfioTeacherTableViewController {
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
+            title.textColor = SystemColor.grayColor
             let dayName = weekController.getTodayInStr()
-            
             if SystemDevice().isNormalDevice {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd.MM"

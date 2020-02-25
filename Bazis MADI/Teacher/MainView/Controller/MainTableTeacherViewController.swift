@@ -34,6 +34,7 @@ class MainTableTeacherViewController: UITableViewController {
         raspisanieByGroupView.raspisanieByGroupDataSource = self
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
+        raspisanieByGroupView.delegate = self
         
         setupView()
         getDataRaspisanie()
@@ -271,8 +272,22 @@ extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
     }
 }
 
+
+
 //MARK: - данные списка групп
-extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource {
+extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, TableRaspisanieByGroupDelegate {
+    
+    func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup : String) {
+        
+        print(selectedGroup)
+        
+        
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "groupOptionInfo") as? GroupOptionTableViewController else { return }
+        vc.groupName = selectedGroup
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]? {
         var allPars: [DailyRaspisanieTeacher] = []
         
@@ -334,9 +349,9 @@ extension MainTableTeacherViewController {
             view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             if !SystemDevice().isNormalDevice {
-                title.text = "По преподавателям"
+                title.text = "По группам"
             } else {
-                title.text = "Расписание по преподавателям"
+                title.text = "Расписание по группам"
             }// проверка устройства
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
             view.addSubview(title)

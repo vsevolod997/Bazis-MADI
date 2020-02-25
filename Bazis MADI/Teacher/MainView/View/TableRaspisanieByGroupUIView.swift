@@ -12,6 +12,11 @@ protocol TableRaspisanieByGroupDataSource {
     func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]?
 }
 
+protocol TableRaspisanieByGroupDelegate {
+    func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup: String)
+}
+
+
 class TableRaspisanieByGroupUIView: UIView {
     
     let scrollView = UIScrollView()
@@ -29,6 +34,8 @@ class TableRaspisanieByGroupUIView: UIView {
         super.layoutSubviews()
         scrollView.frame = self.bounds
     }
+    
+    public var delegate: TableRaspisanieByGroupDelegate?
     
     var raspisanieByGroupDataSource: TableRaspisanieByGroupDataSource? {
         didSet {
@@ -68,6 +75,7 @@ class TableRaspisanieByGroupUIView: UIView {
                 view.transform = .init(scaleX: 0.8, y: 0.8)
                 view.alpha = 0.8
             }) { (anim) in
+                self.delegate?.selectTeacherButton(self, selectedGroup: self.groups[view.tag])
                 UIView.animate(withDuration: 0.01) {
                     view.transform = .init(scaleX: 1, y: 1)
                     view.alpha = 1

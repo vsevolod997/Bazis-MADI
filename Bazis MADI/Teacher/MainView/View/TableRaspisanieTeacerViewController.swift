@@ -108,13 +108,17 @@ class TableRaspisanieTeacherUIVIew: UIView {
             }
             
             if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
-                
-                if day > dayCount {
-                   dayNow = dayCount - 1
-                } else if dayCount == 1 {
+                print(day)
+                if day == 1 {
                     dayNow = 0
-                } else if dayCount == day - 1 {
-                    dayNow = day - 1
+                } else {
+                    if day > dayCount {
+                       dayNow = dayCount - 1
+                    } else if dayCount == 1 {
+                        dayNow = 0
+                    } else if dayCount == day - 1 {
+                        dayNow = day - 1
+                    }
                 }
                 
                 scrollDay(changedDay: dayNow, scrollSize: 40)

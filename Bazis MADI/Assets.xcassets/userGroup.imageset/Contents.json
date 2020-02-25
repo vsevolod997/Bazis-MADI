@@ -6,7 +6,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "portfolio.png",
+      "filename" : "groupStudentWhite.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -17,7 +17,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Profile Black.png",
+      "filename" : "groupStudentDark.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -80,6 +80,7 @@
     "author" : "xcode"
   },
   "properties" : {
+    "template-rendering-intent" : "original",
     "preserves-vector-representation" : true
   }
 }
