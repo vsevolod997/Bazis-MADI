@@ -29,7 +29,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
     let weekController = WeekRaspisanieController()
     let scrollView = UIScrollView()
     var dayNow: Int = 0
-    var dayCount: Int = 0
+    var dayCount: Int!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -106,21 +106,22 @@ class TableRaspisanieTeacherUIVIew: UIView {
                     startX += self.frame.width - 40
                 }
             }
-            
-            if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
-                print(day)
+        }
+        
+        
+        if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
+            if dayCount != nil {
                 if day == 1 {
                     dayNow = 0
                 } else {
                     if day > dayCount {
-                       dayNow = dayCount - 1
+                        dayNow = dayCount
                     } else if dayCount == 1 {
                         dayNow = 0
-                    } else if dayCount == day - 1 {
+                    } else if dayCount == day {
                         dayNow = day - 1
                     }
                 }
-                
                 scrollDay(changedDay: dayNow, scrollSize: 40)
             }
         }

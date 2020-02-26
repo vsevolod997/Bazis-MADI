@@ -85,8 +85,8 @@ class MainTableTeacherViewController: UITableViewController {
         let bufStrTeacer = String(dataTeacher[0]) + " " + String(dataTeacher[1].first!) + "." + String(dataTeacher[2].first!) + "."
         HttpServiceRaspisanieTeacher.getRaspisData(teacherName: bufStrTeacer) { (error, raspisanie) in
             DispatchQueue.main.async {
-                if let error = error {
-                    print(error)
+                if error != nil {
+                    self.showErrorView()
                 } else {
                     if let raspis = raspisanie {
                         if let errorLoad = raspis.error {
@@ -100,6 +100,7 @@ class MainTableTeacherViewController: UITableViewController {
                                 self.dataControl.numberOfPages = self.dayCount
                                 self.setDayControl(dayCount: self.dayCount, dayNow: self.weakRaspisanie.getToday())
                                 self.removeVC()
+                                self.removeErrorView()
                             }
                             self.selectWeakType(raspisanieData: raspis)
                         }
@@ -148,11 +149,11 @@ class MainTableTeacherViewController: UITableViewController {
     
     private func setDayControl(dayCount: Int, dayNow: Int) {
         if dayNow > dayCount {
-            dataControl.currentPage = dayCount - 1
+            dataControl.currentPage = dayCount
         } else if dayCount == 1 {
             dataControl.currentPage = 0
-        } else if dayCount == dayNow - 1 {
-            dataControl.currentPage = dayNow - 1
+        } else if dayCount == dayNow {
+            dataControl.currentPage = dayNow
         }
     }
     
@@ -230,6 +231,7 @@ class MainTableTeacherViewController: UITableViewController {
 
 //MARK: - TableRaspisanieDataSource
 extension MainTableTeacherViewController: TableRaspisanieTeacherDataSource {
+    
     func raspisanieDayliWorkCount(_ parameterView: TableRaspisanieTeacherUIVIew) -> Int {
         return dayCount
     }
@@ -278,9 +280,6 @@ extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
 extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, TableRaspisanieByGroupDelegate {
     
     func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup : String) {
-        
-        print(selectedGroup)
-        
         
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "groupOptionInfo") as? GroupOptionTableViewController else { return }
