@@ -2,29 +2,28 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "people.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "groupStudentWhite.png",
+      "scale" : "1x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "light"
         }
-      ],
-      "scale" : "1x"
+      ]
     },
     {
       "idiom" : "universal",
-      "filename" : "groupStudentDark.png",
+      "scale" : "1x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "1x"
+      ]
     },
     {
       "idiom" : "universal",
@@ -80,7 +79,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "original",
     "preserves-vector-representation" : true
   }
 }

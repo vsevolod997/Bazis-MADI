@@ -2,29 +2,28 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "list.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "RspGroupDark.png",
+      "scale" : "1x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "light"
         }
-      ],
-      "scale" : "1x"
+      ]
     },
     {
       "idiom" : "universal",
-      "filename" : "groupRSPWhite.png",
+      "scale" : "1x",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ],
-      "scale" : "1x"
+      ]
     },
     {
       "idiom" : "universal",

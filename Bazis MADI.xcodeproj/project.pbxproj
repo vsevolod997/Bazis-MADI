@@ -70,8 +70,10 @@
 		42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */; };
 		42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */; };
 		42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF923C758AF0077DE0C /* ExamUIView.swift */; };
-		42D485F624042EA200648253 /* InfoGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D485F524042EA200648253 /* InfoGroupTableViewController.swift */; };
+		42D485F624042EA200648253 /* InfoRaspisanieGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */; };
 		42D485F824042F2F00648253 /* RaspisanieGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D485F724042F2F00648253 /* RaspisanieGroupInfo.swift */; };
+		42DE33732409188200139FB8 /* ShowMoreUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE33722409188200139FB8 /* ShowMoreUIButton.swift */; };
+		42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */; };
 		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
 		42DEC2EE23FBEC9A0026425A /* InfioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */; };
 		42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */; };
@@ -145,8 +147,10 @@
 		42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieExamsUIVIew.swift; sourceTree = "<group>"; };
 		42D41BF723C71B9B0077DE0C /* TitleT1WLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleT1WLabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF923C758AF0077DE0C /* ExamUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamUIView.swift; sourceTree = "<group>"; };
-		42D485F524042EA200648253 /* InfoGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGroupTableViewController.swift; sourceTree = "<group>"; };
+		42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRaspisanieGroupTableViewController.swift; sourceTree = "<group>"; };
 		42D485F724042F2F00648253 /* RaspisanieGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieGroupInfo.swift; sourceTree = "<group>"; };
+		42DE33722409188200139FB8 /* ShowMoreUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreUIButton.swift; sourceTree = "<group>"; };
+		42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRspByGroupTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
 		42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,6 +302,7 @@
 				42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */,
 				420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */,
 				420ACEF923FE7EB100C64DD1 /* Title6LabelUILabel.swift */,
+				42DE33722409188200139FB8 /* ShowMoreUIButton.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -622,6 +627,7 @@
 		42D485F324042C9800648253 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -629,7 +635,7 @@
 		42D485F424042C9E00648253 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				42D485F524042EA200648253 /* InfoGroupTableViewController.swift */,
+				42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				420ACEFA23FE7EB100C64DD1 /* Title6LabelUILabel.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
+				42DE33732409188200139FB8 /* ShowMoreUIButton.swift in Sources */,
 				42524D5A23E4248400D9B97E /* UspevByObjTableViewCell.swift in Sources */,
 				42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */,
 				420ACEFE23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift in Sources */,
@@ -747,6 +754,7 @@
 				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
 				428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
+				42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
@@ -774,7 +782,7 @@
 				42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
 				42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */,
-				42D485F624042EA200648253 /* InfoGroupTableViewController.swift in Sources */,
+				42D485F624042EA200648253 /* InfoRaspisanieGroupTableViewController.swift in Sources */,
 				424525E4238ED814008C5EBD /* HomeTableVIewControllerTableViewController.swift in Sources */,
 				42DEC2EE23FBEC9A0026425A /* InfioTableViewCell.swift in Sources */,
 				426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */,

@@ -166,6 +166,7 @@ class MainTableTeacherViewController: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+        
     }
     
     //MARK: - Возврат к окну логина
@@ -181,7 +182,6 @@ class MainTableTeacherViewController: UITableViewController {
     
     //MARK: -  Изменение отобраджения рассписания в зависимоти типа недели
     @IBAction func changetTypeWeak(_ sender: UISegmentedControl) {
-        
         let generator = UIImpactFeedbackGenerator(style: .rigid)
         generator.impactOccurred()
         
@@ -194,7 +194,6 @@ class MainTableTeacherViewController: UITableViewController {
         }
         let weekday = weakRaspisanie.getToday()
         setDayControl(dayCount: self.dayCount, dayNow: weekday)
-        
     }
     
     // MARK: - подсчет кол ва загятых дней в неделю
@@ -281,10 +280,38 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
     
     func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup : String) {
         
+        let alert = UIAlertController(title: nil, message: "Группа: " + selectedGroup, preferredStyle: .actionSheet)
+        
+        let stydentImage = UIImage(named: "userGroup")
+        let aletrStudent = UIAlertAction(title: "Студенты", style: .default) { (action) in
+            self.showGroupStudentView(groupName: selectedGroup)
+        }
+        aletrStudent.setValue(stydentImage, forKey: "image")
+        
+        let raspisanieImage = UIImage(named: "groupRSP")
+        let alertRaspisanie = UIAlertAction(title: "Расписание", style: .default) { (action) in
+            self.showGroupRaspisanieView(groupName: selectedGroup)
+        }
+        alertRaspisanie.setValue(raspisanieImage, forKey: "image")
+        
+        let alertCancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+
+        alert.addAction(aletrStudent)
+        alert.addAction(alertRaspisanie)
+        alert.addAction(alertCancel)
+        
+        present(alert, animated: true)
+    }
+    
+    private func showGroupRaspisanieView(groupName: String) {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: "groupOptionInfo") as? GroupOptionTableViewController else { return }
-        vc.groupName = selectedGroup
+        guard let vc = sb.instantiateViewController(withIdentifier: "detalGroupRaspisanie") as? InfoRaspisanieGroupTableViewController else { return }
+        vc.groupName = groupName
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func showGroupStudentView(groupName: String) {
+        
     }
     
     func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]? {
@@ -341,8 +368,6 @@ extension MainTableTeacherViewController {
             
             return view
         case 1:
-            
-            
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
             view.backgroundColor = .systemBackground
@@ -352,20 +377,15 @@ extension MainTableTeacherViewController {
             } else {
                 title.text = "Расписание по группам"
             }// проверка устройства
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
-            view.addSubview(title)
-            
-            let allButton = UIButton(type: .system)
-            allButton.setTitle("Все", for: .normal)
-            //allButton.titleLabel?.font = .systemFont(ofSize: 20)
-            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 40, height: 30)
-            view.addSubview(allButton)
-            allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)
             
+            let allButton = ShowMoreUIButton()
+            allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
+            allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
+            view.addSubview(allButton)
+
             return view
-            
         default:
             return UIView()
         }

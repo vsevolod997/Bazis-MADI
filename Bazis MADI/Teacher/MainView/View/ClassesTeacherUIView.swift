@@ -56,7 +56,7 @@ class ClassesTeacherUIView: UIView {
             if let groupName = dailyRasp.group {
                 userLabel.text = "Группа: " + groupName
             } else {
-                userLabel.text = "Уточняется!"
+                userLabel.text = "Уточняется"
             }
         } // проверка устройства
         
@@ -67,19 +67,13 @@ class ClassesTeacherUIView: UIView {
         
         let typeLabel = Title2LabelUILabel()
         
-        if !SystemDevice().isNormalDevice {
-            let str = dailyRasp.name.components(separatedBy: " ")
-            userLabel.text = str[0]
+        
+        if let buff = dailyRasp.typeLesson?.components(separatedBy: " ") {
+             typeLabel.text = buff[0]
         } else {
-            if let lesson = dailyRasp.typeLesson {
-                var bufLes = lesson
-                if let index = bufLes.firstIndex(of: "/") {
-                    bufLes = String(bufLes.prefix(upTo: index))
-                }
-
-                typeLabel.text = bufLes
-            }
+            typeLabel.text = "Не установлен"
         }
+        
         typeLabel.frame = CGRect(x:0, y: 40, width: self.frame.width/2, height: 20)
         
         self.addSubview(typeLabel)
