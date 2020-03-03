@@ -14,8 +14,8 @@ class HttpServiceRaspisanieTeacher {
     class func getRaspisData(teacherName: String, complition: @escaping(Error?, RaspisanieModelTeacher?) -> Void) {
         
         //let urlStr = "https://api.shastin.xyz/schedule.php?teacher=\(teacherName)"
-        //let urlStr = "https://bazis.madi.ru/stud/schedule.php?teacher=\(teacherName)"
-        let urlStr = "https://api.shastin.xyz/schedule.php?teacher=Юрчик П.Ф."
+        let urlStr = "https://bazis.madi.ru/stud/schedule.php?teacher=\(teacherName)"
+        //let urlStr = "https://api.shastin.xyz/schedule.php?teacher=Юрчик П.Ф."
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = URL(string: urlsStr)!
         let urlReqest = URLRequest(url: url)

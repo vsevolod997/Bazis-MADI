@@ -2,28 +2,29 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Raspisanie.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
+      "filename" : "fileLigthAp.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "light"
         }
-      ]
+      ],
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "1x",
+      "filename" : "fileDarkAp.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
           "value" : "dark"
         }
-      ]
+      ],
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

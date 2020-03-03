@@ -86,7 +86,7 @@ class TableRaspisanieByGroupUIView: UIView {
     
     //MARK: - настройка скрол вью
     private func createBackground(count: Int) {
-        scrollView.contentSize = CGSize(width: (self.frame.height + 10) * CGFloat(count), height: self.frame.height)
+        scrollView.contentSize = CGSize(width: (self.frame.height + 12) * CGFloat(count), height: self.frame.height)
         self.addSubview(scrollView)
         scrollView.backgroundColor = .clear
         scrollView.showsHorizontalScrollIndicator = false

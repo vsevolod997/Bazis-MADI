@@ -65,7 +65,9 @@ class InfioTeacherTableViewController: UITableViewController {
         
         HttpServiceRaspisanieTeacher.getRaspisData(teacherName: teacherName) { (error, model) in
             if error != nil {
-                self.showErrorView()
+                DispatchQueue.main.async {
+                    self.showErrorView()
+                }
             } else {
                 if let classes = model {
                     DispatchQueue.main.async {

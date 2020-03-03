@@ -27,13 +27,7 @@ class CloseViewUIView: UIView {
     }
     
     fileprivate func setupBackground() {
-        backgroundColor = .clear
-        
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.systemMaterialLight)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(blurEffectView)
+        backgroundColor = SystemColor.whiteTextFill
     }
     
     fileprivate func createSubView() {

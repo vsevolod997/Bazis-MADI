@@ -135,13 +135,18 @@ class HomeTableViewController: UITableViewController {
         if indexPath.row == 0 && indexPath.section == 3 {
             exitUserButton()
         }
-        if indexPath.row == 2 && indexPath.section == 1 {
+        if indexPath.row == 3 && indexPath.section == 1 {
             changedPasViewShow()
         }
         if indexPath.row == 0 && indexPath.section == 1 {
             changedUspevView()
         }
-        
+        if indexPath.row == 1 && indexPath.section == 1 {
+            changedPortfolioView()
+        }
+        if indexPath.row == 2 && indexPath.section == 1 {
+            changedFileView()
+        }
     }
     
     //MARK: - переход к окну смены пароля
@@ -156,6 +161,14 @@ class HomeTableViewController: UITableViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "uspev") as? UspevTableViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    private func changedPortfolioView() {
+        
+    }
+    
+    private func changedFileView() {
         
     }
     

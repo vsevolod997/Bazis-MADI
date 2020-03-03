@@ -13,12 +13,10 @@ class HttpServiceUspev {
     //MARK: - получить данные о расписании
     class func getUserUspew( completion: @escaping(Error?, [UspevModel]?)->Void){
         
-        let postString = "exec=wUspevGet.class 1"
-        let urlStr = "https://bazis.madi.ru/stud/_exec.php"
+        let urlStr = "https://bazis.madi.ru/stud/api/stud/uspev"
         guard let url = URL(string: urlStr) else {return}
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
-        urlReqest.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in
             if let err = error {
                 completion(err, nil)

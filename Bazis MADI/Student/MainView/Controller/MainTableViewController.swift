@@ -119,7 +119,9 @@ class MainTableViewController: UITableViewController {
     private func getExamRaspisanie(groupName:String) {
         HttpServiceRaspisanie.getRaspisanieExamData(groupName: groupName) { (error, examData) in
             if error != nil {
-                self.raspisanieExamTable.setupTableExams()
+                DispatchQueue.main.async {
+                    self.raspisanieExamTable.setupTableExams()
+                }
             } else {
                 if let examRaspis = examData {
                     if let error = examRaspis.error{
@@ -345,9 +347,8 @@ extension MainTableViewController {
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
             view.addSubview(title)
             
-            let allButton = UIButton(type: .system)
-            allButton.setTitle("Все", for: .normal)
-            allButton.frame = CGRect(x: self.view.frame.width - 50, y: 0, width: 40, height: 30)
+            let allButton = ShowMoreUIButton()
+            allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
             view.addSubview(allButton)
             allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)
             
