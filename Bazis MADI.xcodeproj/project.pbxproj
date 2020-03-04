@@ -57,6 +57,13 @@
 		42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */; };
 		42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */; };
 		42AA02A4240D07CA006F0FDA /* PortfolioViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02A3240D07CA006F0FDA /* PortfolioViewTableViewController.swift */; };
+		42AA02A8240E5184006F0FDA /* PorfolioHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02A7240E5184006F0FDA /* PorfolioHttpService.swift */; };
+		42AA02AA240E5261006F0FDA /* PortfolioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02A9240E5261006F0FDA /* PortfolioModel.swift */; };
+		42AA02AC240E600F006F0FDA /* AboutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02AB240E600F006F0FDA /* AboutViewCell.swift */; };
+		42AA02AE240E605D006F0FDA /* InfoPortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02AD240E605D006F0FDA /* InfoPortfolioTableViewCell.swift */; };
+		42AA02B0240E606C006F0FDA /* EducatioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02AF240E606C006F0FDA /* EducatioTableViewCell.swift */; };
+		42AA02B2240E609C006F0FDA /* WorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02B1240E609C006F0FDA /* WorkTableViewCell.swift */; };
+		42AA02B4240E7164006F0FDA /* Title4WLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA02B3240E7164006F0FDA /* Title4WLabelUILabel.swift */; };
 		42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */; };
 		42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */; };
 		42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */; };
@@ -135,6 +142,13 @@
 		42A8316123C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanieTeacher.swift; sourceTree = "<group>"; };
 		42A8316323C10F540012BC66 /* DayliRaspisPrepodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayliRaspisPrepodUIView.swift; sourceTree = "<group>"; };
 		42AA02A3240D07CA006F0FDA /* PortfolioViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewTableViewController.swift; sourceTree = "<group>"; };
+		42AA02A7240E5184006F0FDA /* PorfolioHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PorfolioHttpService.swift; sourceTree = "<group>"; };
+		42AA02A9240E5261006F0FDA /* PortfolioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioModel.swift; sourceTree = "<group>"; };
+		42AA02AB240E600F006F0FDA /* AboutViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewCell.swift; sourceTree = "<group>"; };
+		42AA02AD240E605D006F0FDA /* InfoPortfolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPortfolioTableViewCell.swift; sourceTree = "<group>"; };
+		42AA02AF240E606C006F0FDA /* EducatioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducatioTableViewCell.swift; sourceTree = "<group>"; };
+		42AA02B1240E609C006F0FDA /* WorkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTableViewCell.swift; sourceTree = "<group>"; };
+		42AA02B3240E7164006F0FDA /* Title4WLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title4WLabelUILabel.swift; sourceTree = "<group>"; };
 		42B21D5823D49D6600E1EC17 /* Title5LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title5LabelUILabel.swift; sourceTree = "<group>"; };
 		42B21D5E23D608F800E1EC17 /* UspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewController.swift; sourceTree = "<group>"; };
 		42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceUspev.swift; sourceTree = "<group>"; };
@@ -392,6 +406,7 @@
 		42AA02A0240D078A006F0FDA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42AA02A9240E5261006F0FDA /* PortfolioModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +414,10 @@
 		42AA02A1240D0799006F0FDA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42AA02AB240E600F006F0FDA /* AboutViewCell.swift */,
+				42AA02AD240E605D006F0FDA /* InfoPortfolioTableViewCell.swift */,
+				42AA02AF240E606C006F0FDA /* EducatioTableViewCell.swift */,
+				42AA02B1240E609C006F0FDA /* WorkTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,9 +425,18 @@
 		42AA02A2240D07A8006F0FDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				42AA02A5240E50D9006F0FDA /* HttpService */,
 				42AA02A3240D07CA006F0FDA /* PortfolioViewTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		42AA02A5240E50D9006F0FDA /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				42AA02A7240E5184006F0FDA /* PorfolioHttpService.swift */,
+			);
+			path = HttpService;
 			sourceTree = "<group>";
 		};
 		42B21D5A23D6087F00E1EC17 /* UspevView */ = {
@@ -677,6 +705,7 @@
 				424525E7238EE8FF008C5EBD /* Title2LabelUILabel.swift */,
 				426AD0EA23940F22003362B1 /* ErrorLabel.swift */,
 				424525E5238EE133008C5EBD /* Title1LabelUILabel.swift */,
+				42AA02B3240E7164006F0FDA /* Title4WLabelUILabel.swift */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -787,6 +816,7 @@
 				42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */,
 				420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */,
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
+				42AA02B2240E609C006F0FDA /* WorkTableViewCell.swift in Sources */,
 				425467FC2397B656001D26AA /* KeySessionController.swift in Sources */,
 				42D485F824042F2F00648253 /* RaspisanieGroupInfo.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
@@ -800,6 +830,7 @@
 				42D41BF823C71B9B0077DE0C /* TitleT1WLabelUILabel.swift in Sources */,
 				420ACEFE23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
+				42AA02AA240E5261006F0FDA /* PortfolioModel.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
 				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
@@ -807,24 +838,29 @@
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
+				42AA02A8240E5184006F0FDA /* PorfolioHttpService.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
+				42AA02AE240E605D006F0FDA /* InfoPortfolioTableViewCell.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,
 				424525E6238EE133008C5EBD /* Title1LabelUILabel.swift in Sources */,
 				42B21D6423D75E9100E1EC17 /* UspevModel.swift in Sources */,
+				42AA02AC240E600F006F0FDA /* AboutViewCell.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
 				42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */,
 				42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */,
 				424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */,
+				42AA02B0240E606C006F0FDA /* EducatioTableViewCell.swift in Sources */,
 				424DE36923C398EA00389B53 /* SystemDevice.swift in Sources */,
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				42AA02A4240D07CA006F0FDA /* PortfolioViewTableViewController.swift in Sources */,
 				42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */,
 				424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */,
+				42AA02B4240E7164006F0FDA /* Title4WLabelUILabel.swift in Sources */,
 				42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
 				42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */,

@@ -214,8 +214,8 @@ extension InfioTeacherTableViewController {
         default:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
+            view.backgroundColor = SystemColor.blueColor
+            let title = Title4WLabelUILabel()
             title.text = raspisanie[section - 3].dayTitle
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)

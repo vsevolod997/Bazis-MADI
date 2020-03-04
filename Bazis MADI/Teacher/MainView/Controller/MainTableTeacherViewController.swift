@@ -274,7 +274,6 @@ extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
 }
 
 
-
 //MARK: - данные списка групп
 extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, TableRaspisanieByGroupDelegate {
     

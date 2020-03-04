@@ -25,7 +25,7 @@ class ShowMoreUIButton: UIButton {
         setTitle("Все", for: .normal)
         titleLabel?.font =  UIFont.boldSystemFont(ofSize: 18)
         setTitleColor(SystemColor.blueTextColor, for: .normal)
-        imageEdgeInsets = UIEdgeInsets(top: 7, left: 63, bottom: 5, right: 20)
+        imageEdgeInsets = UIEdgeInsets(top: 7, left: 60, bottom: 5, right: 20)
     }
     
     override var isHighlighted: Bool {

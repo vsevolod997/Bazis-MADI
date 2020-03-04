@@ -395,6 +395,7 @@ extension UspevTableViewController {
             }
             
         } else {
+            
             if cellList.contains(indexPath) {
                 cellList.remove(at: cellList.firstIndex(of: indexPath)!)
                 tableView.reloadRows(at: [indexPath], with: .fade)

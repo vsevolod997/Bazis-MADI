@@ -165,7 +165,9 @@ class HomeTableViewController: UITableViewController {
     }
     
     private func changedPortfolioView() {
-        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "portfolio") as? PortfolioViewTableViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func changedFileView() {

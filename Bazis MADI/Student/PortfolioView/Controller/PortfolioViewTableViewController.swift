@@ -10,81 +10,186 @@ import UIKit
 
 class PortfolioViewTableViewController: UITableViewController {
 
+    private let notificationReload = Notification.Name("reloadData")
+    private var errorVC: ErrorViewUIView!
+    
+    private var portfolioData: PortfolioModel!
+    private var isLoad: Bool = false // флаг указывающий загруженны ли данные
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupView()
+        getDataPortfolio()
+        
+    }
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+    }
+    
+    //notification
+    @objc func onNotification(notification: Notification) {
+        removeErrorView()
+        getDataPortfolio()
+    }
+    
+    private func getDataPortfolio() {
+        isLoad = false
+        PorfolioHttpService.getPortfolioData { (error, portfolioData) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorView()
+                }
+            } else {
+                if let portfolio = portfolioData {
+                    DispatchQueue.main.async {
+                        self.isLoad = true
+                        self.portfolioData = portfolio
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - Настройки окна
+    private func setupView() {
+        title = "Портфолио"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
+        navigationController?.navigationBar.barTintColor = SystemColor.blueColor
     }
 
-    // MARK: - Table view data source
+    private func showErrorView() {
+        errorVC = ErrorViewUIView(frame: self.view.frame)
+        view.addSubview(errorVC)
+    }
+    
+    private func removeErrorView() {
+        if errorVC != nil {
+            errorVC.removeFromSuperview()
+        }
+    }
+    
+}
 
+// MARK: - Table view data source
+extension PortfolioViewTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        if isLoad {
+            return 3
+        } else {
+            return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if isLoad {
+            switch section {
+            case 0:
+                return 2
+            case 1:
+                return portfolioData.educ.count
+            case 2:
+                return portfolioData.work.count
+            default:
+                return 0
+            }
+        } else {
+            return 1
+        }
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if isLoad {
+            switch  indexPath.section {
+            case 0:
+                if indexPath.row == 0 {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as? AboutViewCell else { return UITableViewCell() }
+                    cell.aboutText.text = portfolioData.ldata
+                    return cell
+                } else {
+                    //infoCell
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoPortfolioTableViewCell else { return UITableViewCell() }
+                    cell.dolznostTF.text = portfolioData.wpost
+                    cell.priseTF.text = portfolioData.wprice
+                    return cell
+                }
+            case 1:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "educCell", for: indexPath) as? EducatioTableViewCell else { return UITableViewCell() }
+                cell.educationData = portfolioData.educ[indexPath.row]
+                return cell
+            case 2:
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "workCell", for: indexPath) as? WorkTableViewCell else {  return UITableViewCell() }
+                return cell
+            default:
+                UITableViewCell()
+            }
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+            return cell
+        }
+        return UITableViewCell()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if isLoad {
+            switch section {
+            case 0:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = SystemColor.blueColor
+                let title = Title4WLabelUILabel()
+                title.text = "Данные о себе"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            case 1:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = SystemColor.blueColor
+                let title = Title4WLabelUILabel()
+                title.text = "Образование"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            case 2:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = SystemColor.blueColor
+                let title = Title4WLabelUILabel()
+                title.text = "Опыт работы"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            default:
+                return nil
+            }
+        } else {
+            return nil
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isLoad {
+            switch  indexPath.section {
+            case 0:
+                return 114
+            case 1:
+                return 114
+            case 2:
+                return 114
+            default:
+                return 0
+            }
+        } else {
+            return 96
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
