@@ -10,8 +10,10 @@ import UIKit
 
 class InfoPortfolioTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var priseTF: UITextField!
-    @IBOutlet weak var dolznostTF: UITextField!
+    @IBOutlet weak var dolzLabel: Title2LabelUILabel!
+    
+    @IBOutlet weak var zpLabel: Title2LabelUILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

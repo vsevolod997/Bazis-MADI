@@ -13,6 +13,7 @@ class PortfolioViewTableViewController: UITableViewController {
     private let notificationReload = Notification.Name("reloadData")
     private var errorVC: ErrorViewUIView!
     
+    private var isEdit: Bool = false
     private var portfolioData: PortfolioModel!
     private var isLoad: Bool = false // флаг указывающий загруженны ли данные
     
@@ -55,7 +56,8 @@ class PortfolioViewTableViewController: UITableViewController {
     
     //MARK: - Настройки окна
     private func setupView() {
-        title = "Портфолио"
+        
+        navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPress))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
@@ -72,6 +74,15 @@ class PortfolioViewTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - нажатие кнопки редактировния
+    @objc func editButtonPress() {
+        isEdit = !isEdit
+        if isEdit {
+            tableView.allowsSelection = false
+        } else {
+            tableView.allowsSelection = true
+        }
+    }
 }
 
 // MARK: - Table view data source
@@ -113,8 +124,8 @@ extension PortfolioViewTableViewController {
                 } else {
                     //infoCell
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoPortfolioTableViewCell else { return UITableViewCell() }
-                    cell.dolznostTF.text = portfolioData.wpost
-                    cell.priseTF.text = portfolioData.wprice
+                    cell.dolzLabel.text = portfolioData.wpost
+                    cell.zpLabel.text = portfolioData.wprice
                     return cell
                 }
             case 1:
@@ -123,12 +134,13 @@ extension PortfolioViewTableViewController {
                 return cell
             case 2:
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "workCell", for: indexPath) as? WorkTableViewCell else {  return UITableViewCell() }
+                cell.dataWork = portfolioData.work[indexPath.row]
                 return cell
             default:
                 UITableViewCell()
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadPortCell", for: indexPath)
             return cell
         }
         return UITableViewCell()
@@ -139,7 +151,7 @@ extension PortfolioViewTableViewController {
             switch section {
             case 0:
                 let view = UIView()
-                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
                 view.backgroundColor = SystemColor.blueColor
                 let title = Title4WLabelUILabel()
                 title.text = "Данные о себе"
@@ -149,7 +161,7 @@ extension PortfolioViewTableViewController {
                 return view
             case 1:
                 let view = UIView()
-                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
                 view.backgroundColor = SystemColor.blueColor
                 let title = Title4WLabelUILabel()
                 title.text = "Образование"
@@ -159,7 +171,7 @@ extension PortfolioViewTableViewController {
                 return view
             case 2:
                 let view = UIView()
-                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
                 view.backgroundColor = SystemColor.blueColor
                 let title = Title4WLabelUILabel()
                 title.text = "Опыт работы"
@@ -189,6 +201,12 @@ extension PortfolioViewTableViewController {
             }
         } else {
             return 96
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isEdit {
+            print(indexPath)
         }
     }
     

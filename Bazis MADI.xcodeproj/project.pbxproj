@@ -71,6 +71,7 @@
 		42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */; };
 		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
+		42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */; };
 		42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */; };
 		42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */; };
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
@@ -156,6 +157,7 @@
 		42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewCell.swift; sourceTree = "<group>"; };
 		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTextFieldUITextField.swift; sourceTree = "<group>"; };
 		42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTeacherTableViewController.swift; sourceTree = "<group>"; };
 		42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeButtonUIButton.swift; sourceTree = "<group>"; };
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				424525EB238FCB80008C5EBD /* LoginTextFieldUITextField.swift */,
 				4245396E2399623200126ED6 /* CloseViewUIView.swift */,
 				420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */,
+				42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
 				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
 				42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */,
+				42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */,
 				42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
 				42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */,

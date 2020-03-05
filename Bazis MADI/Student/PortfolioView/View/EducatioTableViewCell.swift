@@ -14,7 +14,7 @@ class EducatioTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: Title5LabelUILabel!
     @IBOutlet weak var nameLabel: Title4LabelUILabel!
     @IBOutlet weak var typeLabel: Title3LabelUILabel!
-    @IBOutlet weak var printSwich: UISwitch!
+    @IBOutlet weak var isPrintImage: UIImageView!
     
     
     var educationData: [String?]! {
@@ -23,11 +23,15 @@ class EducatioTableViewCell: UITableViewCell {
             nameLabel.text = educationData[2]
             typeLabel.text = educationData[3]
             specialLabel.text = educationData[4]
+            
             if educationData[5] == "да" {
-                printSwich.isOn = true
+                let img = UIImage(named: "okPsw")
+                isPrintImage.image = img
             } else {
-                printSwich.isOn = false
+                let img = UIImage(named: "errPsw")
+                isPrintImage.image = img
             }
+            
         }
     }
     
