@@ -19,11 +19,39 @@ class WorkTableViewCell: UITableViewCell {
     
     var dataWork: [String?]! {
         didSet {
-            sityAndNameLabel.text = dataWork[3]! + ", " + dataWork[2]!
-            dateLabel.text = dataWork[0]! + " - "
-            dateEndLabel.text = dataWork[1]
-            typeLabel.text = dataWork[4]
-            dolzLabel.text = dataWork[5]
+            var name = ""
+            
+            if dataWork[3]! != "" {
+                name += dataWork[3]!
+            }
+            if dataWork[2]! != "" {
+                name += ", " + dataWork[2]!
+            }
+            sityAndNameLabel.text = name
+            
+            if dataWork[0]! != "" {
+                dateLabel.text = dataWork[0]! + ""
+            } else {
+                dateLabel.text = "_"
+            }
+            
+            if dataWork[1]! != "" {
+                dateEndLabel.text = dataWork[1]!
+            } else {
+                dateEndLabel.text = "_"
+            }
+            
+            if dataWork[4]! != "" {
+                dateEndLabel.text = dataWork[4]!
+            } else {
+                dateEndLabel.text = "Не указано"
+            }
+            
+            if dataWork[5]! != "" {
+                dolzLabel.text = dataWork[5]
+            } else {
+                dolzLabel.text = "Не указано"
+            }
             
             if dataWork[6] == "да" {
                 let img = UIImage(named: "okPsw")

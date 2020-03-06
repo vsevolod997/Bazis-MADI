@@ -18,8 +18,21 @@ class ObjectRspByGroupTableViewCell: UITableViewCell {
     
     var objectData: DailyRaspisanie! {
         didSet {
-            timeLabel.text = objectData.time
-            dayAndLabel.text = objectData.typeWeek + ", " + objectData.name
+            
+            if objectData.time != "" {
+                timeLabel.text = objectData.time
+            } else {
+                 timeLabel.text = "-"
+            }
+            
+            var typeAndName = ""
+            if objectData.typeWeek != "" {
+                typeAndName += objectData.typeWeek
+            }
+            if objectData.name != "" {
+                typeAndName += ", " + objectData.name
+            }
+            dayAndLabel.text = typeAndName
             
             if let room = objectData.room {
                 if room == "" {

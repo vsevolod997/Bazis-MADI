@@ -17,6 +17,9 @@ class PortfolioViewTableViewController: UITableViewController {
     private var portfolioData: PortfolioModel!
     private var isLoad: Bool = false // флаг указывающий загруженны ли данные
     
+    private var workCount: Int = 0
+    private var educationCount: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +38,7 @@ class PortfolioViewTableViewController: UITableViewController {
         getDataPortfolio()
     }
     
+    //MARK: -  портфолио дата
     private func getDataPortfolio() {
         isLoad = false
         PorfolioHttpService.getPortfolioData { (error, portfolioData) in
@@ -47,6 +51,9 @@ class PortfolioViewTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.isLoad = true
                         self.portfolioData = portfolio
+                        self.educationCount = portfolio.educ.count
+                        self.workCount = portfolio.work.count
+                        print(self.workCount, self.educationCount)
                         self.tableView.reloadData()
                     }
                 }
@@ -76,17 +83,43 @@ class PortfolioViewTableViewController: UITableViewController {
     
     //MARK: - нажатие кнопки редактировния
     @objc func editButtonPress() {
-        isEdit = !isEdit
         if isEdit {
+            removeCellButton()
             tableView.allowsSelection = false
         } else {
+            addCellButton()
             tableView.allowsSelection = true
         }
+        isEdit = !isEdit
+        
+    }
+    
+    private func addCellButton() {
+        
+        let pathEduc = IndexPath(row: educationCount, section: 1)
+        let pathWork = IndexPath(row: workCount, section: 2)
+        
+        workCount = workCount + 1
+        educationCount  = educationCount + 1
+        
+        tableView.insertRows(at: [pathEduc, pathWork], with:  .right)
+    }
+    
+    private func removeCellButton() {
+        workCount = workCount - 1
+        educationCount  = educationCount - 1
+        
+        let pathEduc = IndexPath(row: educationCount, section: 1)
+        let pathWork = IndexPath(row: workCount, section: 2)
+        
+        tableView.deleteRows(at: [pathEduc, pathWork], with: .left)
     }
 }
 
 // MARK: - Table view data source
 extension PortfolioViewTableViewController {
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isLoad {
             return 3
@@ -101,9 +134,9 @@ extension PortfolioViewTableViewController {
             case 0:
                 return 2
             case 1:
-                return portfolioData.educ.count
+                return educationCount
             case 2:
-                return portfolioData.work.count
+                return workCount
             default:
                 return 0
             }
@@ -122,20 +155,29 @@ extension PortfolioViewTableViewController {
                     cell.aboutText.text = portfolioData.ldata
                     return cell
                 } else {
-                    //infoCell
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoPortfolioTableViewCell else { return UITableViewCell() }
                     cell.dolzLabel.text = portfolioData.wpost
                     cell.zpLabel.text = portfolioData.wprice
                     return cell
                 }
-            case 1:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "educCell", for: indexPath) as? EducatioTableViewCell else { return UITableViewCell() }
-                cell.educationData = portfolioData.educ[indexPath.row]
-                return cell
-            case 2:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: "workCell", for: indexPath) as? WorkTableViewCell else {  return UITableViewCell() }
-                cell.dataWork = portfolioData.work[indexPath.row]
-                return cell
+            case 1: //  образование
+                if indexPath.row < portfolioData.educ.count {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "educCell", for: indexPath) as? EducatioTableViewCell else { return UITableViewCell() }
+                    cell.educationData = portfolioData.educ[indexPath.row]
+                    return cell
+                } else {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? AddCellTableViewCell else { return UITableViewCell() }
+                    return cell
+                }
+            case 2: //обучение
+                if indexPath.row < portfolioData.work.count {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "workCell", for: indexPath) as? WorkTableViewCell else {  return UITableViewCell() }
+                    cell.dataWork = portfolioData.work[indexPath.row]
+                    return cell
+                } else {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? AddCellTableViewCell else { return UITableViewCell() }
+                    return cell
+                }
             default:
                 UITableViewCell()
             }
@@ -193,9 +235,17 @@ extension PortfolioViewTableViewController {
             case 0:
                 return 114
             case 1:
-                return 114
+                if indexPath.row < portfolioData.educ.count {
+                    return 114
+                } else {
+                    return 90
+                }
             case 2:
-                return 114
+                if indexPath.row < portfolioData.work.count {
+                    return 114
+                } else {
+                    return 90
+                }
             default:
                 return 0
             }

@@ -19,12 +19,35 @@ class EducatioTableViewCell: UITableViewCell {
     
     var educationData: [String?]! {
         didSet {
-            dateLabel.text = educationData[0]! + " - " + educationData[1]!
-            nameLabel.text = educationData[2]
-            typeLabel.text = educationData[3]
-            specialLabel.text = educationData[4]
+            var yearString: String = ""
             
-            if educationData[5] == "да" {
+            if educationData[0]! != "" {
+                yearString += educationData[0]!
+            }
+            if educationData[1]! != "" {
+                yearString += " - " + educationData[1]!
+            }
+            dateLabel.text = yearString
+            
+            if educationData[2]! != "" {
+                nameLabel.text = educationData[2]
+            } else {
+                nameLabel.text = "Не указано"
+            }
+            
+            if educationData[3]! != "" {
+                typeLabel.text = educationData[3]
+            } else{
+                typeLabel.text = "Не указано"
+            }
+            
+            if educationData[4]! != "" {
+                typeLabel.text = educationData[4]
+            } else{
+                typeLabel.text = "Не указано"
+            }
+            
+            if educationData[5] != "да" {
                 let img = UIImage(named: "okPsw")
                 isPrintImage.image = img
             } else {

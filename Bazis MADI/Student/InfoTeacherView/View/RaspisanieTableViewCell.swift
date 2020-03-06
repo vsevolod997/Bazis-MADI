@@ -17,7 +17,12 @@ class RaspisanieTableViewCell: UITableViewCell {
     
     var objectData: DailyRaspisanieTeacher!  {
         didSet {
-            time.text = objectData.time
+            if objectData.time != "" {
+                 time.text = objectData.time
+            } else {
+                time.text = "-"
+            }
+            
             if let type = objectData.typeLesson {
                 if SystemDevice().isNormalDevice {
                     let buf = type.split(separator: "/")
@@ -29,8 +34,22 @@ class RaspisanieTableViewCell: UITableViewCell {
             } else {
                 typeAndGroupLabel.text = "Не установленно"
             }
-            rumNumLabel.text = objectData.room
-            dayAndDateLabel.text = objectData.typeWeek + ", " + objectData.group!
+            if objectData.room != "" {
+                 rumNumLabel.text = objectData.room
+            } else {
+                rumNumLabel.text = "нет данных"
+            }
+            
+            var typeAndGroup = ""
+            if objectData.typeWeek != "" {
+                typeAndGroup += objectData.typeWeek
+            }
+            if objectData.group != "" {
+                typeAndGroup += ", " + objectData.group!
+            }
+            
+            
+            dayAndDateLabel.text = typeAndGroup
         }
     }
     

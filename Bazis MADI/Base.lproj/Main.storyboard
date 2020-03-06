@@ -1032,6 +1032,21 @@
                                     <outlet property="typeLabel" destination="5pd-KK-ahS" id="pxD-WN-fn3"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="addCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" rowHeight="75" id="Zjn-1J-alA" userLabel="addCell" customClass="WorkTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="576" width="414" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zjn-1J-alA" id="74l-s3-BOW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SN-Wt-jCC">
+                                            <rect key="frame" x="177" y="7" width="60" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="addButton"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="xWl-jd-bNd" id="hyt-uc-kNW"/>
@@ -1113,6 +1128,7 @@
     <resources>
         <image name="Password" width="512" height="512"/>
         <image name="User" width="384" height="448"/>
+        <image name="addButton" width="522" height="522"/>
         <image name="businessman" width="30" height="30"/>
         <image name="chat" width="30" height="30"/>
         <image name="edit" width="512" height="512"/>
@@ -1125,7 +1141,7 @@
         <image name="statistic" width="512" height="512"/>
         <image name="userExit" width="512" height="512"/>
         <namedColor name="ColorBlue">
-            <color red="0.12200000137090683" green="0.3059999942779541" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.12156862745098039" green="0.30588235294117649" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ColorTabBar">
             <color red="0.1202663705" green="0.3036067784" blue="0.50982970000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
