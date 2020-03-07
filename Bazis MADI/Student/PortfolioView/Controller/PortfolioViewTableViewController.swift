@@ -119,6 +119,9 @@ class PortfolioViewTableViewController: UITableViewController {
 // MARK: - Table view data source
 extension PortfolioViewTableViewController {
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isLoad {
@@ -194,7 +197,7 @@ extension PortfolioViewTableViewController {
             case 0:
                 let view = UIView()
                 view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
-                view.backgroundColor = SystemColor.blueColor
+                view.backgroundColor = .systemBackground
                 let title = Title4WLabelUILabel()
                 title.text = "Данные о себе"
                 title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -204,7 +207,7 @@ extension PortfolioViewTableViewController {
             case 1:
                 let view = UIView()
                 view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
-                view.backgroundColor = SystemColor.blueColor
+                view.backgroundColor = .systemBackground
                 let title = Title4WLabelUILabel()
                 title.text = "Образование"
                 title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -214,7 +217,7 @@ extension PortfolioViewTableViewController {
             case 2:
                 let view = UIView()
                 view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
-                view.backgroundColor = SystemColor.blueColor
+                view.backgroundColor = .systemBackground
                 let title = Title4WLabelUILabel()
                 title.text = "Опыт работы"
                 title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
@@ -236,13 +239,13 @@ extension PortfolioViewTableViewController {
                 return 114
             case 1:
                 if indexPath.row < portfolioData.educ.count {
-                    return 114
+                    return 132
                 } else {
                     return 90
                 }
             case 2:
                 if indexPath.row < portfolioData.work.count {
-                    return 114
+                    return 132
                 } else {
                     return 90
                 }

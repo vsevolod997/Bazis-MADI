@@ -19,10 +19,14 @@ class ObjectRspByGroupTableViewCell: UITableViewCell {
     var objectData: DailyRaspisanie! {
         didSet {
             
-            if objectData.time != "" {
-                timeLabel.text = objectData.time
+            if let time = objectData.time {
+                if time != "" {
+                    timeLabel.text = time
+                } else {
+                    timeLabel.text = "-"
+                }
             } else {
-                 timeLabel.text = "-"
+                timeLabel.text = "-"
             }
             
             var typeAndName = ""
@@ -34,15 +38,29 @@ class ObjectRspByGroupTableViewCell: UITableViewCell {
             }
             dayAndLabel.text = typeAndName
             
+            
             if let room = objectData.room {
-                if room == "" {
-                    numLabel.text = " - "
-                } else {
+                if room != "" {
                     numLabel.text = room
+                } else {
+                    numLabel.text = "-"
                 }
+            } else {
+                numLabel.text = "-"
             }
-            guard let buff = objectData.typeLesson?.split(separator: " ") else { return }
-            teacherLabel.text = String(buff[0])
+            
+            if let type = objectData.typeLesson {
+                if type != "" {
+                    let buff = type.split(separator: " ")
+                    teacherLabel.text = String(buff[0])
+                } else {
+                    teacherLabel.text = "-"
+                }
+            } else {
+                teacherLabel.text = "-"
+            }
+            
+            
             if let teacherName = objectData.teacher {
                 if teacherName == "" {
                     teacherNameLabel.text = "Преподаватель: -"

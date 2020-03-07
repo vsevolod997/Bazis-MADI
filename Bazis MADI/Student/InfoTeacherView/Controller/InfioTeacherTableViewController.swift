@@ -133,7 +133,7 @@ extension InfioTeacherTableViewController {
         if indexPath.section == 0 {
             return 110
         } else {
-            return 96
+            return 115
         }
     }
     
@@ -214,7 +214,7 @@ extension InfioTeacherTableViewController {
         default:
             let view = UIView()
             view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.blueColor
+            view.backgroundColor = .systemBackground
             let title = Title4WLabelUILabel()
             title.text = raspisanie[section - 3].dayTitle
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)

@@ -87,6 +87,10 @@ class InfoRaspisanieGroupTableViewController: UITableViewController {
 //MARK: - TableViewDataSource
 extension InfoRaspisanieGroupTableViewController {
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch loadStatus {
         case .loading:
@@ -125,7 +129,7 @@ extension InfoRaspisanieGroupTableViewController {
         case .loading:
             return 96
         case .load:
-            return 115
+            return 150
         }
     }
     
@@ -147,7 +151,7 @@ extension InfoRaspisanieGroupTableViewController {
         switch section {
         case 0:
             let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
             view.backgroundColor = .systemBackground
             let title = Title6LabelUILabel()
             title.text = "Расписание"
@@ -157,7 +161,7 @@ extension InfoRaspisanieGroupTableViewController {
             return view
         case 1:
             let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
             view.backgroundColor = .systemBackground
             let title = Title4LabelUILabel()
             title.textColor = SystemColor.grayColor
@@ -177,9 +181,9 @@ extension InfoRaspisanieGroupTableViewController {
             
         default:
             let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
             view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
+            let title = Title4WLabelUILabel()
             title.text = raspisanie[section - 2].dayTitle
             title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
             view.addSubview(title)

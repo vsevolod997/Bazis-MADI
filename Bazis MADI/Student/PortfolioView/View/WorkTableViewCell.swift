@@ -20,38 +20,60 @@ class WorkTableViewCell: UITableViewCell {
     var dataWork: [String?]! {
         didSet {
             var name = ""
+            if let buff = dataWork[3] {
+                if buff != "" {
+                    name += buff
+                }
+            }
             
-            if dataWork[3]! != "" {
-                name += dataWork[3]!
+            if let buff2 = dataWork[2] {
+                if buff2 != "" {
+                    name += ", " + buff2
+                }
             }
-            if dataWork[2]! != "" {
-                name += ", " + dataWork[2]!
-            }
+            
             sityAndNameLabel.text = name
             
-            if dataWork[0]! != "" {
-                dateLabel.text = dataWork[0]! + ""
+            if let buff3 = dataWork[0] {
+                if buff3 != "" {
+                    dateLabel.text = buff3
+                } else {
+                    dateLabel.text = "_"
+                }
             } else {
                 dateLabel.text = "_"
             }
             
-            if dataWork[1]! != "" {
-                dateEndLabel.text = dataWork[1]!
+            if let buff4 = dataWork[1] {
+                if buff4 != "" {
+                    dateEndLabel.text = buff4
+                } else {
+                    dateEndLabel.text = "_"
+                }
             } else {
                 dateEndLabel.text = "_"
             }
             
-            if dataWork[4]! != "" {
-                dateEndLabel.text = dataWork[4]!
+            if let buff5 = dataWork[4] {
+                if buff5 != "" {
+                    typeLabel.text = buff5
+                } else {
+                    typeLabel.text = "Не указано"
+                }
             } else {
-                dateEndLabel.text = "Не указано"
+                 typeLabel.text = "Не указано"
             }
             
-            if dataWork[5]! != "" {
-                dolzLabel.text = dataWork[5]
+            if let buff6 = dataWork[5] {
+                if buff6 != "" {
+                     dolzLabel.text = buff6
+                 } else {
+                     dolzLabel.text = "Не указано"
+                 }
             } else {
                 dolzLabel.text = "Не указано"
             }
+ 
             
             if dataWork[6] == "да" {
                 let img = UIImage(named: "okPsw")

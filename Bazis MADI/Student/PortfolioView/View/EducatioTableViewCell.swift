@@ -21,30 +21,52 @@ class EducatioTableViewCell: UITableViewCell {
         didSet {
             var yearString: String = ""
             
-            if educationData[0]! != "" {
-                yearString += educationData[0]!
+            if let yearStart = educationData[0] {
+                if yearStart != "" {
+                    yearString += yearStart
+                } else {
+                     yearString += "_"
+                }
+            } else {
+                yearString += "_"
             }
-            if educationData[1]! != "" {
-                yearString += " - " + educationData[1]!
+            
+            if let yearsEnd = educationData[1] {
+                if yearsEnd != "" {
+                    yearString += " - " + yearsEnd
+                }
+            } else {
+                yearString += "- _"
             }
             dateLabel.text = yearString
             
-            if educationData[2]! != "" {
-                nameLabel.text = educationData[2]
+            
+            if let name = educationData[2] {
+                if name != "" {
+                    nameLabel.text = name
+                } else {
+                    nameLabel.text = "Не указано"
+                }
             } else {
                 nameLabel.text = "Не указано"
             }
             
-            if educationData[3]! != "" {
-                typeLabel.text = educationData[3]
-            } else{
-                typeLabel.text = "Не указано"
+            if let type = educationData[3] {
+                if type != "" {
+                    typeLabel.text = type
+                } else {
+                    typeLabel.text = "Не указано"
+                }
+            } else {
+                 typeLabel.text = "Не указано"
             }
             
-            if educationData[4]! != "" {
-                typeLabel.text = educationData[4]
-            } else{
-                typeLabel.text = "Не указано"
+            if let spec = educationData[4] {
+                if spec != "" {
+                    specialLabel.text = spec
+                } else {
+                    specialLabel.text = "Не указано"
+                }
             }
             
             if educationData[5] != "да" {
@@ -58,15 +80,14 @@ class EducatioTableViewCell: UITableViewCell {
         }
     }
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
 }

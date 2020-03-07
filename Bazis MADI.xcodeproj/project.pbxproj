@@ -49,6 +49,7 @@
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
 		428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */; };
 		42A69861241140A500278683 /* AddCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A69860241140A500278683 /* AddCellTableViewCell.swift */; };
+		42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A698622413CC8D00278683 /* CardInCellUIView.swift */; };
 		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
 		42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */; };
 		42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */; };
@@ -136,6 +137,7 @@
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOptionTableViewController.swift; sourceTree = "<group>"; };
 		42A69860241140A500278683 /* AddCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCellTableViewCell.swift; sourceTree = "<group>"; };
+		42A698622413CC8D00278683 /* CardInCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInCellUIView.swift; sourceTree = "<group>"; };
 		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
 		42A75FD323A14D8C0083B3EC /* RaspisanieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieModel.swift; sourceTree = "<group>"; };
 		42A75FD523A152610083B3EC /* HttpServiceRaspisanie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceRaspisanie.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				4245396E2399623200126ED6 /* CloseViewUIView.swift */,
 				420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */,
 				42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */,
+				42A698622413CC8D00278683 /* CardInCellUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				42AA02A8240E5184006F0FDA /* PorfolioHttpService.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
+				42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */,
 				42AA02AE240E605D006F0FDA /* InfoPortfolioTableViewCell.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,

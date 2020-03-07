@@ -9,19 +9,19 @@
 import UIKit
 
 class Title4WLabelUILabel: UILabel {
-
+    
     override init(frame: CGRect) {
-           super.init(frame: frame)
-           setup()
-       }
-       
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           setup()
-       }
-       
-       fileprivate func setup() {
-           font = UIFont.boldSystemFont(ofSize: 20)
-        textColor = SystemColor.whiteColor
-       }
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    fileprivate func setup() {
+        font = UIFont.boldSystemFont(ofSize: 22)
+        textColor = SystemColor.blueColor
+    }
 }
