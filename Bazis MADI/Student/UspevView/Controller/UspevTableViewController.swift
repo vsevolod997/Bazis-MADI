@@ -97,16 +97,7 @@ class UspevTableViewController: UITableViewController {
         
     //MARK: - настройка внешнего вида navBar
     private func setupNavBar() {
-        
-        let segmentControl = UISegmentedControl(items: ["Сем.", "Пред."]) // тип отображения
-        segmentControl.setWidth(100, forSegmentAt: 0)
-        segmentControl.setWidth(100, forSegmentAt: 1)
-        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: SystemColor.whiteTextFill]
-        segmentControl.setTitleTextAttributes(titleTextAttributes, for: .selected)
-        segmentControl.backgroundColor = SystemColor.whiteTextFill
-        segmentControl.selectedSegmentIndex = 0
-        segmentControl.selectedSegmentTintColor = SystemColor.blueColor
-        segmentControl.addTarget(self, action: #selector(selectSortedType(segment:)), for: .valueChanged)
+        title = "Успеваемость"
         
         searchController.delegate = self
         searchController.searchResultsUpdater = self
@@ -115,6 +106,21 @@ class UspevTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.automaticallyShowsScopeBar = true
         searchController.hidesNavigationBarDuringPresentation = false
+        
+        searchController.searchBar.scopeButtonTitles = ["Семестр", "Предмет"]
+        searchController.searchBar.showsScopeBar = true
+        
+        //настройка segmet controll
+        let scopeBar = searchController.searchBar.value(forKey: "scopeBar") as? UISegmentedControl
+        if let segmentController = scopeBar {
+            segmentController.selectedSegmentTintColor = SystemColor.blueColor
+            segmentController.backgroundColor = .systemBackground
+            segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
+            segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
+            segmentController.addTarget(self, action: #selector(selectSortedType(segment:)), for: .valueChanged)
+        }
+        
+        //настройка строки поиска
         UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.redColor], for: .normal)
         let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
         if let field = searchField {
@@ -127,8 +133,6 @@ class UspevTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        navigationItem.titleView = segmentControl
-        navigationItem.prompt = "Успеваемость"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
@@ -248,16 +252,16 @@ extension UspevTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isSearchResult {
            if cellList.contains(indexPath) {
-                return 152
+                return 158
             } else {
-                return 105
+                return 112
             }
         } else {
             if isSem {
                 if cellList.contains(indexPath) {
-                    return 152
+                    return 158
                 } else {
-                    return 105
+                    return 112
                 }
             } else {
                 if cellList.contains(indexPath) {

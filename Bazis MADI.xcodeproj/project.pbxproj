@@ -29,6 +29,7 @@
 		42453971239A518E00126ED6 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453970239A518E00126ED6 /* SystemColor.swift */; };
 		42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */; };
 		42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42453974239BED7200126ED6 /* PasswordChangeController.swift */; };
+		4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4247D4FA2417A3C900A1DBD2 /* CardInCellBlueUIView.swift */; };
 		4248818523C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818423C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift */; };
 		4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818623C9D6DF003BB98F /* RspByTeacherUIVIew.swift */; };
 		4248818923CA19AC003BB98F /* UserTitleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4248818823CA19AC003BB98F /* UserTitleUILabel.swift */; };
@@ -117,6 +118,7 @@
 		42453970239A518E00126ED6 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		42453972239AD8CB00126ED6 /* PasswordChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeViewController.swift; sourceTree = "<group>"; };
 		42453974239BED7200126ED6 /* PasswordChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChangeController.swift; sourceTree = "<group>"; };
+		4247D4FA2417A3C900A1DBD2 /* CardInCellBlueUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInCellBlueUIView.swift; sourceTree = "<group>"; };
 		4248818423C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieByTeacherUIView.swift; sourceTree = "<group>"; };
 		4248818623C9D6DF003BB98F /* RspByTeacherUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RspByTeacherUIVIew.swift; sourceTree = "<group>"; };
 		4248818823CA19AC003BB98F /* UserTitleUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTitleUILabel.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */,
 				42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */,
 				42A698622413CC8D00278683 /* CardInCellUIView.swift */,
+				4247D4FA2417A3C900A1DBD2 /* CardInCellBlueUIView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -889,6 +892,7 @@
 				42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */,
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */,
+				4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,

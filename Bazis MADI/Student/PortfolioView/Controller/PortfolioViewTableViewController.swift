@@ -259,7 +259,18 @@ extension PortfolioViewTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEdit {
-            print(indexPath)
+            switch indexPath.section {
+            case 1:
+                if indexPath.row > portfolioData.educ.count {
+                     print(indexPath)
+                }
+            case 2:
+                if indexPath.row > portfolioData.work.count {
+                     print(indexPath)
+                }
+            default:
+                print(indexPath)
+            }
         }
     }
     
