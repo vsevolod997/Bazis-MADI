@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// MARK: - ячейка простомтра расписания группы
 class ObjectRspByGroupTableViewCell: UITableViewCell {
     
     @IBOutlet weak var teacherNameLabel: Title2LabelUILabel!

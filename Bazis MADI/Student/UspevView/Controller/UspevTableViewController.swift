@@ -134,12 +134,16 @@ class UspevTableViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
+        
 
-        let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
-        leftButton.tintColor = SystemColor.whiteColor
-        self.navigationItem.leftBarButtonItem = leftButton
+        //let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
+        let img = UIImage(named: "backButton")
+        let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
+        navigationItem.leftBarButtonItem = backButton
+        
     }
     
     // MARK: - нажатие "назад"
@@ -252,22 +256,22 @@ extension UspevTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isSearchResult {
            if cellList.contains(indexPath) {
-                return 158
+                return 160
             } else {
                 return 112
             }
         } else {
             if isSem {
                 if cellList.contains(indexPath) {
-                    return 158
+                    return 160
                 } else {
-                    return 112
+                    return 114
                 }
             } else {
                 if cellList.contains(indexPath) {
-                    return 105
+                    return 110
                 } else {
-                    return 55
+                    return 60
                 }
             }
         }

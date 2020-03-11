@@ -22,7 +22,8 @@ class CardInCellBlueUIView: UIView {
     
     private func setupView() {
         clipsToBounds = false
-        layer.cornerRadius = 20
+        layer.cornerRadius = 10
         layer.maskedCorners = [.layerMinXMaxYCorner , .layerMaxXMaxYCorner]
+        alpha = 0.8
     }
 }

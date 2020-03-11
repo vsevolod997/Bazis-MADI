@@ -40,20 +40,28 @@ class PasswordChangeViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+        
+        let img = UIImage(named: "backButton")
+        let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
+        navigationItem.leftBarButtonItem = backButton
     }
     
     //MARK: - жесты
     private func addGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapView(_:)))
         view.addGestureRecognizer(tap)
-    }
-    
-    @objc func backButtonPress() {
-        self.navigationController?.popViewController(animated: true)
+        
+        let backSwipe = UISwipeGestureRecognizer(target: self, action: #selector(backButtonPress))
+        backSwipe.direction = .right
+        view.addGestureRecognizer(backSwipe)
     }
     
     @objc func tapView(_ gestueRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
+    }
+    
+    @objc func backButtonPress() {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func ChangedPaswordButton(_ sender: Any) {

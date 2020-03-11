@@ -23,6 +23,10 @@ class UspevTableViewCell: UITableViewCell {
     
     var data: UspevModel! {
         didSet {
+            
+            viewBottom.alpha = 0
+            viewTop.alpha = 0.8
+            
             if let obj = data {
                 if let hour = obj.hour {
                     if hour != "" {
@@ -67,8 +71,10 @@ class UspevTableViewCell: UITableViewCell {
     
     public func showFull(isShow: Bool) {
         if isShow {
+            viewBottom.alpha = 0.8
             viewTop.alpha = 0.0
         } else {
+            viewBottom.alpha = 0.0
             viewTop.alpha = 0.8
         }
     }

@@ -18,7 +18,7 @@ class RaspisanieTableViewCell: UITableViewCell {
     var objectData: DailyRaspisanieTeacher!  {
         didSet {
             if objectData.time != "" {
-                 time.text = objectData.time
+                time.text = objectData.time
             } else {
                 time.text = "-"
             }
@@ -35,7 +35,7 @@ class RaspisanieTableViewCell: UITableViewCell {
                 typeAndGroupLabel.text = "Не установленно"
             }
             if objectData.room != "" {
-                 rumNumLabel.text = objectData.room
+                rumNumLabel.text = objectData.room
             } else {
                 rumNumLabel.text = "нет данных"
             }
@@ -57,10 +57,10 @@ class RaspisanieTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
-
+    
 }

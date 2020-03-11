@@ -68,6 +68,14 @@ class PortfolioViewTableViewController: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+        
+        let img = UIImage(named: "backButton")
+        let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc func backButtonPress() {
+        navigationController?.popViewController(animated: true)
     }
 
     private func showErrorView() {
