@@ -10,6 +10,8 @@ import UIKit
 
 class PortfolioViewTableViewController: UITableViewController {
 
+    private let controller = PortfolioController()
+    
     private let notificationReload = Notification.Name("reloadData")
     private var errorVC: ErrorViewUIView!
     
@@ -101,6 +103,8 @@ class PortfolioViewTableViewController: UITableViewController {
         isEdit = !isEdit
         
     }
+    
+    
     
     private func addCellButton() {
         
@@ -269,17 +273,48 @@ extension PortfolioViewTableViewController {
         if isEdit {
             switch indexPath.section {
             case 1:
-                if indexPath.row > portfolioData.educ.count {
-                     print(indexPath)
+                if indexPath.row < portfolioData.educ.count {
+                    controller.editEducationData(portfolio: portfolioData, index: indexPath.row)
+                } else {
+                    controller.addEduc(portfolio: portfolioData)
                 }
             case 2:
-                if indexPath.row > portfolioData.work.count {
-                     print(indexPath)
+                if indexPath.row < portfolioData.work.count {
+                    controller.editWorkData(portfolio: portfolioData, index: indexPath.row)
+                } else {
+                    controller.addWork(portfolio: portfolioData)
                 }
             default:
-                print(indexPath)
+                controller.editAboutData(portfolio: portfolioData)
             }
         }
     }
     
+}
+
+
+//MARK: - редактирование данных
+extension PortfolioViewTableViewController: editPersonalInformationDelegate {
+    func editDataWorkControll(_ controller: PortfolioController, editData: PortfolioModel) {
+        print("main")
+    }
+    
+    func editEducationDataControll(_ controller: PortfolioController, editData: PortfolioModel) {
+        print("main")
+    }
+    
+    func addWorkControll(_ controller: PortfolioController, editData: PortfolioModel) {
+        print("main")
+    }
+    
+    func addEducControll(_ controller: PortfolioController, editData: PortfolioModel) {
+        print("main")
+    }
+    
+    func editAboutDataControll(_ controller: PortfolioController, editData: PortfolioModel) {
+        print("main")
+    }
+    
+    
+   
 }

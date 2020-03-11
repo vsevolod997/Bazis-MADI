@@ -9,6 +9,7 @@
 import Foundation
 
 struct PortfolioModel: Decodable {
+    
     var ldata: String?
     var wpost: String? // zp
     var wprice: String?
