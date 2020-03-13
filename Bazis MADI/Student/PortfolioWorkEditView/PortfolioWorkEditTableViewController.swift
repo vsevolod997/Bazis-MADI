@@ -22,7 +22,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     @IBOutlet weak var cityField: UITextField!
     @IBOutlet weak var printSwitch: UISwitch!
     
-    private var endDataPicker = UIDatePicker()
+    private var endDatePicker = UIDatePicker()
     private var startDatePicker = UIDatePicker()
     
     var dataWork: [String?]!
@@ -31,11 +31,12 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUserDate()
         setupStartPicer()
         setupEndPicer()
-        setUserDate()
-        
         addGestue()
+        
+        saveButton.isEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -102,7 +103,8 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         
         let city = cityField.text
         localUserWorkData.append(city)
-        if printSwitch.isOn{
+        
+        if printSwitch.isOn {
             localUserWorkData.append("да")
         } else {
             localUserWorkData.append("нет")
@@ -113,11 +115,20 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     }
     
     private func setupStartPicer() {
+        
         dateStartField.inputView = startDatePicker
         let locale = Locale.preferredLanguages.first
         startDatePicker.locale = Locale(identifier: locale!)
         startDatePicker.datePickerMode = .date
         
+        let formated = DateFormatter()
+        formated.dateFormat = "dd.MM.yyyy"
+        
+        if let date = dateStartField.text {
+            guard let pickerDate = formated.date(from: date) else { return }
+            startDatePicker.date = pickerDate
+        }
+       
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectStartDate(_:)) )
@@ -128,10 +139,18 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     
     
     private func setupEndPicer() {
-        dateEndField.inputView = endDataPicker
+        dateEndField.inputView = endDatePicker
         let locale = Locale.preferredLanguages.first
-        endDataPicker.locale = Locale(identifier: locale!)
-        endDataPicker.datePickerMode = .date
+        endDatePicker.locale = Locale(identifier: locale!)
+        endDatePicker.datePickerMode = .date
+        
+        let formated = DateFormatter()
+        formated.dateFormat = "dd.MM.yyyy"
+        
+        if let date = dateEndField.text {
+            guard let pickerDate = formated.date(from: date) else { return }
+            endDatePicker.date = pickerDate
+        }
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -154,7 +173,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     @objc func selectEndDate(_ sender: UIDatePicker) {
         let formated = DateFormatter()
         formated.dateFormat = "dd.MM.yyyy"
-        dateEndField.text = formated.string(from: endDataPicker.date)
+        dateEndField.text = formated.string(from: endDatePicker.date)
         view.endEditing(true)
         
         controlSaveButtonEnabled()
@@ -172,7 +191,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     
     //MARK: -  доступность кнпки сохранения
     private func controlSaveButtonEnabled() {
-        print(controlChangedData())
+        //print(controlChangedData())
         if controlChangedData() {
             saveButton.isEnabled = true
         } else {

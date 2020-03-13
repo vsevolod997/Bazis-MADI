@@ -15,13 +15,12 @@ class PortfolioViewTableViewController: UITableViewController {
     private let notificationReload = Notification.Name("reloadData")
     private var errorVC: ErrorViewUIView!
     
+    private var editButton: UIBarButtonItem = UIBarButtonItem()
     private var isEdit: Bool = false
     private var portfolioData: PortfolioModel!
     private var isLoad: Bool = false // флаг указывающий загруженны ли данные
     
-    private var workCount: Int = 0
-    private var educationCount: Int = 0
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,9 +52,6 @@ class PortfolioViewTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.isLoad = true
                         self.portfolioData = portfolio
-                        self.educationCount = portfolio.educ.count
-                        self.workCount = portfolio.work.count
-                        print(self.workCount, self.educationCount)
                         self.tableView.reloadData()
                     }
                 }
@@ -65,8 +61,12 @@ class PortfolioViewTableViewController: UITableViewController {
     
     //MARK: - Настройки окна
     private func setupView() {
+        title = "Портфолио"
+        let addButton = UIBarButtonItem(image: .add, style:.plain, target: self, action: #selector(addButtonPress))
+        editButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonPress))
+           
+        navigationItem.rightBarButtonItems = [addButton, editButton]
         
-        navigationItem.rightBarButtonItem = .init(barButtonSystemItem: .edit, target: self, action: #selector(editButtonPress))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
@@ -76,6 +76,23 @@ class PortfolioViewTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = backButton
         
         controller.delegate = self
+    }
+    
+    @objc func addButtonPress() {
+        let alert = UIAlertController(title: "Добавить", message: nil, preferredStyle: .actionSheet)
+        let workAction = UIAlertAction(title: "Место работы", style: .default) { (action) in
+            self.controller.addWork(portfolio: self.portfolioData, rootVC: self)
+        }
+        let educAction = UIAlertAction(title: "Образование", style: .default) { (action) in
+            print("educ")
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(workAction)
+        alert.addAction(educAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
     @objc func backButtonPress() {
@@ -96,37 +113,13 @@ class PortfolioViewTableViewController: UITableViewController {
     //MARK: - нажатие кнопки редактировния
     @objc func editButtonPress() {
         if isEdit {
-            removeCellButton()
+            editButton.title = "Править"
             tableView.allowsSelection = false
         } else {
-            addCellButton()
+            editButton.title = "Готово"
             tableView.allowsSelection = true
         }
         isEdit = !isEdit
-        
-    }
-    
-    
-    
-    private func addCellButton() {
-        
-        let pathEduc = IndexPath(row: educationCount, section: 1)
-        let pathWork = IndexPath(row: workCount, section: 2)
-        
-        workCount = workCount + 1
-        educationCount  = educationCount + 1
-        
-        tableView.insertRows(at: [pathEduc, pathWork], with:  .right)
-    }
-    
-    private func removeCellButton() {
-        workCount = workCount - 1
-        educationCount  = educationCount - 1
-        
-        let pathEduc = IndexPath(row: educationCount, section: 1)
-        let pathWork = IndexPath(row: workCount, section: 2)
-        
-        tableView.deleteRows(at: [pathEduc, pathWork], with: .left)
     }
 }
 
@@ -151,9 +144,9 @@ extension PortfolioViewTableViewController {
             case 0:
                 return 2
             case 1:
-                return educationCount
+                return portfolioData.educ.count
             case 2:
-                return workCount
+                return portfolioData.work.count
             default:
                 return 0
             }
@@ -178,23 +171,13 @@ extension PortfolioViewTableViewController {
                     return cell
                 }
             case 1: //  образование
-                if indexPath.row < portfolioData.educ.count {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "educCell", for: indexPath) as? EducatioTableViewCell else { return UITableViewCell() }
                     cell.educationData = portfolioData.educ[indexPath.row]
                     return cell
-                } else {
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? AddCellTableViewCell else { return UITableViewCell() }
-                    return cell
-                }
             case 2: //обучение
-                if indexPath.row < portfolioData.work.count {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "workCell", for: indexPath) as? WorkTableViewCell else {  return UITableViewCell() }
                     cell.dataWork = portfolioData.work[indexPath.row]
                     return cell
-                } else {
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? AddCellTableViewCell else { return UITableViewCell() }
-                    return cell
-                }
             default:
                 UITableViewCell()
             }
@@ -252,17 +235,9 @@ extension PortfolioViewTableViewController {
             case 0:
                 return 114
             case 1:
-                if indexPath.row < portfolioData.educ.count {
-                    return 132
-                } else {
-                    return 90
-                }
+                return 132
             case 2:
-                if indexPath.row < portfolioData.work.count {
-                    return 132
-                } else {
-                    return 90
-                }
+                return 132
             default:
                 return 0
             }
@@ -275,18 +250,9 @@ extension PortfolioViewTableViewController {
         if isEdit {
             switch indexPath.section {
             case 1:
-                if indexPath.row < portfolioData.educ.count {
-                    controller.editEducationData(portfolio: portfolioData, index: indexPath.row)
-                } else {
-                    controller.addEduc(portfolio: portfolioData)
-                }
+                controller.editEducationData(portfolio: portfolioData, index: indexPath.row)
             case 2:
-                if indexPath.row < portfolioData.work.count {
-                    controller.editWorkData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
-                    
-                } else {
-                    controller.addWork(portfolio: portfolioData, rootVC: self)
-                }
+                controller.editWorkData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
             default:
                 controller.editAboutData(portfolio: portfolioData)
             }
