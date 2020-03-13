@@ -74,6 +74,8 @@ class PortfolioViewTableViewController: UITableViewController {
         let img = UIImage(named: "backButton")
         let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
         navigationItem.leftBarButtonItem = backButton
+        
+        controller.delegate = self
     }
     
     @objc func backButtonPress() {
@@ -280,41 +282,25 @@ extension PortfolioViewTableViewController {
                 }
             case 2:
                 if indexPath.row < portfolioData.work.count {
-                    controller.editWorkData(portfolio: portfolioData, index: indexPath.row)
+                    controller.editWorkData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
+                    
                 } else {
-                    controller.addWork(portfolio: portfolioData)
+                    controller.addWork(portfolio: portfolioData, rootVC: self)
                 }
             default:
                 controller.editAboutData(portfolio: portfolioData)
             }
         }
     }
-    
 }
 
 
 //MARK: - редактирование данных
 extension PortfolioViewTableViewController: editPersonalInformationDelegate {
-    func editDataWorkControll(_ controller: PortfolioController, editData: PortfolioModel) {
-        print("main")
+    
+    func editPortfolioData(_ controller: PortfolioController, editData: PortfolioModel) {
+        portfolioData = editData
+        tableView.reloadData()
     }
     
-    func editEducationDataControll(_ controller: PortfolioController, editData: PortfolioModel) {
-        print("main")
-    }
-    
-    func addWorkControll(_ controller: PortfolioController, editData: PortfolioModel) {
-        print("main")
-    }
-    
-    func addEducControll(_ controller: PortfolioController, editData: PortfolioModel) {
-        print("main")
-    }
-    
-    func editAboutDataControll(_ controller: PortfolioController, editData: PortfolioModel) {
-        print("main")
-    }
-    
-    
-   
 }
