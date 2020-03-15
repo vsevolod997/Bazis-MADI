@@ -12,6 +12,7 @@ import UIKit
 class PortfolioWorkEditTableViewController: UITableViewController {
     
     public var saveCloser: (([String?]) -> ())?
+    public var deleteCloser: (() ->())?
     
     @IBOutlet weak var saveButton: DoneButtonUIButton!
     @IBOutlet weak var dateStartField: UITextField!
@@ -39,16 +40,10 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         saveButton.isEnabled = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if controlChangedData() {
-            showExitAlert()
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
-    }
     
     //MARK: - установка данных
     private func setUserDate() {
+        
         if let dataWork = dataWork {
             if let startData = dataWork[0] {
                 dateStartField.text = startData
@@ -84,6 +79,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     
     //MARK:- считывание новых данных
     private func getUserData() -> [String?] {
+        
         var localUserWorkData: [String?] = []
         
         let startData = dateStartField.text
@@ -111,7 +107,6 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         }
         
         return localUserWorkData
-        
     }
     
     private func setupStartPicer() {
@@ -131,7 +126,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectStartDate(_:)) )
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectStartDate(_:)))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         toolBar.setItems([doneButton, spacer], animated: true)
         dateStartField.inputAccessoryView = toolBar
@@ -186,7 +181,6 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         view.endEditing(true)
         
         controlSaveButtonEnabled()
-        
     }
     
     //MARK: -  доступность кнпки сохранения
@@ -216,12 +210,32 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
-        
         if controlChangedData() {
             showExitAlert()
         } else {
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func printSwitcherChanged(_ sender: Any) {
+        controlSaveButtonEnabled()
+    }
+    
+    @IBAction func DeleteButtonPress(_ sender: Any) {
+        showDeleteAlert()
+    }
+    
+    private func showDeleteAlert() {
+        let alert = UIAlertController(title: "Удаление", message: "Вы уверенны, что хотите удалить данные о работе?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { (action) in
+            self.deleteCloser?()
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(deleteAction)
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
     private func showExitAlert() {

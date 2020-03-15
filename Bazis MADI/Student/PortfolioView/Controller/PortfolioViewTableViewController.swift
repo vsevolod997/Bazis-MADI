@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PortfolioViewTableViewController: UITableViewController {
 
@@ -62,7 +63,9 @@ class PortfolioViewTableViewController: UITableViewController {
     //MARK: - Настройки окна
     private func setupView() {
         title = "Портфолио"
-        let addButton = UIBarButtonItem(image: .add, style:.plain, target: self, action: #selector(addButtonPress))
+        
+        let addImg = UIImage(named: "addButton")
+        let addButton = UIBarButtonItem(image: addImg, style:.plain, target: self, action: #selector(addButtonPress))
         editButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonPress))
            
         navigationItem.rightBarButtonItems = [addButton, editButton]
@@ -78,13 +81,15 @@ class PortfolioViewTableViewController: UITableViewController {
         controller.delegate = self
     }
     
+    
+    //MARK: - выбор того что хотим добавить
     @objc func addButtonPress() {
         let alert = UIAlertController(title: "Добавить", message: nil, preferredStyle: .actionSheet)
         let workAction = UIAlertAction(title: "Место работы", style: .default) { (action) in
             self.controller.addWork(portfolio: self.portfolioData, rootVC: self)
         }
         let educAction = UIAlertAction(title: "Образование", style: .default) { (action) in
-            print("educ")
+            self.controller.addEduc(portfolio: self.portfolioData, rootVC: self)
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         
@@ -112,6 +117,7 @@ class PortfolioViewTableViewController: UITableViewController {
     
     //MARK: - нажатие кнопки редактировния
     @objc func editButtonPress() {
+        
         if isEdit {
             editButton.title = "Править"
             tableView.allowsSelection = false
@@ -120,6 +126,7 @@ class PortfolioViewTableViewController: UITableViewController {
             tableView.allowsSelection = true
         }
         isEdit = !isEdit
+        tableView.reloadData()
     }
 }
 
@@ -235,9 +242,17 @@ extension PortfolioViewTableViewController {
             case 0:
                 return 114
             case 1:
-                return 132
+                if isEdit {
+                    return 170
+                } else {
+                    return 132
+                }
             case 2:
-                return 132
+                if isEdit {
+                    return 170
+                } else {
+                    return 132
+                }
             default:
                 return 0
             }
@@ -250,7 +265,7 @@ extension PortfolioViewTableViewController {
         if isEdit {
             switch indexPath.section {
             case 1:
-                controller.editEducationData(portfolio: portfolioData, index: indexPath.row)
+                controller.editEducationData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
             case 2:
                 controller.editWorkData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
             default:
@@ -265,6 +280,10 @@ extension PortfolioViewTableViewController {
 extension PortfolioViewTableViewController: editPersonalInformationDelegate {
     
     func editPortfolioData(_ controller: PortfolioController, editData: PortfolioModel) {
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+        
         portfolioData = editData
         tableView.reloadData()
     }

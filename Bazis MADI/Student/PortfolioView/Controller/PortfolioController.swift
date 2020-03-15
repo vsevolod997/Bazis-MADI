@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - детальная информация о работе
-protocol editPersonalInformationDelegate {
+protocol editPersonalInformationDelegate: class {
     
     func editPortfolioData(_ controller: PortfolioController, editData: PortfolioModel)
 }
@@ -30,11 +30,33 @@ class PortfolioController {
             self.delegate.editPortfolioData(self, editData: editPortfolio)
         }
         
+        vc.deleteCloser = {
+            var editPortfolio = portfolio
+            editPortfolio.work.remove(at: index)
+            self.delegate.editPortfolioData(self, editData: editPortfolio)
+        }
+        
         rootVC.present(vc, animated: true)
     }
     
-    func editEducationData(portfolio: PortfolioModel, index: Int) {
-        print("edicChanged", portfolio.educ[index])
+    func editEducationData(portfolio: PortfolioModel, index: Int, rootVC: UIViewController) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
+        
+        vc.saveCloser = { newData in
+             var editPortfolio = portfolio
+            editPortfolio.educ[index] = newData
+             self.delegate.editPortfolioData(self, editData: editPortfolio)
+         }
+         
+         vc.deleteCloser = {
+             var editPortfolio = portfolio
+             editPortfolio.educ.remove(at: index)
+             self.delegate.editPortfolioData(self, editData: editPortfolio)
+         }
+        
+        vc.dataEduc = portfolio.educ[index]
+        rootVC.present(vc, animated: true)
     }
     
     //MARK: - изменение данных о уже существующей работе
@@ -51,8 +73,17 @@ class PortfolioController {
         rootVC.present(vc, animated: true)
     }
     
-    func addEduc(portfolio: PortfolioModel) {
-        print("addEduc", portfolio.educ)
+    func addEduc(portfolio: PortfolioModel, rootVC: UIViewController) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
+        
+        vc.saveCloser = { newData in
+            var editPortfolio = portfolio
+            editPortfolio.educ.append(newData)
+            self.delegate.editPortfolioData(self, editData: editPortfolio)
+        }
+        
+        rootVC.present(vc, animated: true)
     }
     
     func editAboutData(portfolio: PortfolioModel) {

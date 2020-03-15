@@ -33,8 +33,6 @@ class DoneButtonUIButton: UIButton {
         alpha = 0.9
     }
     
-    
-    
     public func clickError() {
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
@@ -46,6 +44,30 @@ class DoneButtonUIButton: UIButton {
         
         shake.fromValue = fromValue
         layer.add(shake, forKey: "position")
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                alpha = 0.6
+                transform = .init(scaleX: 0.9, y: 0.9)
+            } else {
+                alpha = 1
+                transform = .init(scaleX: 1, y: 1)
+            }
+        }
+    }
+    
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                backgroundColor = SystemColor.greenColor
+                alpha = 0.9
+            } else {
+                alpha = 0.6
+                backgroundColor = SystemColor.grayColor
+            }
+        }
     }
     
 }
