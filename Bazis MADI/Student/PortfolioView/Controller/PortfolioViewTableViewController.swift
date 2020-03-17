@@ -269,7 +269,7 @@ extension PortfolioViewTableViewController {
             case 2:
                 controller.editWorkData(portfolio: portfolioData, index: indexPath.row, rootVC: self)
             default:
-                controller.editAboutData(portfolio: portfolioData)
+                controller.editAboutData(portfolio: portfolioData, rootVC: self)
             }
         }
     }

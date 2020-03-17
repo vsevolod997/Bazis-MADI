@@ -33,8 +33,8 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserDate()
-        setupStartPicer()
-        setupEndPicer()
+        setupStartPicker()
+        setupEndPicker()
         addGestue()
         
         saveButton.isEnabled = false
@@ -69,9 +69,11 @@ class PortfolioWorkEditTableViewController: UITableViewController {
                     printSwitch.isOn = true
                 } else {
                     printSwitch.isOn = false
+                    self.dataWork[6] = "нет"
                 }
             } else {
                 printSwitch.isOn = false
+                self.dataWork[6] = "нет"
             }
         }
     }
@@ -109,7 +111,9 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         return localUserWorkData
     }
     
-    private func setupStartPicer() {
+    
+    // стартовая дата
+    private func setupStartPicker() {
         
         dateStartField.inputView = startDatePicker
         let locale = Locale.preferredLanguages.first
@@ -132,8 +136,8 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         dateStartField.inputAccessoryView = toolBar
     }
     
-    
-    private func setupEndPicer() {
+    // окончания
+    private func setupEndPicker() {
         dateEndField.inputView = endDatePicker
         let locale = Locale.preferredLanguages.first
         endDatePicker.locale = Locale(identifier: locale!)
@@ -155,10 +159,11 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         dateEndField.inputAccessoryView = toolBar
     }
     
-    
     private func addGestue() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestue(_:)))
         view.addGestureRecognizer(tap)
+        
+        
     }
     
     @objc func tapGestue(_ gestue: UIGestureRecognizer) {
@@ -210,7 +215,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
-        if controlChangedData() {
+        if !controlChangedData() {
             showExitAlert()
         } else {
             dismiss(animated: true, completion: nil)
@@ -253,6 +258,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
 }
 //MARK: - UITextFieldDelegate
 extension PortfolioWorkEditTableViewController:  UITextFieldDelegate {
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         controlSaveButtonEnabled()
     }

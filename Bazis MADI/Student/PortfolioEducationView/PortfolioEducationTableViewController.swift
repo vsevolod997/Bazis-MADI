@@ -24,7 +24,7 @@ class PortfolioEducationTableViewController: UITableViewController {
     
     var dataEduc: [String?]!
     
-    private var newDataEduc: [String?] = []
+    private var newDataEduc: [String?]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,9 +61,11 @@ class PortfolioEducationTableViewController: UITableViewController {
                     printSwitch.isOn = true
                 } else {
                     printSwitch.isOn = false
+                    dataEduc[5] = "нет"
                 }
             } else {
                 printSwitch.isOn = false
+                dataEduc[5] = "нет"
             }
         }
     }
@@ -98,10 +100,6 @@ class PortfolioEducationTableViewController: UITableViewController {
         return localUserEducData
     }
     
-    private func showPopoverController() {
-        
-    }
-    
     private func addGestue() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestue(_:)))
         view.addGestureRecognizer(tap)
@@ -114,7 +112,6 @@ class PortfolioEducationTableViewController: UITableViewController {
     
     //MARK: -  доступность кнпки сохранения
     private func controlSaveButtonEnabled() {
-        //print(controlChangedData())
         if controlChangedData() {
             saveButton.isEnabled = true
         } else {
@@ -125,7 +122,7 @@ class PortfolioEducationTableViewController: UITableViewController {
     //MARK: - сравнение данных пользовтаеля с получанной версией
     private func controlChangedData() -> Bool {
         newDataEduc = getUserData()
-        
+        print(newDataEduc == dataEduc)
         if newDataEduc != dataEduc {
             return true
         } else {
@@ -143,6 +140,7 @@ class PortfolioEducationTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
+        
         if controlChangedData() {
             showExitAlert()
         } else {
@@ -155,8 +153,8 @@ class PortfolioEducationTableViewController: UITableViewController {
     }
     
     @IBAction func levelButtonPress(_ sender: Any) {
-        controlSaveButtonEnabled()
         changeLevleEducationValue()
+        controlSaveButtonEnabled()
     }
     
     private func showDeleteAlert() {

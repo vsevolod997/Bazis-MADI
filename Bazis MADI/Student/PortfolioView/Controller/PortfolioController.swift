@@ -8,17 +8,19 @@
 
 import UIKit
 
-//MARK: - детальная информация о работе
+//MARK: - редактирование данных портофолио
 protocol editPersonalInformationDelegate: class {
     
     func editPortfolioData(_ controller: PortfolioController, editData: PortfolioModel)
 }
 
+
+// MARK: - навигация между информауией и окнами для редактирования
 class PortfolioController {
     
     var delegate: editPersonalInformationDelegate!
     
-    //MARK: - изменение данных о уже существующей работе
+    //MARK: - изменение данных о работе
     func editWorkData(portfolio: PortfolioModel, index: Int, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editWork") as? PortfolioWorkEditTableViewController else { return }
@@ -39,6 +41,7 @@ class PortfolioController {
         rootVC.present(vc, animated: true)
     }
     
+    //MARK: - изменение данных обарзовании
     func editEducationData(portfolio: PortfolioModel, index: Int, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
@@ -59,7 +62,7 @@ class PortfolioController {
         rootVC.present(vc, animated: true)
     }
     
-    //MARK: - изменение данных о уже существующей работе
+    // MARK: - добавление работы
     func addWork(portfolio: PortfolioModel, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editWork") as? PortfolioWorkEditTableViewController else { return }
@@ -73,6 +76,8 @@ class PortfolioController {
         rootVC.present(vc, animated: true)
     }
     
+    
+    // MARK: - добавление образования
     func addEduc(portfolio: PortfolioModel, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
@@ -86,8 +91,21 @@ class PortfolioController {
         rootVC.present(vc, animated: true)
     }
     
-    func editAboutData(portfolio: PortfolioModel) {
-        print("editAboutData", portfolio.wprice, portfolio.wpost, portfolio.ldata)
+    
+    //MARK:- общая инф
+    func editAboutData(portfolio: PortfolioModel, rootVC: UIViewController) {
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "editInfo") as? PortfolioInfoEditTableViewController else { return }
+        vc.allInformation = portfolio
+        
+        vc.saveCloser = { newData in
+            if let portfolio = newData {
+                self.delegate.editPortfolioData(self, editData: portfolio)
+            }
+        }
+            
+        rootVC.present(vc, animated: true)
     }
     
 }
