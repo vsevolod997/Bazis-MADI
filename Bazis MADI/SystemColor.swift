@@ -17,6 +17,7 @@ struct SystemColor {
     static let greenColor = UIColor(named: "ColorGreen")!
     static let whiteColor = UIColor(named: "ColorWhite")!
     static let whiteTextFill = UIColor(named: "ColorWhiteFill")!
+    static let shadowColor = UIColor(named: "ColorShadow")!
     
     private init(){}
 }

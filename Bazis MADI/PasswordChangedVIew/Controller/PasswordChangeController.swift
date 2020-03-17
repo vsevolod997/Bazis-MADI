@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PasswordChangeViewProtocol {
+protocol PasswordChangeViewProtocol: class {
     // MARK: - ошибка смены пароля
     func showError(_ controller: PasswordChangeController, error: String)
     // MARK: - пароль успешно изменен, скрытие окна смены пароля

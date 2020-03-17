@@ -28,7 +28,7 @@ class DayliRaspisTeacerUIView: UIView {
         self.backgroundColor = SystemColor.whiteTextFill
         self.layer.cornerRadius = 20
         
-        self.layer.shadowColor = SystemColor.grayColor.cgColor
+        self.layer.shadowColor = SystemColor.shadowColor.cgColor
         self.layer.shadowRadius = 8
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowOpacity = 0.6

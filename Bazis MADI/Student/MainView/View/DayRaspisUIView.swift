@@ -28,7 +28,7 @@ class DayRaspisUIView: UIView {
         self.backgroundColor = SystemColor.whiteTextFill
         self.layer.cornerRadius = 20
         
-        self.layer.shadowColor = SystemColor.grayColor.cgColor
+        self.layer.shadowColor = SystemColor.shadowColor.cgColor
         self.layer.shadowRadius = 8
         self.layer.shadowOffset = CGSize.zero
         self.layer.shadowOpacity = 0.6
@@ -141,7 +141,7 @@ class DayRaspisUIView: UIView {
         lineLayer.fillColor = SystemColor.grayColor.cgColor
         lineLayer.lineWidth = 3
         lineLayer.cornerRadius = 1.5
-        lineLayer.fillColor = SystemColor.grayColor.cgColor
+        //lineLayer.fillColor = SystemColor.grayColor.cgColor
         
         self.layer.addSublayer(lineLayer)
     }

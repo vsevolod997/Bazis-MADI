@@ -64,6 +64,7 @@ class PortfolioViewTableViewController: UITableViewController {
     private func setupView() {
         title = "Портфолио"
         
+        
         let addImg = UIImage(named: "addButton")
         let addButton = UIBarButtonItem(image: addImg, style:.plain, target: self, action: #selector(addButtonPress))
         editButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonPress))
@@ -285,6 +286,15 @@ extension PortfolioViewTableViewController: editPersonalInformationDelegate {
         generator.impactOccurred()
         
         portfolioData = editData
+        
+        PorfolioHttpService.setPortfolioData(portfolio: editData) { (error, result) in
+            if let err = error {
+                print(error)
+            } else {
+                print(result)
+            }
+        }
+        
         tableView.reloadData()
     }
     

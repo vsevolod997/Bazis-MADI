@@ -15,7 +15,7 @@ class HTTPServicePasswordChanged {
         
         let postString = "exec=wLoginSave&psw=\(newPassword)"
         let urlStr = "https://bazis.madi.ru/stud/_exec.php"
-        guard let url = URL(string: urlStr) else {return}
+        guard let url = URL(string: urlStr) else { return }
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         urlReqest.httpBody = postString.data(using: .utf8)

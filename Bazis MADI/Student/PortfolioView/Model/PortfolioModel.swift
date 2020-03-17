@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PortfolioModel: Decodable, Equatable {
+struct PortfolioModel: Decodable, Equatable, Encodable {
     
     var ldata: String?
     var wpost: String? // zp
