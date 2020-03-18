@@ -82,6 +82,37 @@ class PortfolioViewTableViewController: UITableViewController {
         controller.delegate = self
     }
     
+    //MARK:- если ошибка при сохранении
+    private func showErrorSave() {
+        
+        let alert = UIAlertController(title: "Внимание!", message: "Ошибка сохранения, возможно отсутствует интернет соединение.", preferredStyle: .alert)
+        let actionRes = UIAlertAction(title: "Повторить", style:  .default) { (_) in
+            self.updateServerPortfolioData(editData: self.portfolioData)
+        }
+        alert.addAction(actionRes)
+    
+        let alertCancel = UIAlertAction(title: "Отмена", style: .destructive) { (_) in
+            
+        }
+        alert.addAction(alertCancel)
+        
+        present(alert, animated: true)
+    }
+    
+    //MARK: - обновление данынх на сервере
+    private func updateServerPortfolioData(editData: PortfolioModel) {
+        PorfolioHttpService.setPortfolioData(portfolio: editData) { (error, result) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorSave()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
     
     //MARK: - выбор того что хотим добавить
     @objc func addButtonPress() {
@@ -274,8 +305,8 @@ extension PortfolioViewTableViewController {
             }
         }
     }
+    
 }
-
 
 //MARK: - редактирование данных
 extension PortfolioViewTableViewController: editPersonalInformationDelegate {
@@ -284,18 +315,8 @@ extension PortfolioViewTableViewController: editPersonalInformationDelegate {
         
         let generator = UIImpactFeedbackGenerator(style: .heavy)
         generator.impactOccurred()
-        
         portfolioData = editData
-        
-        PorfolioHttpService.setPortfolioData(portfolio: editData) { (error, result) in
-            if let err = error {
-                print(error)
-            } else {
-                print(result)
-            }
-        }
-        
-        tableView.reloadData()
+        updateServerPortfolioData(editData: portfolioData)
     }
     
 }

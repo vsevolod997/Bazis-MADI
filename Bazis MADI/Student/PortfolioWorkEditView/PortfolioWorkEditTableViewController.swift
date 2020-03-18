@@ -115,7 +115,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     // стартовая дата
     private func setupStartPicker() {
         
-        dateStartField.inputView = startDatePicker
+        
         let locale = Locale.preferredLanguages.first
         startDatePicker.locale = Locale(identifier: locale!)
         startDatePicker.datePickerMode = .date
@@ -133,12 +133,12 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectStartDate(_:)))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         toolBar.setItems([doneButton, spacer], animated: true)
+        dateStartField.inputView = startDatePicker
         dateStartField.inputAccessoryView = toolBar
     }
     
     // окончания
     private func setupEndPicker() {
-        dateEndField.inputView = endDatePicker
         let locale = Locale.preferredLanguages.first
         endDatePicker.locale = Locale(identifier: locale!)
         endDatePicker.datePickerMode = .date
@@ -152,18 +152,19 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         }
         
         let toolBar = UIToolbar()
+        toolBar.isTranslucent = true
         toolBar.sizeToFit()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectEndDate(_:)) )
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         toolBar.setItems([doneButton, spacer], animated: true)
+        
+        dateEndField.inputView = endDatePicker
         dateEndField.inputAccessoryView = toolBar
     }
     
     private func addGestue() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestue(_:)))
         view.addGestureRecognizer(tap)
-        
-        
     }
     
     @objc func tapGestue(_ gestue: UIGestureRecognizer) {

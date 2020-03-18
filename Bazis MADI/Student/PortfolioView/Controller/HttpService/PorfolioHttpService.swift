@@ -20,7 +20,7 @@ class PorfolioHttpService {
                 complition(err, nil)
             } else {
                 guard let datas = data else { return }
-                do{
+                do {
                     let dataEncode = try JSONDecoder().decode(PortfolioModel.self, from: datas)
                     complition(nil, dataEncode)
                 } catch let jsonError {
@@ -33,12 +33,41 @@ class PorfolioHttpService {
     
     
     class func setPortfolioData(portfolio: PortfolioModel,complition: @escaping(Error?, String?) -> Void) {
+        
         let urlStr = "https://bazis.madi.ru/stud/api/stud/portfolio"
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = URL(string: urlsStr)!
         
-        let postString = "save=1&ldata=\(portfolio.ldata)&wpost=\(portfolio.wpost)&wprice=\(portfolio.wprice)&educ=\(portfolio.educ)&work=\(portfolio.work)"
+        var educUnvarp:[[String]] = []
+        for mass in portfolio.educ {
+            var masUnvarp:[String] = []
+            for elem in mass {
+                if let okElem = elem {
+                    masUnvarp.append(okElem)
+                } else {
+                    masUnvarp.append(" ")
+                }
+            }
+            educUnvarp.append(masUnvarp)
+        }
         
+        var workUnvarp:[[String]] = []
+        for mass in portfolio.work {
+            var masUnvarp:[String] = []
+            for elem in mass {
+                if let okElem = elem {
+                    masUnvarp.append(okElem)
+                } else {
+                    masUnvarp.append(" ")
+                }
+            }
+            workUnvarp.append(masUnvarp)
+        }
+        
+        var postString = "save=1&ldata=\(String(describing: portfolio.ldata!))&wpost=\(String(describing: portfolio.wpost!))&wprice=\(String(describing: portfolio.wprice!))&educ="
+        postString += educUnvarp.description
+        postString += "&work=" + workUnvarp.description
+        print(postString)
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         urlReqest.httpBody = postString.data(using: .utf8)
@@ -47,12 +76,8 @@ class PorfolioHttpService {
                 complition(err, nil)
             } else {
                 guard let datas = data else { return }
-                do{
-                    print(String(data: datas, encoding: .utf8))
-                    //let dataEncode = try JSONDecoder().decode(PortfolioModel.self, from: datas)
+                do {
                     complition(nil, String(data: datas, encoding: .utf8))
-                } catch let jsonError {
-                    complition(jsonError, nil)
                 }
             }
         }

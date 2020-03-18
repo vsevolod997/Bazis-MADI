@@ -124,6 +124,11 @@ extension PortfolioInfoEditTableViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
          controlSaveButtonEnabled()
     }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+    }
 }
 
 extension PortfolioInfoEditTableViewController: UITextViewDelegate {
