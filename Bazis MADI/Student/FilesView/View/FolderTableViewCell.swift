@@ -1,15 +1,18 @@
 //
-//  AddCellTableViewCell.swift
+//  FolderTableViewCell.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 05.03.2020.
+//  Created by Всеволод Андрющенко on 19.03.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-class AddCellTableViewCell: UITableViewCell {
-
+class FolderTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: Title5LabelUILabel!
+    @IBOutlet weak var countLabel: Title3LabelUILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

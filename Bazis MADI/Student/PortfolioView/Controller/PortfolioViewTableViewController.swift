@@ -64,7 +64,6 @@ class PortfolioViewTableViewController: UITableViewController {
     private func setupView() {
         title = "Портфолио"
         
-        
         let addImg = UIImage(named: "addButton")
         let addButton = UIBarButtonItem(image: addImg, style:.plain, target: self, action: #selector(addButtonPress))
         editButton = UIBarButtonItem(title: "Править", style: .plain, target: self, action: #selector(editButtonPress))
@@ -295,6 +294,14 @@ extension PortfolioViewTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEdit {
+            let cell = tableView.cellForRow(at: indexPath)
+            UIView.animate(withDuration: 0.2, animations: {
+                cell?.transform = .init(scaleX: 0.9, y: 0.9)
+            }) { (_) in
+                UIView.animate(withDuration: 0.1) {
+                    cell?.transform = .init(scaleX: 1, y: 1)
+                }
+            }
             switch indexPath.section {
             case 1:
                 controller.editEducationData(portfolio: portfolioData, index: indexPath.row, rootVC: self)

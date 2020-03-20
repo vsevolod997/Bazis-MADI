@@ -69,7 +69,7 @@ class EducatioTableViewCell: UITableViewCell {
                 }
             }
             
-            if educationData[5] != "да" {
+            if educationData[5] == "да" {
                 let img = UIImage(named: "okPsw")
                 isPrintImage.image = img
             } else {

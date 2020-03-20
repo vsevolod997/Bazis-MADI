@@ -50,7 +50,11 @@ class PortfolioEducationTableViewController: UITableViewController {
                 placeField.text = place
             }
             if let level = educ[3] {
-                levlButton.setTitle(level, for: .normal)
+                if level != "" {
+                    levlButton.setTitle(level, for: .normal)
+                } else {
+                    levlButton.setTitle("Не выбранно", for: .normal)
+                }
             }
             if let spec = educ[4] {
                 specializationField.text = spec
@@ -67,6 +71,8 @@ class PortfolioEducationTableViewController: UITableViewController {
                 printSwitch.isOn = false
                 dataEduc[5] = "нет"
             }
+        } else {
+             levlButton.setTitle("Не выбранно", for: .normal)
         }
     }
     
@@ -86,7 +92,11 @@ class PortfolioEducationTableViewController: UITableViewController {
         localUserEducData.append(place)
         
         let level = levlButton.title(for: .normal)
-        localUserEducData.append(level)
+        if level != "Не выбранно" {
+            localUserEducData.append(level)
+        } else {
+            localUserEducData.append(" ")
+        }
         
         let spec = specializationField.text
         localUserEducData.append(spec)
@@ -122,7 +132,6 @@ class PortfolioEducationTableViewController: UITableViewController {
     //MARK: - сравнение данных пользовтаеля с получанной версией
     private func controlChangedData() -> Bool {
         newDataEduc = getUserData()
-        print(newDataEduc == dataEduc)
         if newDataEduc != dataEduc {
             return true
         } else {
@@ -154,7 +163,6 @@ class PortfolioEducationTableViewController: UITableViewController {
     
     @IBAction func levelButtonPress(_ sender: Any) {
         changeLevleEducationValue()
-        controlSaveButtonEnabled()
     }
     
     private func showDeleteAlert() {
@@ -183,6 +191,8 @@ class PortfolioEducationTableViewController: UITableViewController {
         present(alert, animated: true)
     }
     
+    
+    //MARK:-  выбор уровня образования
     private func changeLevleEducationValue() {
         
         let action = UIAlertController(title: "Уровень образования" , message: nil, preferredStyle: .actionSheet)
@@ -209,8 +219,7 @@ class PortfolioEducationTableViewController: UITableViewController {
         if let popoverController = action.popoverPresentationController {
             popoverController.sourceView = levlButton
         }
-        present(action, animated: true)
-        
+        present(action, animated: true, completion: self.controlSaveButtonEnabled)
     }
 }
 

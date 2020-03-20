@@ -171,7 +171,10 @@ class HomeTableViewController: UITableViewController {
     }
     
     private func changedFileView() {
-        
+        //userFile
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "userFile") as? FileTableViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func exitUserButton() {

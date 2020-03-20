@@ -38,39 +38,48 @@ class PorfolioHttpService {
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = URL(string: urlsStr)!
         
-        var educUnvarp:[[String]] = []
-        for mass in portfolio.educ {
-            var masUnvarp:[String] = []
-            for elem in mass {
-                if let okElem = elem {
-                    masUnvarp.append(okElem)
-                } else {
-                    masUnvarp.append(" ")
-                }
-            }
-            educUnvarp.append(masUnvarp)
+        
+        // создаем новую модель данных
+        var educationMas:[Educ] = []
+        for elemMass in portfolio.educ {
+            let elem = Educ(beg: elemMass[0],
+                               end: elemMass[1],
+                               vuz: elemMass[2],
+                               level: elemMass[3],
+                               spec: elemMass[4],
+                               prn: elemMass[5])
+            
+            educationMas.append(elem)
+        }
+
+        var workMas:[Work] = []
+        for elemMass in portfolio.work {
+            let elemMas = Work(beg: elemMass[0],
+                               end: elemMass[1],
+                               post: elemMass[2],
+                               firm: elemMass[3],
+                               napr: elemMass[4],
+                               town: elemMass[5],
+                               prn: elemMass[6])
+            
+            workMas.append(elemMas)
         }
         
-        var workUnvarp:[[String]] = []
-        for mass in portfolio.work {
-            var masUnvarp:[String] = []
-            for elem in mass {
-                if let okElem = elem {
-                    masUnvarp.append(okElem)
-                } else {
-                    masUnvarp.append(" ")
-                }
-            }
-            workUnvarp.append(masUnvarp)
-        }
-        
-        var postString = "save=1&ldata=\(String(describing: portfolio.ldata!))&wpost=\(String(describing: portfolio.wpost!))&wprice=\(String(describing: portfolio.wprice!))&educ="
-        postString += educUnvarp.description
-        postString += "&work=" + workUnvarp.description
-        print(postString)
+        let newDataSet = PortfolioToSent(save: "1", ldata: portfolio.ldata, wpost: portfolio.wpost, wprice: portfolio.wprice, educ: educationMas, work: workMas)
+                
         var urlReqest = URLRequest(url: url)
+        
         urlReqest.httpMethod = "POST"
-        urlReqest.httpBody = postString.data(using: .utf8)
+        let json = try! JSONEncoder().encode(newDataSet)
+        
+        urlReqest.httpBody = json
+        
+        urlReqest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlReqest.addValue("*/*", forHTTPHeaderField: "Accept")
+        urlReqest.addValue("zip, deflate", forHTTPHeaderField: "Accept-Encoding")
+        //urlReqest.addValue(String(postString.lengthOfBytes(using: .utf8)) , //forHTTPHeaderField: "Content-Length")
+        
+        
         let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in
             if let err = error {
                 complition(err, nil)
