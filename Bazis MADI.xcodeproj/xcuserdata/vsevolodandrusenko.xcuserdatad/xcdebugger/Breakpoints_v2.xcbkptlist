@@ -2265,8 +2265,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "tableView(_:heightForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2281,8 +2281,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2297,8 +2297,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2313,8 +2313,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2329,8 +2329,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "PortfolioViewTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2345,8 +2345,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "removeErrorView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2361,8 +2361,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "removeErrorView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2377,8 +2377,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "removeErrorView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2393,8 +2393,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "PortfolioViewTableViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -2409,8 +2409,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "editButtonPress()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2473,8 +2473,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "editButtonPress()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2489,8 +2489,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "editButtonPress()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2601,8 +2601,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/HttpService/PorfolioHttpService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "setPortfolioData(portfolio:complition:)"
             landmarkType = "7">
             <Locations>
@@ -2777,8 +2777,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/PortfolioViewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "editPortfolioData(_:editData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2793,8 +2793,8 @@
             filePath = "Bazis MADI/Student/PortfolioView/Controller/HttpService/PorfolioHttpService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "setPortfolioData(portfolio:complition:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2812,6 +2812,117 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "getUserData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E948926-80C2-43E5-BA06-39277C5D9823"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/FilesView/Controller/FileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "selectShowMode(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F69F1DD7-9B6E-453A-AAD7-5044E1AC0C11"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/FilesView/Controller/FileTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "selectShowMode(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F69F1DD7-9B6E-453A-AAD7-5044E1AC0C11 - 496896b852e04d58"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x41c;&#x410;&#x414;&#x418;.FileTableViewController.selectShowMode(__C.UISegmentedControl) -&gt; ()"
+                  moduleName = "&#x41c;&#x410;&#x414;&#x418;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vsevolodandrusenko/Desktop/Bazis%20MADI/Bazis%20MADI/Student/FilesView/Controller/FileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "F69F1DD7-9B6E-453A-AAD7-5044E1AC0C11 - 496896b852e04d58"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x41c;&#x410;&#x414;&#x418;.FileTableViewController.selectShowMode(__C.UISegmentedControl) -&gt; ()"
+                  moduleName = "&#x41c;&#x410;&#x414;&#x418;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vsevolodandrusenko/Desktop/Bazis%20MADI/Bazis%20MADI/Student/FilesView/Controller/FileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "F69F1DD7-9B6E-453A-AAD7-5044E1AC0C11 - 496896b852e04d58"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "&#x41c;&#x410;&#x414;&#x418;.FileTableViewController.selectShowMode(__C.UISegmentedControl) -&gt; ()"
+                  moduleName = "&#x41c;&#x410;&#x414;&#x418;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vsevolodandrusenko/Desktop/Bazis%20MADI/Bazis%20MADI/Student/FilesView/Controller/FileTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "373">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F591896A-C87C-4A60-BF2B-F42DC7DEA1BC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/FilesView/Controller/HttpService/FileHttpService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getFileData(complition:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4492BA42-CD92-48D6-B1D5-DD837C5345C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/FilesView/Controller/HttpService/FileHttpService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getFileData(complition:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

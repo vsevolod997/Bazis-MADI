@@ -66,20 +66,15 @@ class PorfolioHttpService {
         }
         
         let newDataSet = PortfolioToSent(save: "1", ldata: portfolio.ldata, wpost: portfolio.wpost, wprice: portfolio.wprice, educ: educationMas, work: workMas)
-                
-        var urlReqest = URLRequest(url: url)
         
+        var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         let json = try! JSONEncoder().encode(newDataSet)
-        
         urlReqest.httpBody = json
         
         urlReqest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlReqest.addValue("*/*", forHTTPHeaderField: "Accept")
         urlReqest.addValue("zip, deflate", forHTTPHeaderField: "Accept-Encoding")
-        //urlReqest.addValue(String(postString.lengthOfBytes(using: .utf8)) , //forHTTPHeaderField: "Content-Length")
-        
-        
         let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in
             if let err = error {
                 complition(err, nil)

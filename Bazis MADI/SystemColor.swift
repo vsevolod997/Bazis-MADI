@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SystemColor {
+enum SystemColor {
     
     static let blueColor = UIColor(named: "ColorBlue")!
     static let blueTextColor = UIColor(named: "ColorBlueText")!
@@ -18,6 +18,5 @@ struct SystemColor {
     static let whiteColor = UIColor(named: "ColorWhite")!
     static let whiteTextFill = UIColor(named: "ColorWhiteFill")!
     static let shadowColor = UIColor(named: "ColorShadow")!
-    
-    private init(){}
+    static let colorFill = UIColor(named: "ColorFill")!
 }

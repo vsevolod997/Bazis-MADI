@@ -26,7 +26,6 @@ class UspevStructDataByObject {
         
         let uspevDict = Dictionary(grouping: uspevModel, by: { $0.disc})
         let uspevDictSort = uspevDict.sorted(by: {$0.0 < $1.0})
-        print(uspevDictSort)
         for res in uspevDictSort {
             let result = UspevStructDataByObject(semInfo: res.value, objectData: res.key)
             uspevReturnData.append(result)

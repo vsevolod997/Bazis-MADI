@@ -8,8 +8,15 @@
 
 import Foundation
 
-struct FileModel: Codable {
-    
+struct FileDirectoryModel: Codable {
     var path: String
     var files: [String]?
 }
+
+struct FileModel: Codable {
+    var file: String
+    var path: String
+    var time: String
+    var size: Int
+}
+

@@ -9,9 +9,13 @@
 import UIKit
 
 class FileTableViewController: UITableViewController {
+
+    private var isFileMode = true
+    private var isLoad = false
+    private var fileData: [FileToShowModel]!
+    private var fileDirectoryData: [FileDirectoryModel]!
     
-    var isLoad = false
-    var fileData: [FileModel]!
+    private let controller = FileToShowModelController()
     
     private let notificationReload = Notification.Name("reloadData")
     private var errorVC: ErrorViewUIView!
@@ -19,8 +23,9 @@ class FileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getFileData()
         setupView()
+        getDirectoryData()
+        getFileData()
     }
     
     private func addNotificationCenter() {
@@ -30,13 +35,23 @@ class FileTableViewController: UITableViewController {
     //notification
     @objc func onNotification(notification: Notification) {
         removeErrorView()
-        getFileData()
+        getDirectoryData()
     }
     
     //MARK: - Настройки окна
     private func setupView() {
-        title = "Файлы"
         
+        let segmentController = UISegmentedControl(items: ["Каталоги", "Файлы"])
+        segmentController.selectedSegmentIndex = 1
+        segmentController.selectedSegmentTintColor = SystemColor.blueColor
+        segmentController.backgroundColor = .systemBackground
+        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
+        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
+        segmentController.addTarget(self, action: #selector(selectShowMode(_:)), for: .valueChanged)
+        navigationItem.titleView = segmentController
+        
+        navigationItem.prompt = "Файлы"
+        //navigationController?.navigationBar.
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
@@ -44,6 +59,20 @@ class FileTableViewController: UITableViewController {
         let img = UIImage(named: "backButton")
         let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
         navigationItem.leftBarButtonItem = backButton
+    }
+    
+    
+    //MARK: - модель отобрадения данных
+    @objc func selectShowMode(_ scopeBar: UISegmentedControl) {
+        switch scopeBar.selectedSegmentIndex {
+        case 0:
+            isFileMode = false
+        case 1:
+            isFileMode = true
+        default:
+            return
+        }
+        tableView.reloadData()
     }
     
     
@@ -57,19 +86,19 @@ class FileTableViewController: UITableViewController {
         }
     }
     
-    //MARK: - получение списака файлов
-    private func getFileData() {
+    //MARK: - получение списка дирректорий
+    private func getDirectoryData() {
         isLoad = false
-        FileHTTPService.getFileData { (error, portfolioData) in
+        FileHTTPService.getDirectoryFileData { (error, dirData) in
             if error != nil {
                 DispatchQueue.main.async {
                     self.showErrorView()
                 }
             } else {
-                if let file = portfolioData {
+                if let file = dirData {
                     DispatchQueue.main.async {
                         self.isLoad = true
-                        self.fileData = file
+                        self.fileDirectoryData = file
                         self.tableView.reloadData()
                     }
                 }
@@ -77,7 +106,28 @@ class FileTableViewController: UITableViewController {
         }
     }
     
-    
+    //MARK: - получение списка файлов
+    private func getFileData() {
+        isLoad = false
+        fileData = []
+        FileHTTPService.getFileData { (error, fileData) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorView()
+                }
+            } else {
+                if let file = fileData {
+                    DispatchQueue.main.async {
+                        self.isLoad = true
+                        let fileModel = self.controller.setupShowFileToData(modelFile: file)
+                        self.fileData = fileModel
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+
     private func showErrorView() {
         errorVC = ErrorViewUIView(frame: self.view.frame)
         view.addSubview(errorVC)
@@ -87,6 +137,18 @@ class FileTableViewController: UITableViewController {
 
 extension FileTableViewController {
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isLoad {
+            if isFileMode {
+                return 140
+            } else {
+                return 79
+            }
+        } else {
+            return 96
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -94,7 +156,11 @@ extension FileTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if isLoad {
-            return fileData.count
+            if isFileMode {
+                return fileData.count
+            } else {
+                return fileDirectoryData.count
+            }
         } else {
             return 1
         }
@@ -102,15 +168,24 @@ extension FileTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoad {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
+            if isFileMode{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
+                cell.NameLabel.text = fileData[indexPath.row].name
+                cell.dateLabel.text = fileData[indexPath.row].date
+                cell.TypeImage.image = fileData[indexPath.row].typeIMG
             
-            cell.nameLabel.text = fileData[indexPath.row].path
-            if let count = fileData[indexPath.row].files?.count {
-                cell.countLabel.text = "/ " + String(count)
+                return cell
             } else {
-                cell.countLabel.text = "/ 0"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
+                
+                cell.nameLabel.text = fileDirectoryData[indexPath.row].path
+                if let count = fileDirectoryData[indexPath.row].files?.count {
+                    cell.countLabel.text = "/ " + String(count)
+                } else {
+                    cell.countLabel.text = "/ 0"
+                }
+                return cell
             }
-            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
             return cell

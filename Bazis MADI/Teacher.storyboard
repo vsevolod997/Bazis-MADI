@@ -486,7 +486,7 @@
         <image name="userExit" width="512" height="512"/>
         <image name="userGroup" width="30" height="30"/>
         <namedColor name="ColorBlue">
-            <color red="0.12200000137090683" green="0.3059999942779541" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.12156862745098039" green="0.30588235294117649" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ColorGray">
             <color red="0.25900000333786011" green="0.27399998903274536" blue="0.29800000786781311" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

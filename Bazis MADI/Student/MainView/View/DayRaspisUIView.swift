@@ -25,6 +25,8 @@ class DayRaspisUIView: UIView {
     
     //MARK: - настройка окна
     private func setupView() {
+        //self.backgroundColor = SystemColor.colorFill
+        //self.alpha = 0.5
         self.backgroundColor = SystemColor.whiteTextFill
         self.layer.cornerRadius = 20
         

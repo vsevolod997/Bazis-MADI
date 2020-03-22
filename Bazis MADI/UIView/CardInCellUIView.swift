@@ -22,13 +22,13 @@ class CardInCellUIView: UIView {
 
     
     private func setupView() {
-        backgroundColor = SystemColor.whiteTextFill
+        backgroundColor = SystemColor.colorFill
         layer.cornerRadius = 10
         
-        layer.shadowColor = SystemColor.shadowColor.cgColor
-        layer.shadowRadius = 5
-        layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
-        layer.shadowOpacity = 0.6
+        //layer.shadowColor = SystemColor.shadowColor.cgColor
+        //layer.shadowRadius = 5
+        //layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
+        //layer.shadowOpacity = 0.6
     }
     
 }

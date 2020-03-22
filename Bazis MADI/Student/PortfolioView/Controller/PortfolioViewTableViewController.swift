@@ -26,6 +26,7 @@ class PortfolioViewTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupView()
+        addGestue()
         getDataPortfolio()
         
     }
@@ -58,6 +59,13 @@ class PortfolioViewTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    
+    private func addGestue() {
+        let gestue = UISwipeGestureRecognizer(target: self, action: #selector(backButtonPress))
+        gestue.direction = .right
+        self.view.addGestureRecognizer(gestue)
     }
     
     //MARK: - Настройки окна
@@ -145,6 +153,7 @@ class PortfolioViewTableViewController: UITableViewController {
             errorVC.removeFromSuperview()
         }
     }
+    
     
     //MARK: - нажатие кнопки редактировния
     @objc func editButtonPress() {
