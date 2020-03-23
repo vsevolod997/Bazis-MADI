@@ -35,12 +35,12 @@ class LoginController {
             }
             
             HttpService.getUserAccount(login: log, password: pas) { (error, userModel, errorUser) in
-                if error != nil{
+                if error != nil {
                     DispatchQueue.main.async {
                         self.error(message: "Сервер не отвечает!, пожалуйста повторите попытку позже!")
                     }
                 } else {
-                    if errorUser != nil{
+                    if errorUser != nil {
                         DispatchQueue.main.async {
                             self.error(message: "Введен неверный логин или пароль!")
                         }

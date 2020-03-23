@@ -1,17 +1,25 @@
 //
-//  ControllerTableViewController.swift
+//  FileViewController.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 19.03.2020.
+//  Created by Всеволод Андрющенко on 23.03.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-class FileTableViewController: UITableViewController {
-
+class FileViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var addButton: AddButtonUIButton!
+    
+    private var lastKnowContentOfsset: CGFloat = 0.0
+    
+    private var isClose = false
     private var isFileMode = true
     private var isLoad = false
+    
     private var fileData: [FileToShowModel]!
     private var fileDirectoryData: [FileDirectoryModel]!
     
@@ -127,17 +135,52 @@ class FileTableViewController: UITableViewController {
             }
         }
     }
-
+    
     private func showErrorView() {
         errorVC = ErrorViewUIView(frame: self.view.frame)
         view.addSubview(errorVC)
     }
+    //MARK: - кнопка "Добавить"
+    @IBAction func addButtonPress(_ sender: Any) {
+        
+    }
     
 }
 
-extension FileTableViewController {
+//MARK: - TableRaspisanieDelegate, TableRaspisanieDataSource
+extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if scrollView == tableView {
+            let contentOffset = scrollView.contentOffset.y
+            print("contentOffset: ", contentOffset)
+            print(abs(self.lastKnowContentOfsset - contentOffset))
+            if contentOffset > 0 && contentOffset > self.lastKnowContentOfsset && abs(self.lastKnowContentOfsset - contentOffset) > 25 {
+                if !isClose{
+                    print("close")
+                    addButton.closeButton()
+                    isClose = true
+                }
+            } else {
+                if isClose {
+                    print("Open")
+                    addButton.oppenButton()
+                    isClose = false
+                }
+            }
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == tableView {
+            self.lastKnowContentOfsset = scrollView.contentOffset.y
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isLoad {
             if isFileMode {
                 return 140
@@ -149,11 +192,11 @@ extension FileTableViewController {
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if isLoad {
             if isFileMode {
@@ -166,14 +209,12 @@ extension FileTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoad {
             if isFileMode{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
-                cell.NameLabel.text = fileData[indexPath.row].name
-                cell.dateLabel.text = fileData[indexPath.row].date
-                cell.TypeImage.image = fileData[indexPath.row].typeIMG
-            
+                cell.fileData = fileData[indexPath.row]
+                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell

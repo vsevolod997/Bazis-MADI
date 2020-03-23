@@ -13,6 +13,16 @@ class FileTableViewCell: UITableViewCell {
     @IBOutlet weak var TypeImage: UIImageView!
     @IBOutlet weak var NameLabel: Title5LabelUILabel!
     @IBOutlet weak var dateLabel: Title2LabelUILabel!
+    @IBOutlet weak var PathLabel: UILabel!
+    
+    var fileData: FileToShowModel! {
+        didSet {
+            TypeImage.image = fileData.typeIMG
+            NameLabel.text = fileData.name
+            dateLabel.text = fileData.date
+            PathLabel.text = fileData.path
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
