@@ -150,22 +150,18 @@ class FileViewController: UIViewController {
 //MARK: - TableRaspisanieDelegate, TableRaspisanieDataSource
 extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
+    //для обработки скрытия/отображения кнопки
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView == tableView {
             let contentOffset = scrollView.contentOffset.y
-            print("contentOffset: ", contentOffset)
-            print(abs(self.lastKnowContentOfsset - contentOffset))
             if contentOffset > 0 && contentOffset > self.lastKnowContentOfsset && abs(self.lastKnowContentOfsset - contentOffset) > 25 {
                 if !isClose{
-                    print("close")
                     addButton.closeButton()
                     isClose = true
                 }
             } else {
                 if isClose {
-                    print("Open")
                     addButton.oppenButton()
                     isClose = false
                 }
@@ -230,6 +226,23 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !isFileMode {
+            //inFolder
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "inFolder") as? FileInFolderViewController else { return }
+            vc.filesInFolder = fileDirectoryData[indexPath.row].files
+            vc.dirrectory = fileDirectoryData[indexPath.row].path
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            //fileDetal
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? DetalFileInfoTableViewController else { return }
+            vc.fileData = fileData[indexPath.row]
+            present(vc, animated: true)
         }
     }
 }

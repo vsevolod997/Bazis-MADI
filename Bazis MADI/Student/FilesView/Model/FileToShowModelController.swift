@@ -14,7 +14,9 @@ enum TypeFile {
 }
 
 
+// MARK: - изменение отображения модели файлов 
 class FileToShowModelController {
+    
     private func selectTypeFile(name: String) -> TypeFile {
         guard let typeString = name.split(separator: ".").last  else { return .OTHER }
         switch typeString {
@@ -69,15 +71,15 @@ class FileToShowModelController {
         modelFile.forEach { (model) in
             let type = self.selectTypeFile(name: model.file)
             let img = self.selectImgType(type: type)
-            let elemToShow  = FileToShowModel(nameL: model.file, date: model.time, path: model.path, type: type, image: img!)
+            let elemToShow  = FileToShowModel(nameL: model.file, date: model.time, path: model.path, type: type, image: img!, size: model.size)
             resultMas.append(elemToShow)
         }
-        
         
         return resultMas.sorted(by: {
             $0.date > $1.date
         })
     }
+    
 }
 
 

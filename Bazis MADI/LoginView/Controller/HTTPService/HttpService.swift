@@ -16,7 +16,7 @@ class HttpService {
         
         let postString = "json=1&psw=\(password)&usr=\(login)"
         let urlStr = "https://bazis.madi.ru/stud/api/user/login"
-        guard let url = URL(string: urlStr) else {return}
+        guard let url = URL(string: urlStr) else { return }
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         urlReqest.httpBody = postString.data(using: .utf8)

@@ -12,15 +12,17 @@ class FileTableViewCell: UITableViewCell {
     
     @IBOutlet weak var TypeImage: UIImageView!
     @IBOutlet weak var NameLabel: Title5LabelUILabel!
-    @IBOutlet weak var dateLabel: Title2LabelUILabel!
+    @IBOutlet weak var DateLabel: Title2LabelUILabel!
+    @IBOutlet weak var SizeLabel: UILabel!
     @IBOutlet weak var PathLabel: UILabel!
     
     var fileData: FileToShowModel! {
         didSet {
             TypeImage.image = fileData.typeIMG
             NameLabel.text = fileData.name
-            dateLabel.text = fileData.date
+            DateLabel.text = fileData.date
             PathLabel.text = fileData.path
+            SizeLabel.text = String(fileData.size) + " Кб."
         }
     }
     

@@ -21,7 +21,8 @@ class Title3LabelUILabel: UILabel {
     }
     
     fileprivate func setup() {
-        font = UIFont(name: "Arial", size: 16)
+        //font = UIFont(name: "Arial", size: 16)
+        font = UIFont.systemFont(ofSize: 15, weight: .regular)
         textColor = SystemColor.blueTextColor
     }
 

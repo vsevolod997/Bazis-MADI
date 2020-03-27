@@ -27,7 +27,8 @@ class LoginTextFieldUITextField: UITextField {
         layer.cornerRadius = 12
         textAlignment = .center
         
-        font = UIFont(name: "Arial", size: 18)
+        //font = UIFont(name: "Arial", size: 18)
+        font = UIFont.systemFont(ofSize: 18, weight: .medium)
         textColor = SystemColor.blueTextColor
     }
     

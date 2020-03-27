@@ -15,9 +15,11 @@
 		420B2DE52423966F00A6BEF9 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DE42423966F00A6BEF9 /* FolderTableViewCell.swift */; };
 		420B2DE72424C6AF00A6BEF9 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DE62424C6AF00A6BEF9 /* FileTableViewCell.swift */; };
 		420B2DE92424C90C00A6BEF9 /* FileToShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DE82424C90C00A6BEF9 /* FileToShowModel.swift */; };
-		420B2DEB2424E22C00A6BEF9 /* FileToShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DEA2424E22C00A6BEF9 /* FileToShowController.swift */; };
+		420B2DEB2424E22C00A6BEF9 /* FileToShowModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DEA2424E22C00A6BEF9 /* FileToShowModelController.swift */; };
 		420B2DED2427EF0400A6BEF9 /* AddButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DEC2427EF0400A6BEF9 /* AddButtonUIButton.swift */; };
 		420B2DEF2428A5B300A6BEF9 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DEE2428A5B300A6BEF9 /* FileViewController.swift */; };
+		420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DF02428E34A00A6BEF9 /* FileDirectoryModel.swift */; };
+		420B2DF62428F5E500A6BEF9 /* FileInFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420B2DF52428F5E500A6BEF9 /* FileInFolderViewController.swift */; };
 		420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */; };
 		4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */; };
 		4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */; };
@@ -100,6 +102,12 @@
 		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
 		42DEC2EE23FBEC9A0026425A /* InfioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */; };
 		42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */; };
+		42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */; };
+		42E69FCA242CA687003DAC2A /* DetailFileHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FC9242CA687003DAC2A /* DetailFileHttpService.swift */; };
+		42E69FCD242E4E99003DAC2A /* DescModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FCC242E4E99003DAC2A /* DescModel.swift */; };
+		42E69FD0242E5432003DAC2A /* FileDetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FCF242E5432003DAC2A /* FileDetalController.swift */; };
+		42EEE9D0242B5C0F00EC2D80 /* Title7LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */; };
+		42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EEE9D2242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift */; };
 		42F672FE241D4E8A00865044 /* PortfolioEducationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F672FD241D4E8A00865044 /* PortfolioEducationTableViewController.swift */; };
 		42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F67302241EBA1800865044 /* PortfolioInfoEditTableViewController.swift */; };
 		42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */; };
@@ -115,9 +123,11 @@
 		420B2DE42423966F00A6BEF9 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		420B2DE62424C6AF00A6BEF9 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
 		420B2DE82424C90C00A6BEF9 /* FileToShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileToShowModel.swift; sourceTree = "<group>"; };
-		420B2DEA2424E22C00A6BEF9 /* FileToShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileToShowController.swift; sourceTree = "<group>"; };
+		420B2DEA2424E22C00A6BEF9 /* FileToShowModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileToShowModelController.swift; sourceTree = "<group>"; };
 		420B2DEC2427EF0400A6BEF9 /* AddButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonUIButton.swift; sourceTree = "<group>"; };
 		420B2DEE2428A5B300A6BEF9 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		420B2DF02428E34A00A6BEF9 /* FileDirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDirectoryModel.swift; sourceTree = "<group>"; };
+		420B2DF52428F5E500A6BEF9 /* FileInFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileInFolderViewController.swift; sourceTree = "<group>"; };
 		420F9D1C23EC11D30096DAB7 /* ErrorViewUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewUIView.swift; sourceTree = "<group>"; };
 		4214FDC023AF96EA00F543C9 /* DayRaspisUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRaspisUIView.swift; sourceTree = "<group>"; };
 		4214FDC423B12EDD00F543C9 /* WeekRaspisanieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRaspisanieController.swift; sourceTree = "<group>"; };
@@ -202,6 +212,12 @@
 		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
 		42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieTableViewCell.swift; sourceTree = "<group>"; };
+		42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTextViewUITextView.swift; sourceTree = "<group>"; };
+		42E69FC9242CA687003DAC2A /* DetailFileHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFileHttpService.swift; sourceTree = "<group>"; };
+		42E69FCC242E4E99003DAC2A /* DescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescModel.swift; sourceTree = "<group>"; };
+		42E69FCF242E5432003DAC2A /* FileDetalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetalController.swift; sourceTree = "<group>"; };
+		42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title7LabelUILabel.swift; sourceTree = "<group>"; };
+		42EEE9D2242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalFileInfoTableViewController.swift; sourceTree = "<group>"; };
 		42F672FD241D4E8A00865044 /* PortfolioEducationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioEducationTableViewController.swift; sourceTree = "<group>"; };
 		42F67302241EBA1800865044 /* PortfolioInfoEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioInfoEditTableViewController.swift; sourceTree = "<group>"; };
 		42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieByGroupUIView.swift; sourceTree = "<group>"; };
@@ -233,6 +249,8 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				42EEE9D1242B6C3400EC2D80 /* DetalFileInformations */,
+				420B2DF22428F4EF00A6BEF9 /* FilesInFolderView */,
 				420B2DD72423894600A6BEF9 /* FilesView */,
 				42F67301241EB9D100865044 /* PortfolioInfoEditView */,
 				42F672FC241D4E4E00865044 /* PortfolioEducationView */,
@@ -267,8 +285,10 @@
 		420B2DD92423898D00A6BEF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				420B2DEA2424E22C00A6BEF9 /* FileToShowModelController.swift */,
 				420B2DDF24238A8600A6BEF9 /* FileModel.swift */,
 				420B2DE82424C90C00A6BEF9 /* FileToShowModel.swift */,
+				420B2DF02428E34A00A6BEF9 /* FileDirectoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				420B2DE124238B5300A6BEF9 /* HttpService */,
-				420B2DEA2424E22C00A6BEF9 /* FileToShowController.swift */,
 				420B2DEE2428A5B300A6BEF9 /* FileViewController.swift */,
 			);
 			path = Controller;
@@ -298,6 +317,22 @@
 				420B2DE224238B7600A6BEF9 /* FileHttpService.swift */,
 			);
 			path = HttpService;
+			sourceTree = "<group>";
+		};
+		420B2DF22428F4EF00A6BEF9 /* FilesInFolderView */ = {
+			isa = PBXGroup;
+			children = (
+				420B2DF42428F5BB00A6BEF9 /* Controller */,
+			);
+			path = FilesInFolderView;
+			sourceTree = "<group>";
+		};
+		420B2DF42428F5BB00A6BEF9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				420B2DF52428F5E500A6BEF9 /* FileInFolderViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		4241407E23F13B6C00408F9B /* HTTPService */ = {
@@ -397,6 +432,7 @@
 				42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */,
 				42A698622413CC8D00278683 /* CardInCellUIView.swift */,
 				4247D4FA2417A3C900A1DBD2 /* CardInCellBlueUIView.swift */,
+				42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -810,6 +846,7 @@
 				426AD0EA23940F22003362B1 /* ErrorLabel.swift */,
 				424525E5238EE133008C5EBD /* Title1LabelUILabel.swift */,
 				42AA02B3240E7164006F0FDA /* Title4WLabelUILabel.swift */,
+				42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -842,6 +879,49 @@
 				42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		42E69FC7242CA64E003DAC2A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42E69FC8242CA65B003DAC2A /* HttpService */,
+				42E69FCF242E5432003DAC2A /* FileDetalController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42E69FC8242CA65B003DAC2A /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				42E69FC9242CA687003DAC2A /* DetailFileHttpService.swift */,
+			);
+			path = HttpService;
+			sourceTree = "<group>";
+		};
+		42E69FCB242E4E5C003DAC2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42E69FCC242E4E99003DAC2A /* DescModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42E69FCE242E5407003DAC2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42EEE9D2242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42EEE9D1242B6C3400EC2D80 /* DetalFileInformations */ = {
+			isa = PBXGroup;
+			children = (
+				42E69FCE242E5407003DAC2A /* View */,
+				42E69FCB242E4E5C003DAC2A /* Model */,
+				42E69FC7242CA64E003DAC2A /* Controller */,
+			);
+			path = DetalFileInformations;
 			sourceTree = "<group>";
 		};
 		42F672FC241D4E4E00865044 /* PortfolioEducationView */ = {
@@ -933,6 +1013,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */,
+				42E69FD0242E5432003DAC2A /* FileDetalController.swift in Sources */,
 				42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */,
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
@@ -948,6 +1029,7 @@
 				424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */,
 				420ACEFA23FE7EB100C64DD1 /* Title6LabelUILabel.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
+				42E69FCD242E4E99003DAC2A /* DescModel.swift in Sources */,
 				42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */,
 				42DE33732409188200139FB8 /* ShowMoreUIButton.swift in Sources */,
 				42524D5A23E4248400D9B97E /* UspevByObjTableViewCell.swift in Sources */,
@@ -959,8 +1041,10 @@
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
 				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
+				42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */,
 				42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */,
 				428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */,
+				420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */,
 				42AEAD5A241A21B5005430D2 /* PortfolioWorkEditTableViewController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				42AEAD5E241AA644005430D2 /* CancelButtonUIButton.swift in Sources */,
@@ -970,8 +1054,10 @@
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
 				420B2DE324238B7600A6BEF9 /* FileHttpService.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
+				420B2DF62428F5E500A6BEF9 /* FileInFolderViewController.swift in Sources */,
 				42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */,
 				420B2DE72424C6AF00A6BEF9 /* FileTableViewCell.swift in Sources */,
+				42EEE9D0242B5C0F00EC2D80 /* Title7LabelUILabel.swift in Sources */,
 				42AA02AE240E605D006F0FDA /* InfoPortfolioTableViewCell.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
@@ -1004,7 +1090,9 @@
 				42AEAD5C241AA5CC005430D2 /* DoneButtonUIButton.swift in Sources */,
 				42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */,
 				42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */,
+				42E69FCA242CA687003DAC2A /* DetailFileHttpService.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
+				42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */,
 				42F672FE241D4E8A00865044 /* PortfolioEducationTableViewController.swift in Sources */,
 				42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */,
 				42D485F624042EA200648253 /* InfoRaspisanieGroupTableViewController.swift in Sources */,
@@ -1018,7 +1106,7 @@
 				4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
-				420B2DEB2424E22C00A6BEF9 /* FileToShowController.swift in Sources */,
+				420B2DEB2424E22C00A6BEF9 /* FileToShowModelController.swift in Sources */,
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
 				42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */,
 				4248818923CA19AC003BB98F /* UserTitleUILabel.swift in Sources */,
