@@ -72,7 +72,7 @@ extension LoginViewController: UITextFieldDelegate {
 }
 
 //MARK: - LoginController LoginViewProtiocol
-extension LoginViewController: LoginViewProtocol {
+extension LoginViewController: LoginViewDelegate {
     func showNextView(_ controller: LoginController, view: UIViewController, data: UserModel) {
         view.modalPresentationStyle = .fullScreen
         present(view, animated: true)

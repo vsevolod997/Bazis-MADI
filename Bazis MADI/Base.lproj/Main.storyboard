@@ -519,14 +519,14 @@
         <scene sceneID="nQK-0G-hE2">
             <objects>
                 <tableViewController storyboardIdentifier="fileDetal" id="k5D-yq-Zma" customClass="DetalFileInfoTableViewController" customModule="МАДИ" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ii0-3f-2mH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ii0-3f-2mH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
                             <tableViewSection id="4dl-DE-93e">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="3jm-Ng-j5r">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="3jm-Ng-j5r">
                                         <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3jm-Ng-j5r" id="TFz-bn-92t">
@@ -534,9 +534,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lc-x9-kwH" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="78" y="14" width="316" height="32"/>
+                                                    <rect key="frame" x="78" y="14" width="288" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="BYm-GT-zjI"/>
+                                                        <constraint firstAttribute="height" constant="32" id="amB-jh-lyt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -555,83 +555,104 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-rP-OaE">
+                                                    <rect key="frame" x="374" y="14.999999999999998" width="30" height="29.000000000000004"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="vtu-Ji-Dyx"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="square.and.arrow.down" catalog="system">
+                                                        <color key="titleColor" name="ColorBlue"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="saveFileButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="W8V-9Q-tEf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="IHP-Ov-1y9" firstAttribute="leading" secondItem="IZp-wY-lDA" secondAttribute="trailing" constant="14" id="3K1-vT-Hdb"/>
-                                                <constraint firstItem="5lc-x9-kwH" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="14" id="8tr-Pb-iC1"/>
                                                 <constraint firstItem="IZp-wY-lDA" firstAttribute="leading" secondItem="TFz-bn-92t" secondAttribute="leading" constant="20" id="9oS-hB-IYP"/>
-                                                <constraint firstItem="5lc-x9-kwH" firstAttribute="leading" secondItem="IZp-wY-lDA" secondAttribute="trailing" constant="14" id="OD2-r4-dYy"/>
-                                                <constraint firstItem="IHP-Ov-1y9" firstAttribute="top" secondItem="5lc-x9-kwH" secondAttribute="bottom" constant="-3" id="QGi-dP-HE1"/>
-                                                <constraint firstAttribute="trailing" secondItem="5lc-x9-kwH" secondAttribute="trailing" constant="20" id="UYj-VK-WcE"/>
+                                                <constraint firstAttribute="trailing" secondItem="RUc-rP-OaE" secondAttribute="trailing" constant="10" id="CFa-rS-Rz8"/>
+                                                <constraint firstItem="5lc-x9-kwH" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="14" id="QTg-t6-dk8"/>
+                                                <constraint firstItem="RUc-rP-OaE" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="15" id="W7C-eU-YGE"/>
+                                                <constraint firstItem="RUc-rP-OaE" firstAttribute="leading" secondItem="5lc-x9-kwH" secondAttribute="trailing" constant="8" id="c1r-5p-yxl"/>
+                                                <constraint firstAttribute="bottom" secondItem="IHP-Ov-1y9" secondAttribute="bottom" constant="11" id="k4W-aK-egp"/>
                                                 <constraint firstAttribute="trailing" secondItem="IHP-Ov-1y9" secondAttribute="trailing" constant="20" id="rvs-cN-pMc"/>
                                                 <constraint firstItem="IZp-wY-lDA" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="14" id="sPk-FO-GrB"/>
+                                                <constraint firstItem="5lc-x9-kwH" firstAttribute="leading" secondItem="IZp-wY-lDA" secondAttribute="trailing" constant="14" id="weR-a0-JeJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="RUc-rP-OaE" secondAttribute="bottom" constant="30.666666666666671" id="wew-DK-xp7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="46" id="yPS-7N-BkM">
-                                        <rect key="frame" x="0.0" y="103" width="414" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yPS-7N-BkM" id="fdI-8L-BSo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-MH-csJ">
-                                                    <rect key="frame" x="59" y="7" width="295" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <segments>
-                                                        <segment title="Рецензия"/>
-                                                        <segment title="Описание"/>
-                                                    </segments>
-                                                    <color key="selectedSegmentTintColor" name="ColorBlue"/>
-                                                    <connections>
-                                                        <action selector="selectTypeInfo:" destination="k5D-yq-Zma" eventType="valueChanged" id="8us-AZ-3qL"/>
-                                                    </connections>
-                                                </segmentedControl>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="173" id="OFP-d8-zxz">
-                                        <rect key="frame" x="0.0" y="149" width="414" height="173"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="173" id="OFP-d8-zxz">
+                                        <rect key="frame" x="0.0" y="103" width="414" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OFP-d8-zxz" id="bRQ-OG-DET">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gAd-Pt-QYE" customClass="InfoTextViewUITextView" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="19" y="11" width="375" height="151"/>
+                                                    <rect key="frame" x="20" y="11" width="375" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="k5D-yq-Zma" id="ZZE-tm-bua"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="p8S-fs-KJb">
+                                        <rect key="frame" x="0.0" y="276" width="414" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p8S-fs-KJb" id="mZU-V4-J3t">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецензии" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ko-4Z-0SD" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="14.666666666666664" width="80" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lx-Ri-4zC" customClass="CountLabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="124" y="7" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="ZLv-HC-NTf"/>
+                                                        <constraint firstAttribute="width" constant="36" id="qoE-5k-m5T"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9Ko-4Z-0SD" firstAttribute="centerY" secondItem="mZU-V4-J3t" secondAttribute="centerY" id="WYY-4W-7D9"/>
+                                                <constraint firstItem="4lx-Ri-4zC" firstAttribute="top" secondItem="mZU-V4-J3t" secondAttribute="top" constant="7" id="dbl-la-6V1"/>
+                                                <constraint firstItem="4lx-Ri-4zC" firstAttribute="leading" secondItem="9Ko-4Z-0SD" secondAttribute="trailing" constant="24" id="mCC-VN-TuQ"/>
+                                                <constraint firstItem="9Ko-4Z-0SD" firstAttribute="leading" secondItem="mZU-V4-J3t" secondAttribute="leading" constant="20" id="vCF-6O-bPk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4lx-Ri-4zC" secondAttribute="trailing" constant="254" id="f7p-dy-jsQ"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Действие над файлом" id="jNf-6s-Ukf">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="LhF-8k-G00">
-                                        <rect key="frame" x="0.0" y="378" width="414" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="LhF-8k-G00">
+                                        <rect key="frame" x="0.0" y="382" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LhF-8k-G00" id="1OM-P1-PmI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe8-ER-yMz" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="105" y="17" width="203" height="41"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Сохранить"/>
-                                                    <connections>
-                                                        <action selector="saveButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="em0-Ok-9fi"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="jUz-fK-9VK">
-                                        <rect key="frame" x="0.0" y="452" width="414" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="jUz-fK-9VK">
+                                        <rect key="frame" x="0.0" y="456" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jUz-fK-9VK" id="lo1-0T-Iwz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
@@ -648,8 +669,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="74" id="P89-Vw-8Du">
-                                        <rect key="frame" x="0.0" y="526" width="414" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="P89-Vw-8Du">
+                                        <rect key="frame" x="0.0" y="530" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P89-Vw-8Du" id="hpf-7I-9bh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
@@ -658,7 +679,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfs-e0-z5w" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="95" y="14" width="224" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Сохранить описание файла"/>
+                                                    <state key="normal" title="Сохранить"/>
                                                     <connections>
                                                         <action selector="saveDescButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="vxL-VO-qNh"/>
                                                     </connections>
@@ -666,8 +687,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="JDM-d9-r2h">
-                                        <rect key="frame" x="0.0" y="600" width="414" height="63"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="JDM-d9-r2h">
+                                        <rect key="frame" x="0.0" y="604" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JDM-d9-r2h" id="3x3-gV-1D2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -678,14 +699,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
-                                                        <action selector="cancelButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="zoJ-vq-r6z"/>
+                                                        <action selector="cancelButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="9zc-bm-mbB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="63" id="uqM-sS-Fyd">
-                                        <rect key="frame" x="0.0" y="663" width="414" height="63"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="uqM-sS-Fyd">
+                                        <rect key="frame" x="0.0" y="667" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uqM-sS-Fyd" id="BHO-c9-lGn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -706,10 +727,10 @@
                         <outlet property="deliteButton" destination="xRA-No-NoX" id="YcP-xf-1tc"/>
                         <outlet property="fileImage" destination="IZp-wY-lDA" id="Gmr-M8-PCS"/>
                         <outlet property="fileNameLabel" destination="5lc-x9-kwH" id="KAO-WJ-ak4"/>
-                        <outlet property="saveButton" destination="fe8-ER-yMz" id="4lP-dj-VSw"/>
+                        <outlet property="loadFileButton" destination="RUc-rP-OaE" id="ATN-MQ-Q4G"/>
+                        <outlet property="recCountLabel" destination="4lx-Ri-4zC" id="2HQ-Nf-P0q"/>
                         <outlet property="saveDescButton" destination="Pfs-e0-z5w" id="8BI-QD-8hl"/>
                         <outlet property="textField" destination="gAd-Pt-QYE" id="cke-5N-O51"/>
-                        <outlet property="typeInfoSegmentControl" destination="4XA-MH-csJ" id="Lr1-ej-ivj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eV-ur-8rG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1839,7 +1860,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="338" y="7" width="49" height="31"/>
+                                                    <rect key="frame" x="338" y="7" width="48" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2228,7 +2249,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="335" y="7" width="50" height="31"/>
+                                                    <rect key="frame" x="335" y="7" width="48" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>
@@ -2540,6 +2561,7 @@
         <image name="noPsw" width="380" height="380"/>
         <image name="password-1" width="513" height="516"/>
         <image name="portfolio" width="512" height="512"/>
+        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="statistic" width="512" height="512"/>
         <image name="userExit" width="512" height="512"/>
         <namedColor name="ColorBlue">

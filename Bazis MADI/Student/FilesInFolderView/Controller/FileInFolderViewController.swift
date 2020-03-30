@@ -145,7 +145,6 @@ extension FileInFolderViewController: UITableViewDataSource, UITableViewDelegate
             let fileURL = URL(string: urlString)
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
             
-            //let session = URLSession(configuration: .default)
             var request = URLRequest(url:fileURL!)
             request.httpMethod = "POST"
             request.httpBody = "&p=\(filesToShow[indexPath.row].name)".data(using: .utf8)

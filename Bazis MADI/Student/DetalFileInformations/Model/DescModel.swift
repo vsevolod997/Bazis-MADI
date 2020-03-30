@@ -9,5 +9,12 @@
 import Foundation
 
 class DescModel: Decodable {
-    var desc: String?
+    var text: String?
+    var ref: [RefModel?]
+}
+
+class RefModel: Decodable {
+    var id: String
+    var own: String
+    var link: String
 }

@@ -26,6 +26,4 @@ class Title7LabelUILabel: UILabel {
         textColor = SystemColor.grayColor
         alpha = 0.7
     }
-    
-    
 }

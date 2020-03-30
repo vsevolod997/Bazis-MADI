@@ -26,6 +26,8 @@ class FileViewController: UIViewController {
     private let controller = FileToShowModelController()
     
     private let notificationReload = Notification.Name("reloadData")
+    private let notificationFileDelete = Notification.Name("fileDelete")
+    
     private var errorVC: ErrorViewUIView!
     
     override func viewDidLoad() {
@@ -34,10 +36,28 @@ class FileViewController: UIViewController {
         setupView()
         getDirectoryData()
         getFileData()
+        
+        addNotificationCenter()
     }
     
     private func addNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteNotification(notification:)), name: notificationFileDelete, object: nil)
+    }
+    
+    
+    // MARK: - удаление файла из списка
+    @objc func deleteNotification(notification: Notification) {
+        //print(notification.userInfo?.first?.value)
+        let index = notification.userInfo?.first?.value as! Int
+        print(index)
+        fileData.remove(at: index)
+        let queue = DispatchQueue(label: "backUpdate", qos: .background)
+        queue.async {
+            self.getDirectoryData()
+        }
+        
+        tableView.reloadData()
     }
     
     //notification
@@ -210,7 +230,6 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
             if isFileMode{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
                 cell.fileData = fileData[indexPath.row]
-                
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
@@ -242,6 +261,8 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? DetalFileInfoTableViewController else { return }
             vc.fileData = fileData[indexPath.row]
+            vc.indexFile = indexPath.row
+            tableView.cellForRow(at: indexPath)?.isSelected = false
             present(vc, animated: true)
         }
     }
