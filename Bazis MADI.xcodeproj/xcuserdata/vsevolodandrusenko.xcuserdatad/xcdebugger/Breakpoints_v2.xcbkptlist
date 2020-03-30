@@ -2936,24 +2936,8 @@
             filePath = "Bazis MADI/Student/FilesInFolderView/Controller/FileInFolderViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "urlSession(_:downloadTask:didFinishDownloadingTo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4DFBBEAD-A891-478F-8F2E-6C3877580F57"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/FilesInFolderView/Controller/FileInFolderViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "urlSession(_:downloadTask:didFinishDownloadingTo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2968,8 +2952,8 @@
             filePath = "Bazis MADI/Student/FilesInFolderView/Controller/FileInFolderViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "urlSession(_:downloadTask:didFinishDownloadingTo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3112,9 +3096,25 @@
             filePath = "Bazis MADI/Student/DetalFileInformations/View/DetalFileInfoTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "loadDescFile(fileDesc:controller:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3CD24F0-CA84-4B91-9887-F7AAA6277E69"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/FilesView/Controller/FileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

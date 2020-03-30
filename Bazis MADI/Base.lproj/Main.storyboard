@@ -526,11 +526,11 @@
                         <sections>
                             <tableViewSection id="4dl-DE-93e">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="75" id="3jm-Ng-j5r">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="92" id="3jm-Ng-j5r">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3jm-Ng-j5r" id="TFz-bn-92t">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lc-x9-kwH" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
@@ -549,14 +549,8 @@
                                                         <constraint firstAttribute="width" constant="44" id="dJG-RV-fZK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHP-Ov-1y9" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="78" y="43" width="316" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-rP-OaE">
-                                                    <rect key="frame" x="374" y="14.999999999999998" width="30" height="29.000000000000004"/>
+                                                    <rect key="frame" x="374" y="14.999999999999996" width="30" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="vtu-Ji-Dyx"/>
                                                     </constraints>
@@ -567,24 +561,37 @@
                                                         <action selector="saveFileButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="W8V-9Q-tEf"/>
                                                     </connections>
                                                 </button>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-KV-4va">
+                                                    <rect key="frame" x="20" y="79" width="374" height="2"/>
+                                                    <color key="progressTintColor" name="ColorBlue"/>
+                                                </progressView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHP-Ov-1y9" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="78" y="46" width="316" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Efv-KV-4va" secondAttribute="trailing" constant="20" id="0tk-jb-Vid"/>
+                                                <constraint firstItem="Efv-KV-4va" firstAttribute="leading" secondItem="TFz-bn-92t" secondAttribute="leading" constant="20" id="2AW-Rc-Z1i"/>
                                                 <constraint firstItem="IHP-Ov-1y9" firstAttribute="leading" secondItem="IZp-wY-lDA" secondAttribute="trailing" constant="14" id="3K1-vT-Hdb"/>
+                                                <constraint firstAttribute="bottom" secondItem="Efv-KV-4va" secondAttribute="bottom" constant="11" id="6x2-Nq-nUY"/>
                                                 <constraint firstItem="IZp-wY-lDA" firstAttribute="leading" secondItem="TFz-bn-92t" secondAttribute="leading" constant="20" id="9oS-hB-IYP"/>
                                                 <constraint firstAttribute="trailing" secondItem="RUc-rP-OaE" secondAttribute="trailing" constant="10" id="CFa-rS-Rz8"/>
                                                 <constraint firstItem="5lc-x9-kwH" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="14" id="QTg-t6-dk8"/>
                                                 <constraint firstItem="RUc-rP-OaE" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="15" id="W7C-eU-YGE"/>
                                                 <constraint firstItem="RUc-rP-OaE" firstAttribute="leading" secondItem="5lc-x9-kwH" secondAttribute="trailing" constant="8" id="c1r-5p-yxl"/>
-                                                <constraint firstAttribute="bottom" secondItem="IHP-Ov-1y9" secondAttribute="bottom" constant="11" id="k4W-aK-egp"/>
+                                                <constraint firstAttribute="bottom" secondItem="IHP-Ov-1y9" secondAttribute="bottom" constant="25" id="k4W-aK-egp"/>
                                                 <constraint firstAttribute="trailing" secondItem="IHP-Ov-1y9" secondAttribute="trailing" constant="20" id="rvs-cN-pMc"/>
                                                 <constraint firstItem="IZp-wY-lDA" firstAttribute="top" secondItem="TFz-bn-92t" secondAttribute="top" constant="14" id="sPk-FO-GrB"/>
                                                 <constraint firstItem="5lc-x9-kwH" firstAttribute="leading" secondItem="IZp-wY-lDA" secondAttribute="trailing" constant="14" id="weR-a0-JeJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="RUc-rP-OaE" secondAttribute="bottom" constant="30.666666666666671" id="wew-DK-xp7"/>
+                                                <constraint firstAttribute="bottom" secondItem="RUc-rP-OaE" secondAttribute="bottom" constant="42.666666666666671" id="wew-DK-xp7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="173" id="OFP-d8-zxz">
-                                        <rect key="frame" x="0.0" y="103" width="414" height="173"/>
+                                        <rect key="frame" x="0.0" y="120" width="414" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OFP-d8-zxz" id="bRQ-OG-DET">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
@@ -605,7 +612,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="p8S-fs-KJb">
-                                        <rect key="frame" x="0.0" y="276" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="293" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p8S-fs-KJb" id="mZU-V4-J3t">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
@@ -644,7 +651,7 @@
                             <tableViewSection headerTitle="Действие над файлом" id="jNf-6s-Ukf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="LhF-8k-G00">
-                                        <rect key="frame" x="0.0" y="382" width="414" height="74"/>
+                                        <rect key="frame" x="0.0" y="399" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LhF-8k-G00" id="1OM-P1-PmI">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
@@ -652,7 +659,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="jUz-fK-9VK">
-                                        <rect key="frame" x="0.0" y="456" width="414" height="74"/>
+                                        <rect key="frame" x="0.0" y="473" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jUz-fK-9VK" id="lo1-0T-Iwz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
@@ -670,7 +677,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="74" id="P89-Vw-8Du">
-                                        <rect key="frame" x="0.0" y="530" width="414" height="74"/>
+                                        <rect key="frame" x="0.0" y="547" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P89-Vw-8Du" id="hpf-7I-9bh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
@@ -688,7 +695,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="JDM-d9-r2h">
-                                        <rect key="frame" x="0.0" y="604" width="414" height="63"/>
+                                        <rect key="frame" x="0.0" y="621" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JDM-d9-r2h" id="3x3-gV-1D2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -706,7 +713,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="63" id="uqM-sS-Fyd">
-                                        <rect key="frame" x="0.0" y="667" width="414" height="63"/>
+                                        <rect key="frame" x="0.0" y="684" width="414" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uqM-sS-Fyd" id="BHO-c9-lGn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -725,6 +732,7 @@
                         <outlet property="cancelButton" destination="l1f-ZS-kKb" id="bt9-GG-1MZ"/>
                         <outlet property="dateLabel" destination="IHP-Ov-1y9" id="mle-bx-tD8"/>
                         <outlet property="deliteButton" destination="xRA-No-NoX" id="YcP-xf-1tc"/>
+                        <outlet property="donloadProgress" destination="Efv-KV-4va" id="JYU-eD-ZIi"/>
                         <outlet property="fileImage" destination="IZp-wY-lDA" id="Gmr-M8-PCS"/>
                         <outlet property="fileNameLabel" destination="5lc-x9-kwH" id="KAO-WJ-ak4"/>
                         <outlet property="loadFileButton" destination="RUc-rP-OaE" id="ATN-MQ-Q4G"/>

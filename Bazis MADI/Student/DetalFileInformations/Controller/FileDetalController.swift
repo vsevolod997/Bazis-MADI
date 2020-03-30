@@ -24,6 +24,7 @@ class FileDetalController {
     
     private let notificationFileDelete = Notification.Name("fileDelete")
     
+    
     func loadDesc(fileName: String) {
         DetailFileHttpService.getFileDesc(nameFile: fileName) { (err, descModel) in
             if err != nil {

@@ -159,28 +159,19 @@ extension FileInFolderViewController: UITableViewDataSource, UITableViewDelegate
 extension FileInFolderViewController: URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        //print("downloadLocation:", location)
-        // create destination URL with the original pdf name
-        //guard let url = downloadTask.originalRequest?.url else { return }
-        
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
         let destinationURL = documentsPath.appendingPathComponent(fileName)
         print(destinationURL)
-        // delete original copy
         try? FileManager.default.removeItem(at: destinationURL)
-        // copy from temp to Document
         do {
             try FileManager.default.copyItem(at: location, to: destinationURL)
             DispatchQueue.main.async {
-                //let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
-                //self.present(activityViewController, animated: true, completion: nil)
-                let document = UIDocumentPickerViewController(documentTypes:[], in: .open)
-                document.allowsMultipleSelection = true
-                self.present(document, animated: true, completion: nil)
+                
+                let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
+                self.present(activityViewController, animated: true, completion: nil)
             }
             
-            //self.pdfURL = destinationURL
         } catch let error {
             print("Copy Error: \(error.localizedDescription)")
         }

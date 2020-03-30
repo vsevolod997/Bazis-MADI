@@ -21,8 +21,10 @@ class DetalFileInfoTableViewController: UITableViewController {
     @IBOutlet weak var textField: InfoTextViewUITextView!
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
+    @IBOutlet weak var donloadProgress: UIProgressView!
     
     private var isSave = true
+    private var isDonloadingFile = false
     
     public var indexFile: Int!
     public var fileData: FileToShowModel!
@@ -63,7 +65,20 @@ class DetalFileInfoTableViewController: UITableViewController {
     }
     
     @IBAction func saveFileButtonPress(_ sender: Any) {
-        print("saveButton")
+        if !isDonloadingFile {
+            isDonloadingFile = true
+            let urlString = "https://bazis.madi.ru/stud/api/file/download"
+            let fileURL = URL(string: urlString)
+            let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
+            
+            var request = URLRequest(url:fileURL!)
+            request.httpMethod = "POST"
+            request.httpBody = "&p=\(fileData.name)".data(using: .utf8)
+            print(request.debugDescription)
+            
+            let task = session.downloadTask(with: request)
+            task.resume()
+        }
     }
     
     @IBAction func deleteButtonPress(_ sender: Any) {
@@ -147,4 +162,38 @@ extension DetalFileInfoTableViewController: UITextViewDelegate {
     func textViewDidChangeSelection(_ textView: UITextView) {
         controlEnablebSaveButton()
     }
+}
+
+//MARK: - URLSessionDownloadDelegate
+extension DetalFileInfoTableViewController: URLSessionDownloadDelegate {
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]
+        
+        let destinationURL = documentsPath.appendingPathComponent(fileData.name)
+        try? FileManager.default.removeItem(at: destinationURL)
+        do {
+            try FileManager.default.copyItem(at: location, to: destinationURL)
+            DispatchQueue.main.async {
+                
+                let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+            
+        } catch let error {
+            print("Copy Error: \(error.localizedDescription)")
+        }
+        
+        isDonloadingFile = false
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        
+        let procentLoad = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
+        
+        DispatchQueue.main.async {
+            self.donloadProgress.progress = procentLoad
+        }
+    }
+    
 }
