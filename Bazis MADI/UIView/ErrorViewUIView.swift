@@ -38,14 +38,14 @@ class ErrorViewUIView: UIView {
         label.numberOfLines = 2
         let widthLabel = 400
         let startX = self.center.x - CGFloat(widthLabel/2)
-        label.frame = CGRect(x: Int(startX), y: 50, width: widthLabel, height: 50)
+        label.frame = CGRect(x: Int(startX), y: 150, width: widthLabel, height: 50)
         self.addSubview(label)
     }
     
     fileprivate func createReloadButton() {
         let button = InputButton1UIButton()
         button.setTitle("Перезагрузить", for: .normal)
-        button.frame = CGRect(x: self.frame.width/2.0 - 100, y: 200, width: 200.0, height: 40)
+        button.frame = CGRect(x: self.frame.width/2.0 - 100, y: 250, width: 200.0, height: 40)
         self.addSubview(button)
         button.addTarget(self, action: #selector(reloadButtonPress), for: .touchUpInside)
     }

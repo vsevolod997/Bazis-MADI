@@ -89,6 +89,9 @@
 		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 		42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */; };
+		42BFCFC9243382DD0018D6D5 /* DetailFileReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCFC8243382DD0018D6D5 /* DetailFileReviewTableViewController.swift */; };
+		42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCFCA2433833E0018D6D5 /* DetalFileMainViewController.swift */; };
+		42BFCFCF2434EC950018D6D5 /* UploadFileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */; };
 		42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */; };
 		42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */; };
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
@@ -109,6 +112,9 @@
 		42E69FD0242E5432003DAC2A /* FileDetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FCF242E5432003DAC2A /* FileDetalController.swift */; };
 		42EEE9D0242B5C0F00EC2D80 /* Title7LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */; };
 		42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EEE9D2242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift */; };
+		42F2603C2438E8CB0027451D /* UploadFileHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2603B2438E8CB0027451D /* UploadFileHTTPService.swift */; };
+		42F2603E2438EA2C0027451D /* UploadFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2603D2438EA2C0027451D /* UploadFileModel.swift */; };
+		42F260402438F2CA0027451D /* UploadFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2603F2438F2CA0027451D /* UploadFileController.swift */; };
 		42F672FE241D4E8A00865044 /* PortfolioEducationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F672FD241D4E8A00865044 /* PortfolioEducationTableViewController.swift */; };
 		42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F67302241EBA1800865044 /* PortfolioInfoEditTableViewController.swift */; };
 		42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */; };
@@ -200,6 +206,9 @@
 		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTextFieldUITextField.swift; sourceTree = "<group>"; };
+		42BFCFC8243382DD0018D6D5 /* DetailFileReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFileReviewTableViewController.swift; sourceTree = "<group>"; };
+		42BFCFCA2433833E0018D6D5 /* DetalFileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalFileMainViewController.swift; sourceTree = "<group>"; };
+		42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileTableViewController.swift; sourceTree = "<group>"; };
 		42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTeacherTableViewController.swift; sourceTree = "<group>"; };
 		42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeButtonUIButton.swift; sourceTree = "<group>"; };
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
@@ -220,6 +229,9 @@
 		42E69FCF242E5432003DAC2A /* FileDetalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetalController.swift; sourceTree = "<group>"; };
 		42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title7LabelUILabel.swift; sourceTree = "<group>"; };
 		42EEE9D2242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalFileInfoTableViewController.swift; sourceTree = "<group>"; };
+		42F2603B2438E8CB0027451D /* UploadFileHTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileHTTPService.swift; sourceTree = "<group>"; };
+		42F2603D2438EA2C0027451D /* UploadFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileModel.swift; sourceTree = "<group>"; };
+		42F2603F2438F2CA0027451D /* UploadFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileController.swift; sourceTree = "<group>"; };
 		42F672FD241D4E8A00865044 /* PortfolioEducationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioEducationTableViewController.swift; sourceTree = "<group>"; };
 		42F67302241EBA1800865044 /* PortfolioInfoEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioInfoEditTableViewController.swift; sourceTree = "<group>"; };
 		42FC7B2A23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieByGroupUIView.swift; sourceTree = "<group>"; };
@@ -251,9 +263,7 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				42EEE9D1242B6C3400EC2D80 /* DetalFileInformations */,
-				420B2DF22428F4EF00A6BEF9 /* FilesInFolderView */,
-				420B2DD72423894600A6BEF9 /* FilesView */,
+				42BFCFCC2434E7300018D6D5 /* FileViews */,
 				42F67301241EB9D100865044 /* PortfolioInfoEditView */,
 				42F672FC241D4E4E00865044 /* PortfolioEducationView */,
 				42AEAD58241A2168005430D2 /* PortfolioWorkEditView */,
@@ -627,6 +637,45 @@
 			path = HttpService;
 			sourceTree = "<group>";
 		};
+		42BFCFC2243380B60018D6D5 /* DetailFileInformationMainView */ = {
+			isa = PBXGroup;
+			children = (
+				42BFCFCA2433833E0018D6D5 /* DetalFileMainViewController.swift */,
+			);
+			path = DetailFileInformationMainView;
+			sourceTree = "<group>";
+		};
+		42BFCFC3243380E40018D6D5 /* DetailFileReviewView */ = {
+			isa = PBXGroup;
+			children = (
+				42BFCFC8243382DD0018D6D5 /* DetailFileReviewTableViewController.swift */,
+			);
+			path = DetailFileReviewView;
+			sourceTree = "<group>";
+		};
+		42BFCFCC2434E7300018D6D5 /* FileViews */ = {
+			isa = PBXGroup;
+			children = (
+				42BFCFCD2434E74D0018D6D5 /* UploadFileView */,
+				420B2DD72423894600A6BEF9 /* FilesView */,
+				420B2DF22428F4EF00A6BEF9 /* FilesInFolderView */,
+				42BFCFC2243380B60018D6D5 /* DetailFileInformationMainView */,
+				42EEE9D1242B6C3400EC2D80 /* DetalFileInformations */,
+				42BFCFC3243380E40018D6D5 /* DetailFileReviewView */,
+			);
+			path = FileViews;
+			sourceTree = "<group>";
+		};
+		42BFCFCD2434E74D0018D6D5 /* UploadFileView */ = {
+			isa = PBXGroup;
+			children = (
+				42F260392438E8280027451D /* Controller */,
+				42F260382438E8100027451D /* View */,
+				42F260372438E8040027451D /* Model */,
+			);
+			path = UploadFileView;
+			sourceTree = "<group>";
+		};
 		42CB259823CF37A7007DEA69 /* InfoTeacherView */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +976,39 @@
 			path = DetalFileInformations;
 			sourceTree = "<group>";
 		};
+		42F260372438E8040027451D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42F2603D2438EA2C0027451D /* UploadFileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42F260382438E8100027451D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42F260392438E8280027451D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42F2603A2438E8860027451D /* HTTPService */,
+				42F2603F2438F2CA0027451D /* UploadFileController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42F2603A2438E8860027451D /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42F2603B2438E8CB0027451D /* UploadFileHTTPService.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
 		42F672FC241D4E4E00865044 /* PortfolioEducationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1029,6 +1111,7 @@
 				42D485F824042F2F00648253 /* RaspisanieGroupInfo.swift in Sources */,
 				426AD0E723917617003362B1 /* LoginController.swift in Sources */,
 				42A8315F23C0B5280012BC66 /* RaspisanieModelTeacher.swift in Sources */,
+				42F2603C2438E8CB0027451D /* UploadFileHTTPService.swift in Sources */,
 				424DE36723C3846F00389B53 /* ClassesTeacherUIView.swift in Sources */,
 				420ACEFA23FE7EB100C64DD1 /* Title6LabelUILabel.swift in Sources */,
 				42A75FD423A14D8C0083B3EC /* RaspisanieModel.swift in Sources */,
@@ -1041,9 +1124,11 @@
 				420ACEFE23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
 				42AA02AA240E5261006F0FDA /* PortfolioModel.swift in Sources */,
+				42BFCFC9243382DD0018D6D5 /* DetailFileReviewTableViewController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
 				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
+				42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */,
 				42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */,
 				42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */,
 				428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */,
@@ -1055,6 +1140,7 @@
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42AA02A8240E5184006F0FDA /* PorfolioHttpService.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
+				42F2603E2438EA2C0027451D /* UploadFileModel.swift in Sources */,
 				420B2DE324238B7600A6BEF9 /* FileHttpService.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
 				420B2DF62428F5E500A6BEF9 /* FileInFolderViewController.swift in Sources */,
@@ -1089,6 +1175,7 @@
 				42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
 				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
+				42F260402438F2CA0027451D /* UploadFileController.swift in Sources */,
 				42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */,
 				42AEAD5C241AA5CC005430D2 /* DoneButtonUIButton.swift in Sources */,
 				42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */,
@@ -1110,6 +1197,7 @@
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
+				42BFCFCF2434EC950018D6D5 /* UploadFileTableViewController.swift in Sources */,
 				420B2DEB2424E22C00A6BEF9 /* FileToShowModelController.swift in Sources */,
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
 				42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */,

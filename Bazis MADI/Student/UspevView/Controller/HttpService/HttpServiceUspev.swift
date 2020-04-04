@@ -14,7 +14,7 @@ class HttpServiceUspev {
     class func getUserUspew( completion: @escaping(Error?, [UspevModel]?)->Void){
         
         let urlStr = "https://bazis.madi.ru/stud/api/stud/uspev"
-        guard let url = URL(string: urlStr) else {return}
+        guard let url = URL(string: urlStr) else { return }
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in

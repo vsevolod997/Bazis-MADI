@@ -10,10 +10,10 @@ import Foundation
 
 class DescModel: Decodable {
     var text: String?
-    var ref: [RefModel?]
+    var ref: [ReviewModel?]
 }
 
-class RefModel: Decodable {
+class ReviewModel: Decodable {
     var id: String
     var own: String
     var link: String

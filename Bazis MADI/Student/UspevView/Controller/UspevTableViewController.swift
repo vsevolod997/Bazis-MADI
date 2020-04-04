@@ -33,9 +33,19 @@ class UspevTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        addGestue()
         setupDataUspev()
         addNotificationCenter()
     }
+    
+    
+    private func addGestue() {
+        let gestue = UISwipeGestureRecognizer(target: self, action: #selector(backButtonPress))
+        gestue.direction = .right
+        
+        self.view.addGestureRecognizer(gestue)
+    }
+    
     
     //reloadViewNotification
     private func addNotificationCenter() {
@@ -195,6 +205,16 @@ class UspevTableViewController: UITableViewController {
 
     }
     
+    //MARK: - cell select anomation
+    private func animateCellSelection(cell: UITableViewCell ) {
+        UIView.animate(withDuration: 0.3, animations: {
+            cell.alpha = 0.8
+        }) { (anim) in
+            UIView.animate(withDuration: 0.3) {
+                cell.alpha = 1
+            }
+        }
+    }
 }
 
 extension UspevTableViewController {
@@ -258,24 +278,25 @@ extension UspevTableViewController {
            if cellList.contains(indexPath) {
                 return 160
             } else {
-                return 112
+                return 114
             }
         } else {
             if isSem {
                 if cellList.contains(indexPath) {
                     return 160
                 } else {
-                    return 114
+                    return 120
                 }
             } else {
                 if cellList.contains(indexPath) {
                     return 110
                 } else {
-                    return 60
+                    return 70
                 }
             }
         }
     }
+    
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -388,6 +409,10 @@ extension UspevTableViewController {
 extension UspevTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            animateCellSelection(cell: cell)
+        }
         
         if isSearchResult {
             if cellList.contains(indexPath) {

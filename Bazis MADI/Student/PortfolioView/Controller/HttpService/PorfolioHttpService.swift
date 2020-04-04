@@ -70,6 +70,7 @@ class PorfolioHttpService {
         var urlReqest = URLRequest(url: url)
         urlReqest.httpMethod = "POST"
         let json = try! JSONEncoder().encode(newDataSet)
+        
         urlReqest.httpBody = json
         
         urlReqest.addValue("application/json", forHTTPHeaderField: "Content-Type")

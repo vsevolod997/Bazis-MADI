@@ -10,7 +10,7 @@ import Foundation
 
 class HttpService {
     //MARK: - метод логина пользователя 
-    class func getUserAccount(login: String, password: String, completion: @escaping(Error?, UserModel?, UserModelError?)->Void){
+    class func getUserAccount(login: String, password: String, completion: @escaping(Error?, UserModel?, UserModelError?)->Void) {
         
         let userData = UserDataController()
         

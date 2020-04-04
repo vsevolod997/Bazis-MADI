@@ -8,6 +8,11 @@
 
 import UIKit
 
+//MARK: - ShowReviewDelegate
+protocol ShowReviewDelegate: class {
+    func showReviewDelegate(fileReview: [ReviewModel])
+}
+
 class DetalFileInfoTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
@@ -25,6 +30,8 @@ class DetalFileInfoTableViewController: UITableViewController {
     
     private var isSave = true
     private var isDonloadingFile = false
+    
+    public var delegate: ShowReviewDelegate!
     
     public var indexFile: Int!
     public var fileData: FileToShowModel!
@@ -51,6 +58,11 @@ class DetalFileInfoTableViewController: UITableViewController {
         view.endEditing(true)
     }
     
+    //show reviewView
+    @IBAction func showReviewButtonPres(_ sender: Any) {
+        delegate.showReviewDelegate(fileReview: fileDesc.ref as! [ReviewModel])
+    }
+    
     private func setupView() {
         saveDescButton.isEnabled = false
     }
@@ -64,6 +76,7 @@ class DetalFileInfoTableViewController: UITableViewController {
         }
     }
     
+    //MARK: - сохрвнение файла
     @IBAction func saveFileButtonPress(_ sender: Any) {
         if !isDonloadingFile {
             isDonloadingFile = true
@@ -74,10 +87,15 @@ class DetalFileInfoTableViewController: UITableViewController {
             var request = URLRequest(url:fileURL!)
             request.httpMethod = "POST"
             request.httpBody = "&p=\(fileData.name)".data(using: .utf8)
-            print(request.debugDescription)
             
             let task = session.downloadTask(with: request)
             task.resume()
+        } else {
+            
+            let documentsPath = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]
+            let destinationURL = documentsPath.appendingPathComponent(fileData.name)
+            let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
         }
     }
     
@@ -125,17 +143,11 @@ class DetalFileInfoTableViewController: UITableViewController {
             saveDescButton.isEnabled = false
         }
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 && indexPath.section == 0 && fileDesc.ref.count > 0 {
-            //showRefView
-        }
-        tableView.cellForRow(at: indexPath)?.isSelected = false
-    }
 }
 
 //MARK: - InfoFileDelegate
 extension DetalFileInfoTableViewController: InfoFileDelegate {
+    
     func loadDescFile(fileDesc: DescModel, controller: FileDetalController) {
         self.fileDesc = fileDesc
         self.textField.text = fileDesc.text
@@ -159,6 +171,7 @@ extension DetalFileInfoTableViewController: InfoFileDelegate {
 
 //MARK: - UITextViewDelegate
 extension DetalFileInfoTableViewController: UITextViewDelegate {
+    
     func textViewDidChangeSelection(_ textView: UITextView) {
         controlEnablebSaveButton()
     }
@@ -184,7 +197,7 @@ extension DetalFileInfoTableViewController: URLSessionDownloadDelegate {
             print("Copy Error: \(error.localizedDescription)")
         }
         
-        isDonloadingFile = false
+        //isDonloadingFile = false
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

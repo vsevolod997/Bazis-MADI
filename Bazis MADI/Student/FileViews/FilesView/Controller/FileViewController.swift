@@ -19,6 +19,7 @@ class FileViewController: UIViewController {
     private var isClose = false
     private var isFileMode = true
     private var isLoad = false
+    private var isHaveFile = false
     
     private var fileData: [FileToShowModel]!
     private var fileDirectoryData: [FileDirectoryModel]!
@@ -148,6 +149,7 @@ class FileViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.isLoad = true
                         let fileModel = self.controller.setupShowFileToData(modelFile: file)
+                        self.isHaveFile = self.setupFilesSelection(filesShow: fileModel)
                         self.fileData = fileModel
                         self.tableView.reloadData()
                     }
@@ -160,9 +162,26 @@ class FileViewController: UIViewController {
         errorVC = ErrorViewUIView(frame: self.view.frame)
         view.addSubview(errorVC)
     }
+    
+    private func setupFilesSelection(filesShow: [FileToShowModel]?) -> Bool{
+        if let files = filesShow {
+            if files.count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
     //MARK: - кнопка "Добавить"
     @IBAction func addButtonPress(_ sender: Any) {
+        //uploadFile
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
         
+        present(vc, animated: true)
     }
     
 }
@@ -216,7 +235,11 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     {
         if isLoad {
             if isFileMode {
-                return fileData.count
+                if isHaveFile {
+                     return fileData.count
+                } else {
+                    return 1
+                }
             } else {
                 return fileDirectoryData.count
             }
@@ -226,11 +249,17 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if isLoad {
-            if isFileMode{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
-                cell.fileData = fileData[indexPath.row]
-                return cell
+            if isFileMode {
+                if isHaveFile {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! FileTableViewCell
+                    cell.fileData = fileData[indexPath.row]
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "nullCell", for: indexPath)
+                    return cell
+                }
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
                 
@@ -249,6 +278,8 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.isSelected = false
+        
         if !isFileMode {
             //inFolder
             let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -259,10 +290,9 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             //fileDetal
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? DetalFileInfoTableViewController else { return }
+            guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
             vc.fileData = fileData[indexPath.row]
             vc.indexFile = indexPath.row
-            tableView.cellForRow(at: indexPath)?.isSelected = false
             present(vc, animated: true)
         }
     }

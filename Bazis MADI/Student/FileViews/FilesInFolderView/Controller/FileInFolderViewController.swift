@@ -43,6 +43,13 @@ class FileInFolderViewController: UIViewController {
         
     }
     
+    // MARK: - удаление файла из списка
+    @objc func deleteNotification(notification: Notification) {
+        let index = notification.userInfo?.first?.value as! Int
+        filesToShow.remove(at: index)
+        tableView.reloadData()
+    }
+    
     private func setupView() {
         navigationItem.prompt = "Файлы"
         //navigationController?.navigationBar.
@@ -60,7 +67,7 @@ class FileInFolderViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    private func setupFilesSelection(filesShow: [FileToShowModel]?)  -> Bool{
+    private func setupFilesSelection(filesShow: [FileToShowModel]?) -> Bool{
         if let files = filesShow {
             if files.count > 0 {
                 return true
@@ -140,40 +147,11 @@ extension FileInFolderViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isFile {
-            let urlString = "https://bazis.madi.ru/stud/api/file/download"
-            fileName = filesToShow[indexPath.row].name
-            let fileURL = URL(string: urlString)
-            let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-            
-            var request = URLRequest(url:fileURL!)
-            request.httpMethod = "POST"
-            request.httpBody = "&p=\(filesToShow[indexPath.row].name)".data(using: .utf8)
-            print(request.debugDescription)
-            
-            let task = session.downloadTask(with: request)
-            task.resume()
-        }
-    }
-}
-
-extension FileInFolderViewController: URLSessionDownloadDelegate {
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
-        let destinationURL = documentsPath.appendingPathComponent(fileName)
-        print(destinationURL)
-        try? FileManager.default.removeItem(at: destinationURL)
-        do {
-            try FileManager.default.copyItem(at: location, to: destinationURL)
-            DispatchQueue.main.async {
-                
-                let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
-                self.present(activityViewController, animated: true, completion: nil)
-            }
-            
-        } catch let error {
-            print("Copy Error: \(error.localizedDescription)")
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
+            vc.fileData = filesToShow[indexPath.row]
+            vc.indexFile = indexPath.row
+            present(vc, animated: true)
         }
     }
 }
