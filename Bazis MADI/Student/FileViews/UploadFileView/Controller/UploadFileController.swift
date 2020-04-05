@@ -12,6 +12,9 @@ protocol UploadFileDelegate: class {
     func showError(errorMess: String, controller: UploadFileController)
     
     func showOk(controller: UploadFileController)
+    
+    func uploadFileIsSelected(file: String, fileName: String, isSelected: Bool )
+    
 }
 
 class UploadFileController {
@@ -19,6 +22,13 @@ class UploadFileController {
     private let  httpService = UploadFileHTTPService()
     
     public var delegate: UploadFileDelegate!
+    
+    public func selectUploadFile(urlFile: URL) {
+        let file = urlFile.lastPathComponent
+        let fileName = String(file.split(separator: ".").first!)
+        
+        delegate.uploadFileIsSelected(file: file, fileName: fileName, isSelected: true)
+    }
     
     public func uploadFile(fileURL: URL, uploadPath: String, fileName: String) {
         

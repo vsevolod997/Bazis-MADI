@@ -177,6 +177,14 @@ extension PortfolioViewTableViewController {
         return 30
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 50
+        } else {
+            return 0
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isLoad {
             return 3
@@ -280,7 +288,7 @@ extension PortfolioViewTableViewController {
         if isLoad {
             switch  indexPath.section {
             case 0:
-                return 114
+                return 106
             case 1:
                 if isEdit {
                     return 170
@@ -294,7 +302,7 @@ extension PortfolioViewTableViewController {
                     return 132
                 }
             default:
-                return 0
+                return 20
             }
         } else {
             return 96
@@ -302,6 +310,7 @@ extension PortfolioViewTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if isEdit {
             let cell = tableView.cellForRow(at: indexPath)
             UIView.animate(withDuration: 0.2, animations: {
@@ -321,7 +330,6 @@ extension PortfolioViewTableViewController {
             }
         }
     }
-    
 }
 
 //MARK: - редактирование данных

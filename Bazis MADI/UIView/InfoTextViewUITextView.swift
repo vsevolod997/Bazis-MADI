@@ -20,7 +20,7 @@ class InfoTextViewUITextView: UITextView {
     }
     
     private func setupView() {
-        clipsToBounds = false
+        clipsToBounds = true
         layer.cornerRadius = 10
         backgroundColor = .systemFill
     }
