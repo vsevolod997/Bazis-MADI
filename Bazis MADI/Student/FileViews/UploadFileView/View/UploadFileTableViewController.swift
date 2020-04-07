@@ -12,9 +12,7 @@ import UIKit
 class UploadFileTableViewController: UITableViewController {
     
     @IBOutlet weak var descriptionFileTextView: InfoTextViewUITextView!
-    
     @IBOutlet weak var dirrectoryUploadLabel: EditingTextFieldUITextField!
-    
     @IBOutlet weak var fileNameLabel: EditingTextFieldUITextField!
     @IBOutlet weak var stateSelectFile: Title7LabelUILabel!
     @IBOutlet weak var selectFileButton: UIButton!
@@ -23,8 +21,8 @@ class UploadFileTableViewController: UITableViewController {
     
     var uploadPath: String! = "Учебные работы/Курсовые проекты"
     
-    private var filetype = ""
-    private var urlFile: URL!
+    private var fileType = ""
+    private var fileData: Data!
     private var isSelectedFile = false
     
     private let controller = UploadFileController()
@@ -73,14 +71,16 @@ class UploadFileTableViewController: UITableViewController {
     }
     
     
+    
     @IBAction func uploadButtonPress(_ sender: Any) {
         
+        guard let fileDesc = descriptionFileTextView.text else { return }
         guard let fileName = fileNameLabel.text else { return }
         guard let uploadP = uploadPath else { return }
-        guard let url = urlFile else { return }
-        let fullName = fileName + "." + filetype
+        guard let data = fileData else { return }
+        let fullName = fileName + "." + fileType
         
-        self.controller.uploadFile(fileURL: url, uploadPath: uploadP, fileName: fullName)
+        self.controller.uploadFile(uploadData: data, uploadPath: uploadP, fileName: fullName, fileDesk: fileDesc)
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
@@ -92,28 +92,25 @@ class UploadFileTableViewController: UITableViewController {
         let importMenu = UIDocumentPickerViewController(documentTypes: [String("public.data")], in: .import)
         importMenu.delegate = self
         importMenu.modalPresentationStyle = .formSheet
-        self.present(importMenu, animated: true, completion: nil)
+        
+        present(importMenu, animated: true, completion: nil)
     }
     
     private func selectImg() {
         let imagePicer = UIImagePickerController()
         imagePicer.delegate = self
-        imagePicer.sourceType = .photoLibrary
+        imagePicer.sourceType = .savedPhotosAlbum
         present(imagePicer, animated: true)
     }
+    
 }
 
 //MARK: - UIDocumentPickerDelegate
 extension UploadFileTableViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        
         if let url = urls.first {
-            self.urlFile = url
             self.controller.selectUploadFile(urlFile: url)
-            if let type = url.absoluteString.split(separator: ".").last {
-                self.filetype = String(type)
-            }
         }
     }
 }
@@ -121,8 +118,11 @@ extension UploadFileTableViewController: UIDocumentPickerDelegate {
 //MARK: - UIDocumentPickerDelegate
 extension UploadFileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        print(info[UIImagePickerController.InfoKey.imageURL])
-        if let pickerImage = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+        //print(info[UIImagePickerController.InfoKey.imageURL])
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            if let name = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+                self.controller.selectUploadPhoto(image: image, name: name.lastPathComponent)
+            }
             dismiss(animated: true, completion: nil)
         }
     }
@@ -130,16 +130,19 @@ extension UploadFileTableViewController: UIImagePickerControllerDelegate, UINavi
 
 //MARK: - UploadFileDelegate
 extension UploadFileTableViewController: UploadFileDelegate {
-    
-    func uploadFileIsSelected(file: String, fileName: String, isSelected: Bool) {
+    func uploadFileIsSelected(selectFileName: String, fileName: String, fileType: String, dataFile: Data) {
         
         fileNameLabel.text = fileName
-        stateSelectFile.text = file
-        isSelectedFile = isSelected
+        stateSelectFile.text = selectFileName
+        self.fileType = fileType
+        self.fileData = dataFile
     }
     
     func showError(errorMess: String, controller: UploadFileController) {
-        print(errorMess)
+        //let alert = UIAlertController(title: "Ошибка!", message: "Не удалось выгрузить файл.", preferredStyle: .alert)
+        //let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        //alert.addAction(action)
+        //present(alert, animated: true, completion: nil)
     }
     
     func showOk(controller: UploadFileController) {
@@ -155,6 +158,11 @@ extension UploadFileTableViewController: UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == fileNameLabel {
+            if fileNameLabel.text?.last == "." || fileNameLabel.text?.last == "/" {
+                fileNameLabel.text?.removeLast()
+            }
+        }
+    }
 }
-
-

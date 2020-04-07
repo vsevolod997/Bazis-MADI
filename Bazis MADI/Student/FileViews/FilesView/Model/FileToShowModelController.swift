@@ -28,6 +28,8 @@ class FileToShowModelController {
             return .IMG
         case "jpg":
             return .IMG
+        case "jpeg":
+            return .IMG
         case "xls":
             return .EXСEl
         case "xlsx":
@@ -70,8 +72,8 @@ class FileToShowModelController {
         var resultMas:[FileToShowModel] = []
         modelFile.forEach { (model) in
             let type = self.selectTypeFile(name: model.file)
-            let img = self.selectImgType(type: type)
-            let elemToShow  = FileToShowModel(nameL: model.file, date: model.time, path: model.path, type: type, image: img!, size: model.size)
+            guard let img = self.selectImgType(type: type) else { return }
+            let elemToShow  = FileToShowModel(nameL: model.file, date: model.time, path: model.path, type: type, image: img, size: model.size)
             resultMas.append(elemToShow)
         }
         

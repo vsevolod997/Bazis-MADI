@@ -3240,9 +3240,9 @@
             filePath = "Bazis MADI/Student/FileViews/UploadFileView/Controller/HTTPService/UploadFileHTTPService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "uploadFile(fileURL:uploadPath:fileName:complition:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "uploadFile(data:uploadPath:fileName:complition:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -566,7 +566,7 @@
                                                         <constraint firstAttribute="width" constant="44" id="dJG-RV-fZK"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-rP-OaE">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-rP-OaE" customClass="IcoButtonUIButton" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="374" y="14.999999999999996" width="30" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="vtu-Ji-Dyx"/>
@@ -903,7 +903,7 @@
                                                         <outlet property="delegate" destination="7GB-9N-lAX" id="qrN-c0-ZDm"/>
                                                     </connections>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt8-aO-1W5">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt8-aO-1W5" customClass="IcoButtonUIButton" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="360" y="34.333333333333329" width="34" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34.333333333333329" id="Z3o-uR-7kc"/>
