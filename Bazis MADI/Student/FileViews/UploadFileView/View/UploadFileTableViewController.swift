@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 //MARK: - окно выгрузки файла
 class UploadFileTableViewController: UITableViewController {
@@ -18,21 +19,61 @@ class UploadFileTableViewController: UITableViewController {
     @IBOutlet weak var selectFileButton: UIButton!
     @IBOutlet weak var uploadButton: DoneButtonUIButton!
     
-    
-    var uploadPath: String! = "Учебные работы/Курсовые проекты"
+    private var pathPicker = UIPickerView()
+    private var uploadingView: UploadUIView!
     
     private var fileType = ""
     private var fileData: Data!
     private var isSelectedFile = false
+    private var row: Int!
     
     private let controller = UploadFileController()
+    
+    public var uploadPath: String!
+    public var uploadPathModel: [FileDirectoryModel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addGestue()
-        controller.delegate = self
+        setupView()
+        setupPathPicker()
     }
     
+    
+    private func setupView() {
+        controller.delegate = self
+        uploadButton.isEnabled = false
+        
+        if let path = uploadPath {
+            dirrectoryUploadLabel.text = path
+        }
+        
+        if uploadPathModel == nil {
+            controller.getPathDirrectory()
+        }
+    }
+    
+    
+    private func setupPathPicker() {
+        pathPicker.dataSource = self
+        pathPicker.delegate = self
+        
+        let toolBar = UIToolbar()
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectPathUpload(sender:)) )
+        let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        toolBar.setItems([doneButton, spacer], animated: true)
+        
+        dirrectoryUploadLabel.inputAccessoryView = toolBar
+        dirrectoryUploadLabel.inputView = pathPicker
+    }
+    
+    @objc func selectPathUpload(sender: UIPickerView) {
+        let r = row ?? 0
+        dirrectoryUploadLabel.text = uploadPathModel[r].path
+        view.endEditing(true)
+    }
     
     private func addGestue() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
@@ -45,6 +86,7 @@ class UploadFileTableViewController: UITableViewController {
     }
     
     
+    //MARK - выбор файла
     @IBAction func selectFileButtonPress(_ sender: Any) {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -71,18 +113,22 @@ class UploadFileTableViewController: UITableViewController {
     }
     
     
-    
+    //MARK: - Выгрузить
     @IBAction func uploadButtonPress(_ sender: Any) {
         
         guard let fileDesc = descriptionFileTextView.text else { return }
         guard let fileName = fileNameLabel.text else { return }
-        guard let uploadP = uploadPath else { return }
+        uploadPath = dirrectoryUploadLabel.text
+        guard let path = uploadPath else { return }
+        
         guard let data = fileData else { return }
         let fullName = fileName + "." + fileType
         
-        self.controller.uploadFile(uploadData: data, uploadPath: uploadP, fileName: fullName, fileDesk: fileDesc)
+        self.controller.uploadFile(uploadData: data, uploadPath: path, fileName: fullName, fileDesk: fileDesc)
     }
     
+    
+    //MARK: - Отмена
     @IBAction func cancelButtonPress(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -103,6 +149,24 @@ class UploadFileTableViewController: UITableViewController {
         present(imagePicer, animated: true)
     }
     
+    private func showUploadView() {
+        if uploadingView == nil {
+            let frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+            uploadingView = UploadUIView(frame: frame)
+            uploadingView.center = self.view.center
+            
+            view.addSubview(uploadingView)
+        } else {
+            removeUploadView()
+        }
+    }
+    
+    private func removeUploadView() {
+        if uploadingView != nil {
+            uploadingView.removeFromSuperview()
+        }
+    }
+    
 }
 
 //MARK: - UIDocumentPickerDelegate
@@ -111,25 +175,53 @@ extension UploadFileTableViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         if let url = urls.first {
             self.controller.selectUploadFile(urlFile: url)
+            self.controller.controlUploadButtonEnabled(uploadPath: dirrectoryUploadLabel.text, fileName: fileNameLabel.text, dataUpload: fileData)
         }
     }
 }
 
-//MARK: - UIDocumentPickerDelegate
+//MARK: - UIImagePickerControllerDelegate
 extension UploadFileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        //print(info[UIImagePickerController.InfoKey.imageURL])
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             if let name = info[UIImagePickerController.InfoKey.imageURL] as? URL {
                 self.controller.selectUploadPhoto(image: image, name: name.lastPathComponent)
             }
             dismiss(animated: true, completion: nil)
+            controller.controlUploadButtonEnabled(uploadPath: dirrectoryUploadLabel.text, fileName: fileNameLabel.text, dataUpload: fileData)
         }
     }
 }
 
 //MARK: - UploadFileDelegate
 extension UploadFileTableViewController: UploadFileDelegate {
+    
+    func setUploadingPath(controller: UploadFileController, path: [FileDirectoryModel]) {
+        uploadPathModel = path
+    }
+    
+    
+    func exportButtonIsEnabled(controller: UploadFileController, isEnabled: Bool) {
+        uploadButton.isEnabled = isEnabled
+    }
+    
+    
+    func uploadIsStart(controller: UploadFileController) {
+        self.showUploadView()
+        self.uploadButton.isEnabled = false
+    }
+    
+    func uploadIsFinish(controller: UploadFileController) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.uploadingView.transform = .init(scaleX: 0.5, y: 0.5)
+            self.uploadingView.alpha = 0.5
+        }) { (_) in
+            self.removeUploadView()
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     func uploadFileIsSelected(selectFileName: String, fileName: String, fileType: String, dataFile: Data) {
         
         fileNameLabel.text = fileName
@@ -144,10 +236,6 @@ extension UploadFileTableViewController: UploadFileDelegate {
         //alert.addAction(action)
         //present(alert, animated: true, completion: nil)
     }
-    
-    func showOk(controller: UploadFileController) {
-        print("fileAppend")
-    }
 }
 
 //MARK: - UITextFieldDelegate
@@ -159,10 +247,44 @@ extension UploadFileTableViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        controller.controlUploadButtonEnabled(uploadPath: dirrectoryUploadLabel.text, fileName: fileNameLabel.text, dataUpload: fileData)
         if textField == fileNameLabel {
             if fileNameLabel.text?.last == "." || fileNameLabel.text?.last == "/" {
                 fileNameLabel.text?.removeLast()
             }
         }
+    }
+}
+
+//MARK: - UploadFileTableViewController
+extension UploadFileTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if let path = uploadPathModel {
+            return path.count
+        } else {
+            return 1
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = Title5LabelUILabel()
+        label.numberOfLines = 3
+        label.text = uploadPathModel[row].path
+        label.frame = CGRect(x: 0, y: 0, width: self.view.frame.width , height: 70)
+        label.textAlignment = .center
+        return label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 70
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.row = row
     }
 }

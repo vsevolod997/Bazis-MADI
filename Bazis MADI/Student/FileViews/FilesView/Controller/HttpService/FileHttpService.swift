@@ -10,7 +10,6 @@ import Foundation
 
 class FileHTTPService {
     
-    
     class func getDirectoryFileData(complition: @escaping(Error?, [FileDirectoryModel]?) -> Void) {
         let urlStr = "https://bazis.madi.ru/stud/api/file/folder"
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }

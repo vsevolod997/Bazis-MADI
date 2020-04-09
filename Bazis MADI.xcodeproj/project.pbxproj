@@ -59,6 +59,7 @@
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
 		428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */; };
+		429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90DA243E1E6F00416ABD /* UploadUIView.swift */; };
 		42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A698622413CC8D00278683 /* CardInCellUIView.swift */; };
 		42A6D963243B3CD400333B7B /* IcoButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */; };
 		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
@@ -177,6 +178,7 @@
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOptionTableViewController.swift; sourceTree = "<group>"; };
+		429E90DA243E1E6F00416ABD /* UploadUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUIView.swift; sourceTree = "<group>"; };
 		42A698622413CC8D00278683 /* CardInCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInCellUIView.swift; sourceTree = "<group>"; };
 		42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoButtonUIButton.swift; sourceTree = "<group>"; };
 		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
@@ -990,6 +992,7 @@
 		42F260382438E8100027451D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				429E90DA243E1E6F00416ABD /* UploadUIView.swift */,
 				42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */,
 			);
 			path = View;
@@ -1139,6 +1142,7 @@
 				420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */,
 				42AEAD5A241A21B5005430D2 /* PortfolioWorkEditTableViewController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
+				429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */,
 				42AEAD5E241AA644005430D2 /* CancelButtonUIButton.swift in Sources */,
 				42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,

@@ -258,18 +258,18 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="\2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4e-64-z0k" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="355" y="27" width="18" height="25"/>
+                                                    <rect key="frame" x="349" y="27" width="24" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="18" id="BKT-u4-8HY"/>
+                                                        <constraint firstAttribute="width" constant="24" id="BKT-u4-8HY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="ColorBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJd-sO-B0g" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="61" y="11" width="286" height="57"/>
+                                                    <rect key="frame" x="61" y="11" width="280" height="57"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="286" id="95c-aF-9gk"/>
+                                                        <constraint firstAttribute="width" constant="280" id="95c-aF-9gk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2557,7 +2557,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="329" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="328" y="7" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>

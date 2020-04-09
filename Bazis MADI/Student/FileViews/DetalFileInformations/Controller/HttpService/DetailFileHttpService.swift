@@ -6,7 +6,7 @@
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DetailFileHttpService {
     
@@ -74,4 +74,5 @@ class DetailFileHttpService {
         }
         task.resume()
     }
+    
 }

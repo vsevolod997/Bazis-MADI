@@ -189,7 +189,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         controlSaveButtonEnabled()
     }
     
-    //MARK: -  доступность кнпки сохранения
+    //MARK: -  доступность кнопки сохранения
     private func controlSaveButtonEnabled() {
         //print(controlChangedData())
         if controlChangedData() {

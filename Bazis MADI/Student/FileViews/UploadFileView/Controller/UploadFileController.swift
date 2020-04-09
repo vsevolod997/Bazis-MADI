@@ -8,19 +8,27 @@
 
 import UIKit
 
+// MARK: - делеширование здадачь
 protocol UploadFileDelegate: class {
+    // ошибка
     func showError(errorMess: String, controller: UploadFileController)
-    
-    func showOk(controller: UploadFileController)
-    
+    //выгрузка начата
+    func uploadIsStart(controller: UploadFileController)
+    //выгрузка оконченна
+    func uploadIsFinish(controller: UploadFileController)
+    //выбор файла для выгрузки
     func uploadFileIsSelected(selectFileName: String, fileName: String, fileType: String, dataFile: Data)
+    //доступность кнопки выгрузить
+    func exportButtonIsEnabled(controller: UploadFileController, isEnabled: Bool)
     
+    func setUploadingPath(controller: UploadFileController, path: [FileDirectoryModel])
 }
 
 class UploadFileController {
     
-    private let  httpService = UploadFileHTTPService()
+    private let notificationFileAdd = Notification.Name("fileAdd")
     
+    private let  httpService = UploadFileHTTPService()
     public var delegate: UploadFileDelegate!
     
     public func selectUploadFile(urlFile: URL) {
@@ -32,10 +40,23 @@ class UploadFileController {
         do {
             data = try Data(contentsOf: urlFile) as Data
         } catch {
-             print("ERROR", error.localizedDescription )
+            print("ERROR", error.localizedDescription )
         }
         
         delegate.uploadFileIsSelected(selectFileName: file, fileName: fileName, fileType: fileType, dataFile: data)
+    }
+    
+    public func controlUploadButtonEnabled(uploadPath: String?, fileName: String?, dataUpload: Data?) {
+        
+        if let path = uploadPath, let name = fileName, let _ = dataUpload {
+            if name.count > 3 && path != "" {
+                delegate.exportButtonIsEnabled(controller: self, isEnabled: true)
+            } else {
+                delegate.exportButtonIsEnabled(controller: self, isEnabled: false)
+            }
+        } else {
+            delegate.exportButtonIsEnabled(controller: self, isEnabled: false)
+        }
     }
     
     public func selectUploadPhoto(image: UIImage, name: String) {
@@ -46,31 +67,34 @@ class UploadFileController {
         guard let data = image.jpegData(compressionQuality: 0.8) else { return }
         delegate.uploadFileIsSelected(selectFileName: file, fileName: fileName, fileType: fileType, dataFile: data)
     }
-        
+    
     public func uploadFile(uploadData: Data, uploadPath: String, fileName: String, fileDesk: String) {
         
+        delegate.uploadIsStart(controller: self)
         httpService.uploadFile(data: uploadData, uploadPath: uploadPath, fileName: fileName) { (error, fileModel) in
             if error != nil {
                 DispatchQueue.main.async {
-                    self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет сокдинение!", controller: self)
-                    
+                    self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет соединение!", controller: self)
                     if fileDesk != "" {
                         self.setDescButton(fileDesc: fileDesk, nameFile: fileName)
                     }
+                    
+                    let file = FileModel(file: fileName, path: uploadPath, time: "сейчас", size: uploadData.count)
+                    NotificationCenter.default.post(name: self.notificationFileAdd, object: nil,  userInfo: ["file": file])
+                    self.delegate.uploadIsFinish(controller: self)
                 }
             } else {
                 if let res = fileModel {
                     if res.error != nil {
                         DispatchQueue.main.async {
-                            self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет сокдинение!", controller: self)
+                            self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет соединение!", controller: self)
                         }
                     } else {
                         if res.result == "true" {
-                            //if fileDesk != "" {
-                            //  self.setDescButton(fileDesc: fileDesk, nameFile: fileName)
-                            //}
                             DispatchQueue.main.async {
-                                self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет сокдинение!", controller: self)
+                                let file = FileModel(file: fileName, path: uploadPath, time: "сейчас", size: uploadData.count)
+                                NotificationCenter.default.post(name: self.notificationFileAdd, object: nil,  userInfo: ["file": file])
+                                self.delegate.uploadIsFinish(controller: self)
                             }
                         }
                     }
@@ -78,6 +102,25 @@ class UploadFileController {
             }
         }
     }
+   
+    public func getPathDirrectory() {
+        FileHTTPService.getDirectoryFileData { (error, fileInDirecrtory) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.delegate.showError(errorMess: "Не удалось получть список директорий доступных пользователю, повторите попытку позже!", controller: self)
+                }
+            } else {
+                if let directory = fileInDirecrtory {
+                    self.delegate.setUploadingPath(controller: self, path: directory)
+                } else {
+                    DispatchQueue.main.async {
+                        self.delegate.showError(errorMess: "Не удалось получть список директорий доступных пользователю, повторите попытку позже!", controller: self)
+                    }
+                }
+            }
+        }
+    }
+    
     
     
     private func setDescButton(fileDesc: String, nameFile:String) {

@@ -79,6 +79,7 @@ class DetalFileInfoTableViewController: UITableViewController {
     //MARK: - сохрвнение файла
     @IBAction func saveFileButtonPress(_ sender: Any) {
         if !isDonloadingFile {
+            
             isDonloadingFile = true
             let urlString = "https://bazis.madi.ru/stud/api/file/download"
             let fileURL = URL(string: urlString)
@@ -90,6 +91,7 @@ class DetalFileInfoTableViewController: UITableViewController {
             
             let task = session.downloadTask(with: request)
             task.resume()
+            
         } else {
             
             let documentsPath = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]

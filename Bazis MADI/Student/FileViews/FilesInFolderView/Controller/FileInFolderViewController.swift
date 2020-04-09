@@ -21,8 +21,10 @@ class FileInFolderViewController: UIViewController {
     private var isFile = false
     private var isClose = false
     
-    private var lastKnowContentOfsset: CGFloat = 0.0
+    private let notificationFileAdd = Notification.Name("fileAdd")
+    private let notificationFileDelete = Notification.Name("fileDelete")
     
+    private var lastKnowContentOfsset: CGFloat = 0.0
     
     var dirrectory: String! {
         didSet {
@@ -40,13 +42,31 @@ class FileInFolderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+        addNotificationCenter()
     }
+    
+    private func addNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteNotification(notification:)), name: notificationFileDelete, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addNotification(notification:)), name: notificationFileAdd, object: nil)
+    }
+    
+    
+    @objc func addNotification(notification: Notification) {
+        
+        guard let fileData = notification.userInfo?.first else { return }
+        let buff = fileData.value as! FileModel
+        let file = fileToShowController.setupShowFileToData(modelFile: [buff])
+        filesToShow.insert(file[0], at: 0)
+        isFile = setupFilesSelection(filesShow: filesToShow)
+        tableView.reloadData()
+    }
+    
     
     // MARK: - удаление файла из списка
     @objc func deleteNotification(notification: Notification) {
         let index = notification.userInfo?.first?.value as! Int
         filesToShow.remove(at: index)
+        isFile = setupFilesSelection(filesShow: filesToShow)
         tableView.reloadData()
     }
     
@@ -79,8 +99,12 @@ class FileInFolderViewController: UIViewController {
         }
     }
     
+    //MARK:  - кнопка добавить
     @IBAction func addButtonPress(_ sender: Any) {
-        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
+        vc.uploadPath = dirrectory
+        present(vc, animated: true)
     }
 }
 

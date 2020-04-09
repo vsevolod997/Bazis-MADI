@@ -26,8 +26,10 @@ class FileViewController: UIViewController {
     
     private let controller = FileToShowModelController()
     
+    
     private let notificationReload = Notification.Name("reloadData")
     private let notificationFileDelete = Notification.Name("fileDelete")
+    private let notificationFileAdd = Notification.Name("fileAdd")
     
     private var errorVC: ErrorViewUIView!
     
@@ -44,6 +46,16 @@ class FileViewController: UIViewController {
     private func addNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: notificationReload, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteNotification(notification:)), name: notificationFileDelete, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addNotification(notification:)), name: notificationFileAdd, object: nil)
+    }
+    
+    @objc func addNotification(notification: Notification) {
+        
+        getFileData()
+        let queue = DispatchQueue(label: "backUpdate", qos: .background)
+        queue.async {
+            self.getDirectoryData()
+        }
     }
     
     
@@ -51,7 +63,6 @@ class FileViewController: UIViewController {
     @objc func deleteNotification(notification: Notification) {
         //print(notification.userInfo?.first?.value)
         let index = notification.userInfo?.first?.value as! Int
-        print(index)
         fileData.remove(at: index)
         let queue = DispatchQueue(label: "backUpdate", qos: .background)
         queue.async {
@@ -180,7 +191,7 @@ class FileViewController: UIViewController {
         //uploadFile
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
-        
+        vc.uploadPathModel = fileDirectoryData
         present(vc, animated: true)
     }
     
