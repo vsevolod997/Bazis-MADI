@@ -39,7 +39,6 @@ class UploadFileTableViewController: UITableViewController {
         setupPathPicker()
     }
     
-    
     private func setupView() {
         controller.delegate = self
         uploadButton.isEnabled = false

@@ -667,7 +667,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="4lx-Ri-4zC" secondAttribute="trailing" constant="254" id="f7p-dy-jsQ"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4lx-Ri-4zC" secondAttribute="trailing" constant="254" id="f7p-dy-jsQ"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

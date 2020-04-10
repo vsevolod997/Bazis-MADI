@@ -48,6 +48,7 @@
 		424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */; };
 		424DE37123C6563B00389B53 /* Title4LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */; };
 		424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */; };
+		4251AC772440E9400071F478 /* TeacherFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4251AC762440E9400071F478 /* TeacherFilesViewController.swift */; };
 		42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */; };
 		42524D5A23E4248400D9B97E /* UspevByObjTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42524D5923E4248400D9B97E /* UspevByObjTableViewCell.swift */; };
 		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
@@ -58,8 +59,10 @@
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
-		428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */; };
 		429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90DA243E1E6F00416ABD /* UploadUIView.swift */; };
+		429E90E12440947800416ABD /* StudentGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E02440947800416ABD /* StudentGroupViewController.swift */; };
+		429E90E6244095A900416ABD /* UserIcoUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E5244095A900416ABD /* UserIcoUILabel.swift */; };
+		429E90E8244097B900416ABD /* SudentInGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E7244097B900416ABD /* SudentInGroupTableViewCell.swift */; };
 		42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A698622413CC8D00278683 /* CardInCellUIView.swift */; };
 		42A6D963243B3CD400333B7B /* IcoButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */; };
 		42A75FD223A14A240083B3EC /* TableRaspisanieUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */; };
@@ -167,6 +170,7 @@
 		424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableTeacerController.swift; sourceTree = "<group>"; };
 		424DE37023C6563B00389B53 /* Title4LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title4LabelUILabel.swift; sourceTree = "<group>"; };
 		424DE37223C65EC400389B53 /* RaspisanieExamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieExamModel.swift; sourceTree = "<group>"; };
+		4251AC762440E9400071F478 /* TeacherFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherFilesViewController.swift; sourceTree = "<group>"; };
 		42524D5723E1980F00D9B97E /* UspevStructDataByObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructDataByObject.swift; sourceTree = "<group>"; };
 		42524D5923E4248400D9B97E /* UspevByObjTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevByObjTableViewCell.swift; sourceTree = "<group>"; };
 		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
@@ -177,8 +181,10 @@
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
-		428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOptionTableViewController.swift; sourceTree = "<group>"; };
 		429E90DA243E1E6F00416ABD /* UploadUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUIView.swift; sourceTree = "<group>"; };
+		429E90E02440947800416ABD /* StudentGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroupViewController.swift; sourceTree = "<group>"; };
+		429E90E5244095A900416ABD /* UserIcoUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcoUILabel.swift; sourceTree = "<group>"; };
+		429E90E7244097B900416ABD /* SudentInGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudentInGroupTableViewCell.swift; sourceTree = "<group>"; };
 		42A698622413CC8D00278683 /* CardInCellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInCellUIView.swift; sourceTree = "<group>"; };
 		42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcoButtonUIButton.swift; sourceTree = "<group>"; };
 		42A75FD123A14A240083B3EC /* TableRaspisanieUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieUIView.swift; sourceTree = "<group>"; };
@@ -256,7 +262,8 @@
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				428DCCA3240527120076D982 /* GroupOptionView */,
+				4251AC732440E8120071F478 /* File */,
+				429E90DD2440941900416ABD /* StudentGroupView */,
 				42D485F124042C5600648253 /* InfoGroupView */,
 				424DE36A23C645BC00389B53 /* UserHomeView */,
 				42A8315623BFA4350012BC66 /* MainView */,
@@ -267,11 +274,8 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				42BFCFCC2434E7300018D6D5 /* FileViews */,
-				42F67301241EB9D100865044 /* PortfolioInfoEditView */,
-				42F672FC241D4E4E00865044 /* PortfolioEducationView */,
-				42AEAD58241A2168005430D2 /* PortfolioWorkEditView */,
-				42AA029F240D0761006F0FDA /* PortfolioView */,
+				42BFCFCC2434E7300018D6D5 /* File */,
+				429E90DC2440903900416ABD /* Portfolio */,
 				42CDC02423BB980D00A86A42 /* MainView */,
 				42B21D5A23D6087F00E1EC17 /* UspevView */,
 				42CB259823CF37A7007DEA69 /* InfoTeacherView */,
@@ -401,24 +405,8 @@
 			isa = PBXGroup;
 			children = (
 				424DE36D23C6461300389B53 /* Controller */,
-				424DE36C23C6460700389B53 /* View */,
-				424DE36B23C645F900389B53 /* Model */,
 			);
 			path = UserHomeView;
-			sourceTree = "<group>";
-		};
-		424DE36B23C645F900389B53 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		424DE36C23C6460700389B53 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		424DE36D23C6461300389B53 /* Controller */ = {
@@ -427,6 +415,30 @@
 				424DE36E23C6477200389B53 /* HomeTableTeacerController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		4251AC732440E8120071F478 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				4251AC752440E8670071F478 /* FileInFolderView */,
+				4251AC742440E8510071F478 /* FilesView */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		4251AC742440E8510071F478 /* FilesView */ = {
+			isa = PBXGroup;
+			children = (
+				4251AC762440E9400071F478 /* TeacherFilesViewController.swift */,
+			);
+			path = FilesView;
+			sourceTree = "<group>";
+		};
+		4251AC752440E8670071F478 /* FileInFolderView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FileInFolderView;
 			sourceTree = "<group>";
 		};
 		425467F82397A9AA001D26AA /* Controller */ = {
@@ -453,34 +465,46 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		428DCCA3240527120076D982 /* GroupOptionView */ = {
+		429E90DC2440903900416ABD /* Portfolio */ = {
 			isa = PBXGroup;
 			children = (
-				428DCCA62405274B0076D982 /* Controller */,
-				428DCCA5240527440076D982 /* View */,
-				428DCCA42405273C0076D982 /* Model */,
+				42AA029F240D0761006F0FDA /* PortfolioView */,
+				42F672FC241D4E4E00865044 /* PortfolioEducationView */,
+				42F67301241EB9D100865044 /* PortfolioInfoEditView */,
+				42AEAD58241A2168005430D2 /* PortfolioWorkEditView */,
 			);
-			path = GroupOptionView;
+			path = Portfolio;
 			sourceTree = "<group>";
 		};
-		428DCCA42405273C0076D982 /* Model */ = {
+		429E90DD2440941900416ABD /* StudentGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				429E90E4244094F100416ABD /* Controller */,
+				429E90E3244094DF00416ABD /* View */,
+				429E90E2244094D500416ABD /* Model */,
+			);
+			path = StudentGroupView;
+			sourceTree = "<group>";
+		};
+		429E90E2244094D500416ABD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		428DCCA5240527440076D982 /* View */ = {
+		429E90E3244094DF00416ABD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				429E90E7244097B900416ABD /* SudentInGroupTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		428DCCA62405274B0076D982 /* Controller */ = {
+		429E90E4244094F100416ABD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				428DCCA7240527B00076D982 /* GroupOptionTableViewController.swift */,
+				429E90E02440947800416ABD /* StudentGroupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -657,7 +681,7 @@
 			path = DetailFileReviewView;
 			sourceTree = "<group>";
 		};
-		42BFCFCC2434E7300018D6D5 /* FileViews */ = {
+		42BFCFCC2434E7300018D6D5 /* File */ = {
 			isa = PBXGroup;
 			children = (
 				42BFCFCD2434E74D0018D6D5 /* UploadFileView */,
@@ -667,7 +691,7 @@
 				42EEE9D1242B6C3400EC2D80 /* DetalFileInformations */,
 				42BFCFC3243380E40018D6D5 /* DetailFileReviewView */,
 			);
-			path = FileViews;
+			path = File;
 			sourceTree = "<group>";
 		};
 		42BFCFCD2434E74D0018D6D5 /* UploadFileView */ = {
@@ -791,24 +815,8 @@
 			isa = PBXGroup;
 			children = (
 				42CDC02C23BB99E200A86A42 /* Controller */,
-				42CDC02B23BB99D900A86A42 /* View */,
-				42CDC02A23BB99D300A86A42 /* Model */,
 			);
 			path = UserHomeView;
-			sourceTree = "<group>";
-		};
-		42CDC02A23BB99D300A86A42 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		42CDC02B23BB99D900A86A42 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		42CDC02C23BB99E200A86A42 /* Controller */ = {
@@ -903,6 +911,7 @@
 				42AA02B3240E7164006F0FDA /* Title4WLabelUILabel.swift */,
 				42EEE9CF242B5C0F00EC2D80 /* Title7LabelUILabel.swift */,
 				42B4A27924324D330026F526 /* CountLabelUILabel.swift */,
+				429E90E5244095A900416ABD /* UserIcoUILabel.swift */,
 			);
 			path = UILabel;
 			sourceTree = "<group>";
@@ -1103,6 +1112,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429E90E12440947800416ABD /* StudentGroupViewController.swift in Sources */,
 				42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */,
 				42E69FD0242E5432003DAC2A /* FileDetalController.swift in Sources */,
 				42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */,
@@ -1138,8 +1148,8 @@
 				42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */,
 				42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */,
 				42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */,
-				428DCCA8240527B00076D982 /* GroupOptionTableViewController.swift in Sources */,
 				420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */,
+				429E90E8244097B900416ABD /* SudentInGroupTableViewCell.swift in Sources */,
 				42AEAD5A241A21B5005430D2 /* PortfolioWorkEditTableViewController.swift in Sources */,
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */,
@@ -1157,6 +1167,7 @@
 				42EEE9D0242B5C0F00EC2D80 /* Title7LabelUILabel.swift in Sources */,
 				42AA02AE240E605D006F0FDA /* InfoPortfolioTableViewCell.swift in Sources */,
 				42FC7B2D23CDC57800855FAD /* RspByGroupUIVIew.swift in Sources */,
+				429E90E6244095A900416ABD /* UserIcoUILabel.swift in Sources */,
 				424525D4238ED431008C5EBD /* LoginViewController.swift in Sources */,
 				420B2DE52423966F00A6BEF9 /* FolderTableViewCell.swift in Sources */,
 				42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */,
@@ -1164,6 +1175,7 @@
 				42B21D6423D75E9100E1EC17 /* UspevModel.swift in Sources */,
 				420B2DE024238A8600A6BEF9 /* FileModel.swift in Sources */,
 				42AA02AC240E600F006F0FDA /* AboutViewCell.swift in Sources */,
+				4251AC772440E9400071F478 /* TeacherFilesViewController.swift in Sources */,
 				42453973239AD8CB00126ED6 /* PasswordChangeViewController.swift in Sources */,
 				42453975239BED7200126ED6 /* PasswordChangeController.swift in Sources */,
 				42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */,

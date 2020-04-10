@@ -1,14 +1,14 @@
 //
-//  FileViewController.swift
+//  TeacherFilesViewController.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 23.03.2020.
+//  Created by Всеволод Андрющенко on 10.04.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import UIKit
 
-class FileViewController: UIViewController {
+class TeacherFilesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -61,7 +61,7 @@ class FileViewController: UIViewController {
     
     // MARK: - удаление файла из списка
     @objc func deleteNotification(notification: Notification) {
-        //print(notification.userInfo?.first?.value)
+        
         let index = notification.userInfo?.first?.value as! Int
         fileData.remove(at: index)
         let queue = DispatchQueue(label: "backUpdate", qos: .background)
@@ -91,7 +91,7 @@ class FileViewController: UIViewController {
         navigationItem.titleView = segmentController
         
         navigationItem.prompt = "Файлы"
-        //navigationController?.navigationBar.
+        
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
@@ -188,17 +188,46 @@ class FileViewController: UIViewController {
     
     //MARK: - кнопка "Добавить"
     @IBAction func addButtonPress(_ sender: Any) {
-        //uploadFile
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let file = UIImage(named: "addFile")
+        let aletrFile = UIAlertAction(title: "Файл", style: .default) { (action) in
+            self.showAddFile()
+        }
+        aletrFile.setValue(file, forKey: "image")
+        
+        let folder = UIImage(named: "folderButton")
+        let alertFolder = UIAlertAction(title: "Каталог", style: .default) { (action) in
+            self.showAddFolder()
+        }
+        alertFolder.setValue(folder, forKey: "image")
+        
+        let alertCancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        
+        alert.addAction(aletrFile)
+        alert.addAction(alertFolder)
+        alert.addAction(alertCancel)
+        
+        present(alert, animated: true)
+        
+    }
+    
+    private func showAddFile() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
-        vc.uploadPathModel = fileDirectoryData
-        present(vc, animated: true)
+         guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
+         vc.uploadPathModel = fileDirectoryData
+         present(vc, animated: true)
+    }
+    
+    private func showAddFolder() {
+        
     }
     
 }
 
 //MARK: - TableRaspisanieDelegate, TableRaspisanieDataSource
-extension FileViewController: UITableViewDelegate, UITableViewDataSource {
+extension TeacherFilesViewController: UITableViewDelegate, UITableViewDataSource {
     
     //для обработки скрытия/отображения кнопки
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -225,7 +254,6 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isLoad {
             if isFileMode {
@@ -247,7 +275,7 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         if isLoad {
             if isFileMode {
                 if isHaveFile {
-                     return fileData.count
+                    return fileData.count
                 } else {
                     return 1
                 }

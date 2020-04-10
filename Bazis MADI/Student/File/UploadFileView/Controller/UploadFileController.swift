@@ -121,8 +121,6 @@ class UploadFileController {
         }
     }
     
-    
-    
     private func setDescButton(fileDesc: String, nameFile:String) {
         DetailFileHttpService.setFileDesc(nameFile: nameFile, textDesc: fileDesc) { (err) in
             if err != nil {

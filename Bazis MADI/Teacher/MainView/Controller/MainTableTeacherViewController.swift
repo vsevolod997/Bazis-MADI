@@ -310,7 +310,10 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
     }
     
     private func showGroupStudentView(groupName: String) {
-        
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "studentInGroup") as? StudentGroupViewController else { return }
+        vc.nameGroup = groupName
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]? {

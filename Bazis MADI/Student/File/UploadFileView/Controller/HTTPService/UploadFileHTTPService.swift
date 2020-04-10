@@ -30,7 +30,6 @@ class UploadFileHTTPService {
                 complition(err, nil)
             } else {
                 guard let datas = data else { return }
-                print(String(data: datas, encoding: .utf8))
                 do {
                     let dataEncode = try JSONDecoder().decode(UploadFileModel.self, from: datas)
                     complition(nil, dataEncode)
