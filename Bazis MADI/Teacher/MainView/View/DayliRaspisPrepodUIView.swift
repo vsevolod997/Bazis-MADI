@@ -58,29 +58,43 @@ class DayliRaspisTeacerUIView: UIView {
         self.addSubview(dayTitle)
     }
     
+    private func homeDayCreate() {
+        let title = Title1LabelUILabel()
+        title.text = "В этот день пар нет."
+        title.frame = CGRect(x: self.frame.width / 2 - 125, y: 100, width: 250, height: 65)
+        title.numberOfLines = 2
+        title.textAlignment = .center
+        self.addSubview(title)
+    }
     
     //MARK: - Отображение пар в текущий день
     public func createDayliRasp(daylyRasp: [DailyRaspisanieTeacher]) {
-        let originX = 10.0
-        let heigtView = 65.0
         
-        let scrollHeigth = (self.frame.height - 65.0)
-        let scrollView = UIScrollView()
-        let width = self.frame.width
-        scrollView.frame = CGRect(x: 0.0, y: 60.0, width: Double(width), height: Double(scrollHeigth))
-        
-        let height = (65.0 + 7.0) * Double(daylyRasp.count)
-        scrollView.contentSize = CGSize(width: Double(self.frame.width), height: height)
-        self.addSubview(scrollView)
-        
-        var originY = 0.0
-        for rasp in daylyRasp {
-            let width =  self.frame.width - 20
-            let frameClasses = CGRect(x: originX, y: Double(originY), width: Double(width), height: heigtView)
-            let classesView = ClassesTeacherUIView(frame: frameClasses)
-            scrollView.addSubview(classesView)
-            classesView.setupDate(dailyRasp: rasp)
-            originY += 7.0 + heigtView
+        if daylyRasp.count != 0 {
+            
+            let originX = 10.0
+            let heigtView = 65.0
+            
+            let scrollHeigth = (self.frame.height - 65.0)
+            let scrollView = UIScrollView()
+            let width = self.frame.width
+            scrollView.frame = CGRect(x: 0.0, y: 60.0, width: Double(width), height: Double(scrollHeigth))
+            
+            let height = (65.0 + 7.0) * Double(daylyRasp.count)
+            scrollView.contentSize = CGSize(width: Double(self.frame.width), height: height)
+            self.addSubview(scrollView)
+            
+            var originY = 0.0
+            for rasp in daylyRasp {
+                let width =  self.frame.width - 20
+                let frameClasses = CGRect(x: originX, y: Double(originY), width: Double(width), height: heigtView)
+                let classesView = ClassesTeacherUIView(frame: frameClasses)
+                scrollView.addSubview(classesView)
+                classesView.setupDate(dailyRasp: rasp)
+                originY += 7.0 + heigtView
+            }
+        } else {
+            homeDayCreate()
         }
     }
     

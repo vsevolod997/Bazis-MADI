@@ -147,7 +147,10 @@ class MainTableTeacherViewController: UITableViewController {
         closeVC.removeFromSuperview()
     }
     
+    
+    //MARK: - выбор дня сегодня
     private func setDayControl(dayCount: Int, dayNow: Int) {
+        
         if dayNow > dayCount {
             dataControl.currentPage = dayCount
         } else if dayCount == 1 {

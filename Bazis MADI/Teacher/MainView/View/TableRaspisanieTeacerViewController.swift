@@ -81,7 +81,6 @@ class TableRaspisanieTeacherUIVIew: UIView {
                 scrollDay(changedDay: dayNow, scrollSize: 60)
             }
         }
-        
         delegate?.changedDay(self, didSelectItem: dayNow)
     }
     
@@ -108,7 +107,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
             }
         }
         
-        
+        //скрол при создании
         if let day = raspisanieViewDataSource?.raspisanieDayNow(self) {
             if dayCount != nil {
                 if day == 1 {

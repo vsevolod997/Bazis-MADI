@@ -23,7 +23,7 @@ class UploadUIView: UIView {
     private func setup() {
         layer.cornerRadius = 15
         backgroundColor = SystemColor.blueColor
-        alpha = 0.9
+        alpha = 0.8
         
         let title = Title2LabelUILabel()
         title.text = "Выгрузка файла..."

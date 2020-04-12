@@ -213,17 +213,59 @@ class TeacherFilesViewController: UIViewController {
         
     }
     
+    //MARK: - файл
     private func showAddFile() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
-         guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
-         vc.uploadPathModel = fileDirectoryData
-         present(vc, animated: true)
+        guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
+        vc.uploadPathModel = fileDirectoryData
+        present(vc, animated: true)
     }
     
+    //MARK: - каталог
     private func showAddFolder() {
+        let alert = UIAlertController(title: "Добавление директории.", message: "Введите название директории.", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "от 3х символов"
+        }
         
+        let addAction  = UIAlertAction(title: "Добавить", style: .default) { (action) in
+            let textField = alert.textFields![0]
+            if let text = textField.text {
+                if text.count > 3 {
+                    self.addFolder(path: text )
+                } 
+            }
+        }
+        alert.addAction(addAction)
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
+    private func addFolder(path: String) {
+        TeacherFileHTTPService.createFileDirectory(path: path) { (error, result) in
+            if error != nil {
+                self.showError()
+            } else {
+                guard let res = result else { return }
+                if res.result {
+                    self.getDirectoryData()
+                } else {
+                    self.showError()
+                }
+            }
+        }
+    }
+    
+    private func showError() {
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось создать новую директорию.", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
 }
 
 //MARK: - TableRaspisanieDelegate, TableRaspisanieDataSource
@@ -301,9 +343,10 @@ extension TeacherFilesViewController: UITableViewDelegate, UITableViewDataSource
                 }
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
-                
                 cell.nameLabel.text = fileDirectoryData[indexPath.row].path
+                
                 if let count = fileDirectoryData[indexPath.row].files?.count {
+                    print(count)
                     cell.countLabel.text = "/ " + String(count)
                 } else {
                     cell.countLabel.text = "/ 0"
@@ -321,15 +364,15 @@ extension TeacherFilesViewController: UITableViewDelegate, UITableViewDataSource
         
         if !isFileMode {
             //inFolder
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "inFolder") as? FileInFolderViewController else { return }
+            let sb = UIStoryboard(name: "Teacher", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "inFolder") as? TeacherFileInFolderViewController else { return }
             vc.filesInFolder = fileDirectoryData[indexPath.row].files
             vc.dirrectory = fileDirectoryData[indexPath.row].path
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             //fileDetal
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
+            let sb = UIStoryboard(name: "Teacher", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? TeacherDetailFileInfoTableViewController else { return }
             vc.fileData = fileData[indexPath.row]
             vc.indexFile = indexPath.row
             present(vc, animated: true)

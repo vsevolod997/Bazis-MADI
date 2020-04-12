@@ -99,6 +99,7 @@
 		42BFCFCF2434EC950018D6D5 /* UploadFileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */; };
 		42CB259B23CF37FA007DEA69 /* InfioTeacherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */; };
 		42CB259D23CF8C11007DEA69 /* MessegeButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */; };
+		42CBAEF324438012006C3ED6 /* TeacherFileHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CBAEF224438012006C3ED6 /* TeacherFileHTTPService.swift */; };
 		42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */; };
 		42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */; };
 		42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */; };
@@ -106,6 +107,10 @@
 		42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D41BF923C758AF0077DE0C /* ExamUIView.swift */; };
 		42D485F624042EA200648253 /* InfoRaspisanieGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */; };
 		42D485F824042F2F00648253 /* RaspisanieGroupInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D485F724042F2F00648253 /* RaspisanieGroupInfo.swift */; };
+		42D5F0B32441EABC00BDFF29 /* TeacherFileInFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0B22441EABC00BDFF29 /* TeacherFileInFolderViewController.swift */; };
+		42D5F0B72441FC9300BDFF29 /* SearchStudentHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0B62441FC9300BDFF29 /* SearchStudentHttpService.swift */; };
+		42D5F0BA244200C700BDFF29 /* StudentInGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0B9244200C700BDFF29 /* StudentInGroupModel.swift */; };
+		42D5F0BD244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0BC244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift */; };
 		42DE33732409188200139FB8 /* ShowMoreUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE33722409188200139FB8 /* ShowMoreUIButton.swift */; };
 		42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */; };
 		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
@@ -221,6 +226,7 @@
 		42BFCFCE2434EC950018D6D5 /* UploadFileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileTableViewController.swift; sourceTree = "<group>"; };
 		42CB259A23CF37FA007DEA69 /* InfioTeacherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTeacherTableViewController.swift; sourceTree = "<group>"; };
 		42CB259C23CF8C11007DEA69 /* MessegeButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessegeButtonUIButton.swift; sourceTree = "<group>"; };
+		42CBAEF224438012006C3ED6 /* TeacherFileHTTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherFileHTTPService.swift; sourceTree = "<group>"; };
 		42CDC01A23B7DEE500A86A42 /* ClassesUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesUIView.swift; sourceTree = "<group>"; };
 		42CDC01C23B7E82600A86A42 /* Title3LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title3LabelUILabel.swift; sourceTree = "<group>"; };
 		42D41BF323C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRaspisanieExamsUIVIew.swift; sourceTree = "<group>"; };
@@ -228,6 +234,10 @@
 		42D41BF923C758AF0077DE0C /* ExamUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamUIView.swift; sourceTree = "<group>"; };
 		42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRaspisanieGroupTableViewController.swift; sourceTree = "<group>"; };
 		42D485F724042F2F00648253 /* RaspisanieGroupInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieGroupInfo.swift; sourceTree = "<group>"; };
+		42D5F0B22441EABC00BDFF29 /* TeacherFileInFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherFileInFolderViewController.swift; sourceTree = "<group>"; };
+		42D5F0B62441FC9300BDFF29 /* SearchStudentHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStudentHttpService.swift; sourceTree = "<group>"; };
+		42D5F0B9244200C700BDFF29 /* StudentInGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInGroupModel.swift; sourceTree = "<group>"; };
+		42D5F0BC244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDetailFileInfoTableViewController.swift; sourceTree = "<group>"; };
 		42DE33722409188200139FB8 /* ShowMoreUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreUIButton.swift; sourceTree = "<group>"; };
 		42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRspByGroupTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
@@ -420,6 +430,7 @@
 		4251AC732440E8120071F478 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				42D5F0BB2442052700BDFF29 /* DetailFileInformation */,
 				4251AC752440E8670071F478 /* FileInFolderView */,
 				4251AC742440E8510071F478 /* FilesView */,
 			);
@@ -429,7 +440,8 @@
 		4251AC742440E8510071F478 /* FilesView */ = {
 			isa = PBXGroup;
 			children = (
-				4251AC762440E9400071F478 /* TeacherFilesViewController.swift */,
+				42CBAEF224438012006C3ED6 /* TeacherFileHTTPService.swift */,
+				42CBAEF124437F70006C3ED6 /* View */,
 			);
 			path = FilesView;
 			sourceTree = "<group>";
@@ -437,6 +449,7 @@
 		4251AC752440E8670071F478 /* FileInFolderView */ = {
 			isa = PBXGroup;
 			children = (
+				42D5F0B22441EABC00BDFF29 /* TeacherFileInFolderViewController.swift */,
 			);
 			path = FileInFolderView;
 			sourceTree = "<group>";
@@ -489,6 +502,7 @@
 		429E90E2244094D500416ABD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42D5F0B9244200C700BDFF29 /* StudentInGroupModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,6 +518,7 @@
 		429E90E4244094F100416ABD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				42D5F0B42441FC5D00BDFF29 /* HTTPService */,
 				429E90E02440947800416ABD /* StudentGroupViewController.swift */,
 			);
 			path = Controller;
@@ -714,6 +729,14 @@
 			path = InfoTeacherView;
 			sourceTree = "<group>";
 		};
+		42CBAEF124437F70006C3ED6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4251AC762440E9400071F478 /* TeacherFilesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		42CDC01F23BB96A600A86A42 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +917,30 @@
 				42D485F524042EA200648253 /* InfoRaspisanieGroupTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		42D5F0B42441FC5D00BDFF29 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42D5F0B62441FC9300BDFF29 /* SearchStudentHttpService.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		42D5F0BB2442052700BDFF29 /* DetailFileInformation */ = {
+			isa = PBXGroup;
+			children = (
+				42D5F0BE2443129500BDFF29 /* View */,
+			);
+			path = DetailFileInformation;
+			sourceTree = "<group>";
+		};
+		42D5F0BE2443129500BDFF29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42D5F0BC244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		42DE3377240ABFC800139FB8 /* UILabel */ = {
@@ -1116,6 +1163,7 @@
 				42A8316423C10F540012BC66 /* DayliRaspisPrepodUIView.swift in Sources */,
 				42E69FD0242E5432003DAC2A /* FileDetalController.swift in Sources */,
 				42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */,
+				42CBAEF324438012006C3ED6 /* TeacherFileHTTPService.swift in Sources */,
 				426AD0E523914AC4003362B1 /* HttpService.swift in Sources */,
 				424525EA238FBB1D008C5EBD /* InputButton1UIButton.swift in Sources */,
 				42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */,
@@ -1148,6 +1196,7 @@
 				42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */,
 				42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */,
 				42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */,
+				42D5F0BA244200C700BDFF29 /* StudentInGroupModel.swift in Sources */,
 				420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */,
 				429E90E8244097B900416ABD /* SudentInGroupTableViewCell.swift in Sources */,
 				42AEAD5A241A21B5005430D2 /* PortfolioWorkEditTableViewController.swift in Sources */,
@@ -1195,12 +1244,14 @@
 				42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */,
 				424525E8238EE8FF008C5EBD /* Title2LabelUILabel.swift in Sources */,
 				42A8315B23BFA4F80012BC66 /* MainTableTeacherViewController.swift in Sources */,
+				42D5F0B72441FC9300BDFF29 /* SearchStudentHttpService.swift in Sources */,
 				42F260402438F2CA0027451D /* UploadFileController.swift in Sources */,
 				42A8315D23BFB1990012BC66 /* TableRaspisanieTeacerViewController.swift in Sources */,
 				42AEAD5C241AA5CC005430D2 /* DoneButtonUIButton.swift in Sources */,
 				42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */,
 				42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */,
 				42E69FCA242CA687003DAC2A /* DetailFileHttpService.swift in Sources */,
+				42D5F0BD244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
 				42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */,
 				42F672FE241D4E8A00865044 /* PortfolioEducationTableViewController.swift in Sources */,
@@ -1218,6 +1269,7 @@
 				42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
 				42BFCFCF2434EC950018D6D5 /* UploadFileTableViewController.swift in Sources */,
+				42D5F0B32441EABC00BDFF29 /* TeacherFileInFolderViewController.swift in Sources */,
 				420B2DEB2424E22C00A6BEF9 /* FileToShowModelController.swift in Sources */,
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
 				42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */,

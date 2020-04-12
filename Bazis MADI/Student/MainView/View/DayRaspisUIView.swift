@@ -61,7 +61,7 @@ class DayRaspisUIView: UIView {
     }
     
     
-    fileprivate func homeDayCreate() {
+    private func homeDayCreate() {
         let title = Title1LabelUILabel()
         title.text = "День самостоятельной работы!"
         title.frame = CGRect(x: self.frame.width / 2 - 125, y: 100, width: 250, height: 65)
