@@ -86,7 +86,6 @@ class StudentGroupViewController: UITableViewController {
             }
         }
     }
-
 }
 
 // MARK: - Table view data source
@@ -120,7 +119,7 @@ extension StudentGroupViewController {
         if isLoad {
             return 70
         } else {
-            return 50
+            return 96
         }
     }
     

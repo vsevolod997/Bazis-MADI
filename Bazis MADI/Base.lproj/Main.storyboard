@@ -1686,7 +1686,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ожидаемая должность:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lh-fa-Lev" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="11" width="191" height="21"/>
+                                            <rect key="frame" x="20" y="11" width="199" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="199" id="5fN-2c-vb1"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1698,10 +1701,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTs-hv-OfF" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="220" y="11" width="174" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="174" id="lH6-vn-I1R"/>
-                                            </constraints>
+                                            <rect key="frame" x="227" y="11" width="167" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1725,7 +1725,7 @@
                                         <constraint firstItem="3lh-fa-Lev" firstAttribute="top" secondItem="6u4-qW-zc1" secondAttribute="topMargin" id="a7m-1V-uMx"/>
                                         <constraint firstItem="mx8-zP-k7i" firstAttribute="top" secondItem="3lh-fa-Lev" secondAttribute="bottom" constant="28" id="czY-4o-dnk"/>
                                         <constraint firstItem="jTs-hv-OfF" firstAttribute="top" secondItem="6u4-qW-zc1" secondAttribute="topMargin" id="s6h-dw-h2L"/>
-                                        <constraint firstItem="jTs-hv-OfF" firstAttribute="leading" secondItem="3lh-fa-Lev" secondAttribute="trailing" constant="9" id="sHD-le-IQT"/>
+                                        <constraint firstItem="jTs-hv-OfF" firstAttribute="leading" secondItem="3lh-fa-Lev" secondAttribute="trailing" constant="8" id="sHD-le-IQT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -1754,15 +1754,15 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="educCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="educCell" rowHeight="170" id="Crm-Uj-aTm" customClass="EducatioTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="336" width="414" height="170"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="educCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="educCell" rowHeight="172" id="Crm-Uj-aTm" customClass="EducatioTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="336" width="414" height="172"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Crm-Uj-aTm" id="kqm-OM-n9A">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-Jg-hPs" customClass="CardInCellUIView" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="1" width="395" height="157"/>
+                                            <rect key="frame" x="10" y="1" width="395" height="159"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43F-Ch-76A" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
@@ -1824,15 +1824,15 @@
                                     <outlet property="typeLabel" destination="0Lq-3n-Y9F" id="mFt-jt-TxI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="workCell" rowHeight="170" id="ht0-nE-UnZ" userLabel="workCell" customClass="WorkTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="506" width="414" height="170"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="workCell" rowHeight="172" id="ht0-nE-UnZ" userLabel="workCell" customClass="WorkTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="508" width="414" height="172"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ht0-nE-UnZ" id="Bs5-rS-Qq1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zTm-QX-S2u" customClass="CardInCellUIView" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="6" width="394" height="153"/>
+                                            <rect key="frame" x="10" y="6" width="394" height="155"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ4-86-mkg" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
@@ -2167,7 +2167,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="330" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="330" y="7" width="50" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2556,7 +2556,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="325" y="7" width="48" height="31"/>
+                                                    <rect key="frame" x="325" y="7" width="47" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>
