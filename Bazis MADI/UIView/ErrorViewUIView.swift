@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ErrorViewUIView: UIView {
     
@@ -18,7 +19,6 @@ class ErrorViewUIView: UIView {
         createSubView()
         createReloadButton()
     }
-    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -51,6 +51,8 @@ class ErrorViewUIView: UIView {
     }
     
     @objc func reloadButtonPress() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
         NotificationCenter.default.post(name: notificationReload, object: nil,  userInfo: nil)
     }
     

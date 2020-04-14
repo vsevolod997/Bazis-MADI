@@ -302,6 +302,9 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
         alert.addAction(alertRaspisanie)
         alert.addAction(alertCancel)
         
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+        
         present(alert, animated: true)
     }
     

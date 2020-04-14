@@ -30,13 +30,6 @@ class RspByGroupUIVIew: UIView {
         label.frame = CGRect(x: 20, y: 10, width: self.frame.width - 20, height: self.frame.height - 50)
         label.text = nameGroup
         self.addSubview(label)
-        
-        let nameLabel = Title3LabelUILabel()
-        nameLabel.frame = CGRect(x: 20, y: self.frame.height - 40, width: self.frame.width - 20, height: 20)
-        nameLabel.text = nameGroup
-        nameLabel.textAlignment = .center
-        
-        self.addSubview(nameLabel)
     }
     
 }

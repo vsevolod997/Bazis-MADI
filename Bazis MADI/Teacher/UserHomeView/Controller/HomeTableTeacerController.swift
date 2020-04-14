@@ -96,7 +96,9 @@ class HomeTableTeacerController: UITableViewController {
     }
     
     private func removeVC() {
-        closeVC.removeFromSuperview()
+        if closeVC != nil {
+             closeVC.removeFromSuperview()
+        }
     }
     
     

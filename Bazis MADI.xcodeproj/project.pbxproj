@@ -90,6 +90,7 @@
 		42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */; };
 		42B21D6423D75E9100E1EC17 /* UspevModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6323D75E9100E1EC17 /* UspevModel.swift */; };
 		42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */; };
+		42B28888244468EA00D702DE /* StudentInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */; };
 		42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4A27924324D330026F526 /* CountLabelUILabel.swift */; };
 		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
@@ -217,6 +218,7 @@
 		42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpServiceUspev.swift; sourceTree = "<group>"; };
 		42B21D6323D75E9100E1EC17 /* UspevModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevModel.swift; sourceTree = "<group>"; };
 		42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewCell.swift; sourceTree = "<group>"; };
+		42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoTableViewController.swift; sourceTree = "<group>"; };
 		42B4A27924324D330026F526 /* CountLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountLabelUILabel.swift; sourceTree = "<group>"; };
 		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				42B28886244468AC00D702DE /* StudentInfoView */,
 				4251AC732440E8120071F478 /* File */,
 				429E90DD2440941900416ABD /* StudentGroupView */,
 				42D485F124042C5600648253 /* InfoGroupView */,
@@ -678,6 +681,14 @@
 				42B21D6123D60BA200E1EC17 /* HttpServiceUspev.swift */,
 			);
 			path = HttpService;
+			sourceTree = "<group>";
+		};
+		42B28886244468AC00D702DE /* StudentInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */,
+			);
+			path = StudentInfoView;
 			sourceTree = "<group>";
 		};
 		42BFCFC2243380B60018D6D5 /* DetailFileInformationMainView */ = {
@@ -1265,6 +1276,7 @@
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */,
 				4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */,
+				42B28888244468EA00D702DE /* StudentInfoTableViewController.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
 				42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,

@@ -12,12 +12,16 @@ class StudentGroupViewController: UITableViewController {
     
     private let notificationReload = Notification.Name("reloadData")
     private var errorVC: ErrorViewUIView!
+    private var isLoad = false
+    
+    private var studentsList: [StudentModel] = []
     
     public var nameGroup: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadStudentInGroup(group: nameGroup)
         addNotificationCenter()
         setupView()
         addGestue()
@@ -50,7 +54,6 @@ class StudentGroupViewController: UITableViewController {
     
     //notification
     @objc func onNotification(notification: Notification) {
-        
         removeErrorView()
     }
     
@@ -64,6 +67,25 @@ class StudentGroupViewController: UITableViewController {
             errorVC.removeFromSuperview()
         }
     }
+    
+    private func loadStudentInGroup(group: String) {
+        SearchStudentHttpService.searchStudentInGroup(groupName: group) { (error, studentRes) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorView()
+                }
+            } else {
+                guard let student = studentRes else { return }
+                if student.count > 0 {
+                    DispatchQueue.main.async {
+                        self.studentsList = student
+                        self.isLoad = true
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
 
 }
 
@@ -71,24 +93,43 @@ class StudentGroupViewController: UITableViewController {
 extension StudentGroupViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        if isLoad {
+            return studentsList.count
+        } else {
+             return 1
+        }
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath) as? SudentInGroupTableViewCell else { return UITableViewCell() }
-        cell.icoLabel.text = "АВ"
-        cell.nameLabel.text = "Андрющенко Всеволод"
-        return cell
+        if isLoad {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath) as? SudentInGroupTableViewCell else { return UITableViewCell() }
+            cell.student = studentsList[indexPath.row]
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if isLoad {
+            return 70
+        } else {
+            return 50
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isLoad {
+            let sb = UIStoryboard(name: "Teacher", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: "studentInfo") as? StudentInfoTableViewController else { return }
+            vc.studentInfo = studentsList[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
