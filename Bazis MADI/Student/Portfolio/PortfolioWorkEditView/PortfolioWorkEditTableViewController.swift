@@ -115,7 +115,6 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     // стартовая дата
     private func setupStartPicker() {
         
-        
         let locale = Locale.preferredLanguages.first
         startDatePicker.locale = Locale(identifier: locale!)
         startDatePicker.datePickerMode = .date
@@ -124,15 +123,17 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         formated.dateFormat = "dd.MM.yyyy"
         
         if let date = dateStartField.text {
-            guard let pickerDate = formated.date(from: date) else { return }
-            startDatePicker.date = pickerDate
+            if let pickerDate = formated.date(from: date) {
+                startDatePicker.date = pickerDate
+            }
         }
        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectStartDate(_:)))
+        
+        let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(selectStartDate(_:)))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        toolBar.setItems([doneButton, spacer], animated: true)
+        toolBar.setItems([spacer, doneButton], animated: true)
         dateStartField.inputView = startDatePicker
         dateStartField.inputAccessoryView = toolBar
     }
@@ -147,16 +148,17 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         formated.dateFormat = "dd.MM.yyyy"
         
         if let date = dateEndField.text {
-            guard let pickerDate = formated.date(from: date) else { return }
-            endDatePicker.date = pickerDate
+            if let pickerDate = formated.date(from: date) {
+                 endDatePicker.date = pickerDate
+            }
         }
         
         let toolBar = UIToolbar()
-        toolBar.isTranslucent = true
+        //toolBar.isTranslucent = true
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectEndDate(_:)) )
+        let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(selectStartDate(_:)))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        toolBar.setItems([doneButton, spacer], animated: true)
+        toolBar.setItems([spacer, doneButton], animated: true)
         
         dateEndField.inputView = endDatePicker
         dateEndField.inputAccessoryView = toolBar

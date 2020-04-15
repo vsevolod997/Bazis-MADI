@@ -60,7 +60,7 @@ class UploadFileTableViewController: UITableViewController {
         let toolBar = UIToolbar()
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done , target: self, action: #selector(selectPathUpload(sender:)) )
+        let doneButton = UIBarButtonItem(title: "Готово", style:.done, target: self, action: #selector(selectPathUpload(sender:)) )
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         toolBar.setItems([doneButton, spacer], animated: true)
         

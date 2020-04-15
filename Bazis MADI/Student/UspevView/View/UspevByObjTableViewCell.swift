@@ -17,6 +17,8 @@ class UspevByObjTableViewCell: UITableViewCell {
     
     @IBOutlet weak var topView: UIView!
     
+    @IBOutlet weak var botomView: UIView!
+    
     var data: UspevModel! {
         didSet {
            if let obj = data {
@@ -52,6 +54,7 @@ class UspevByObjTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        botomView.alpha = 0.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -61,8 +64,10 @@ class UspevByObjTableViewCell: UITableViewCell {
     public func showFull(isShow: Bool) {
         if isShow {
             topView.alpha = 0.0
+            botomView.alpha = 0.8
         } else {
             topView.alpha = 0.8
+            botomView.alpha = 0.0
         }
     }
 

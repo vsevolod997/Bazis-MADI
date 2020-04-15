@@ -1445,7 +1445,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <view alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YKI-1q-Z4E">
-                                                    <rect key="frame" x="171" y="6" width="53" height="3"/>
+                                                    <rect key="frame" x="171" y="7" width="53" height="3"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -1468,8 +1468,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESA-ip-oCM" customClass="CardInCellBlueUIView" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="171" y="46" width="53" height="3"/>
+                                                <view alpha="0.89999997615814209" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESA-ip-oCM">
+                                                    <rect key="frame" x="171" y="44" width="53" height="3"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -1491,6 +1491,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="botomView" destination="ESA-ip-oCM" id="ghN-zF-PWt"/>
                                     <outlet property="dateLabel" destination="t1A-0p-oeg" id="2sB-4T-o7n"/>
                                     <outlet property="hourLabel" destination="7ye-rh-Frj" id="mtr-Pm-bxe"/>
                                     <outlet property="markLabel" destination="3x7-VS-M10" id="mhu-bJ-T5e"/>
@@ -1754,15 +1755,15 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="educCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="educCell" rowHeight="172" id="Crm-Uj-aTm" customClass="EducatioTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="336" width="414" height="172"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="educCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="educCell" rowHeight="180" id="Crm-Uj-aTm" customClass="EducatioTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="336" width="414" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Crm-Uj-aTm" id="kqm-OM-n9A">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-Jg-hPs" customClass="CardInCellUIView" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="1" width="395" height="159"/>
+                                            <rect key="frame" x="10" y="1" width="395" height="167"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43F-Ch-76A" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
@@ -1824,15 +1825,15 @@
                                     <outlet property="typeLabel" destination="0Lq-3n-Y9F" id="mFt-jt-TxI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="workCell" rowHeight="172" id="ht0-nE-UnZ" userLabel="workCell" customClass="WorkTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="508" width="414" height="172"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="workCell" rowHeight="180" id="ht0-nE-UnZ" userLabel="workCell" customClass="WorkTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="516" width="414" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ht0-nE-UnZ" id="Bs5-rS-Qq1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zTm-QX-S2u" customClass="CardInCellUIView" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="6" width="394" height="155"/>
+                                            <rect key="frame" x="10" y="6" width="394" height="163"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ4-86-mkg" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">

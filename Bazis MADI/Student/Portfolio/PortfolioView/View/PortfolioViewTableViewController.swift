@@ -61,7 +61,6 @@ class PortfolioViewTableViewController: UITableViewController {
         }
     }
     
-    
     private func addGestue() {
         let gestue = UISwipeGestureRecognizer(target: self, action: #selector(backButtonPress))
         gestue.direction = .right
@@ -91,7 +90,6 @@ class PortfolioViewTableViewController: UITableViewController {
     
     //MARK:- если ошибка при сохранении
     private func showErrorSave() {
-        
         let alert = UIAlertController(title: "Внимание!", message: "Ошибка сохранения, возможно отсутствует интернет соединение.", preferredStyle: .alert)
         let actionRes = UIAlertAction(title: "Повторить", style:  .default) { (_) in
             self.updateServerPortfolioData(editData: self.portfolioData)
@@ -177,14 +175,6 @@ extension PortfolioViewTableViewController {
         return 30
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 2 {
-            return 50
-        } else {
-            return 0
-        }
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isLoad {
             return 3
@@ -217,12 +207,11 @@ extension PortfolioViewTableViewController {
             case 0:
                 if indexPath.row == 0 {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as? AboutViewCell else { return UITableViewCell() }
-                    cell.aboutText.text = portfolioData.ldata
+                    cell.about = portfolioData.ldata
                     return cell
                 } else {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoPortfolioTableViewCell else { return UITableViewCell() }
-                    cell.dolzLabel.text = portfolioData.wpost
-                    cell.zpLabel.text = portfolioData.wprice
+                    cell.portfolioData = portfolioData
                     return cell
                 }
             case 1: //  образование
@@ -293,13 +282,13 @@ extension PortfolioViewTableViewController {
                 if isEdit {
                     return 170
                 } else {
-                    return 132
+                    return 134
                 }
             case 2:
                 if isEdit {
                     return 170
                 } else {
-                    return 132
+                    return 134
                 }
             default:
                 return 20

@@ -278,6 +278,8 @@
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				421BABEA24462C5A0000C8C3 /* StudentFIleView */,
+				421BABE924462C300000C8C3 /* StudentUspevView */,
 				421BABE024460AA00000C8C3 /* StudentPortfolioView */,
 				42B28886244468AC00D702DE /* StudentInfoView */,
 				4251AC732440E8120071F478 /* File */,
@@ -406,6 +408,20 @@
 			path = HTTPService;
 			sourceTree = "<group>";
 		};
+		421BABE924462C300000C8C3 /* StudentUspevView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StudentUspevView;
+			sourceTree = "<group>";
+		};
+		421BABEA24462C5A0000C8C3 /* StudentFIleView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StudentFIleView;
+			sourceTree = "<group>";
+		};
 		4241407E23F13B6C00408F9B /* HTTPService */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,7 +497,7 @@
 		4251AC742440E8510071F478 /* FilesView */ = {
 			isa = PBXGroup;
 			children = (
-				42CBAEF224438012006C3ED6 /* TeacherFileHTTPService.swift */,
+				42A7F66C244743B700AFE8AD /* HTTPService */,
 				42CBAEF124437F70006C3ED6 /* View */,
 			);
 			path = FilesView;
@@ -563,6 +579,14 @@
 				429E90E02440947800416ABD /* StudentGroupViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		42A7F66C244743B700AFE8AD /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42CBAEF224438012006C3ED6 /* TeacherFileHTTPService.swift */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 		42A8315623BFA4350012BC66 /* MainView */ = {

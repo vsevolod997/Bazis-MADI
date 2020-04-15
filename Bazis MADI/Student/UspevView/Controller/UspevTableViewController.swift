@@ -278,20 +278,20 @@ extension UspevTableViewController {
            if cellList.contains(indexPath) {
                 return 160
             } else {
-                return 114
+                return 112
             }
         } else {
             if isSem {
                 if cellList.contains(indexPath) {
                     return 160
                 } else {
-                    return 120
+                    return 112
                 }
             } else {
                 if cellList.contains(indexPath) {
                     return 110
                 } else {
-                    return 70
+                    return 67
                 }
             }
         }

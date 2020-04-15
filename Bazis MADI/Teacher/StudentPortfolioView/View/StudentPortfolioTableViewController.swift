@@ -106,14 +106,6 @@ extension StudentPortfolioTableViewController {
         return 30
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 2 {
-            return 50
-        } else {
-            return 0
-        }
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         if isLoad {
             return 3
@@ -146,12 +138,11 @@ extension StudentPortfolioTableViewController {
             case 0:
                 if indexPath.row == 0 {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as? AboutViewCell else { return UITableViewCell() }
-                    cell.aboutText.text = portfolioData.ldata ?? "не указано"
+                    cell.about = portfolioData.ldata
                     return cell
                 } else {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as? InfoPortfolioTableViewCell else { return UITableViewCell() }
-                    cell.dolzLabel.text = portfolioData.wpost
-                    cell.zpLabel.text = portfolioData.wprice
+                    cell.portfolioData = portfolioData
                     return cell
                 }
             case 1: //  образование

@@ -14,9 +14,25 @@ class InfoPortfolioTableViewCell: UITableViewCell {
     
     @IBOutlet weak var zpLabel: Title2LabelUILabel!
     
+    public var portfolioData: PortfolioModel! {
+        didSet {
+            if portfolioData.wpost == "" {
+                dolzLabel.text = "не определено"
+            } else {
+                dolzLabel.text = portfolioData.wpost
+            }
+            
+            if portfolioData.wprice == "" {
+                zpLabel.text = "не определено"
+            } else {
+                zpLabel.text = portfolioData.wprice
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +40,7 @@ class InfoPortfolioTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
 
 }

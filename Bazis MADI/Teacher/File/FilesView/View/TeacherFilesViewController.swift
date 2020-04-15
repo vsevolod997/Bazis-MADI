@@ -232,7 +232,9 @@ class TeacherFilesViewController: UIViewController {
             let textField = alert.textFields![0]
             if let text = textField.text {
                 if text.count > 3 {
-                    self.addFolder(path: text )
+                    let resString = text.split(separator: "/")
+                    print(resString)
+                    self.addFolder(path: String(resString[0]))
                 } 
             }
         }
@@ -245,6 +247,7 @@ class TeacherFilesViewController: UIViewController {
     }
     
     private func addFolder(path: String) {
+        print(path)
         TeacherFileHTTPService.createFileDirectory(path: path) { (error, result) in
             if error != nil {
                 self.showError()
