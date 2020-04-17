@@ -61,6 +61,8 @@
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
+		427732602449B06100982DCD /* StudentUspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */; };
+		427732622449B49400982DCD /* StudentUspevHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427732612449B49400982DCD /* StudentUspevHttpService.swift */; };
 		429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90DA243E1E6F00416ABD /* UploadUIView.swift */; };
 		429E90E12440947800416ABD /* StudentGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E02440947800416ABD /* StudentGroupViewController.swift */; };
 		429E90E6244095A900416ABD /* UserIcoUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E5244095A900416ABD /* UserIcoUILabel.swift */; };
@@ -191,6 +193,8 @@
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevTableViewController.swift; sourceTree = "<group>"; };
+		427732612449B49400982DCD /* StudentUspevHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevHttpService.swift; sourceTree = "<group>"; };
 		429E90DA243E1E6F00416ABD /* UploadUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUIView.swift; sourceTree = "<group>"; };
 		429E90E02440947800416ABD /* StudentGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroupViewController.swift; sourceTree = "<group>"; };
 		429E90E5244095A900416ABD /* UserIcoUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcoUILabel.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 		421BABE924462C300000C8C3 /* StudentUspevView */ = {
 			isa = PBXGroup;
 			children = (
+				4277325E2449AFC600982DCD /* HttpService */,
+				4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */,
 			);
 			path = StudentUspevView;
 			sourceTree = "<group>";
@@ -533,6 +539,14 @@
 				42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		4277325E2449AFC600982DCD /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				427732612449B49400982DCD /* StudentUspevHttpService.swift */,
+			);
+			path = HttpService;
 			sourceTree = "<group>";
 		};
 		429E90DC2440903900416ABD /* Portfolio */ = {
@@ -1263,6 +1277,7 @@
 				420ACEFE23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift in Sources */,
 				4214FDC523B12EDD00F543C9 /* WeekRaspisanieController.swift in Sources */,
 				42AA02AA240E5261006F0FDA /* PortfolioModel.swift in Sources */,
+				427732602449B06100982DCD /* StudentUspevTableViewController.swift in Sources */,
 				42BFCFC9243382DD0018D6D5 /* DetailFileReviewTableViewController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
@@ -1326,6 +1341,7 @@
 				42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */,
 				42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */,
 				42E69FCA242CA687003DAC2A /* DetailFileHttpService.swift in Sources */,
+				427732622449B49400982DCD /* StudentUspevHttpService.swift in Sources */,
 				42D5F0BD244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
 				42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */,

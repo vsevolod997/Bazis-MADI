@@ -59,7 +59,11 @@ class StudentInfoTableViewController: UITableViewController {
     }
     
     private func showUspevView() {
-        
+        //uspev
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "uspev") as? StudentUspevTableViewController else { return }
+        vc.studentInfo = self.studentInfo
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func showPortfolioView() {

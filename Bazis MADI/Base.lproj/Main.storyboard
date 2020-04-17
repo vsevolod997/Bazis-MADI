@@ -1516,7 +1516,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s44-NP-nWV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3402.898550724638" y="1644.6428571428571"/>
+            <point key="canvasLocation" x="3380" y="1671"/>
         </scene>
         <!--Infio Teacher Table View Controller-->
         <scene sceneID="oCD-LL-jpD">

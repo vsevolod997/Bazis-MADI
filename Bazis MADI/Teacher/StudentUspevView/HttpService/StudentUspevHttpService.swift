@@ -1,21 +1,22 @@
 //
-//  HttpServiceUspev.swift
+//  StudentUspevHttpService.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 20.01.2020.
+//  Created by Всеволод Андрющенко on 17.04.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
 import Foundation
 
-class HttpServiceUspev {
-    
+class StudentUspevHttpService {
     //MARK: - получить данные о расписании
-    class func getUserUspew( completion: @escaping(Error?, [UspevModel]?)->Void){
+    class func getStudentUspew(studUic: String, completion: @escaping(Error?, [UspevModel]?)->Void){
         
+        let body = "uic=\(studUic)"
         let urlStr = "https://bazis.madi.ru/stud/api/stud/uspev"
         guard let url = URL(string: urlStr) else { return }
         var urlRequest = URLRequest(url: url)
+        urlRequest.httpBody = body.data(using: .utf8)
         urlRequest.httpMethod = "POST"
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let err = error {
