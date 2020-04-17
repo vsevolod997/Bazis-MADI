@@ -75,24 +75,20 @@ class UploadFileController {
             if error != nil {
                 DispatchQueue.main.async {
                     self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет соединение!", controller: self)
-                    if fileDesk != "" {
-                        self.setDescButton(fileDesc: fileDesk, nameFile: fileName)
-                    }
-                    
-                    let file = FileModel(file: fileName, path: uploadPath, time: "сейчас", size: uploadData.count)
-                    NotificationCenter.default.post(name: self.notificationFileAdd, object: nil,  userInfo: ["file": file])
-                    self.delegate.uploadIsFinish(controller: self)
                 }
             } else {
                 if let res = fileModel {
                     if res.error != nil {
                         DispatchQueue.main.async {
-                            self.delegate.showError(errorMess: "Не удалось загрузить файл, возможно отсутствует интернет соединение!", controller: self)
+                            self.delegate.showError(errorMess: "Не удалось загрузить файл, файл с данным именем уже существует!", controller: self)
                         }
                     } else {
-                        if res.result == "true" {
+                        if res.result == true {
                             DispatchQueue.main.async {
                                 let file = FileModel(file: fileName, path: uploadPath, time: "сейчас", size: uploadData.count)
+                                if fileDesk != "" {
+                                    self.setDescButton(fileDesc: fileDesk, nameFile: fileName)
+                                }
                                 NotificationCenter.default.post(name: self.notificationFileAdd, object: nil,  userInfo: ["file": file])
                                 self.delegate.uploadIsFinish(controller: self)
                             }

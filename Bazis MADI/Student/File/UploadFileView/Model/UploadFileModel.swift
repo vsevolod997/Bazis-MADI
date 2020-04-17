@@ -9,6 +9,6 @@
 import Foundation
 
 struct UploadFileModel: Codable {
-    var result: String?
+    var result: Bool?
     var error: String?
 }

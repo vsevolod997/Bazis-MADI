@@ -114,6 +114,7 @@ class UploadFileTableViewController: UITableViewController {
     
     //MARK: - Выгрузить
     @IBAction func uploadButtonPress(_ sender: Any) {
+        view.endEditing(true)
         
         guard let fileDesc = descriptionFileTextView.text else { return }
         guard let fileName = fileNameLabel.text else { return }
@@ -230,10 +231,13 @@ extension UploadFileTableViewController: UploadFileDelegate {
     }
     
     func showError(errorMess: String, controller: UploadFileController) {
-        //let alert = UIAlertController(title: "Ошибка!", message: "Не удалось выгрузить файл.", preferredStyle: .alert)
-        //let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        //alert.addAction(action)
-        //present(alert, animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Ошибка!", message: "Не удалось выгрузить файл.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ок", style:  .default) { (_) in
+            self.removeUploadView()
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 
