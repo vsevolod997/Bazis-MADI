@@ -63,6 +63,9 @@
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
 		427732602449B06100982DCD /* StudentUspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */; };
 		427732622449B49400982DCD /* StudentUspevHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427732612449B49400982DCD /* StudentUspevHttpService.swift */; };
+		42773268244B762B00982DCD /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42773267244B762B00982DCD /* OrderTableViewController.swift */; };
+		4277326B244B828A00982DCD /* OrderHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277326A244B828A00982DCD /* OrderHttpService.swift */; };
+		4277326D244B84DF00982DCD /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277326C244B84DF00982DCD /* OrderModel.swift */; };
 		429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90DA243E1E6F00416ABD /* UploadUIView.swift */; };
 		429E90E12440947800416ABD /* StudentGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E02440947800416ABD /* StudentGroupViewController.swift */; };
 		429E90E6244095A900416ABD /* UserIcoUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429E90E5244095A900416ABD /* UserIcoUILabel.swift */; };
@@ -195,6 +198,9 @@
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
 		4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevTableViewController.swift; sourceTree = "<group>"; };
 		427732612449B49400982DCD /* StudentUspevHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevHttpService.swift; sourceTree = "<group>"; };
+		42773267244B762B00982DCD /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
+		4277326A244B828A00982DCD /* OrderHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHttpService.swift; sourceTree = "<group>"; };
+		4277326C244B84DF00982DCD /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		429E90DA243E1E6F00416ABD /* UploadUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadUIView.swift; sourceTree = "<group>"; };
 		429E90E02440947800416ABD /* StudentGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGroupViewController.swift; sourceTree = "<group>"; };
 		429E90E5244095A900416ABD /* UserIcoUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIcoUILabel.swift; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
+				42773263244B759600982DCD /* Order */,
 				42BFCFCC2434E7300018D6D5 /* File */,
 				429E90DC2440903900416ABD /* Portfolio */,
 				42CDC02423BB980D00A86A42 /* MainView */,
@@ -547,6 +554,40 @@
 				427732612449B49400982DCD /* StudentUspevHttpService.swift */,
 			);
 			path = HttpService;
+			sourceTree = "<group>";
+		};
+		42773263244B759600982DCD /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				42773266244B75BB00982DCD /* Controller */,
+				42773265244B75B500982DCD /* Model */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		42773265244B75B500982DCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4277326C244B84DF00982DCD /* OrderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42773266244B75BB00982DCD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42773269244B825D00982DCD /* HTTPService */,
+				42773267244B762B00982DCD /* OrderTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42773269244B825D00982DCD /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				4277326A244B828A00982DCD /* OrderHttpService.swift */,
+			);
+			path = HTTPService;
 			sourceTree = "<group>";
 		};
 		429E90DC2440903900416ABD /* Portfolio */ = {
@@ -1256,6 +1297,7 @@
 				42D41BF423C7156A0077DE0C /* TableRaspisanieExamsUIVIew.swift in Sources */,
 				421BABE324460C330000C8C3 /* StudentPortfolioTableViewController.swift in Sources */,
 				420B2DE92424C90C00A6BEF9 /* FileToShowModel.swift in Sources */,
+				4277326D244B84DF00982DCD /* OrderModel.swift in Sources */,
 				420F9D1D23EC11D30096DAB7 /* ErrorViewUIView.swift in Sources */,
 				42453971239A518E00126ED6 /* SystemColor.swift in Sources */,
 				42AA02B2240E609C006F0FDA /* WorkTableViewCell.swift in Sources */,
@@ -1280,6 +1322,7 @@
 				427732602449B06100982DCD /* StudentUspevTableViewController.swift in Sources */,
 				42BFCFC9243382DD0018D6D5 /* DetailFileReviewTableViewController.swift in Sources */,
 				425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */,
+				4277326B244B828A00982DCD /* OrderHttpService.swift in Sources */,
 				42B21D6223D60BA200E1EC17 /* HttpServiceUspev.swift in Sources */,
 				42524D5823E1980F00D9B97E /* UspevStructDataByObject.swift in Sources */,
 				42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */,
@@ -1324,6 +1367,7 @@
 				42A75FD623A152610083B3EC /* HttpServiceRaspisanie.swift in Sources */,
 				424525EC238FCB81008C5EBD /* LoginTextFieldUITextField.swift in Sources */,
 				42AA02A4240D07CA006F0FDA /* PortfolioViewTableViewController.swift in Sources */,
+				42773268244B762B00982DCD /* OrderTableViewController.swift in Sources */,
 				42CDC01D23B7E82600A86A42 /* Title3LabelUILabel.swift in Sources */,
 				424DE36F23C6477200389B53 /* HomeTableTeacerController.swift in Sources */,
 				421BABE724461A0D0000C8C3 /* StudentPortfolioHttpService.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 
 enum TypeFile {
-    case PDF, DOC, EXСEl, IMG, OTHER, PPT
+    case PDF, DOC, EXСEl, IMG, OTHER, PPT, ZIP
 }
 
 
@@ -42,6 +42,10 @@ class FileToShowModelController {
             return .PPT
         case "pptx":
             return .PPT
+        case "zip":
+            return .ZIP
+        case "rar":
+            return .ZIP
         default:
             return .OTHER
         }
@@ -63,6 +67,8 @@ class FileToShowModelController {
             name = "pdf"
         case .OTHER:
             name = "other"
+        case .ZIP:
+            name = "zip"
         }
         
         return UIImage(named: name)

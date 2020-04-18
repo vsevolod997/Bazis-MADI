@@ -135,9 +135,6 @@ class HomeTableViewController: UITableViewController {
         if indexPath.row == 0 && indexPath.section == 3 {
             exitUserButton()
         }
-        if indexPath.row == 3 && indexPath.section == 1 {
-            changedPasViewShow()
-        }
         if indexPath.row == 0 && indexPath.section == 1 {
             changedUspevView()
         }
@@ -146,6 +143,12 @@ class HomeTableViewController: UITableViewController {
         }
         if indexPath.row == 2 && indexPath.section == 1 {
             changedFileView()
+        }
+        if indexPath.row == 3 && indexPath.section == 1 {
+            changedPricazBurron()
+        }
+        if indexPath.row == 4 && indexPath.section == 1 {
+            changedPasViewShow()
         }
     }
     
@@ -174,6 +177,13 @@ class HomeTableViewController: UITableViewController {
         //userFile
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "file") as? FileViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    private func changedPricazBurron() {
+        //pricaz
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "pricaz") as? OrderTableViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

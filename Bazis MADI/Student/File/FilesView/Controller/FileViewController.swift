@@ -26,7 +26,6 @@ class FileViewController: UIViewController {
     
     private let controller = FileToShowModelController()
     
-    
     private let notificationReload = Notification.Name("reloadData")
     private let notificationFileDelete = Notification.Name("fileDelete")
     private let notificationFileAdd = Notification.Name("fileAdd")
@@ -39,8 +38,14 @@ class FileViewController: UIViewController {
         setupView()
         getDirectoryData()
         getFileData()
-        
         addNotificationCenter()
+        addGestue()
+    }
+    
+    private func addGestue() {
+        let gestue = UISwipeGestureRecognizer(target: self, action: #selector(backButtonPress))
+        gestue.direction = .right
+        self.view.addGestureRecognizer(gestue)
     }
     
     private func addNotificationCenter() {
@@ -158,10 +163,10 @@ class FileViewController: UIViewController {
             } else {
                 if let file = fileData {
                     DispatchQueue.main.async {
-                        self.isLoad = true
                         let fileModel = self.controller.setupShowFileToData(modelFile: file)
                         self.isHaveFile = self.setupFilesSelection(filesShow: fileModel)
                         self.fileData = fileModel
+                        self.isLoad = true
                         self.tableView.reloadData()
                     }
                 }

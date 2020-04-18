@@ -63,7 +63,7 @@ class StudentUspevTableViewController: UITableViewController {
     //MARK: - получение данных по предметам
     public func setupDataUspev() {
         guard let stud = studentInfo else { return }
-        StudentUspevHttpService.getStudentUspew(studUic: stud.idc) { (error, uspevModel) in
+        StudentUspevHttpService.getStudentUspev(studUic: stud.idc) { (error, uspevModel) in
             if error != nil {
                 DispatchQueue.main.async {
                     self.showErrorView()

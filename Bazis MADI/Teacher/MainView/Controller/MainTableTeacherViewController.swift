@@ -284,6 +284,12 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
         
         let alert = UIAlertController(title: nil, message: "Группа: " + selectedGroup, preferredStyle: .actionSheet)
         
+        let messImg = UIImage(named:"msgGroup")
+        let alertMes = UIAlertAction(title: "Диалог", style: .default) { (sction) in
+            print("show message")
+        }
+        alertMes.setValue(messImg, forKey: "image")
+        
         let stydentImage = UIImage(named: "userGroup")
         let aletrStudent = UIAlertAction(title: "Студенты", style: .default) { (action) in
             self.showGroupStudentView(groupName: selectedGroup)
@@ -296,8 +302,10 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
         }
         alertRaspisanie.setValue(raspisanieImage, forKey: "image")
         
+        
         let alertCancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
 
+        alert.addAction(alertMes)
         alert.addAction(aletrStudent)
         alert.addAction(alertRaspisanie)
         alert.addAction(alertCancel)

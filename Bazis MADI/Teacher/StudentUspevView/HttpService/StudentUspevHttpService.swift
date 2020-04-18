@@ -9,8 +9,8 @@
 import Foundation
 
 class StudentUspevHttpService {
-    //MARK: - получить данные о расписании
-    class func getStudentUspew(studUic: String, completion: @escaping(Error?, [UspevModel]?)->Void){
+    
+    class func getStudentUspev(studUic: String, completion: @escaping(Error?, [UspevModel]?)->Void){
         
         let body = "uic=\(studUic)"
         let urlStr = "https://bazis.madi.ru/stud/api/stud/uspev"
