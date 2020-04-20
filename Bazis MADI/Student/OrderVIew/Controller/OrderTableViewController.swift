@@ -13,7 +13,7 @@ class OrderTableViewController: UITableViewController {
 
     private let notificationReload = Notification.Name("reloadData")
     
-    private var orders: [OrderModel] = []
+    private var orders: [[OrderModel]] = []
     private var errorVC: ErrorViewUIView!
     private var isLoad: Bool = false
     
@@ -45,13 +45,18 @@ class OrderTableViewController: UITableViewController {
     
     private func loadOrderData() {
         OrderHttpService.getStudentOrder { (error, orders) in
-            if error == nil {
-                self.showErrorView()
+            if error != nil {
+                DispatchQueue.main.async {
+                    self.showErrorView()
+                }
             } else {
                 if let orderData = orders {
-                    self.orders = orderData
-                    self.isLoad = true
-                    print(orderData)
+                    DispatchQueue.main.async {
+                        self.orders = orderData
+                        self.isLoad = true
+                        print(orderData)
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
@@ -101,7 +106,7 @@ extension OrderTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isLoad {
-            return orders[section].lineData.count
+            return orders[section].count
         } else {
             return 1
         }
@@ -110,19 +115,12 @@ extension OrderTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoad {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partOrder", for: indexPath)
-            cell.textLabel?.text = "part"
+            cell.textLabel?.text = orders[indexPath.section][indexPath.row].lineTitle
+            cell.detailTextLabel?.text = orders[indexPath.section][indexPath.row].lineData as! String
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadOrdCell", for: indexPath)
             return cell
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if !isLoad {
-            return 98
-        } else {
-            return 44
         }
     }
     

@@ -304,7 +304,7 @@
 		4209120723BF9822005307F5 /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				42773263244B759600982DCD /* Order */,
+				42773263244B759600982DCD /* OrderVIew */,
 				42BFCFCC2434E7300018D6D5 /* File */,
 				429E90DC2440903900416ABD /* Portfolio */,
 				42CDC02423BB980D00A86A42 /* MainView */,
@@ -556,13 +556,13 @@
 			path = HttpService;
 			sourceTree = "<group>";
 		};
-		42773263244B759600982DCD /* Order */ = {
+		42773263244B759600982DCD /* OrderVIew */ = {
 			isa = PBXGroup;
 			children = (
 				42773266244B75BB00982DCD /* Controller */,
 				42773265244B75B500982DCD /* Model */,
 			);
-			path = Order;
+			path = OrderVIew;
 			sourceTree = "<group>";
 		};
 		42773265244B75B500982DCD /* Model */ = {

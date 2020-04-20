@@ -10,7 +10,7 @@ import Foundation
 
 class OrderHttpService {
     
-    class func getStudentOrder( completion: @escaping(Error?, [OrderModel]?)->Void){
+    class func getStudentOrder( completion: @escaping(Error?, [[OrderModel]]?)->Void) {
         
         let urlStr = "https://bazis.madi.ru/stud/api/stud/prikaz"
         guard let url = URL(string: urlStr) else { return }
@@ -21,9 +21,10 @@ class OrderHttpService {
                 completion(err, nil)
             } else {
                 guard let datas = data else { return }
-                print(String(data: datas, encoding: .utf8))
-                //let data = try JSONDecoder().decode(Array<UspevModel>.self, from: datas)
-                //completion(nil, data)
+                if let json = try? JSONSerialization.jsonObject(with: datas, options: .mutableContainers) {
+                    let result = OrderModel.convertJson(json: json)
+                    completion(nil, result)
+                }
             }
         }
         task.resume()
