@@ -18,7 +18,7 @@ protocol editPersonalInformationDelegate: class {
 // MARK: - навигация между информауией и окнами для редактирования
 class PortfolioController {
     
-    var delegate: editPersonalInformationDelegate!
+    weak var delegate: editPersonalInformationDelegate!
     
     //MARK: - изменение данных о работе
     func editWorkData(portfolio: PortfolioModel, index: Int, rootVC: UIViewController) {
@@ -26,7 +26,8 @@ class PortfolioController {
         guard let vc = sb.instantiateViewController(withIdentifier: "editWork") as? PortfolioWorkEditTableViewController else { return }
         vc.dataWork = portfolio.work[index]
         
-        vc.saveCloser = { newData in
+        vc.saveCloser = { [weak self] newData in
+            guard let self = self else { return }
             var editPortfolio = portfolio
             editPortfolio.work[index] = newData
             self.delegate.editPortfolioData(self, editData: editPortfolio)
@@ -46,12 +47,13 @@ class PortfolioController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
         
-        vc.saveCloser = { newData in
-             var editPortfolio = portfolio
+        vc.saveCloser = { [weak self] newData in
+            guard let self = self else { return }
+            var editPortfolio = portfolio
             editPortfolio.educ[index] = newData
-             self.delegate.editPortfolioData(self, editData: editPortfolio)
-         }
-         
+            self.delegate.editPortfolioData(self, editData: editPortfolio)
+        }
+        
          vc.deleteCloser = {
              var editPortfolio = portfolio
              editPortfolio.educ.remove(at: index)
@@ -67,7 +69,8 @@ class PortfolioController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editWork") as? PortfolioWorkEditTableViewController else { return }
         
-        vc.saveCloser = { newData in
+        vc.saveCloser = { [weak self] newData in
+            guard let self = self else { return }
             var editPortfolio = portfolio
             editPortfolio.work.append(newData)
             self.delegate.editPortfolioData(self, editData: editPortfolio)
@@ -82,7 +85,8 @@ class PortfolioController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
         
-        vc.saveCloser = { newData in
+        vc.saveCloser = { [weak self] newData in
+            guard let self = self else { return }
             var editPortfolio = portfolio
             editPortfolio.educ.append(newData)
             self.delegate.editPortfolioData(self, editData: editPortfolio)
@@ -99,8 +103,9 @@ class PortfolioController {
         guard let vc = sb.instantiateViewController(withIdentifier: "editInfo") as? PortfolioInfoEditTableViewController else { return }
         vc.allInformation = portfolio
         
-        vc.saveCloser = { newData in
+        vc.saveCloser = { [weak self] newData in
             if let portfolio = newData {
+                guard let self = self else { return }
                 self.delegate.editPortfolioData(self, editData: portfolio)
             }
         }

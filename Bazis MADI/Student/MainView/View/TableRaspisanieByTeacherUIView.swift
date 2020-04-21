@@ -12,7 +12,7 @@ protocol TableRaspisanieByTeacherDataSource {
     func raspisanieByTeacherTableData(_ parametrView: TableRaspisanieByTeacherUIView) -> [String]?
 }
 
-protocol TableRaspisanieByTeacherDelegate {
+protocol TableRaspisanieByTeacherDelegate: class {
     func selectTeacherButton(_ parametrView: TableRaspisanieByTeacherUIView, teacherData: String)
 }
 
@@ -34,7 +34,7 @@ class TableRaspisanieByTeacherUIView: UIView {
         scrollView.frame = self.bounds
     }
     
-    public var delegate: TableRaspisanieByTeacherDelegate?
+    weak var delegate: TableRaspisanieByTeacherDelegate?
     
     var raspisanieByTeacherDataSource: TableRaspisanieByTeacherDataSource? {
         didSet {

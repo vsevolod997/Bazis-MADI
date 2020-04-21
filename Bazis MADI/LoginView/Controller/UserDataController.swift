@@ -11,7 +11,7 @@ import Foundation
 //MARK: - класс для работы с аккаунтом
 class UserDataController {
     
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
     
     // MARK: - сохранение данных логина
     func setUserData(user: UserLoginData) {

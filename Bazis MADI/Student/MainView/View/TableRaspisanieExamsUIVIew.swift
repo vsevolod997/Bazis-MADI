@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TableRaspisanieExamsDataSource {
+protocol TableRaspisanieExamsDataSource: class {
     func raspisanieExamsTableData(_ parametrView: TableRaspisanieExamsUIView) -> [Exam]?
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TableRaspisanieTeacherDataSource {
+protocol TableRaspisanieTeacherDataSource: class {
     // MARK: - sub VC indexDay начинается с 0 - ПН, 1 - ВТ
     func raspisanieTableData(_ parametrView: TableRaspisanieTeacherUIVIew,  indexDay: Int) -> [DailyRaspisanieTeacher]?
     
@@ -20,7 +20,7 @@ protocol TableRaspisanieTeacherDataSource {
     // false знвменатель
 }
 
-protocol TableRaspisanieTeacherDelegate {
+protocol TableRaspisanieTeacherDelegate: class {
     func changedDay(_ parametrView: TableRaspisanieTeacherUIVIew, didSelectItem index: Int)
 }
 
@@ -41,7 +41,7 @@ class TableRaspisanieTeacherUIVIew: UIView {
         addGestRecognoizer()
     }
     
-    public var delegate: TableRaspisanieTeacherDelegate?
+    weak var delegate: TableRaspisanieTeacherDelegate?
     
     public var raspisanieViewDataSource: TableRaspisanieTeacherDataSource? {
         didSet{

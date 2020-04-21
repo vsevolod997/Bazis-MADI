@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: -  подписать VC логина
-protocol LoginViewDelegate {
+protocol LoginViewDelegate: class {
     // MARK: - ошибка логина
     func showError(_ controller: LoginController, error: String)
     // MARK: - показать след VC
@@ -18,7 +18,7 @@ protocol LoginViewDelegate {
 
 class LoginController {
     
-    public var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     static let server = "www.bazis.madi.ru"
     
@@ -82,5 +82,4 @@ class LoginController {
     fileprivate func error(message: String) {
         delegate?.showError(self ,error: message)
     }
-    
 }

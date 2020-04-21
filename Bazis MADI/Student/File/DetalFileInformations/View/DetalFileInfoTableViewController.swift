@@ -31,7 +31,7 @@ class DetalFileInfoTableViewController: UITableViewController {
     private var isSave = true
     private var isDonloadingFile = false
     
-    public var delegate: ShowReviewDelegate!
+    weak var delegate: ShowReviewDelegate!
     
     public var indexFile: Int!
     public var fileData: FileToShowModel!

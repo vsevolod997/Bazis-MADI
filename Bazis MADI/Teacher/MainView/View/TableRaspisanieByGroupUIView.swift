@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol TableRaspisanieByGroupDataSource {
+protocol TableRaspisanieByGroupDataSource: class {
     func raspisanieByGroupData(_ parametrView: TableRaspisanieByGroupUIView) -> [String]?
 }
 
-protocol TableRaspisanieByGroupDelegate {
+protocol TableRaspisanieByGroupDelegate: class {
     func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup: String)
 }
 
@@ -35,7 +35,7 @@ class TableRaspisanieByGroupUIView: UIView {
         scrollView.frame = self.bounds
     }
     
-    public var delegate: TableRaspisanieByGroupDelegate?
+    weak var delegate: TableRaspisanieByGroupDelegate?
     
     var raspisanieByGroupDataSource: TableRaspisanieByGroupDataSource? {
         didSet {

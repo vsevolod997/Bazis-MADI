@@ -15,9 +15,9 @@ protocol FileReviewDelegate: class {
 
 class DetailFileReviewTableViewController: UITableViewController {
 
-    var delegate: FileReviewDelegate!
+    weak var delegate: FileReviewDelegate!
     
-    var fileReview: [ReviewModel]!
+    public var fileReview: [ReviewModel]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

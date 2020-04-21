@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var inputButton: InputButton1UIButton!
     @IBOutlet weak var errorLabel: ErrorLabel!
     
-    var controller = LoginController()
+    private var controller = LoginController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

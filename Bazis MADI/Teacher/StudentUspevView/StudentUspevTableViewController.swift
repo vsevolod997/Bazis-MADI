@@ -10,11 +10,11 @@ import UIKit
 
 class StudentUspevTableViewController: UITableViewController {
     
-    private var uspevListByObj:[UspevStructDataByObject] = []
-    private var uspevListBySem:[UspevStructData] = []
-    private var cellList:[IndexPath] = []
-    private var allMarkList:[UspevModel] = []
-    private var foundMarkList:[UspevModel] = []
+    private var uspevListByObj: [UspevStructDataByObject] = []
+    private var uspevListBySem: [UspevStructData] = []
+    private var cellList: [IndexPath] = []
+    private var allMarkList: [UspevModel] = []
+    private var foundMarkList: [UspevModel] = []
     
     private var sectionsButtons: [UIButton] = []
     private let searchController = UISearchController() // строка поиска

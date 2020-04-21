@@ -26,7 +26,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     private var endDatePicker = UIDatePicker()
     private var startDatePicker = UIDatePicker()
     
-    var dataWork: [String?]!
+    public var dataWork: [String?]!
     
     private var newDataWork: [String?] = []
     
@@ -156,7 +156,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
         let toolBar = UIToolbar()
         //toolBar.isTranslucent = true
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(selectStartDate(_:)))
+        let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(selectEndDate(_:)))
         let spacer = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         toolBar.setItems([spacer, doneButton], animated: true)
         
@@ -193,7 +193,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     
     //MARK: -  доступность кнопки сохранения
     private func controlSaveButtonEnabled() {
-        //print(controlChangedData())
+        
         if controlChangedData() {
             saveButton.isEnabled = true
         } else {

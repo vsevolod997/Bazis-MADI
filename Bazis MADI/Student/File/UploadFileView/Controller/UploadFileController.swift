@@ -29,7 +29,7 @@ class UploadFileController {
     private let notificationFileAdd = Notification.Name("fileAdd")
     
     private let  httpService = UploadFileHTTPService()
-    public var delegate: UploadFileDelegate!
+    weak var delegate: UploadFileDelegate!
     
     public func selectUploadFile(urlFile: URL) {
         let file = urlFile.lastPathComponent
