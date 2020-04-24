@@ -16,7 +16,7 @@ class FileViewController: UIViewController {
     
     private var lastKnowContentOfsset: CGFloat = 0.0
     
-    private var isClose = false
+    private var isClose = false // флаг отображаеться кнопка "добавить или нет"
     private var isFileMode = true
     private var isLoad = false
     private var isHaveFile = false
@@ -252,7 +252,7 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         if isLoad {
             if isFileMode {
                 if isHaveFile {
-                     return fileData.count
+                    return fileData.count
                 } else {
                     return 1
                 }
@@ -304,12 +304,14 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
             vc.dirrectory = fileDirectoryData[indexPath.row].path
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            //fileDetal
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
-            vc.fileData = fileData[indexPath.row]
-            vc.indexFile = indexPath.row
-            present(vc, animated: true)
+            if isHaveFile {
+                //fileDetal
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
+                vc.fileData = fileData[indexPath.row]
+                vc.indexFile = indexPath.row
+                present(vc, animated: true)
+            }
         }
     }
 }

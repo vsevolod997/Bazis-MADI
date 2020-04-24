@@ -13,7 +13,7 @@ class OrderTableViewController: UITableViewController {
 
     private let notificationReload = Notification.Name("reloadData")
     
-    private var orders: [[OrderModel]] = []
+    private var orders: [OrderModel] = []
     private var errorVC: ErrorViewUIView!
     private var isLoad: Bool = false
     
@@ -54,7 +54,6 @@ class OrderTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         self.orders = orderData
                         self.isLoad = true
-                        print(orderData)
                         self.tableView.reloadData()
                     }
                 }
@@ -106,7 +105,7 @@ extension OrderTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isLoad {
-            return orders[section].count
+            return orders[section].lineModel.count
         } else {
             return 1
         }
@@ -115,8 +114,8 @@ extension OrderTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoad {
             let cell = tableView.dequeueReusableCell(withIdentifier: "partOrder", for: indexPath)
-            cell.textLabel?.text = orders[indexPath.section][indexPath.row].lineTitle
-            cell.detailTextLabel?.text = orders[indexPath.section][indexPath.row].lineData as! String
+            cell.textLabel?.text = orders[indexPath.section].lineModel[indexPath.row].lineTitle
+            cell.detailTextLabel?.text = orders[indexPath.section].lineModel[indexPath.row].lineData as? String
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadOrdCell", for: indexPath)
@@ -124,4 +123,12 @@ extension OrderTableViewController {
         }
     }
     
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if isLoad {
+            return orders[section].title
+        } else {
+            return nil
+        }
+    }
 }

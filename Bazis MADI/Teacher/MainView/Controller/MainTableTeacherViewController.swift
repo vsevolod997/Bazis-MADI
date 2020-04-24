@@ -227,7 +227,9 @@ class MainTableTeacherViewController: UITableViewController {
     
     // MARK: - нажатин кнопки все, у расписания
     @objc func selectAllGroup() {
-        
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "studSearch") as? SearchStudentsTableViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

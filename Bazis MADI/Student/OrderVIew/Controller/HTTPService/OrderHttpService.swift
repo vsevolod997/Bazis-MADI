@@ -10,7 +10,7 @@ import Foundation
 
 class OrderHttpService {
     
-    class func getStudentOrder( completion: @escaping(Error?, [[OrderModel]]?)->Void) {
+    class func getStudentOrder( completion: @escaping(Error?, [OrderModel]?)->Void) {
         
         let urlStr = "https://bazis.madi.ru/stud/api/stud/prikaz"
         guard let url = URL(string: urlStr) else { return }

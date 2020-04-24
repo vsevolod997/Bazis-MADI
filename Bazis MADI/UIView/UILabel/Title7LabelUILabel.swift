@@ -22,7 +22,7 @@ class Title7LabelUILabel: UILabel {
     
     fileprivate func setup() {
         //font = UIFont.systemFont(ofSize: 11)
-        font = UIFont.systemFont(ofSize: 11, weight: .semibold)
+        font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         textColor = SystemColor.grayColor
         alpha = 0.7
     }

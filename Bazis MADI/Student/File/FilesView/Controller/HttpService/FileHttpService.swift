@@ -20,6 +20,7 @@ class FileHTTPService {
                 complition(err, nil)
             } else {
                 guard let datas = data else { return }
+                print(String(data: datas, encoding: .utf8))
                 do {
                     let dataEncode = try JSONDecoder().decode(Array<FileDirectoryModel>.self, from: datas)
                     complition(nil, dataEncode)

@@ -74,7 +74,11 @@ class StudentInfoTableViewController: UITableViewController {
     }
     
     private func showFileView() {
-        
+        //studFile
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "studFile") as? StudentFileViewController else { return }
+        vc.studentInfo = self.studentInfo
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

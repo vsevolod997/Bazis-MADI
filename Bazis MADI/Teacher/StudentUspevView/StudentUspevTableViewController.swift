@@ -117,6 +117,8 @@ class StudentUspevTableViewController: UITableViewController {
             } else {
                 title = String(buff[0])
             }
+        } else {
+            title = "Успеваемость"
         }
        
         searchController.delegate = self
@@ -214,7 +216,7 @@ class StudentUspevTableViewController: UITableViewController {
         
     }
     
-    //MARK: - cell select anomation
+    //MARK: - cell select animation
     private func animateCellSelection(cell: UITableViewCell ) {
         UIView.animate(withDuration: 0.3, animations: {
             cell.alpha = 0.8
@@ -412,6 +414,12 @@ extension StudentUspevTableViewController {
         view.addSubview(button)
         return view
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+         if scrollView == tableView {
+             view.endEditing(true)
+         }
+     }
 }
 
 //MARK: - Table view Delegate
@@ -483,6 +491,7 @@ extension StudentUspevTableViewController: UISearchControllerDelegate {
 
 // MARK: - UISearchResultUpdate
 extension StudentUspevTableViewController: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         cellList = []
         filterData(searchText: searchController.searchBar.text!)

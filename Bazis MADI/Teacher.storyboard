@@ -2,12 +2,179 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Search Students Table View Controller-->
+        <scene sceneID="IK3-0N-wiO">
+            <objects>
+                <tableViewController storyboardIdentifier="studSearch" id="75H-Js-4j7" customClass="SearchStudentsTableViewController" customModule="МАДИ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pxu-uS-gCh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="studentCell" rowHeight="70" id="bes-3M-KWl" customClass="SudentInGroupTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bes-3M-KWl" id="dsr-LQ-esS">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9i6-Lm-6pC" customClass="UserIcoUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="14" width="42" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="egG-kr-Ati"/>
+                                                <constraint firstAttribute="height" constant="42" id="nHD-By-DYq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H8-B6-553" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="69" y="14" width="306" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="mhC-OI-Rwj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7H8-B6-553" firstAttribute="leading" secondItem="9i6-Lm-6pC" secondAttribute="trailing" constant="16" id="2vM-PI-xgM"/>
+                                        <constraint firstItem="9i6-Lm-6pC" firstAttribute="leading" secondItem="dsr-LQ-esS" secondAttribute="leading" constant="11" id="VLA-RZ-bOW"/>
+                                        <constraint firstItem="7H8-B6-553" firstAttribute="centerY" secondItem="dsr-LQ-esS" secondAttribute="centerY" constant="1.5" id="qgx-GO-wLV"/>
+                                        <constraint firstItem="9i6-Lm-6pC" firstAttribute="centerY" secondItem="dsr-LQ-esS" secondAttribute="centerY" id="uBF-q0-mo7"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7H8-B6-553" secondAttribute="trailing" constant="39" id="fzV-EW-GDM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="icoLabel" destination="9i6-Lm-6pC" id="k3v-ac-GPR"/>
+                                    <outlet property="nameLabel" destination="7H8-B6-553" id="Iwv-iD-5kJ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="studentSearchCell" rowHeight="80" id="lrn-u7-w3S" customClass="StudInSearchTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="98" width="414" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lrn-u7-w3S" id="3qw-TY-YOQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbe-NB-QCs" customClass="UserIcoUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="13" width="42" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="IWW-dV-7mN"/>
+                                                <constraint firstAttribute="height" constant="42" id="X6n-eO-3Mr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-Sv-P34" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="69" y="13" width="306" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="E9T-v4-bdE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-ha-JKZ" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="59" width="57" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="57" id="RIy-Ys-g6x"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tlV-ha-JKZ" firstAttribute="leading" secondItem="Kbe-NB-QCs" secondAttribute="leading" id="7uT-66-BfA"/>
+                                        <constraint firstItem="Xbg-Sv-P34" firstAttribute="top" secondItem="Kbe-NB-QCs" secondAttribute="top" id="Ln9-ut-y1r"/>
+                                        <constraint firstAttribute="bottom" secondItem="tlV-ha-JKZ" secondAttribute="bottom" id="SUe-US-17a"/>
+                                        <constraint firstItem="Kbe-NB-QCs" firstAttribute="top" secondItem="3qw-TY-YOQ" secondAttribute="top" constant="13" id="UEp-GJ-Hwe"/>
+                                        <constraint firstItem="Kbe-NB-QCs" firstAttribute="leading" secondItem="3qw-TY-YOQ" secondAttribute="leading" constant="11" id="Uy2-Se-ick"/>
+                                        <constraint firstItem="Xbg-Sv-P34" firstAttribute="leading" secondItem="Kbe-NB-QCs" secondAttribute="trailing" constant="16" id="fTl-lk-sXs"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Xbg-Sv-P34" secondAttribute="trailing" constant="39" id="Occ-uA-psP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="fullNameLabel" destination="Xbg-Sv-P34" id="StH-CL-18T"/>
+                                    <outlet property="groupLabel" destination="tlV-ha-JKZ" id="uw5-SH-eHS"/>
+                                    <outlet property="icoLabel" destination="Kbe-NB-QCs" id="Kpb-e2-7NQ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadStud" rowHeight="70" id="EGA-1X-0Fb">
+                                <rect key="frame" x="0.0" y="178" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EGA-1X-0Fb" id="vrp-yv-FZ7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Gqq-2G-q0c">
+                                            <rect key="frame" x="20" y="25" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="Jeb-se-dG7"/>
+                                                <constraint firstAttribute="height" constant="20" id="WVR-LV-7NA"/>
+                                            </constraints>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выполняется поиск..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yY-pa-4gO" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="48" y="25" width="317" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5yY-pa-4gO" firstAttribute="leading" secondItem="Gqq-2G-q0c" secondAttribute="trailing" constant="8" id="V0d-Fg-uBX"/>
+                                        <constraint firstAttribute="trailing" secondItem="5yY-pa-4gO" secondAttribute="trailing" constant="49" id="byq-gs-sET"/>
+                                        <constraint firstItem="5yY-pa-4gO" firstAttribute="top" secondItem="Gqq-2G-q0c" secondAttribute="top" id="gEB-tC-IPn"/>
+                                        <constraint firstItem="Gqq-2G-q0c" firstAttribute="leading" secondItem="vrp-yv-FZ7" secondAttribute="leading" constant="20" id="osq-Yg-71w"/>
+                                        <constraint firstItem="Gqq-2G-q0c" firstAttribute="top" secondItem="vrp-yv-FZ7" secondAttribute="top" constant="25" id="qPD-mc-oqg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notFoundStud" rowHeight="70" id="bIf-55-ohx">
+                                <rect key="frame" x="0.0" y="248" width="414" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bIf-55-ohx" id="ios-wJ-Reg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="По вашему запросу ничего не найденно, попробуйте изменить параметры запроса" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-vl-vvH" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="14.666666666666668" width="374" height="40.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="y2b-vl-vvH" firstAttribute="centerY" secondItem="ios-wJ-Reg" secondAttribute="centerY" id="Dfo-yj-sj3"/>
+                                        <constraint firstItem="y2b-vl-vvH" firstAttribute="leading" secondItem="ios-wJ-Reg" secondAttribute="leading" constant="20" id="O1X-af-7Zw"/>
+                                        <constraint firstItem="y2b-vl-vvH" firstAttribute="centerX" secondItem="ios-wJ-Reg" secondAttribute="centerX" id="QAh-TU-9y2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="75H-Js-4j7" id="KXL-KJ-1L0"/>
+                            <outlet property="delegate" destination="75H-Js-4j7" id="YCR-Qf-DIL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xz-05-6ls" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3166.666666666667" y="-2152.2321428571427"/>
+        </scene>
         <!--Главная-->
         <scene sceneID="Zbp-jS-8Um">
             <objects>
@@ -270,7 +437,7 @@
                                                     <rect key="frame" x="75" y="11" width="227" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="ColorGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="studentGroup" translatesAutoresizingMaskIntoConstraints="NO" id="M5K-19-EXC">
@@ -291,7 +458,7 @@
                                                     <rect key="frame" x="75" y="11" width="227" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="ColorGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="file" translatesAutoresizingMaskIntoConstraints="NO" id="WUw-aJ-z5z">
@@ -695,10 +862,10 @@
             </objects>
             <point key="canvasLocation" x="5261" y="-1408"/>
         </scene>
-        <!--Teacher Files View Controller-->
+        <!--Student File View Controller-->
         <scene sceneID="eOd-jM-twd">
             <objects>
-                <viewController storyboardIdentifier="file" id="LDn-9x-r1c" customClass="TeacherFilesViewController" customModule="МАДИ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="studFile" id="LDn-9x-r1c" customClass="StudentFileViewController" customModule="МАДИ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ubn-Um-doE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -707,57 +874,8 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="folderCell" rowHeight="79" id="tkN-As-Wvn" customClass="FolderTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tkN-As-Wvn" id="IHz-4E-f2s">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="79"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="oFT-tJ-QWT">
-                                                    <rect key="frame" x="15" y="16" width="38" height="38"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="38" id="q9z-7H-dhr"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="\2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYz-1o-Nwy" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="349" y="27" width="24" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="24" id="iYe-hf-fqc"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="ColorBlue"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-iH-xOM" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="61" y="11" width="280" height="57"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="kYz-1o-Nwy" firstAttribute="top" secondItem="IHz-4E-f2s" secondAttribute="topMargin" constant="16" id="BZ3-6R-rbC"/>
-                                                <constraint firstItem="kYz-1o-Nwy" firstAttribute="leading" secondItem="Rsa-iH-xOM" secondAttribute="trailing" constant="8" id="Bk3-tq-y6r"/>
-                                                <constraint firstItem="Rsa-iH-xOM" firstAttribute="leading" secondItem="oFT-tJ-QWT" secondAttribute="trailing" constant="8" id="DEG-Oc-ZvM"/>
-                                                <constraint firstItem="Rsa-iH-xOM" firstAttribute="bottom" secondItem="IHz-4E-f2s" secondAttribute="bottomMargin" id="GFX-Ao-giW"/>
-                                                <constraint firstItem="oFT-tJ-QWT" firstAttribute="leading" secondItem="IHz-4E-f2s" secondAttribute="leadingMargin" constant="-5" id="PqZ-WY-00S"/>
-                                                <constraint firstItem="Rsa-iH-xOM" firstAttribute="centerY" secondItem="kYz-1o-Nwy" secondAttribute="centerY" id="Zlt-AN-D4v"/>
-                                                <constraint firstItem="Rsa-iH-xOM" firstAttribute="top" secondItem="IHz-4E-f2s" secondAttribute="topMargin" id="iC2-o7-Dhv"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="oFT-tJ-QWT" secondAttribute="bottom" constant="14" id="mY3-eq-7SM"/>
-                                                <constraint firstItem="oFT-tJ-QWT" firstAttribute="top" secondItem="IHz-4E-f2s" secondAttribute="topMargin" constant="5" id="zyg-IY-kuO"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="kYz-1o-Nwy" secondAttribute="trailing" constant="41" id="2h4-cv-NN7"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="countLabel" destination="kYz-1o-Nwy" id="34t-WW-gW1"/>
-                                            <outlet property="nameLabel" destination="Rsa-iH-xOM" id="yNe-Pa-mp8"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadCell" rowHeight="96" id="Hk1-GS-OvF" userLabel="loadCell">
-                                        <rect key="frame" x="0.0" y="107" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hk1-GS-OvF" id="GC9-XI-PF2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -778,7 +896,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="fileCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="142" id="0QL-Bu-87D" userLabel="fileCell" customClass="FileTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="203" width="414" height="142"/>
+                                        <rect key="frame" x="0.0" y="124" width="414" height="142"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0QL-Bu-87D" id="mbd-QA-9Q4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
@@ -840,7 +958,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="nullCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="nullCell" rowHeight="60" id="1I4-bg-Ufk" userLabel="nullCell">
-                                        <rect key="frame" x="0.0" y="345" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="266" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1I4-bg-Ufk" id="Qoh-ka-uC9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -862,14 +980,6 @@
                                     <outlet property="delegate" destination="LDn-9x-r1c" id="hoU-nc-b8F"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uT-Q4-trH" customClass="AddButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="177" y="721" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="addButtonPress:" destination="LDn-9x-r1c" eventType="touchUpInside" id="f4d-lO-cF4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -881,13 +991,12 @@
                         <viewLayoutGuide key="safeArea" id="cNE-g6-cjR"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="1uT-Q4-trH" id="rqK-9H-2Aw"/>
                         <outlet property="tableView" destination="6Tn-iu-an9" id="ylX-Kz-NPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2o-EX-zv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5330" y="-2211"/>
+            <point key="canvasLocation" x="5261" y="-704"/>
         </scene>
         <!--Teacher File In Folder View Controller-->
         <scene sceneID="Lbs-gd-M9R">
@@ -1648,6 +1757,200 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3d-KQ-Qt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7142" y="-1398"/>
+        </scene>
+        <!--Teacher Files View Controller-->
+        <scene sceneID="SK8-Tl-M9u">
+            <objects>
+                <viewController storyboardIdentifier="file" id="6P3-2D-krO" customClass="TeacherFilesViewController" customModule="МАДИ" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l7n-8S-huT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BQH-YX-sFN">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="folderCell" rowHeight="79" id="2hp-kk-qed" customClass="FolderTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2hp-kk-qed" id="gFk-DA-Z9W">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="qsP-Ms-NIL">
+                                                    <rect key="frame" x="15" y="16" width="38" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="38" id="Zyf-I1-jxO"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="\2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1F-dB-umV" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="349" y="27" width="24" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="b1v-E2-djt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="ColorBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydJ-7z-oMT" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="61" y="11" width="280" height="57"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qsP-Ms-NIL" firstAttribute="leading" secondItem="gFk-DA-Z9W" secondAttribute="leadingMargin" constant="-5" id="2eY-xQ-MXi"/>
+                                                <constraint firstItem="K1F-dB-umV" firstAttribute="leading" secondItem="ydJ-7z-oMT" secondAttribute="trailing" constant="8" id="J8C-VX-wXv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qsP-Ms-NIL" secondAttribute="bottom" constant="14" id="MfE-JL-fMc"/>
+                                                <constraint firstItem="ydJ-7z-oMT" firstAttribute="leading" secondItem="qsP-Ms-NIL" secondAttribute="trailing" constant="8" id="T32-z0-90C"/>
+                                                <constraint firstItem="ydJ-7z-oMT" firstAttribute="centerY" secondItem="K1F-dB-umV" secondAttribute="centerY" id="gA8-Yy-MR5"/>
+                                                <constraint firstItem="qsP-Ms-NIL" firstAttribute="top" secondItem="gFk-DA-Z9W" secondAttribute="topMargin" constant="5" id="n4J-uz-FNk"/>
+                                                <constraint firstItem="ydJ-7z-oMT" firstAttribute="bottom" secondItem="gFk-DA-Z9W" secondAttribute="bottomMargin" id="or4-RG-LXs"/>
+                                                <constraint firstItem="ydJ-7z-oMT" firstAttribute="top" secondItem="gFk-DA-Z9W" secondAttribute="topMargin" id="pw4-Fz-nWq"/>
+                                                <constraint firstItem="K1F-dB-umV" firstAttribute="top" secondItem="gFk-DA-Z9W" secondAttribute="topMargin" constant="16" id="uXS-ok-88U"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="K1F-dB-umV" secondAttribute="trailing" constant="41" id="lar-Zd-FZh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="countLabel" destination="K1F-dB-umV" id="KZW-6V-TDp"/>
+                                            <outlet property="nameLabel" destination="ydJ-7z-oMT" id="bms-P3-guq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="loadCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadCell" rowHeight="96" id="KCw-Mn-jhj" userLabel="loadCell">
+                                        <rect key="frame" x="0.0" y="107" width="414" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KCw-Mn-jhj" id="JlR-yQ-S1W">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Загрузка данных..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbP-YQ-l0C" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="-1" y="64" width="415" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VxC-AV-34E">
+                                                    <rect key="frame" x="197" y="26" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="fileCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fileCell" rowHeight="142" id="SDM-IK-RrM" userLabel="fileCell" customClass="FileTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="203" width="414" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SDM-IK-RrM" id="VXP-Pb-red">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-eT-z1Q">
+                                                    <rect key="frame" x="15" y="19" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="Q8c-s5-B4k"/>
+                                                        <constraint firstAttribute="width" constant="80" id="mgh-HX-hvn"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPw-tc-Sgc" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="104" y="11" width="290" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s27-1p-6Tz" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="109" width="80" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="cjg-rx-oHc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGo-qz-ca1" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="104" y="57" width="290" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEK-Hd-Puh" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="104" y="108" width="290" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s27-1p-6Tz" firstAttribute="width" secondItem="DRf-eT-z1Q" secondAttribute="width" id="6aC-9a-vwX"/>
+                                                <constraint firstItem="s27-1p-6Tz" firstAttribute="leading" secondItem="VXP-Pb-red" secondAttribute="leading" constant="16" id="FtU-ZS-BZf"/>
+                                                <constraint firstItem="DRf-eT-z1Q" firstAttribute="leading" secondItem="VXP-Pb-red" secondAttribute="leading" constant="15" id="Fw2-F7-TFU"/>
+                                                <constraint firstItem="s27-1p-6Tz" firstAttribute="top" secondItem="DRf-eT-z1Q" secondAttribute="bottom" constant="10" id="HeP-pb-JOa"/>
+                                                <constraint firstItem="DRf-eT-z1Q" firstAttribute="top" secondItem="VXP-Pb-red" secondAttribute="top" constant="19" id="cdA-Fn-0KI"/>
+                                                <constraint firstAttribute="bottom" secondItem="s27-1p-6Tz" secondAttribute="bottom" constant="10" id="yMM-BZ-WLa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DateLabel" destination="XEK-Hd-Puh" id="sKh-li-62K"/>
+                                            <outlet property="NameLabel" destination="kPw-tc-Sgc" id="Z2q-P4-c6r"/>
+                                            <outlet property="PathLabel" destination="cGo-qz-ca1" id="8J1-H7-H5E"/>
+                                            <outlet property="SizeLabel" destination="s27-1p-6Tz" id="8uy-WT-nGP"/>
+                                            <outlet property="TypeImage" destination="DRf-eT-z1Q" id="fEr-XT-dqs"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="nullCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="nullCell" rowHeight="60" id="sTV-f3-CtU" userLabel="nullCell">
+                                        <rect key="frame" x="0.0" y="345" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sTV-f3-CtU" id="WgQ-eq-HtW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Здесь пока нет ни одного файла..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjO-kS-hYA" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                    <rect key="frame" x="17" y="20" width="377" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6P3-2D-krO" id="H3v-Q9-lD6"/>
+                                    <outlet property="delegate" destination="6P3-2D-krO" id="yWW-q3-zLo"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVk-u1-ikl" customClass="AddButtonUIButton" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="177" y="721" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addButtonPress:" destination="6P3-2D-krO" eventType="touchUpInside" id="7ZM-NG-fgl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BQH-YX-sFN" firstAttribute="centerX" secondItem="l7n-8S-huT" secondAttribute="centerX" id="FeI-c7-ir6"/>
+                            <constraint firstItem="BQH-YX-sFN" firstAttribute="leading" secondItem="98Q-RP-CHR" secondAttribute="leading" id="bwv-KS-AZt"/>
+                            <constraint firstItem="BQH-YX-sFN" firstAttribute="top" secondItem="98Q-RP-CHR" secondAttribute="top" id="cvC-wD-8DU"/>
+                            <constraint firstItem="BQH-YX-sFN" firstAttribute="bottom" secondItem="98Q-RP-CHR" secondAttribute="bottom" id="lJa-Yd-cau"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="98Q-RP-CHR"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="RVk-u1-ikl" id="Yf5-dv-9ag"/>
+                        <outlet property="tableView" destination="BQH-YX-sFN" id="Xc4-b4-1Ys"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jem-wQ-sDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5261" y="-2211"/>
         </scene>
     </scenes>
     <resources>

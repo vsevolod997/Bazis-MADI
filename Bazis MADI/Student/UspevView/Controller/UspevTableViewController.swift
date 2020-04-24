@@ -453,6 +453,12 @@ extension UspevTableViewController {
             }
         }
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+         if scrollView == tableView {
+             view.endEditing(true)
+         }
+     }
 }
 
 // MARK: - UISearchControllerDelegate

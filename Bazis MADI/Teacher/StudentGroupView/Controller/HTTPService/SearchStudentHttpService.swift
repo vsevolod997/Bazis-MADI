@@ -40,8 +40,7 @@ class SearchStudentHttpService {
     //поиск студента по ФИО
     class func searchStudent(fio: String , complition: @escaping(Error?, [StudentModel]?) -> Void) {
         
-        let body = "group=\(fio)"
-        
+        let body = "fio=\(fio)"
         let urlStr = "https://bazis.madi.ru/stud/api/stud/find"
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = URL(string: urlsStr)!

@@ -18,8 +18,8 @@ class HttpServiceRaspisanieTeacher {
         //let urlStr = "https://api.shastin.xyz/schedule.php?teacher=Юрчик П.Ф."
         guard let urlsStr =  urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = URL(string: urlsStr)!
-        let urlReqest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: urlReqest) { (data, response, error) in
+        let urlRequest = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let err = error {
                 complition(err, nil)
             } else {
