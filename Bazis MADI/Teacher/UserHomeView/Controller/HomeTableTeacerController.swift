@@ -138,7 +138,7 @@ class HomeTableTeacerController: UITableViewController {
             exitUserButton()
         }
         if indexPath.row == 0 && indexPath.section == 1 {
-            
+            changedStudentView()
         }
         if indexPath.row == 1 && indexPath.section == 1 {
             changedFileView()
@@ -149,14 +149,16 @@ class HomeTableTeacerController: UITableViewController {
     }
     
     private func changedStudentView() {
-       
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = storyboard?.instantiateViewController(identifier: "studSearch") as? SearchStudentsTableViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     //MARK: - переход к окну смены пароля
     private func changedPasViewShow() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "password") as? PasswordChangeViewController else { return }
-        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -416,10 +416,10 @@ extension StudentUspevTableViewController {
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-         if scrollView == tableView {
-             view.endEditing(true)
-         }
-     }
+        if scrollView == tableView {
+            searchController.searchBar.endEditing(true)
+        }
+    }
 }
 
 //MARK: - Table view Delegate

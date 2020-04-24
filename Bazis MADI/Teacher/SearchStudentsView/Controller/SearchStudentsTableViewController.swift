@@ -8,21 +8,24 @@
 
 import UIKit
 
+//MARK: - "состояние файла"
 enum LoadStatus {
     case loading, loadGroup, loadStud, notFound, wait
 }
 
+//MARK: - как сделать
 class SearchStudentsTableViewController: UITableViewController {
     
     private let notificationReload = Notification.Name("reloadData")
     
     private var errorVC: ErrorViewUIView!
-    private var isSearching = false
+    
     private var isSearchGroup = true // true - group, false - student by fio
-    private let searchController = UISearchController() // строка поиска
     private var studentList: [StudentModel] = []
     private var activStudent: [StudentModel] = []
     private var oldStudent: [StudentModel] = []
+    
+    private let searchController = UISearchController() // строка поиска
     
     private var status: LoadStatus = .wait
     
