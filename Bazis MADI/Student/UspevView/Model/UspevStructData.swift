@@ -36,16 +36,17 @@ class UspevStructData {
         var count: Int = 0
         for res in resultDict {
             
-            var sumMark: Double = 0.0
             var countSum: Double = 0.0
-
-            for obj in res.1 {
-                if let mark = Double(obj.ocenka ?? "") {
-                    sumMark += mark
-                    countSum += 1
+            let sum = res.1.reduce(0) { (total, elem) in
+                if let mark = Int(elem.ocenka ?? "") {
+                    countSum += 1.0
+                    return total + mark
+                } else {
+                    return total + 0
                 }
             }
-            let sredMark = sumMark / countSum
+            
+            let sredMark =  Double(sum) / countSum
             
             let results = UspevStructData(sem: count, sredMark: Double(sredMark), dataSem: res.1.sorted(by: {$0.vid > $1.vid}) )
             uspevReturnData.append(results)

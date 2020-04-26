@@ -100,8 +100,7 @@ class SearchStudentsTableViewController: UITableViewController {
         oldStudent = []
         activStudent = []
         studentList = []
-        searchController.searchBar.text = ""
-        tableView.reloadData()
+        updateSearchResults(for: searchController)
     }
     
     
@@ -341,10 +340,14 @@ extension SearchStudentsTableViewController: UISearchControllerDelegate, UISearc
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchStr = searchController.searchBar.text else { return }
-        if isSearchGroup {
-            searchGroup(group: searchStr)
+        if searchStr.count > 2 {
+            if isSearchGroup {
+                searchGroup(group: searchStr)
+            } else {
+                searchStudent(fio: searchStr)
+            }
         } else {
-            searchStudent(fio: searchStr)
+            status = .wait
         }
     }
     

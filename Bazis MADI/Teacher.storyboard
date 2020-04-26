@@ -86,10 +86,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-ha-JKZ" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="11" y="59" width="57" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="57" id="RIy-Ys-g6x"/>
-                                            </constraints>
+                                            <rect key="frame" x="11" y="59" width="41.666666666666664" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

@@ -106,6 +106,8 @@
 		42B21D6623D778A200E1EC17 /* UspevTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */; };
 		42B28888244468EA00D702DE /* StudentInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */; };
 		42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4A27924324D330026F526 /* CountLabelUILabel.swift */; };
+		42B5AFCC24561B3800DE1975 /* StudentDetailFileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5AFCB24561B3800DE1975 /* StudentDetailFileTableViewController.swift */; };
+		42B5AFCE24561C0900DE1975 /* StudFileDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B5AFCD24561C0900DE1975 /* StudFileDetailController.swift */; };
 		42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7C86123DB505600BA320B /* UspevStructData.swift */; };
 		42BA287E239D16FC00ED1D3F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */; };
 		42BE877F240FE01800CF6A84 /* EditingTextFieldUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */; };
@@ -248,6 +250,8 @@
 		42B21D6523D778A200E1EC17 /* UspevTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevTableViewCell.swift; sourceTree = "<group>"; };
 		42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoTableViewController.swift; sourceTree = "<group>"; };
 		42B4A27924324D330026F526 /* CountLabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountLabelUILabel.swift; sourceTree = "<group>"; };
+		42B5AFCB24561B3800DE1975 /* StudentDetailFileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailFileTableViewController.swift; sourceTree = "<group>"; };
+		42B5AFCD24561C0900DE1975 /* StudFileDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudFileDetailController.swift; sourceTree = "<group>"; };
 		42B7C86123DB505600BA320B /* UspevStructData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UspevStructData.swift; sourceTree = "<group>"; };
 		42BA287D239D16FC00ED1D3F /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		42BE877E240FE01800CF6A84 /* EditingTextFieldUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTextFieldUITextField.swift; sourceTree = "<group>"; };
@@ -302,8 +306,8 @@
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				42B5AFC62456191900DE1975 /* StudentFiles */,
 				4251FF022451D8AB00EAFB13 /* SearchStudentsView */,
-				421BABEA24462C5A0000C8C3 /* StudentFIleView */,
 				421BABE924462C300000C8C3 /* StudentUspevView */,
 				421BABE024460AA00000C8C3 /* StudentPortfolioView */,
 				42B28886244468AC00D702DE /* StudentInfoView */,
@@ -868,6 +872,48 @@
 			path = StudentInfoView;
 			sourceTree = "<group>";
 		};
+		42B5AFC62456191900DE1975 /* StudentFiles */ = {
+			isa = PBXGroup;
+			children = (
+				42B5AFC72456194B00DE1975 /* StudentDetailFileInfoView */,
+				421BABEA24462C5A0000C8C3 /* StudentFIleView */,
+			);
+			path = StudentFiles;
+			sourceTree = "<group>";
+		};
+		42B5AFC72456194B00DE1975 /* StudentDetailFileInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				42B5AFC924561A2200DE1975 /* View */,
+				42B5AFC8245619F900DE1975 /* Controller */,
+			);
+			path = StudentDetailFileInfoView;
+			sourceTree = "<group>";
+		};
+		42B5AFC8245619F900DE1975 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42B5AFCA24561A3B00DE1975 /* HttpService */,
+				42B5AFCD24561C0900DE1975 /* StudFileDetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42B5AFC924561A2200DE1975 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42B5AFCB24561B3800DE1975 /* StudentDetailFileTableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42B5AFCA24561A3B00DE1975 /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HttpService;
+			sourceTree = "<group>";
+		};
 		42BFCFC2243380B60018D6D5 /* DetailFileInformationMainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1401,6 +1447,7 @@
 				429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */,
 				42AEAD5E241AA644005430D2 /* CancelButtonUIButton.swift in Sources */,
 				42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */,
+				42B5AFCC24561B3800DE1975 /* StudentDetailFileTableViewController.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
 				42AA02A8240E5184006F0FDA /* PorfolioHttpService.swift in Sources */,
 				42CDC01B23B7DEE500A86A42 /* ClassesUIView.swift in Sources */,
@@ -1470,6 +1517,7 @@
 				4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */,
 				42B28888244468EA00D702DE /* StudentInfoTableViewController.swift in Sources */,
 				424525D2238ED431008C5EBD /* SceneDelegate.swift in Sources */,
+				42B5AFCE24561C0900DE1975 /* StudFileDetailController.swift in Sources */,
 				42B4A27A24324D330026F526 /* CountLabelUILabel.swift in Sources */,
 				426AD0E323914961003362B1 /* UserModel.swift in Sources */,
 				42BFCFCF2434EC950018D6D5 /* UploadFileTableViewController.swift in Sources */,

@@ -1,26 +1,26 @@
 //
-//  FileDetalController.swift
+//  StudFileDetailController.swift
 //  Bazis MADI
 //
-//  Created by Всеволод Андрющенко on 27.03.2020.
+//  Created by Всеволод Андрющенко on 26.04.2020.
 //  Copyright © 2020 Всеволод Андрющенко. All rights reserved.
 //
 
-
 import Foundation
 
+
 //MARK:- InfoFileDelegate коньроль данных по файлу
-protocol InfoFileDelegate: class {
-    func loadDescFile(fileDesc: DescModel, controller: FileDetalController)
+protocol StudInfoFileDelegate: class {
+    func loadDescFile(fileDesc: DescModel, controller: StudFileDetailController)
     
-    func setNewDescFile(fileDiscString: String, controller: FileDetalController)
+    func setNewDescFile(fileDiscString: String, controller: StudFileDetailController)
     
-    func showError(errorMess: String, controller: FileDetalController)
+    func showError(errorMess: String, controller: StudFileDetailController)
 }
 
-class FileDetalController {
+class StudFileDetailController {
     
-    weak var delegate: InfoFileDelegate!
+    weak var delegate: StudInfoFileDelegate!
     
     private let notificationFileDelete = Notification.Name("fileDelete")
     
@@ -69,3 +69,4 @@ class FileDetalController {
         }
     }
 }
+
