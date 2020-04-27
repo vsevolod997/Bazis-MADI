@@ -12,8 +12,17 @@ class StudentFileViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var isLoad = false
-    private var isHaveFile = false
+    private var isLoad = false {
+        didSet {
+            tableView.separatorStyle = isLoad ? .singleLine : .none
+        }
+    }
+    private var isHaveFile = false {
+        didSet {
+            tableView.separatorStyle = isHaveFile ? .singleLine : .none
+        }
+    }
+    
     
     private var fileData: [FileToShowModel]!
     private let controller = FileToShowModelController()
@@ -97,6 +106,12 @@ class StudentFileViewController: UIViewController {
                         self.isLoad = true
                         self.tableView.reloadData()
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        self.isLoad = true
+                        self.isHaveFile = false
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
@@ -107,7 +122,7 @@ class StudentFileViewController: UIViewController {
         view.addSubview(errorVC)
     }
     
-    private func setupFilesSelection(filesShow: [FileToShowModel]?) -> Bool{
+    private func setupFilesSelection(filesShow: [FileToShowModel]?) -> Bool {
         if let files = filesShow {
             if files.count > 0 {
                 return true
@@ -138,7 +153,7 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if isLoad {
-            return fileData.count
+            return isHaveFile ? fileData.count : 1
         } else {
             return 1
         }
@@ -166,10 +181,10 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
         
         if isHaveFile {
             //fileDetal
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
+            let sb = UIStoryboard(name: "Teacher", bundle: nil)
+            guard let vc = sb.instantiateViewController(identifier: "studentFileDetail") as? StudentDetailFileTableViewController else { return }
             vc.fileData = fileData[indexPath.row]
-            vc.indexFile = indexPath.row
+            vc.student = studentInfo
             present(vc, animated: true)
         }
     }

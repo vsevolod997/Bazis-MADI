@@ -12,12 +12,10 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
     
-    @IBOutlet weak var recCountLabel: CountLabelUILabel!
+    
     @IBOutlet weak var fileImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var deliteButton: CancelButtonUIButton!
-    
-    @IBOutlet weak var saveDescButton: DoneButtonUIButton!
+   
     @IBOutlet weak var textField: InfoTextViewUITextView!
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
@@ -28,12 +26,12 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     weak var delegate: ShowReviewDelegate!
     
-    public var indexFile: Int!
     public var fileData: FileToShowModel!
+    public var student: StudentModel!
     
     private var fileDesc: DescModel!
     
-    private var controller = FileDetalController()
+    private var controller = StudFileDetailController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +39,6 @@ class StudentDetailFileTableViewController: UITableViewController {
         controller.delegate = self
         setData()
         addGestue()
-        setupView()
     }
     
     private func addGestue() {
@@ -58,16 +55,12 @@ class StudentDetailFileTableViewController: UITableViewController {
         delegate.showReviewDelegate(fileReview: fileDesc.ref as! [ReviewModel])
     }
     
-    private func setupView() {
-        saveDescButton.isEnabled = false
-    }
-    
     private func setData() {
         if let file = fileData {
             fileNameLabel.text = file.name
             fileImage.image = file.typeIMG
             dateLabel.text = file.date
-            controller.loadDesc(fileName: file.name)
+            controller.loadDesc(fileName: file.name, studentIdc: student.idc)
         }
     }
     
@@ -82,7 +75,7 @@ class StudentDetailFileTableViewController: UITableViewController {
             
             var request = URLRequest(url:fileURL!)
             request.httpMethod = "POST"
-            request.httpBody = "&p=\(fileData.name)".data(using: .utf8)
+            request.httpBody = "&p=\(fileData.name)&uic=\(student.idc)".data(using: .utf8)
             
             let task = session.downloadTask(with: request)
             task.resume()
@@ -94,24 +87,6 @@ class StudentDetailFileTableViewController: UITableViewController {
             let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
             self.present(activityViewController, animated: true, completion: nil)
         }
-    }
-    
-    @IBAction func deleteButtonPress(_ sender: Any) {
-        let alert = UIAlertController(title: "Удаление!", message: "Вы уверенны, что хотите удалить \(fileData.name)?", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { (action) in
-            self.controller.fileDelete(index: self.indexFile!, nameFile: self.fileData.name)
-            self.dismiss(animated: true, completion: nil)
-        }
-        alert.addAction(deleteAction)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-    }
-    
-    @IBAction func saveDescButtonPress(_ sender: Any) {
-        guard let file = fileData else { return }
-        controller.updateDesc(fileName:file.name, textDesc: textField.text)
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
@@ -129,48 +104,28 @@ class StudentDetailFileTableViewController: UITableViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
-    private func controlEnablebSaveButton() {
-        if fileDesc.text != textField.text {
-            isSave = false
-            saveDescButton.isEnabled = true
-        } else {
-            isSave = true
-            saveDescButton.isEnabled = false
-        }
-    }
 }
 
 //MARK: - InfoFileDelegate
-extension StudentDetailFileTableViewController: InfoFileDelegate {
+extension StudentDetailFileTableViewController: StudInfoFileDelegate {
     
-    func loadDescFile(fileDesc: DescModel, controller: FileDetalController) {
+    func loadDescFile(fileDesc: DescModel, controller: StudFileDetailController) {
         self.fileDesc = fileDesc
         self.textField.text = fileDesc.text
-        self.recCountLabel.text = String(fileDesc.ref.count)
     }
     
-    func setNewDescFile(fileDiscString: String, controller: FileDetalController) {
+    func setNewDescFile(fileDiscString: String, controller: StudFileDetailController) {
         self.textField.text = fileDiscString
         self.fileDesc.text = fileDiscString
         dismiss(animated: true, completion: nil)
     }
     
-    func showError(errorMess: String, controller: FileDetalController) {
+    func showError(errorMess: String, controller: StudFileDetailController) {
         let alertController = UIAlertController(title: "", message: errorMess, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(alertAction)
         
         present(alertController, animated: true)
-    }
-}
-
-//MARK: - UITextViewDelegate
-extension StudentDetailFileTableViewController: UITextViewDelegate {
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        controlEnablebSaveButton()
     }
 }
 
@@ -193,8 +148,6 @@ extension StudentDetailFileTableViewController: URLSessionDownloadDelegate {
         } catch let error {
             print("Copy Error: \(error.localizedDescription)")
         }
-        
-        //isDonloadingFile = false
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

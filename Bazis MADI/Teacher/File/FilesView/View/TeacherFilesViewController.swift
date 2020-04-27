@@ -17,9 +17,22 @@ class TeacherFilesViewController: UIViewController {
     private var lastKnowContentOfsset: CGFloat = 0.0
     
     private var isClose = false
-    private var isFileMode = true
-    private var isLoad = false
-    private var isHaveFile = false
+    private var isFileMode = true  {
+        didSet {
+            tableView.separatorStyle = fileDirectoryData.count != 0 ? .singleLine : .singleLine
+        }
+    }
+    
+    private var isLoad = false {
+        didSet {
+            tableView.separatorStyle = isLoad ? .singleLine : .none
+        }
+    }
+    private var isHaveFile = false {
+        didSet {
+            tableView.separatorStyle = isHaveFile ? .singleLine : .none
+        }
+    }
     
     private var fileData: [FileToShowModel]!
     private var fileDirectoryData: [FileDirectoryModel]!
@@ -162,6 +175,12 @@ class TeacherFilesViewController: UIViewController {
                         let fileModel = self.controller.setupShowFileToData(modelFile: file)
                         self.isHaveFile = self.setupFilesSelection(filesShow: fileModel)
                         self.fileData = fileModel
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.isLoad = true
+                        self.isHaveFile = false
                         self.tableView.reloadData()
                     }
                 }

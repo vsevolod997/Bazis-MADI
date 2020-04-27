@@ -71,8 +71,9 @@ class FileInFolderViewController: UIViewController {
     }
     
     private func setupView() {
+        tableView.separatorStyle = filesInFolder.count > 0 ? .singleLine : .none
+        
         navigationItem.prompt = "Файлы"
-        //navigationController?.navigationBar.
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor

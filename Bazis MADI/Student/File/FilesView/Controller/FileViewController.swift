@@ -18,8 +18,17 @@ class FileViewController: UIViewController {
     
     private var isClose = false // флаг отображаеться кнопка "добавить или нет"
     private var isFileMode = true
-    private var isLoad = false
-    private var isHaveFile = false
+   
+    private var isLoad = false {
+        didSet {
+            tableView.separatorStyle = isLoad ? .singleLine : .none
+        }
+    }
+    private var isHaveFile = false {
+        didSet {
+            tableView.separatorStyle = isHaveFile ? .singleLine : .none
+        }
+    }
     
     private var fileData: [FileToShowModel]!
     private var fileDirectoryData: [FileDirectoryModel]!
@@ -85,6 +94,8 @@ class FileViewController: UIViewController {
     
     //MARK: - Настройки окна
     private func setupView() {
+        
+        tableView.separatorStyle = .none
         
         let segmentController = UISegmentedControl(items: ["Каталоги", "Файлы"])
         segmentController.selectedSegmentIndex = 1
@@ -163,10 +174,16 @@ class FileViewController: UIViewController {
             } else {
                 if let file = fileData {
                     DispatchQueue.main.async {
+                        self.isLoad = true
                         let fileModel = self.controller.setupShowFileToData(modelFile: file)
                         self.isHaveFile = self.setupFilesSelection(filesShow: fileModel)
                         self.fileData = fileModel
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    DispatchQueue.main.async {
                         self.isLoad = true
+                        self.isHaveFile = false
                         self.tableView.reloadData()
                     }
                 }

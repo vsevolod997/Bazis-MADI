@@ -2258,7 +2258,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="325" y="7" width="50" height="31"/>
+                                                    <rect key="frame" x="325" y="7" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2647,7 +2647,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="318" y="7" width="49" height="31"/>
+                                                    <rect key="frame" x="316" y="7" width="50" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>
@@ -2942,7 +2942,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCn-Tk-l2k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7121.739130434783" y="93.75"/>
+            <point key="canvasLocation" x="7193" y="94"/>
         </scene>
     </scenes>
     <resources>

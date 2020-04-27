@@ -13,7 +13,7 @@ enum LoadStatus {
     case loading, loadGroup, loadStud, notFound, wait
 }
 
-//MARK: - как сделать
+//MARK: - поиск студентов
 class SearchStudentsTableViewController: UITableViewController {
     
     private let notificationReload = Notification.Name("reloadData")
@@ -27,10 +27,23 @@ class SearchStudentsTableViewController: UITableViewController {
     
     private let searchController = UISearchController() // строка поиска
     
-    private var status: LoadStatus = .wait
+    private var status: LoadStatus = .wait {
+        didSet {
+            switch status {
+            case .loadGroup:
+                tableView.separatorStyle = .singleLine
+            case .loadStud:
+                tableView.separatorStyle = .singleLine
+            default:
+                tableView.separatorStyle = .none
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.separatorStyle = .none
         
         setupNavBar()
         addGestue()
@@ -50,7 +63,6 @@ class SearchStudentsTableViewController: UITableViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.automaticallyShowsScopeBar = true
         searchController.hidesNavigationBarDuringPresentation = false
-        
         searchController.searchBar.scopeButtonTitles = ["Группа", "Студент"]
         searchController.searchBar.showsScopeBar = true
         
@@ -336,6 +348,7 @@ extension SearchStudentsTableViewController {
     
 }
 
+// MARK: - UISearchControllerDelegate, UISearchResultsUpdating
 extension SearchStudentsTableViewController: UISearchControllerDelegate, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -348,7 +361,11 @@ extension SearchStudentsTableViewController: UISearchControllerDelegate, UISearc
             }
         } else {
             status = .wait
+            studentList = []
+            activStudent = []
+            oldStudent = []
+            
+            tableView.reloadData()
         }
     }
-    
 }

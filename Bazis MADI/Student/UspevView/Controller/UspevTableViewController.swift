@@ -136,7 +136,6 @@ class UspevTableViewController: UITableViewController {
         if let field = searchField {
             field.backgroundColor = .systemGroupedBackground
             field.layer.cornerRadius = 15.0
-            //field.textColor = SystemColor.whiteColor
             field.tintColor = SystemColor.blueColor
         }
         
@@ -148,8 +147,6 @@ class UspevTableViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = SystemColor.blueColor
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.blueColor]
         
-
-        //let leftButton = UIBarButtonItem(title: "Назад", style: .done, target: self, action: #selector(backButtonPress))
         let img = UIImage(named: "backButton")
         let backButton = UIBarButtonItem(image: img , style: .done, target: self, action: #selector(backButtonPress) )
         navigationItem.leftBarButtonItem = backButton

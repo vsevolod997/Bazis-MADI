@@ -62,6 +62,7 @@
 		425467FC2397B656001D26AA /* KeySessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FB2397B656001D26AA /* KeySessionController.swift */; };
 		425467FE2398E9E2001D26AA /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425467FD2398E9E2001D26AA /* UserDataController.swift */; };
 		425468012398ED18001D26AA /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425468002398ED18001D26AA /* UserLoginData.swift */; };
+		4269AFDC24573987004A2F38 /* StudentDetailHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269AFDB24573987004A2F38 /* StudentDetailHttpService.swift */; };
 		426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0DE2391456A003362B1 /* UserLogin.swift */; };
 		426AD0E323914961003362B1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E223914961003362B1 /* UserModel.swift */; };
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
@@ -206,6 +207,7 @@
 		425467FB2397B656001D26AA /* KeySessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeySessionController.swift; sourceTree = "<group>"; };
 		425467FD2398E9E2001D26AA /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
 		425468002398ED18001D26AA /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
+		4269AFDB24573987004A2F38 /* StudentDetailHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailHttpService.swift; sourceTree = "<group>"; };
 		426AD0DE2391456A003362B1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		426AD0E223914961003362B1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
@@ -910,6 +912,7 @@
 		42B5AFCA24561A3B00DE1975 /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
+				4269AFDB24573987004A2F38 /* StudentDetailHttpService.swift */,
 			);
 			path = HttpService;
 			sourceTree = "<group>";
@@ -1438,6 +1441,7 @@
 				42BFCFCB2433833E0018D6D5 /* DetalFileMainViewController.swift in Sources */,
 				42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */,
 				42F67303241EBA1800865044 /* PortfolioInfoEditTableViewController.swift in Sources */,
+				4269AFDC24573987004A2F38 /* StudentDetailHttpService.swift in Sources */,
 				42D5F0BA244200C700BDFF29 /* StudentInGroupModel.swift in Sources */,
 				420B2DF12428E34A00A6BEF9 /* FileDirectoryModel.swift in Sources */,
 				429E90E8244097B900416ABD /* SudentInGroupTableViewCell.swift in Sources */,
