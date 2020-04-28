@@ -13,7 +13,7 @@ protocol TableRaspisanieByGroupDataSource: class {
 }
 
 protocol TableRaspisanieByGroupDelegate: class {
-    func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup: String)
+    func selectShowInfoGroup(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup: String)
 }
 
 
@@ -75,7 +75,7 @@ class TableRaspisanieByGroupUIView: UIView {
                 view.transform = .init(scaleX: 0.8, y: 0.8)
                 view.alpha = 0.8
             }) { (anim) in
-                self.delegate?.selectTeacherButton(self, selectedGroup: self.groups[view.tag])
+                self.delegate?.selectShowInfoGroup(self, selectedGroup: self.groups[view.tag])
                 UIView.animate(withDuration: 0.01) {
                     view.transform = .init(scaleX: 1, y: 1)
                     view.alpha = 1

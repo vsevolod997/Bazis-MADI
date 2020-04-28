@@ -28,6 +28,7 @@ class MainTableViewController: UITableViewController {
     private var examRaspisanie: RaspisanieExamModel!
     private var allRaspisanie: RaspisanieModel!
     private var isWeekNow: Bool = true
+    private var isLoad: Bool = false
     
     private var notificationReload = Notification.Name("reloadData")
     
@@ -103,10 +104,10 @@ class MainTableViewController: UITableViewController {
                                 self.allRaspisanie = raspis
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
                                 self.raspisanieByTeacher.setupDataView()
-                                
+                                self.isLoad = true
                                 self.removeErrorView()
                                 self.removeCloseView()
-                                
+                                self.tableView.reloadData()
                             }
                             self.selectWeakType(raspisanieData: raspis)
                         }
@@ -321,51 +322,54 @@ extension MainTableViewController: TableRaspisanieByTeacherDelegate {
 extension MainTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        switch section {
-        case 0:
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
-            title.text = "Расписание"
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
-            view.addSubview(title)
-            
-            return view
-        case 1:
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
-            
-            if !SystemDevice().isNormalDevice {
-                title.text = "По преподавателям"
-            } else {
-                title.text = "Расписание по преподавателям"
-            }// проверка устройства
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
-            view.addSubview(title)
-            
-            let allButton = ShowMoreUIButton()
-            allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
-            view.addSubview(allButton)
-            allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)
-            
-            return view
-        case 2:
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = SystemColor.blueColor
-            let title = Title4LabelUILabel()
-            title.textColor = SystemColor.whiteColor
-            title.text = "Расписание экзаменов"
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
-            view.addSubview(title)
-            
-            return view
-        default:
-            return UIView()
+        if isLoad {
+            switch section {
+            case 0:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = .systemBackground
+                let title = Title4LabelUILabel()
+                title.text = "Расписание"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            case 1:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = .systemBackground
+                let title = Title4LabelUILabel()
+                
+                if !SystemDevice().isNormalDevice {
+                    title.text = "По преподавателям"
+                } else {
+                    title.text = "Расписание по преподавателям"
+                }// проверка устройства
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width - 50, height: 30)
+                view.addSubview(title)
+                
+                let allButton = ShowMoreUIButton()
+                allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
+                view.addSubview(allButton)
+                allButton.addTarget(self, action: #selector(allTeacherButton), for: .touchUpInside)
+                
+                return view
+            case 2:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = SystemColor.blueColor
+                let title = Title4LabelUILabel()
+                title.textColor = SystemColor.whiteColor
+                title.text = "Расписание экзаменов"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            default:
+                return UIView()
+            }
+        } else {
+            return nil
         }
     }
 }

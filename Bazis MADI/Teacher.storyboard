@@ -197,7 +197,7 @@
                                                         <segment title="Числитель"/>
                                                         <segment title="Знаменатель"/>
                                                     </segments>
-                                                    <color key="selectedSegmentTintColor" red="0.12610858680000001" green="0.30407720799999999" blue="0.4980638027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="selectedSegmentTintColor" name="ColorBlue"/>
                                                     <connections>
                                                         <action selector="changetTypeWeak:" destination="RID-Kw-eb0" eventType="valueChanged" id="Q2i-vS-RxB"/>
                                                     </connections>
@@ -788,7 +788,7 @@
                                                     <rect key="frame" x="75" y="14" width="223" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="ColorGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="statistic" translatesAutoresizingMaskIntoConstraints="NO" id="9mf-jy-jk8">
@@ -810,7 +810,7 @@
                                                     <rect key="frame" x="75" y="12" width="198" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="ColorGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="portfolio" translatesAutoresizingMaskIntoConstraints="NO" id="KkB-cD-Ybd">
@@ -831,7 +831,7 @@
                                                     <rect key="frame" x="75" y="11" width="227" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                    <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" name="ColorGray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="file" translatesAutoresizingMaskIntoConstraints="NO" id="lTc-nx-kEt">

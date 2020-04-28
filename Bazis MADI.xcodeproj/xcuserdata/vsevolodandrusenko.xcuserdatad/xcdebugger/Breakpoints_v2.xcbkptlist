@@ -508,8 +508,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "MainTableTeacherViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -524,8 +524,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "raspisanieSet(teacherName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -540,8 +540,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "raspisanieSet(teacherName:)"
             landmarkType = "7">
             <Locations>
@@ -588,8 +588,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "raspisanieSet(teacherName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -604,8 +604,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "MainTableTeacherViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -620,8 +620,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getDataRaspisanie()"
             landmarkType = "7">
          </BreakpointContent>
@@ -636,8 +636,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "getDataRaspisanie()"
             landmarkType = "7">
          </BreakpointContent>
@@ -652,8 +652,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "selectWeakType(raspisanieData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -668,8 +668,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "selectWeakType(raspisanieData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -684,8 +684,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "MainTableTeacherViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -700,8 +700,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "selectWeakType(raspisanieData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -716,8 +716,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "selectWeakType(raspisanieData:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -876,8 +876,8 @@
             filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "getExamRaspisanie(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -886,86 +886,6 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "037ADC17-4279-4761-8201-EC3A124B714E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "74AB317E-9D20-446C-9CCF-228D7C69D1B3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A776656F-1BD8-4F58-B5D7-7DE111162259"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "44B11645-3D00-4549-B25B-E4697C376C50"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "14989CAB-98C2-41F2-95FF-E2E60AA39F3E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "777BC326-E68D-48D5-B895-08F5666BFD98"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -981,23 +901,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "400E0672-B7E6-49CA-9DCE-974D1DFC381A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "getExamRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4DD6027E-2CFE-4F6B-88D6-41D94182D5E7"
+            uuid = "74AB317E-9D20-446C-9CCF-228D7C69D1B3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1013,7 +917,39 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "76769128-F8D9-4DAD-8E0E-939E9BD5610A"
+            uuid = "A776656F-1BD8-4F58-B5D7-7DE111162259"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44B11645-3D00-4549-B25B-E4697C376C50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14989CAB-98C2-41F2-95FF-E2E60AA39F3E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1022,6 +958,70 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "777BC326-E68D-48D5-B895-08F5666BFD98"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "400E0672-B7E6-49CA-9DCE-974D1DFC381A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DD6027E-2CFE-4F6B-88D6-41D94182D5E7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "getExamRaspisanie(groupName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76769128-F8D9-4DAD-8E0E-939E9BD5610A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "getExamRaspisanie(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1052,8 +1052,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "changetTypeWeak(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1148,8 +1148,8 @@
             filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "MainTableViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -1308,8 +1308,8 @@
             filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "getUserRaspisanie(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1324,8 +1324,8 @@
             filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "getUserRaspisanie(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1429,7 +1429,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3E070977-4B65-4E84-8CAC-A0EE47101911"
+            uuid = "3ED086F4-2AD9-4DEC-808A-C9731F95A9CB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1445,7 +1445,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3ED086F4-2AD9-4DEC-808A-C9731F95A9CB"
+            uuid = "50069254-24C5-46FD-A16D-C985CF71AEA4"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1454,22 +1454,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "getUserRaspisanie(groupName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50069254-24C5-46FD-A16D-C985CF71AEA4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/MainView/Controller/MainTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
             landmarkName = "getUserRaspisanie(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1963,8 +1947,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "MainTableTeacherViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -1995,8 +1979,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "countDayliView(teacherRaspisanie:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2011,8 +1995,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "raspisanieDayliWorkCount(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2027,8 +2011,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "raspisanieDayliWorkCount(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2059,8 +2043,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "raspisanieSet(teacherName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2075,8 +2059,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "setDayControl(dayCount:dayNow:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2091,8 +2075,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "setDayControl(dayCount:dayNow:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2107,8 +2091,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "setDayControl(dayCount:dayNow:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3496,8 +3480,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "330"
-            endingLineNumber = "330"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "showGroupStudentView(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3512,8 +3496,8 @@
             filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "showGroupStudentView(groupName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4322,7 +4306,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0ABA587E-A063-4830-9A18-CD89233FB1A3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bazis MADI/Teacher/StudentUspevView/StudentUspevTableViewController.swift"
@@ -4370,7 +4354,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "53E4E2AA-741C-4D66-A11B-A943AC72F64D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bazis MADI/Teacher/StudentUspevView/StudentUspevTableViewController.swift"
@@ -4426,8 +4410,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "getFileData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4442,8 +4426,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4458,8 +4442,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
-            landmarkName = "getFileData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4490,8 +4474,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
             endingLineNumber = "170"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4506,8 +4490,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "164"
             endingLineNumber = "164"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4522,8 +4506,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
             endingLineNumber = "112"
-            landmarkName = "getFileData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -4556,6 +4540,70 @@
             endingLineNumber = "24"
             landmarkName = "isLoad"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A10DF875-0D79-4639-A8ED-6DAE420760B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "getDataRaspisanie()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD8E9F7F-FA9E-40B3-97D7-34CCBC421168"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "getDataRaspisanie()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB7E06CF-435F-4202-9B15-7C970063613C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "onNotification(notification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "59F1FD63-0232-4464-A55B-5F706A8D3E2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Teacher/MainView/Controller/MainTableTeacherViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "onNotification(notification:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

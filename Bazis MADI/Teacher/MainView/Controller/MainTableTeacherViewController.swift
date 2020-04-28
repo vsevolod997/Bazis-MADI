@@ -26,11 +26,13 @@ class MainTableTeacherViewController: UITableViewController {
     
     private var allRaspisanie: RaspisanieModelTeacher!
     private var isWeekNow: Bool = true
+    private var isLoad: Bool = false
     
     private var dayCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         raspisanieByGroupView.raspisanieByGroupDataSource = self
         raspisanieTable.raspisanieViewDataSource = self
         raspisanieTable.delegate = self
@@ -38,6 +40,7 @@ class MainTableTeacherViewController: UITableViewController {
         
         setupView()
         getDataRaspisanie()
+        addNotificationCenter()
     }
     
     private func addNotificationCenter() {
@@ -93,6 +96,7 @@ class MainTableTeacherViewController: UITableViewController {
                             print(errorLoad)
                         } else {
                             DispatchQueue.main.async {
+                                
                                 self.allRaspisanie = raspis
                                 self.dayCount = self.countDayliView(teacherRaspisanie: raspis)
                                 self.raspisanieTable.setupView(weekInCalendar: .now)
@@ -101,6 +105,9 @@ class MainTableTeacherViewController: UITableViewController {
                                 self.setDayControl(dayCount: self.dayCount, dayNow: self.weakRaspisanie.getToday())
                                 self.removeVC()
                                 self.removeErrorView()
+                                
+                                self.isLoad = true
+                                self.tableView.reloadData()
                             }
                             self.selectWeakType(raspisanieData: raspis)
                         }
@@ -282,7 +289,7 @@ extension MainTableTeacherViewController: TableRaspisanieTeacherDelegate {
 //MARK: - данные списка групп
 extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, TableRaspisanieByGroupDelegate {
     
-    func selectTeacherButton(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup : String) {
+    func selectShowInfoGroup(_ parametrView: TableRaspisanieByGroupUIView, selectedGroup : String) {
         
         let alert = UIAlertController(title: nil, message: "Группа: " + selectedGroup, preferredStyle: .actionSheet)
         
@@ -373,39 +380,42 @@ extension MainTableTeacherViewController: TableRaspisanieByGroupDataSource, Tabl
 extension MainTableTeacherViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        switch section {
-        case 0:
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
-            title.text = "Расписание"
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
-            view.addSubview(title)
-            
-            return view
-        case 1:
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
-            view.backgroundColor = .systemBackground
-            let title = Title4LabelUILabel()
-            if !SystemDevice().isNormalDevice {
-                title.text = "По группам"
-            } else {
-                title.text = "Расписание по группам"
-            }// проверка устройства
-            title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
-            view.addSubview(title)
-            
-            let allButton = ShowMoreUIButton()
-            allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
-            allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
-            view.addSubview(allButton)
+        if isLoad {
+            switch section {
+            case 0:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = .systemBackground
+                let title = Title4LabelUILabel()
+                title.text = "Расписание"
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                return view
+            case 1:
+                let view = UIView()
+                view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+                view.backgroundColor = .systemBackground
+                let title = Title4LabelUILabel()
+                if !SystemDevice().isNormalDevice {
+                    title.text = "По группам"
+                } else {
+                    title.text = "Расписание по группам"
+                }// проверка устройства
+                title.frame = CGRect(x: 15, y: 0, width: self.view.frame.width, height: 30)
+                view.addSubview(title)
+                
+                let allButton = ShowMoreUIButton()
+                allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
+                allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
+                view.addSubview(allButton)
 
-            return view
-        default:
-            return UIView()
+                return view
+            default:
+                return UIView()
+            }
+        } else {
+            return nil
         }
     }
 }
