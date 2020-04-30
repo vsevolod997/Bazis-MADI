@@ -10,7 +10,6 @@ import UIKit
 
 //MARK: - класс для раьоты с назыанием модели уст - ва
 class SystemDevice {
-    
     //MARK: - проверка на текущее уст во 
     var isNormalDevice: Bool { // true - normal, false - нет 
         //print(UIDevice.current.modelName)

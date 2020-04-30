@@ -134,6 +134,7 @@
 		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
 		42DEC2EE23FBEC9A0026425A /* InfioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */; };
 		42DEC2F023FBECB60026425A /* RaspisanieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */; };
+		42E0DFC5245AD87600A7C338 /* AddDellUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0DFC4245AD87600A7C338 /* AddDellUIButton.swift */; };
 		42E69FC6242BD7DA003DAC2A /* InfoTextViewUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */; };
 		42E69FCA242CA687003DAC2A /* DetailFileHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FC9242CA687003DAC2A /* DetailFileHttpService.swift */; };
 		42E69FCD242E4E99003DAC2A /* DescModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E69FCC242E4E99003DAC2A /* DescModel.swift */; };
@@ -279,6 +280,7 @@
 		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
 		42DEC2ED23FBEC9A0026425A /* InfioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfioTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2EF23FBECB60026425A /* RaspisanieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieTableViewCell.swift; sourceTree = "<group>"; };
+		42E0DFC4245AD87600A7C338 /* AddDellUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDellUIButton.swift; sourceTree = "<group>"; };
 		42E69FC5242BD7DA003DAC2A /* InfoTextViewUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTextViewUITextView.swift; sourceTree = "<group>"; };
 		42E69FC9242CA687003DAC2A /* DetailFileHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFileHttpService.swift; sourceTree = "<group>"; };
 		42E69FCC242E4E99003DAC2A /* DescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescModel.swift; sourceTree = "<group>"; };
@@ -1210,6 +1212,7 @@
 				42AEAD5D241AA644005430D2 /* CancelButtonUIButton.swift */,
 				420B2DEC2427EF0400A6BEF9 /* AddButtonUIButton.swift */,
 				42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */,
+				42E0DFC4245AD87600A7C338 /* AddDellUIButton.swift */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -1492,6 +1495,7 @@
 				42AEAD5624191E35005430D2 /* PortfolioController.swift in Sources */,
 				42AA02B4240E7164006F0FDA /* Title4WLabelUILabel.swift in Sources */,
 				42B7C86223DB505600BA320B /* UspevStructData.swift in Sources */,
+				42E0DFC5245AD87600A7C338 /* AddDellUIButton.swift in Sources */,
 				4252528324503C1E00AF7A2A /* OrderModel.swift in Sources */,
 				424525D0238ED431008C5EBD /* AppDelegate.swift in Sources */,
 				42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */,

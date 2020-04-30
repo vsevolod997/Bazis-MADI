@@ -12,6 +12,7 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
     
+    @IBOutlet weak var reviewLabel: Title7LabelUILabel!
     
     @IBOutlet weak var fileImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
@@ -20,6 +21,7 @@ class StudentDetailFileTableViewController: UITableViewController {
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
     @IBOutlet weak var donloadProgress: UIProgressView!
+    @IBOutlet weak var reviewAddDellButton: AddDellUIButton!
     
     private var isSave = true
     private var isDonloadingFile = false
@@ -104,6 +106,15 @@ class StudentDetailFileTableViewController: UITableViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    private func controlMyReference(ref: [ReviewModel?]) {
+        
+    }
+    
+    
+    @IBAction func addDellButtonPress(_ sender: Any) {
+        
+    }
 }
 
 //MARK: - InfoFileDelegate
@@ -111,6 +122,7 @@ extension StudentDetailFileTableViewController: StudInfoFileDelegate {
     
     func loadDescFile(fileDesc: DescModel, controller: StudFileDetailController) {
         self.fileDesc = fileDesc
+        self.controlMyReference(ref: fileDesc.ref)
         self.textField.text = fileDesc.text
     }
     

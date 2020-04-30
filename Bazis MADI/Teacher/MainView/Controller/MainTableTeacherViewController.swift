@@ -383,6 +383,7 @@ extension MainTableTeacherViewController {
         if isLoad {
             switch section {
             case 0:
+                
                 let view = UIView()
                 view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
                 view.backgroundColor = .systemBackground
@@ -409,13 +410,16 @@ extension MainTableTeacherViewController {
                 allButton.frame = CGRect(x: self.view.frame.width - 70, y: 0, width: 70, height: 30)
                 allButton.addTarget(self, action: #selector(selectAllGroup), for: .touchUpInside)
                 view.addSubview(allButton)
-
+                
                 return view
             default:
                 return UIView()
             }
         } else {
-            return nil
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = .clear
+            return view
         }
     }
 }

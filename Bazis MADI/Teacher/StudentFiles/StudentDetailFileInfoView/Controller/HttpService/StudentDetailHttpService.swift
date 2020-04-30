@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class StudentDetailHttpService {
     
     class func getFileDesc(nameFile: String, studUIC:String, complition: @escaping(Error?, DescModel?) -> Void) {
