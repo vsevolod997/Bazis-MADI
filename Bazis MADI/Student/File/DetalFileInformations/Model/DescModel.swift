@@ -10,7 +10,7 @@ import Foundation
 
 class DescModel: Decodable {
     var text: String?
-    var ref: [ReviewModel?]
+    var ref: [ReviewModel]?
 }
 
 class ReviewModel: Decodable {

@@ -9,7 +9,7 @@
 
 import Foundation
 
-//MARK:- InfoFileDelegate коньроль данных по файлу
+//MARK:- InfoFileDelegate контроль данных по файлу
 protocol InfoFileDelegate: class {
     func loadDescFile(fileDesc: DescModel, controller: FileDetalController)
     
@@ -23,7 +23,6 @@ class FileDetalController {
     weak var delegate: InfoFileDelegate!
     
     private let notificationFileDelete = Notification.Name("fileDelete")
-    
     
     func loadDesc(fileName: String) {
         DetailFileHttpService.getFileDesc(nameFile: fileName) { (err, descModel) in

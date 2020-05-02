@@ -906,7 +906,7 @@
                                                         <constraint firstAttribute="width" constant="80" id="MD8-GK-RaW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOC-Q8-dWg" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOC-Q8-dWg" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="104" y="11" width="290" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1967,7 +1967,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-LJ-bFi" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-LJ-bFi" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="78" y="14" width="288" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="sTH-w6-7aY"/>
@@ -2031,7 +2031,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-Am-iv5" customClass="InfoTextViewUITextView" customModule="МАДИ" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-Am-iv5" customClass="InfoTextViewUITextView" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="375" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2056,7 +2056,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецензия отсутствует" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TV-2n-gcf" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецензия отсутствует" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TV-2n-gcf" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="175" height="47"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2102,7 +2102,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
-                                                        <action selector="cancelButtonPress:" destination="4LM-UB-gmD" eventType="touchUpInside" id="Qqv-1y-bRk"/>
+                                                        <action selector="cancelButtonPress:" destination="4LM-UB-gmD" eventType="touchUpInside" id="4Rb-Sw-m1J"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2143,7 +2143,7 @@
         <image name="portfolio" width="512" height="512"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="statistic" width="512" height="512"/>
-        <image name="studentGroup" width="512" height="411"/>
+        <image name="studentGroup" width="512" height="512"/>
         <image name="userExit" width="512" height="512"/>
         <namedColor name="ColorBlue">
             <color red="0.12200000137090683" green="0.3059999942779541" blue="0.50999999046325684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

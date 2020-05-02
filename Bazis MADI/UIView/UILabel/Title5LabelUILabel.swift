@@ -21,8 +21,6 @@ class Title5LabelUILabel: UILabel {
     }
     
     fileprivate func setup() {
-        //font = UIFont(name: "Title 2", size: 24)
         font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        //textColor = SystemColor.grayColor
     }
 }

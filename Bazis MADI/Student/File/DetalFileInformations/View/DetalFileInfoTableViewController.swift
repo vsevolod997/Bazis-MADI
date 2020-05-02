@@ -60,7 +60,8 @@ class DetalFileInfoTableViewController: UITableViewController {
     
     //show reviewView
     @IBAction func showReviewButtonPres(_ sender: Any) {
-        delegate.showReviewDelegate(fileReview: fileDesc.ref as! [ReviewModel])
+        guard let review = fileDesc.ref else { return }
+        delegate.showReviewDelegate(fileReview: review)
     }
     
     private func setupView() {
@@ -153,7 +154,12 @@ extension DetalFileInfoTableViewController: InfoFileDelegate {
     func loadDescFile(fileDesc: DescModel, controller: FileDetalController) {
         self.fileDesc = fileDesc
         self.textField.text = fileDesc.text
-        self.recCountLabel.text = String(fileDesc.ref.count)
+        if let reviews = fileDesc.ref {
+            self.recCountLabel.text = String(reviews.count)
+        } else {
+            self.recCountLabel.text = "0"
+        }
+        
     }
     
     func setNewDescFile(fileDiscString: String, controller: FileDetalController) {

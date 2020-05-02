@@ -154,13 +154,12 @@ extension StudentPortfolioTableViewController {
                 cell.dataWork = portfolioData.work[indexPath.row]
                 return cell
             default:
-                UITableViewCell()
+                return UITableViewCell()
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadPortCell", for: indexPath)
             return cell
         }
-        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

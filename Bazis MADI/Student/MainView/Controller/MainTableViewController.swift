@@ -369,7 +369,10 @@ extension MainTableViewController {
                 return UIView()
             }
         } else {
-            return nil
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 20)
+            view.backgroundColor = UIColor.clear
+            return view
         }
     }
 }

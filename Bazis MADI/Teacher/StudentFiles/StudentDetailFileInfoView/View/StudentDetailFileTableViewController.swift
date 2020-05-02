@@ -11,7 +11,6 @@ import UIKit
 class StudentDetailFileTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
-    
     @IBOutlet weak var reviewLabel: Title7LabelUILabel!
     
     @IBOutlet weak var fileImage: UIImageView!
@@ -23,15 +22,17 @@ class StudentDetailFileTableViewController: UITableViewController {
     @IBOutlet weak var donloadProgress: UIProgressView!
     @IBOutlet weak var reviewAddDellButton: AddDellUIButton!
     
-    private var isSave = true
     private var isDonloadingFile = false
+    private var isHaveReview = false
     
-    weak var delegate: ShowReviewDelegate!
+   
     
     public var fileData: FileToShowModel!
     public var student: StudentModel!
     
     private var fileDesc: DescModel!
+    
+    weak var delegate: ShowReviewDelegate!
     
     private var controller = StudFileDetailController()
     
@@ -41,6 +42,7 @@ class StudentDetailFileTableViewController: UITableViewController {
         controller.delegate = self
         setData()
         addGestue()
+        addReviewGestue()
     }
     
     private func addGestue() {
@@ -48,13 +50,31 @@ class StudentDetailFileTableViewController: UITableViewController {
         view.addGestureRecognizer(tap)
     }
     
+    //MARK: - просмотр файла
+    private func addReviewGestue() {
+        let tapNameReview = UITapGestureRecognizer(target: self, action: #selector(showDetalReviewInfo))
+        reviewLabel.addGestureRecognizer(tapNameReview)
+    }
+    
+    @objc func showDetalReviewInfo() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.reviewLabel.transform = .init(scaleX: 1.2, y: 1.2)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.2) {
+                self.reviewLabel.transform = .init(scaleX: 1.0, y: 1.0)
+            }
+        })
+    }
+    
     @objc func tapGestue(_ gestue: UIGestureRecognizer) {
         view.endEditing(true)
     }
     
-    //show reviewView
-    @IBAction func showReviewButtonPres(_ sender: Any) {
-        delegate.showReviewDelegate(fileReview: fileDesc.ref as! [ReviewModel])
+    
+    private func showReviewFileInfo() {
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "file")
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setData() {
@@ -69,21 +89,17 @@ class StudentDetailFileTableViewController: UITableViewController {
     //MARK: - сохрвнение файла
     @IBAction func saveFileButtonPress(_ sender: Any) {
         if !isDonloadingFile {
-            
             isDonloadingFile = true
             let urlString = "https://bazis.madi.ru/stud/api/file/download"
             let fileURL = URL(string: urlString)
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-            
             var request = URLRequest(url:fileURL!)
             request.httpMethod = "POST"
             request.httpBody = "&p=\(fileData.name)&uic=\(student.idc)".data(using: .utf8)
             
             let task = session.downloadTask(with: request)
             task.resume()
-            
         } else {
-            
             let documentsPath = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]
             let destinationURL = documentsPath.appendingPathComponent(fileData.name)
             let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
@@ -91,52 +107,69 @@ class StudentDetailFileTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func cancelButtonPress(_ sender: Any) {
-        if !isSave {
-            let alert = UIAlertController(title: "Внимание!", message: "Присутствуют не сохраненные изменения, Вы уверенны что хотите выйти?", preferredStyle: .alert)
-            let exitAction = UIAlertAction(title: "Выход", style: .destructive) { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(exitAction)
-            let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-            alert.addAction(cancelAction)
-            
-            present(alert, animated: true)
+    
+    @IBAction func addDellButtonPress(_ sender: Any) {
+        if isHaveReview {
+            deliteReview()
         } else {
-            self.dismiss(animated: true, completion: nil)
+            print("add")
         }
     }
     
-    private func controlMyReference(ref: [ReviewModel?]) {
+    //удаление рецензии
+    private func deliteReview() {
+        let action = UIAlertController(title: "Внимание!", message: "Вы хотите удалить рецензию?", preferredStyle: .alert)
+        let dell = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            self.controller.deleteReview(fileName: self.fileData.name, studentIdc: self.student.idc)
+        }
+        action.addAction(dell)
         
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        action.addAction(cancel)
+    
+        present(action,animated: true)
     }
     
-    
-    @IBAction func addDellButtonPress(_ sender: Any) {
-        
+    @IBAction func cancelButtonPress(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
 //MARK: - InfoFileDelegate
 extension StudentDetailFileTableViewController: StudInfoFileDelegate {
     
+    func removeReview(controler: StudFileDetailController) {
+        reviewAddDellButton.setAddStyle()
+        isHaveReview = false
+        reviewLabel.text = "Рецензия отсутствует"
+        reviewLabel.textColor = .label
+        reviewLabel.isEnabled = false
+    }
+    
+    
+    func controlHavingReview(isHaveReview: Bool, revieName: String, controller: StudFileDetailController) {
+        self.isHaveReview = isHaveReview
+        
+        if isHaveReview {
+            reviewLabel.text = revieName
+            reviewLabel.textColor = .link
+            reviewLabel.isEnabled = true
+            reviewAddDellButton.setDellStyle()
+        }
+    }
+    
+    
     func loadDescFile(fileDesc: DescModel, controller: StudFileDetailController) {
         self.fileDesc = fileDesc
-        self.controlMyReference(ref: fileDesc.ref)
         self.textField.text = fileDesc.text
     }
     
-    func setNewDescFile(fileDiscString: String, controller: StudFileDetailController) {
-        self.textField.text = fileDiscString
-        self.fileDesc.text = fileDiscString
-        dismiss(animated: true, completion: nil)
-    }
-    
     func showError(errorMess: String, controller: StudFileDetailController) {
-        let alertController = UIAlertController(title: "", message: errorMess, preferredStyle: .alert)
+        reviewAddDellButton.isEnabled = false
+        reviewLabel.isEnabled = false
+        let alertController = UIAlertController(title: "Внимание", message: errorMess, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(alertAction)
-        
         present(alertController, animated: true)
     }
 }

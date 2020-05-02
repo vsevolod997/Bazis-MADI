@@ -36,7 +36,7 @@ class AddDellUIButton: UIButton {
     
     public func setDellStyle() {
         setTitle("Удалить", for: .normal)
-        backgroundColor = SystemColor.greenColor
+        backgroundColor = SystemColor.redColor
         layer.cornerRadius = 15
         alpha = 0.9
     }

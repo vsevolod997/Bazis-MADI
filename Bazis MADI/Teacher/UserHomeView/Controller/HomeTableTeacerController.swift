@@ -150,7 +150,7 @@ class HomeTableTeacerController: UITableViewController {
     
     private func changedStudentView() {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
-        guard let vc = storyboard?.instantiateViewController(identifier: "studSearch") as? SearchStudentsTableViewController else { return }
+        guard let vc = sb.instantiateViewController(identifier: "studSearch") as? SearchStudentsTableViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
