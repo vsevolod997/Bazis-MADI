@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-//MARK:- InfoFileDelegate коньроль данных по файлу
+//MARK:- InfoFileDelegate 
 protocol StudInfoFileDelegate: class {
     func loadDescFile(fileDesc: DescModel, controller: StudFileDetailController)
     
@@ -44,7 +43,7 @@ class StudFileDetailController {
     }
 
     
-    public func deleteReview(fileName: String, studentIdc: String){
+    public func deleteReview(fileName: String, studentIdc: String) {
         
         StudentDetailHttpService.deleteReviewFile(nameFile: fileName, studUIC: studentIdc, reviewName: reviewName) { (error, result) in
             if error != nil {
@@ -61,7 +60,7 @@ class StudFileDetailController {
             }
         }
     }
-    
+
     
     private func controlReview(ref: [ReviewModel]?) {
         let user = UserLogin.userNow.user.user_fio

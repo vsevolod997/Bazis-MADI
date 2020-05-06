@@ -8,6 +8,13 @@
 
 import UIKit
 
+//MARK: - StudentFileDetailControllerDelegate  для работы с main controller
+protocol StudentFileDetailControllerDelegate: class {
+    func showFileReviewView()
+    
+    func closeFileReviewView()
+}
+
 class StudentDetailFileTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
@@ -15,7 +22,7 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     @IBOutlet weak var fileImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
-   
+    
     @IBOutlet weak var textField: InfoTextViewUITextView!
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
@@ -25,14 +32,13 @@ class StudentDetailFileTableViewController: UITableViewController {
     private var isDonloadingFile = false
     private var isHaveReview = false
     
-   
-    
     public var fileData: FileToShowModel!
     public var student: StudentModel!
     
     private var fileDesc: DescModel!
     
     weak var delegate: ShowReviewDelegate!
+    weak var mainDelegate: StudentFileDetailControllerDelegate!
     
     private var controller = StudFileDetailController()
     
@@ -42,7 +48,13 @@ class StudentDetailFileTableViewController: UITableViewController {
         controller.delegate = self
         setData()
         addGestue()
-        addReviewGestue()
+    }
+    
+    // добавление нового review
+    public func selectNewReview(nameFile: String) {
+        isHaveReview = true
+        reviewAddDellButton.setDellStyle()
+        reviewLabel.text = nameFile
     }
     
     private func addGestue() {
@@ -50,27 +62,10 @@ class StudentDetailFileTableViewController: UITableViewController {
         view.addGestureRecognizer(tap)
     }
     
-    //MARK: - просмотр файла
-    private func addReviewGestue() {
-        let tapNameReview = UITapGestureRecognizer(target: self, action: #selector(showDetalReviewInfo))
-        reviewLabel.addGestureRecognizer(tapNameReview)
-    }
-    
-    @objc func showDetalReviewInfo() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.reviewLabel.transform = .init(scaleX: 1.2, y: 1.2)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.2) {
-                self.reviewLabel.transform = .init(scaleX: 1.0, y: 1.0)
-            }
-        })
-    }
-    
     @objc func tapGestue(_ gestue: UIGestureRecognizer) {
-        view.endEditing(true)
+        mainDelegate.closeFileReviewView()
     }
-    
-    
+        
     private func showReviewFileInfo() {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "file")
@@ -112,7 +107,7 @@ class StudentDetailFileTableViewController: UITableViewController {
         if isHaveReview {
             deliteReview()
         } else {
-            print("add")
+            selectNewReview()
         }
     }
     
@@ -126,8 +121,13 @@ class StudentDetailFileTableViewController: UITableViewController {
         
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         action.addAction(cancel)
+        
+        present(action, animated: true)
+    }
     
-        present(action,animated: true)
+    
+    private func selectNewReview() {
+        mainDelegate.showFileReviewView()
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {

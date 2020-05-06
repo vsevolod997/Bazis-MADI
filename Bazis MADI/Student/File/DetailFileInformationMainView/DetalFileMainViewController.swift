@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 //MARK:- родительский контроллер для просмотра информайии о файле
 class DetalFileMainViewController: UIViewController {
 

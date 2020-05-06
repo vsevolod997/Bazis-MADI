@@ -182,7 +182,7 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
         if isHaveFile {
             //fileDetal
             let sb = UIStoryboard(name: "Teacher", bundle: nil)
-            guard let vc = sb.instantiateViewController(identifier: "studentFileDetail") as? StudentDetailFileTableViewController else { return }
+            guard let vc = sb.instantiateViewController(identifier: "detailStudMain") as? DetailStudentFileMainViewController else { return }
             vc.fileData = fileData[indexPath.row]
             vc.student = studentInfo
             present(vc, animated: true)
