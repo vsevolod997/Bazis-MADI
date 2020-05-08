@@ -14,6 +14,8 @@ protocol SelectReviewFileDelegate: class {
     
     func scrollView(scrollValue: CGFloat, controller: UIViewController)
     
+    func finishScrollView(value: CGFloat, controller: UIViewController)
+    
     func selectView(fileSelected: FileToShowModel, controller: UIViewController)
     
     func deselectView(controller: UIViewController)
@@ -29,8 +31,7 @@ class SelectReviewViewController: UIViewController {
         }
     }
     
-    private var nowSelected = -1 //так как парвое выделение не может быть повторным
-    
+    private var nowSelected = -1 //так как первое выделение не может быть повторным
     private var isLoad = false {
         didSet {
             tableView.separatorStyle = isLoad ? .singleLine : .none
@@ -75,16 +76,16 @@ class SelectReviewViewController: UIViewController {
     //MARK: - Настройки окна
     private func setupView() {
         
-        let segmentController = UISegmentedControl(items: ["Каталоги", "Файлы"])
-        segmentController.selectedSegmentIndex = 1
-        segmentController.selectedSegmentTintColor = SystemColor.blueColor
-        segmentController.backgroundColor = .systemBackground
-        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
-        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
-        segmentController.addTarget(self, action: #selector(selectShowMode(_:)), for: .valueChanged)
-        navigationItem.titleView = segmentController
+//        let segmentController = UISegmentedControl(items: ["Каталоги", "Файлы"])
+//        segmentController.selectedSegmentIndex = 1
+//        segmentController.selectedSegmentTintColor = SystemColor.blueColor
+//        segmentController.backgroundColor = .systemBackground
+//        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.whiteColor], for: UIControl.State.selected)
+//        segmentController.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: SystemColor.grayColor], for: UIControl.State.normal)
+//        segmentController.addTarget(self, action: #selector(selectShowMode(_:)), for: .valueChanged)
+//        navigationItem.titleView = segmentController
 
-        //navigationItem.prompt = "Выбор файла"
+        title = "Выбор файла"
 
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
         navigationController?.navigationBar.tintColor = SystemColor.whiteColor
@@ -197,8 +198,16 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == tableView {
-            
+            let contentOffset = scrollView.contentOffset.y
+            delegate.finishScrollView(value: contentOffset, controller: self)
         }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        if scrollView == tableView {
+            return false
+        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -282,5 +291,17 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
                 nowSelected = -1
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return view.frame.height / 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: view.frame.height / 10)
+        view.backgroundColor = .clear
+        
+        return view
     }
 }

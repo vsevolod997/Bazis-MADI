@@ -326,8 +326,8 @@
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				42B5AFC62456191900DE1975 /* StudentFiles */,
 				4251FF022451D8AB00EAFB13 /* SearchStudentsView */,
+				42B5AFC62456191900DE1975 /* StudentFiles */,
 				421BABE924462C300000C8C3 /* StudentUspevView */,
 				421BABE024460AA00000C8C3 /* StudentPortfolioView */,
 				42B28886244468AC00D702DE /* StudentInfoView */,

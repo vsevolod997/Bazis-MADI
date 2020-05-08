@@ -57,6 +57,10 @@ class StudentDetailFileTableViewController: UITableViewController {
         reviewLabel.text = nameFile
     }
     
+    public func closeSelectRevievFileView() {
+        reviewAddDellButton.isEnabled = true
+    }
+    
     private func addGestue() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapGestue(_:)))
         view.addGestureRecognizer(tap)
@@ -127,6 +131,7 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     
     private func selectNewReview() {
+        reviewAddDellButton.isEnabled = false
         mainDelegate.showFileReviewView()
     }
     
@@ -165,7 +170,7 @@ extension StudentDetailFileTableViewController: StudInfoFileDelegate {
     }
     
     func showError(errorMess: String, controller: StudFileDetailController) {
-        reviewAddDellButton.isEnabled = false
+        
         reviewLabel.isEnabled = false
         let alertController = UIAlertController(title: "Внимание", message: errorMess, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -179,7 +184,6 @@ extension StudentDetailFileTableViewController: URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in:.userDomainMask)[0]
-        
         let destinationURL = documentsPath.appendingPathComponent(fileData.name)
         try? FileManager.default.removeItem(at: destinationURL)
         do {
@@ -189,7 +193,6 @@ extension StudentDetailFileTableViewController: URLSessionDownloadDelegate {
                 let activityViewController = UIActivityViewController(activityItems: [destinationURL] , applicationActivities: nil)
                 self.present(activityViewController, animated: true, completion: nil)
             }
-            
         } catch let error {
             print("Copy Error: \(error.localizedDescription)")
         }
@@ -198,7 +201,6 @@ extension StudentDetailFileTableViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
         let procentLoad = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
-        
         DispatchQueue.main.async {
             self.donloadProgress.progress = procentLoad
         }

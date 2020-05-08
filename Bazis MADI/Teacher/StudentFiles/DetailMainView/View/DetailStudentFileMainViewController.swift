@@ -14,16 +14,17 @@ class DetailStudentFileMainViewController: UIViewController {
     private var reviewView: UINavigationController!
     private var buttonView: UIView!
     private var selectedButton: CancellAddButton!
-    private var detileFileView: StudentDetailFileTableViewController!
+    private var detaileFileView: StudentDetailFileTableViewController!
     private var isSelectedFile = false //   флаг выбора файла
     private var nameReviewFile = ""
+    private var isFullView = false // флаг полного открвтия окна выбора рецензии
     
     public var fileData: FileToShowModel!
     public var student: StudentModel!
     
-    private var heigthValue: CGFloat = 200
-    // константный отступ от каря экрана
-    private let constHeigth: CGFloat = 200
+    private var heigthValue: CGFloat = 0
+    // коэффиуиент
+    private let coefHeigth: CGFloat = 1.8
     
     private let contrller = DetailStudentMainController()
     
@@ -37,7 +38,7 @@ class DetailStudentFileMainViewController: UIViewController {
     private func configurateDetailView() {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "studentFileDetail") as? StudentDetailFileTableViewController else { return }
-        detileFileView = vc
+        detaileFileView = vc
         vc.fileData = self.fileData
         vc.student = self.student
         vc.mainDelegate = self
@@ -50,7 +51,7 @@ class DetailStudentFileMainViewController: UIViewController {
         configueSelectReviewView()
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
-            self.reviewView.view.transform = .init(translationX: 0, y: self.constHeigth)
+            self.reviewView.view.transform = .init(translationX: 0, y: self.view.frame.height / self.coefHeigth)
         }) { _ in
             self.createButtonView()
         }
@@ -59,7 +60,6 @@ class DetailStudentFileMainViewController: UIViewController {
     private func configueSelectReviewView() {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "fileReview") as? SelectReviewViewController else { return }
-        
         vc.delegate = self
         
         let navController = UINavigationController(rootViewController: vc)
@@ -108,29 +108,69 @@ class DetailStudentFileMainViewController: UIViewController {
             UIView.animate(withDuration: 0.2, animations: {
                 self.reviewView.view.transform = .init(translationX: 0, y: self.view.frame.height)
             }) { _ in
-                let generator = UIImpactFeedbackGenerator(style: .heavy)
-                generator.impactOccurred()
                 self.buttonView.removeFromSuperview()
                 self.reviewView.removeFromParent()
+                self.detaileFileView.closeSelectRevievFileView()
+                self.isFullView = false
+                self.isSelectedFile = false
+                self.nameReviewFile = ""
             }
         }
     }
     
-    private var oldScrollValue: CGFloat = 0
+    private func downScrollView() {
+        self.isFullView = false
+        
+        UIView.animate(withDuration: 0.15, animations: {
+            self.reviewView.view.transform = .init(translationX: 0, y: self.self.view.frame.height / self.coefHeigth)
+        })
+    }
+    
+    private func upScrollView() {
+        self.isFullView = true
+        
+        UIView.animate(withDuration: 0.15, animations: {
+             self.reviewView.view.transform = .init(translationX: 0, y: 0)
+        })
+    }
 }
 
 //MARK: - SelectReviewFileDelegate
 extension DetailStudentFileMainViewController: SelectReviewFileDelegate {
     
+    func finishScrollView(value: CGFloat, controller: UIViewController) {
+        if isFullView {
+            if value < -20 {
+                downScrollView()
+            }
+        } else {
+            if value >= 0 {
+                upScrollView()
+            }
+        }
+    }
+    
     func scrollView(scrollValue: CGFloat, controller: UIViewController) {
-        heigthValue = constHeigth - scrollValue
-        if scrollValue > oldScrollValue {
-            if heigthValue > 0 {
-                reviewView.view.transform = .init(translationX: 0, y: heigthValue)
+        heigthValue = self.view.frame.height / coefHeigth - scrollValue
+        print(scrollValue)
+        if !isFullView {
+            reviewView.view.transform = .init(translationX: 0, y: heigthValue)
+        } else {
+            if scrollValue < 0 {
+                reviewView.view.transform = .init(translationX: 0, y: -scrollValue)
             } else {
                 reviewView.view.transform = .init(translationX: 0, y: 0)
             }
         }
+        
+        //        heigthValue = self.view.frame.height / coefHeigth - scrollValue
+        //        if !isFullView {
+        //            reviewView.view.transform = .init(translationX: 0, y: heigthValue)
+        //        } else {
+        //            if scrollValue < 0 {
+        //                reviewView.view.transform = .init(translationX: 0, y: heigthValue)
+        //            }
+        //        }
     }
     
     func selectView(fileSelected: FileToShowModel, controller: UIViewController) {
@@ -148,6 +188,7 @@ extension DetailStudentFileMainViewController: SelectReviewFileDelegate {
 
 //MARK: - StudentFileDetailControllerDelegate
 extension DetailStudentFileMainViewController: StudentFileDetailControllerDelegate {
+    
     func showFileReviewView() {
         presentSelectReviewView()
     }
@@ -169,7 +210,9 @@ extension DetailStudentFileMainViewController: DetailStudentMainControllerDelega
     }
     
     func reviewUpload(controller: DetailStudentMainController) {
-        detileFileView.selectNewReview(nameFile: nameReviewFile)
+        detaileFileView.selectNewReview(nameFile: nameReviewFile)
         closeFileSelectView()
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
     }
 }

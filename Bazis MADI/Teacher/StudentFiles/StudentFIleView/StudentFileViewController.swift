@@ -185,6 +185,7 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
             guard let vc = sb.instantiateViewController(identifier: "detailStudMain") as? DetailStudentFileMainViewController else { return }
             vc.fileData = fileData[indexPath.row]
             vc.student = studentInfo
+            vc.modalPresentationStyle = .pageSheet
             present(vc, animated: true)
         }
     }

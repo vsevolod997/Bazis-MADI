@@ -690,7 +690,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRA-No-NoX" customClass="CancelButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="105" y="19" width="203" height="41"/>
+                                                    <rect key="frame" x="95" y="15" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Удалить"/>
                                                     <connections>
@@ -708,7 +708,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfs-e0-z5w" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="95" y="14" width="224" height="41"/>
+                                                    <rect key="frame" x="95" y="15" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Сохранить"/>
                                                     <connections>
@@ -726,7 +726,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1f-ZS-kKb" customClass="InputButton1UIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="104" y="11" width="203" height="41"/>
+                                                    <rect key="frame" x="107" y="9" width="200" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
@@ -980,7 +980,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ici-1u-7qN" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="8" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="8" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Загрузить"/>
                                                     <connections>
@@ -998,7 +998,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DN-6r-iih" customClass="InputButton1UIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="82" y="11" width="250" height="45"/>
+                                                    <rect key="frame" x="107" y="13" width="200" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
@@ -2258,7 +2258,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="323" y="7" width="51" height="31"/>
+                                                    <rect key="frame" x="322" y="7" width="50" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2283,7 +2283,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZR0-4k-Wlf" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="7" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Сохранить"/>
                                                     <connections>
@@ -2301,7 +2301,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRG-Ui-uNV" customClass="CancelButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="7" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Удалить"/>
                                                     <connections>
@@ -2319,7 +2319,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AD-gc-JES" customClass="InputButton1UIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="82" y="7" width="250" height="45"/>
+                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
@@ -2647,7 +2647,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="312" y="7" width="50" height="31"/>
+                                                    <rect key="frame" x="310" y="7" width="50" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>
@@ -2672,7 +2672,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e52-6a-yTh" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="8" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Сохранить"/>
                                                     <connections>
@@ -2690,7 +2690,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIn-87-7i0" customClass="CancelButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="8" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Удалить"/>
                                                     <connections>
@@ -2708,7 +2708,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fn-Mt-4Bw" customClass="InputButton1UIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="82" y="7" width="250" height="45"/>
+                                                    <rect key="frame" x="107" y="8" width="200" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
@@ -2889,7 +2889,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="med-v3-CKd" customClass="DoneButtonUIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="107" y="7" width="200" height="45"/>
+                                                    <rect key="frame" x="95" y="8" width="224" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Сохранить"/>
                                                     <connections>
@@ -2907,7 +2907,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wt-s1-2Dk" customClass="InputButton1UIButton" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="82" y="7" width="250" height="45"/>
+                                                    <rect key="frame" x="107" y="8" width="200" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Отмена"/>
                                                     <connections>
