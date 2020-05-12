@@ -22,7 +22,7 @@ class DetailStudentFileMainViewController: UIViewController {
         didSet {
             reviewView.viewStatus = isFullView
         }
-    } // флаг полного открвтия окна выбора рецензии
+    } // флаг полного открытия окна выбора рецензии
     
     private var nameReviewFile = ""
     

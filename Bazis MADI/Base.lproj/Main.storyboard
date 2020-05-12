@@ -651,7 +651,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgI-sA-W21">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgI-sA-W21" customClass="ClearButtonUIButton" customModule="МАДИ" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <connections>
@@ -778,21 +778,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reviewCell" rowHeight="62" id="oYe-bO-ecu">
-                                <rect key="frame" x="0.0" y="28" width="414" height="62"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reviewCell" id="5jy-QF-XBk" customClass="ReviewTableViewCell" customModule="МАДИ" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="92.666664123535156"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oYe-bO-ecu" id="6hw-q5-Mc9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5jy-QF-XBk" id="pbQ-m6-sIM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92.666664123535156"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-Xh-0fE" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="13" width="341" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="341" id="UVT-4j-4ZS"/>
+                                                <constraint firstAttribute="height" constant="32" id="ztp-PC-3yu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-yZ-f9v">
+                                            <rect key="frame" x="20" y="79.666666666666671" width="374" height="2"/>
+                                            <color key="progressTintColor" name="ColorBlue"/>
+                                        </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwO-Ov-ydw" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="50" width="374" height="21.666666666666671"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMn-te-IeV">
+                                            <rect key="frame" x="364" y="12.999999999999996" width="30" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="FGD-5J-kU1"/>
+                                                <constraint firstAttribute="height" constant="34.333333333333314" id="zAP-Xo-DRj"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="square.and.arrow.down" catalog="system">
+                                                <color key="titleColor" name="ColorBlue"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="downloadReviewButtonPress:" destination="5jy-QF-XBk" eventType="touchUpInside" id="i9z-ap-5Pk"/>
+                                                <action selector="saveFileButtonPress:" destination="k5D-yq-Zma" eventType="touchUpInside" id="baS-77-0zz"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0Tn-yZ-f9v" firstAttribute="top" secondItem="cwO-Ov-ydw" secondAttribute="bottom" constant="8" id="0lY-4b-MBW"/>
+                                        <constraint firstItem="IMn-te-IeV" firstAttribute="top" secondItem="pbQ-m6-sIM" secondAttribute="top" constant="13" id="Dsd-X7-Q6d"/>
+                                        <constraint firstItem="cwO-Ov-ydw" firstAttribute="leading" secondItem="pbQ-m6-sIM" secondAttribute="leading" constant="20" id="FhS-eU-Zbi"/>
+                                        <constraint firstItem="0Tn-yZ-f9v" firstAttribute="leading" secondItem="pbQ-m6-sIM" secondAttribute="leading" constant="20" id="Jf0-wO-sH0"/>
+                                        <constraint firstItem="IMn-te-IeV" firstAttribute="leading" secondItem="wCf-Xh-0fE" secondAttribute="trailing" constant="3" id="WjL-cl-Zlg"/>
+                                        <constraint firstAttribute="bottom" secondItem="0Tn-yZ-f9v" secondAttribute="bottom" constant="11" id="Wow-7F-JkO"/>
+                                        <constraint firstAttribute="trailing" secondItem="IMn-te-IeV" secondAttribute="trailing" constant="20" id="eWf-oy-ST0"/>
+                                        <constraint firstAttribute="trailing" secondItem="cwO-Ov-ydw" secondAttribute="trailing" constant="20" id="eyQ-gF-LPQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="0Tn-yZ-f9v" secondAttribute="trailing" constant="20" id="gaK-RV-5X9"/>
+                                        <constraint firstItem="cwO-Ov-ydw" firstAttribute="top" secondItem="wCf-Xh-0fE" secondAttribute="bottom" constant="5" id="kY8-eG-f6e"/>
+                                        <constraint firstItem="wCf-Xh-0fE" firstAttribute="leading" secondItem="pbQ-m6-sIM" secondAttribute="leading" constant="20" id="kff-9H-0zk"/>
+                                        <constraint firstItem="wCf-Xh-0fE" firstAttribute="top" secondItem="IMn-te-IeV" secondAttribute="top" id="wOA-fX-gRA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="dvn-BR-1AA">
-                                <rect key="frame" x="0.0" y="90" width="414" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dvn-BR-1AA" id="EzS-QO-rOX">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="downloadButton" destination="IMn-te-IeV" id="iGf-IF-X9H"/>
+                                    <outlet property="progressBar" destination="0Tn-yZ-f9v" id="3cK-3f-xmc"/>
+                                    <outlet property="reviewNameLabel" destination="wCf-Xh-0fE" id="2rG-fC-bBS"/>
+                                    <outlet property="teacherNameLabel" destination="cwO-Ov-ydw" id="0G9-MP-xZg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2258,7 +2306,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="322" y="7" width="50" height="31"/>
+                                                    <rect key="frame" x="320" y="7" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2533,13 +2581,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Место обучения:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIc-Hp-csC" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="10.999999999999998" width="135.33333333333334" height="21.333333333333329"/>
+                                                    <rect key="frame" x="20" y="10.999999999999998" width="135.66666666666666" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dro-8b-mCF">
-                                                    <rect key="frame" x="163.33333333333337" y="5" width="230.66666666666663" height="34"/>
+                                                    <rect key="frame" x="163.66666666666663" y="5" width="230.33333333333337" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="271" id="FZw-vf-9bE"/>
                                                     </constraints>
@@ -2606,13 +2654,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Специализация:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-ZW-ITu" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="130.66666666666666" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="131" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9H-aT-zqv">
-                                                    <rect key="frame" x="158.66666666666663" y="5" width="235.33333333333337" height="34"/>
+                                                    <rect key="frame" x="159" y="5" width="235" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="zrc-8q-qhI"/>
                                                     </constraints>
@@ -2647,7 +2695,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="310" y="7" width="50" height="31"/>
+                                                    <rect key="frame" x="307" y="7" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>
@@ -2801,13 +2849,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ожидаемая З/П:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icg-EA-giw" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="131.33333333333334" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="131.66666666666666" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7p1-4Q-z6i">
-                                                    <rect key="frame" x="159.33333333333337" y="4" width="234.66666666666663" height="34.333333333333336"/>
+                                                    <rect key="frame" x="159.66666666666663" y="4" width="234.33333333333337" height="34.333333333333336"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" keyboardKey="YES"/>
                                                     </accessibility>

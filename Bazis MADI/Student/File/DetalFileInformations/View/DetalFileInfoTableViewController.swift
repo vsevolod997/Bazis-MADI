@@ -27,6 +27,7 @@ class DetalFileInfoTableViewController: UITableViewController {
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
     @IBOutlet weak var donloadProgress: UIProgressView!
+
     
     private var isSave = true
     private var isDonloadingFile = false
@@ -61,7 +62,10 @@ class DetalFileInfoTableViewController: UITableViewController {
     //show reviewView
     @IBAction func showReviewButtonPres(_ sender: Any) {
         guard let review = fileDesc.ref else { return }
-        delegate.showReviewDelegate(fileReview: review)
+        
+        if review.count > 0 {
+            delegate.showReviewDelegate(fileReview: review)
+        }
     }
     
     private func setupView() {

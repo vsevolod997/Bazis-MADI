@@ -70,6 +70,8 @@
 		426AD0E523914AC4003362B1 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E423914AC4003362B1 /* HttpService.swift */; };
 		426AD0E723917617003362B1 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0E623917617003362B1 /* LoginController.swift */; };
 		426AD0EB23940F22003362B1 /* ErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426AD0EA23940F22003362B1 /* ErrorLabel.swift */; };
+		4271AE41246B16FD00B793CF /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271AE40246B16FC00B793CF /* ReviewTableViewCell.swift */; };
+		4271AE43246B1C3500B793CF /* ClearButtonUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4271AE42246B1C3500B793CF /* ClearButtonUIButton.swift */; };
 		427732602449B06100982DCD /* StudentUspevTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */; };
 		427732622449B49400982DCD /* StudentUspevHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427732612449B49400982DCD /* StudentUspevHttpService.swift */; };
 		42773268244B762B00982DCD /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42773267244B762B00982DCD /* OrderTableViewController.swift */; };
@@ -224,6 +226,8 @@
 		426AD0E423914AC4003362B1 /* HttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		426AD0E623917617003362B1 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		426AD0EA23940F22003362B1 /* ErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLabel.swift; sourceTree = "<group>"; };
+		4271AE40246B16FC00B793CF /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		4271AE42246B1C3500B793CF /* ClearButtonUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonUIButton.swift; sourceTree = "<group>"; };
 		4277325F2449B06100982DCD /* StudentUspevTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevTableViewController.swift; sourceTree = "<group>"; };
 		427732612449B49400982DCD /* StudentUspevHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentUspevHttpService.swift; sourceTree = "<group>"; };
 		42773267244B762B00982DCD /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
@@ -656,6 +660,22 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		4271AE3E246B16C600B793CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4271AE40246B16FC00B793CF /* ReviewTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4271AE3F246B16CD00B793CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42BFCFC8243382DD0018D6D5 /* DetailFileReviewTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4277325E2449AFC600982DCD /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1025,7 +1045,8 @@
 		42BFCFC3243380E40018D6D5 /* DetailFileReviewView */ = {
 			isa = PBXGroup;
 			children = (
-				42BFCFC8243382DD0018D6D5 /* DetailFileReviewTableViewController.swift */,
+				4271AE3F246B16CD00B793CF /* Controller */,
+				4271AE3E246B16C600B793CF /* View */,
 			);
 			path = DetailFileReviewView;
 			sourceTree = "<group>";
@@ -1309,6 +1330,7 @@
 				42A6D962243B3CD400333B7B /* IcoButtonUIButton.swift */,
 				42E0DFC4245AD87600A7C338 /* AddDellUIButton.swift */,
 				425379C624602BC500F68A26 /* CancellAddButton.swift */,
+				4271AE42246B1C3500B793CF /* ClearButtonUIButton.swift */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -1559,6 +1581,7 @@
 				42F2603E2438EA2C0027451D /* UploadFileModel.swift in Sources */,
 				420B2DE324238B7600A6BEF9 /* FileHttpService.swift in Sources */,
 				4241408023F13BD700408F9B /* HTTPServicePasswordChanged.swift in Sources */,
+				4271AE41246B16FD00B793CF /* ReviewTableViewCell.swift in Sources */,
 				420B2DF62428F5E500A6BEF9 /* FileInFolderViewController.swift in Sources */,
 				42A698632413CC8D00278683 /* CardInCellUIView.swift in Sources */,
 				4287F3892462F80200312FD6 /* SelectionUIView.swift in Sources */,
@@ -1623,6 +1646,7 @@
 				42B54834245F28340045B856 /* DetailStudentFileMainViewController.swift in Sources */,
 				420B2DED2427EF0400A6BEF9 /* AddButtonUIButton.swift in Sources */,
 				42B21D5F23D608F800E1EC17 /* UspevTableViewController.swift in Sources */,
+				4271AE43246B1C3500B793CF /* ClearButtonUIButton.swift in Sources */,
 				426AD0DF2391456A003362B1 /* UserLogin.swift in Sources */,
 				4248818723C9D6DF003BB98F /* RspByTeacherUIVIew.swift in Sources */,
 				4247D4FB2417A3C900A1DBD2 /* CardInCellBlueUIView.swift in Sources */,
