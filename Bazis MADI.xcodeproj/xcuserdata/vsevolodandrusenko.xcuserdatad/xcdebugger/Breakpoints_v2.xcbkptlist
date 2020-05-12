@@ -4856,8 +4856,8 @@
             filePath = "Bazis MADI/Teacher/StudentFiles/DetailMainView/View/DetailStudentFileMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "downScrollView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4872,8 +4872,8 @@
             filePath = "Bazis MADI/Teacher/StudentFiles/SelectReviewView/Controller/SelectReviewViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -4888,9 +4888,25 @@
             filePath = "Bazis MADI/Teacher/StudentFiles/DetailMainView/View/DetailStudentFileMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "finishScrollView(value:controller:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66BF571B-E33A-4C32-B190-17EBFFB90A55"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bazis MADI/Teacher/StudentFiles/SelectReviewView/Controller/SelectReviewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

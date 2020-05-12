@@ -11,20 +11,27 @@ import AVFoundation
 
 class DetailStudentFileMainViewController: UIViewController {
     
-    private var reviewView: UINavigationController!
+    private var reviewNavView: UINavigationController!
+    private var reviewView: SelectReviewViewController!
     private var buttonView: UIView!
     private var selectedButton: CancellAddButton!
     private var detaileFileView: StudentDetailFileTableViewController!
     private var isSelectedFile = false //   флаг выбора файла
+    
+    private var isFullView = false {
+        didSet {
+            reviewView.viewStatus = isFullView
+        }
+    } // флаг полного открвтия окна выбора рецензии
+    
     private var nameReviewFile = ""
-    private var isFullView = false // флаг полного открвтия окна выбора рецензии
     
     public var fileData: FileToShowModel!
     public var student: StudentModel!
     
     private var heigthValue: CGFloat = 0
-    // коэффиуиент
-    private let coefHeigth: CGFloat = 1.8
+    // коэффициент
+    private let coefHeigth: CGFloat = 2.2
     
     private let contrller = DetailStudentMainController()
     
@@ -51,7 +58,7 @@ class DetailStudentFileMainViewController: UIViewController {
         configueSelectReviewView()
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
-            self.reviewView.view.transform = .init(translationX: 0, y: self.view.frame.height / self.coefHeigth)
+            self.reviewNavView.view.transform = .init(translationX: 0, y: self.view.frame.height / self.coefHeigth)
         }) { _ in
             self.createButtonView()
         }
@@ -61,12 +68,12 @@ class DetailStudentFileMainViewController: UIViewController {
         let sb = UIStoryboard(name: "Teacher", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "fileReview") as? SelectReviewViewController else { return }
         vc.delegate = self
-        
+        reviewView = vc
         let navController = UINavigationController(rootViewController: vc)
         view.insertSubview(navController.view, at: 1)
         navController.view.transform = .init(translationX: 0, y: self.view.frame.height)
         
-        reviewView = navController
+        reviewNavView = navController
     }
     
     
@@ -104,12 +111,12 @@ class DetailStudentFileMainViewController: UIViewController {
     }
     
     private func closeFileSelectView() {
-        if reviewView != nil {
+        if reviewNavView != nil {
             UIView.animate(withDuration: 0.2, animations: {
-                self.reviewView.view.transform = .init(translationX: 0, y: self.view.frame.height)
+                self.reviewNavView.view.transform = .init(translationX: 0, y: self.view.frame.height)
             }) { _ in
                 self.buttonView.removeFromSuperview()
-                self.reviewView.removeFromParent()
+                self.reviewNavView.removeFromParent()
                 self.detaileFileView.closeSelectRevievFileView()
                 self.isFullView = false
                 self.isSelectedFile = false
@@ -122,7 +129,7 @@ class DetailStudentFileMainViewController: UIViewController {
         self.isFullView = false
         
         UIView.animate(withDuration: 0.15, animations: {
-            self.reviewView.view.transform = .init(translationX: 0, y: self.self.view.frame.height / self.coefHeigth)
+            self.reviewNavView.view.transform = .init(translationX: 0, y: self.self.view.frame.height / self.coefHeigth)
         })
     }
     
@@ -130,7 +137,7 @@ class DetailStudentFileMainViewController: UIViewController {
         self.isFullView = true
         
         UIView.animate(withDuration: 0.15, animations: {
-             self.reviewView.view.transform = .init(translationX: 0, y: 0)
+             self.reviewNavView.view.transform = .init(translationX: 0, y: 0)
         })
     }
 }
@@ -144,33 +151,25 @@ extension DetailStudentFileMainViewController: SelectReviewFileDelegate {
                 downScrollView()
             }
         } else {
-            if value >= 0 {
+            if value >= 20 {
                 upScrollView()
+            } else {
+                reviewNavView.view.transform = .init(translationX: 0, y: self.view.frame.height / coefHeigth  )
             }
         }
     }
     
     func scrollView(scrollValue: CGFloat, controller: UIViewController) {
         heigthValue = self.view.frame.height / coefHeigth - scrollValue
-        print(scrollValue)
-        if !isFullView {
-            reviewView.view.transform = .init(translationX: 0, y: heigthValue)
+        if !isFullView  {
+            reviewNavView.view.transform = .init(translationX: 0, y: heigthValue)
         } else {
-            if scrollValue < 0 {
-                reviewView.view.transform = .init(translationX: 0, y: -scrollValue)
+            if scrollValue <= 0 {
+                reviewNavView.view.transform = .init(translationX: 0, y: -scrollValue*2)
             } else {
-                reviewView.view.transform = .init(translationX: 0, y: 0)
+                reviewNavView.view.transform = .init(translationX: 0, y: 0)
             }
         }
-        
-        //        heigthValue = self.view.frame.height / coefHeigth - scrollValue
-        //        if !isFullView {
-        //            reviewView.view.transform = .init(translationX: 0, y: heigthValue)
-        //        } else {
-        //            if scrollValue < 0 {
-        //                reviewView.view.transform = .init(translationX: 0, y: heigthValue)
-        //            }
-        //        }
     }
     
     func selectView(fileSelected: FileToShowModel, controller: UIViewController) {

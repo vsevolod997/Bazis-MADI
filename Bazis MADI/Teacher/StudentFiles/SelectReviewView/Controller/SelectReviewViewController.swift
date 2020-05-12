@@ -43,6 +43,8 @@ class SelectReviewViewController: UIViewController {
         }
     }
     
+    public var viewStatus = false // true - oppen // false - close
+    
     private var fileData: [FileToShowModel]!
     private var fileDirectoryData: [FileDirectoryModel]!
     
@@ -50,7 +52,6 @@ class SelectReviewViewController: UIViewController {
     private let notificationReload = Notification.Name("reloadData")
     
     private var errorVC: ErrorViewUIView!
-    
     
     weak var delegate: SelectReviewFileDelegate!
     
@@ -193,6 +194,13 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
         if scrollView == tableView {
             let contentOffset = scrollView.contentOffset.y
             delegate.scrollView(scrollValue: contentOffset, controller: self)
+            
+            if viewStatus && !scrollView.isDragging {
+                print(contentOffset)
+                if contentOffset == 0 {
+                    self.tableView.contentOffset.y = 3
+                }
+            }
         }
     }
     
@@ -203,40 +211,38 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        if scrollView == tableView {
-            return false
-        }
-        return true
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if isLoad {
-            if isFileMode {
-                return 119
+        if indexPath.section == 0 {
+            if isLoad {
+                if isFileMode {
+                    return 119
+                } else {
+                    return 79
+                }
             } else {
-                return 79
+                return 96
             }
         } else {
-            return 96
+            return self.view.frame.height - CGFloat(fileData.count * 79)
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if isLoad {
-            if isFileMode {
-                if isHaveFile {
+        if section == 0 {
+            if isLoad {
+                if isFileMode {
                     return fileData.count
                 } else {
-                    return 1
+                    return fileDirectoryData.count
                 }
             } else {
-                return fileDirectoryData.count
+                return 1
             }
         } else {
             return 1
@@ -244,31 +250,35 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if isLoad {
-            if isFileMode {
-                if isHaveFile {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! SelectReviewFileTableViewCell
-                    cell.fileData = fileData[indexPath.row]
-                    return cell
+        if indexPath.section == 0 {
+            if isLoad {
+                if isFileMode {
+                    if isHaveFile {
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! SelectReviewFileTableViewCell
+                        cell.fileData = fileData[indexPath.row]
+                        return cell
+                    } else {
+                        let cell = tableView.dequeueReusableCell(withIdentifier: "nullCell", for: indexPath)
+                        return cell
+                    }
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "nullCell", for: indexPath)
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
+                    cell.nameLabel.text = fileDirectoryData[indexPath.row].path
+                    
+                    if let count = fileDirectoryData[indexPath.row].files?.count {
+                        print(count)
+                        cell.countLabel.text = "/ " + String(count)
+                    } else {
+                        cell.countLabel.text = "/ 0"
+                    }
                     return cell
                 }
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
-                cell.nameLabel.text = fileDirectoryData[indexPath.row].path
-                
-                if let count = fileDirectoryData[indexPath.row].files?.count {
-                    print(count)
-                    cell.countLabel.text = "/ " + String(count)
-                } else {
-                    cell.countLabel.text = "/ 0"
-                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
                 return cell
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "buffCell", for: indexPath)
             return cell
         }
     }
@@ -294,12 +304,15 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return view.frame.height / 10
+        if section == 0 {
+            return 50
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView()
-        view.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: view.frame.height / 10)
         view.backgroundColor = .clear
         
         return view
