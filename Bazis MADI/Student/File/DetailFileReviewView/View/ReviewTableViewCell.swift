@@ -33,4 +33,8 @@ class ReviewTableViewCell: UITableViewCell {
         clouserDownload?()
     }
     
+    public func updateDownloadProgres(loadProgress: Float) {
+        progressBar.progress = loadProgress
+    }
+    
 }

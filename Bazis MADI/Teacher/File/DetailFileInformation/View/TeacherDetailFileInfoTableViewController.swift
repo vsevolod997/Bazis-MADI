@@ -193,6 +193,7 @@ extension TeacherDetailFileInfoTableViewController: URLSessionDownloadDelegate {
         
         let procentLoad = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
         
+        
         DispatchQueue.main.async {
             self.donloadProgress.progress = procentLoad
         }

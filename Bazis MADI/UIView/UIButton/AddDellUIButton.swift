@@ -10,6 +10,8 @@ import UIKit
 
 class AddDellUIButton: UIButton {
     
+    private var bColor: UIColor = SystemColor.greenColor
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -29,7 +31,9 @@ class AddDellUIButton: UIButton {
         setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         setTitle("Добавить", for: .normal)
+        bColor = SystemColor.greenColor
         backgroundColor = SystemColor.greenColor
+        
         layer.cornerRadius = 15
         alpha = 0.9
     }
@@ -40,6 +44,7 @@ class AddDellUIButton: UIButton {
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         setTitle("Удалить", for: .normal)
         backgroundColor = SystemColor.redColor
+        bColor = SystemColor.redColor
         layer.cornerRadius = 15
         alpha = 0.9
     }
@@ -59,7 +64,7 @@ class AddDellUIButton: UIButton {
     override var isEnabled: Bool {
         didSet {
             if isEnabled {
-                backgroundColor = SystemColor.greenColor
+                backgroundColor = bColor
                 alpha = 0.9
             } else {
                 alpha = 0.6

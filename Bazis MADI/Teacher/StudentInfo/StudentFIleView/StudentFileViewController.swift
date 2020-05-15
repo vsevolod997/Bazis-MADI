@@ -177,7 +177,6 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.isSelected = false
         
         if isHaveFile {
             //fileDetal
@@ -188,5 +187,7 @@ extension StudentFileViewController: UITableViewDelegate, UITableViewDataSource 
             vc.modalPresentationStyle = .pageSheet
             present(vc, animated: true)
         }
+        
+       tableView.cellForRow(at: indexPath)?.isSelected = false
     }
 }

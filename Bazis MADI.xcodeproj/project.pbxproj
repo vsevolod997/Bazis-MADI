@@ -331,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				4251FF022451D8AB00EAFB13 /* SearchStudentsView */,
-				42B5AFC62456191900DE1975 /* StudentFiles */,
+				42B5AFC62456191900DE1975 /* StudentInfo */,
 				421BABE924462C300000C8C3 /* StudentUspevView */,
 				421BABE024460AA00000C8C3 /* StudentPortfolioView */,
 				42B28886244468AC00D702DE /* StudentInfoView */,
@@ -988,7 +988,7 @@
 			path = DetailMainView;
 			sourceTree = "<group>";
 		};
-		42B5AFC62456191900DE1975 /* StudentFiles */ = {
+		42B5AFC62456191900DE1975 /* StudentInfo */ = {
 			isa = PBXGroup;
 			children = (
 				427C727E245DE943001B65DC /* SelectReviewInFolderVIew */,
@@ -997,7 +997,7 @@
 				42B5AFC72456194B00DE1975 /* StudentDetailFileInfoView */,
 				421BABEA24462C5A0000C8C3 /* StudentFIleView */,
 			);
-			path = StudentFiles;
+			path = StudentInfo;
 			sourceTree = "<group>";
 		};
 		42B5AFC72456194B00DE1975 /* StudentDetailFileInfoView */ = {

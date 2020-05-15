@@ -208,8 +208,6 @@ extension DetalFileInfoTableViewController: URLSessionDownloadDelegate {
         } catch let error {
             print("Copy Error: \(error.localizedDescription)")
         }
-        
-        //isDonloadingFile = false
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {

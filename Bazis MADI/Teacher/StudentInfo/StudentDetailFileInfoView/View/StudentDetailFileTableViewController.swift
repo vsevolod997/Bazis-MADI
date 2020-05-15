@@ -52,9 +52,9 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     // добавление нового review
     public func selectNewReview(nameFile: String) {
-        isHaveReview = true
         reviewAddDellButton.setDellStyle()
         reviewLabel.text = nameFile
+        isHaveReview = true
     }
     
     public func closeSelectRevievFileView() {
@@ -68,12 +68,6 @@ class StudentDetailFileTableViewController: UITableViewController {
     
     @objc func tapGestue(_ gestue: UIGestureRecognizer) {
         mainDelegate.closeFileReviewView()
-    }
-        
-    private func showReviewFileInfo() {
-        let sb = UIStoryboard(name: "Teacher", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "file")
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setData() {
@@ -106,12 +100,11 @@ class StudentDetailFileTableViewController: UITableViewController {
         }
     }
     
-    
     @IBAction func addDellButtonPress(_ sender: Any) {
         if isHaveReview {
             deliteReview()
         } else {
-            selectNewReview()
+            showSelectReviewView()
         }
     }
     
@@ -130,7 +123,7 @@ class StudentDetailFileTableViewController: UITableViewController {
     }
     
     
-    private func selectNewReview() {
+    private func showSelectReviewView() {
         reviewAddDellButton.isEnabled = false
         mainDelegate.showFileReviewView()
     }

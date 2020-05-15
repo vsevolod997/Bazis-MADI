@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK:- родительский контроллер для просмотра информайии о файле
+//MARK:- Родительский контроллер для просмотра информации о файле
 class DetalFileMainViewController: UIViewController {
 
     var reviewView: DetailFileReviewTableViewController!
@@ -41,7 +41,6 @@ class DetalFileMainViewController: UIViewController {
         if reviewView == nil {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = sb.instantiateViewController(identifier: "fileReview") as? DetailFileReviewTableViewController else { return }
-            //let navController = UINavigationController(rootViewController: vc)
             view.insertSubview(vc.view, at: 0)
             vc.delegate = self
             vc.fileReview = review
