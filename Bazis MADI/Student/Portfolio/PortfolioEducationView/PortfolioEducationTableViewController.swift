@@ -123,9 +123,11 @@ class PortfolioEducationTableViewController: UITableViewController {
     //MARK: -  доступность кнпки сохранения
     private func controlSaveButtonEnabled() {
         if controlChangedData() {
+            isModalInPresentation = false
             saveButton.isEnabled = true
         } else {
             saveButton.isEnabled = false
+            isModalInPresentation = true
         }
     }
     

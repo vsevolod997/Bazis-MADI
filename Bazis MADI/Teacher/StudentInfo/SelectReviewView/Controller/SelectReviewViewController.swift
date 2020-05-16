@@ -213,36 +213,28 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            if isLoad {
-                if isFileMode {
-                    return 119
-                } else {
-                    return 79
-                }
+        if isLoad {
+            if isFileMode {
+                return 119
             } else {
-                return 96
+                return 79
             }
         } else {
-            return self.view.frame.height - CGFloat(fileData.count * 79)
+            return 96
         }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if section == 0 {
-            if isLoad {
-                if isFileMode {
-                    return fileData.count
-                } else {
-                    return fileDirectoryData.count
-                }
+        if isLoad {
+            if isFileMode {
+                return fileData.count
             } else {
-                return 1
+                return fileDirectoryData.count
             }
         } else {
             return 1
@@ -250,35 +242,31 @@ extension SelectReviewViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            if isLoad {
-                if isFileMode {
-                    if isHaveFile {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! SelectReviewFileTableViewCell
-                        cell.fileData = fileData[indexPath.row]
-                        return cell
-                    } else {
-                        let cell = tableView.dequeueReusableCell(withIdentifier: "nullCell", for: indexPath)
-                        return cell
-                    }
+        
+        if isLoad {
+            if isFileMode {
+                if isHaveFile {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "fileCell", for: indexPath) as! SelectReviewFileTableViewCell
+                    cell.fileData = fileData[indexPath.row]
+                    return cell
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
-                    cell.nameLabel.text = fileDirectoryData[indexPath.row].path
-                    
-                    if let count = fileDirectoryData[indexPath.row].files?.count {
-                        print(count)
-                        cell.countLabel.text = "/ " + String(count)
-                    } else {
-                        cell.countLabel.text = "/ 0"
-                    }
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "nullCell", for: indexPath)
                     return cell
                 }
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell", for: indexPath) as! FolderTableViewCell
+                cell.nameLabel.text = fileDirectoryData[indexPath.row].path
+                
+                if let count = fileDirectoryData[indexPath.row].files?.count {
+                    print(count)
+                    cell.countLabel.text = "/ " + String(count)
+                } else {
+                    cell.countLabel.text = "/ 0"
+                }
                 return cell
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "buffCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadCell", for: indexPath)
             return cell
         }
     }

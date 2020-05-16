@@ -28,7 +28,7 @@ class UploadFileController {
     
     private let notificationFileAdd = Notification.Name("fileAdd")
     
-    private let  httpService = UploadFileHTTPService()
+    private let httpService = UploadFileHTTPService()
     weak var delegate: UploadFileDelegate!
     
     public func selectUploadFile(urlFile: URL) {

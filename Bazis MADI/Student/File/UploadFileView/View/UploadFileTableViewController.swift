@@ -19,8 +19,14 @@ class UploadFileTableViewController: UITableViewController {
     @IBOutlet weak var selectFileButton: UIButton!
     @IBOutlet weak var uploadButton: DoneButtonUIButton!
     
-    private var pathPicker = UIPickerView()
     private var uploadingView: UploadUIView!
+    private var pathPicker = UIPickerView()
+   
+    private var isHaveChanging = false {
+        didSet {
+            isModalInPresentation = isHaveChanging
+        }
+    }
     
     private var fileType = ""
     private var fileData: Data!
@@ -40,6 +46,8 @@ class UploadFileTableViewController: UITableViewController {
     }
     
     private func setupView() {
+        
+        
         controller.delegate = self
         uploadButton.isEnabled = false
         
@@ -56,6 +64,7 @@ class UploadFileTableViewController: UITableViewController {
     private func setupPathPicker() {
         pathPicker.dataSource = self
         pathPicker.delegate = self
+        descriptionFileTextView.delegate = self
         
         let toolBar = UIToolbar()
         toolBar.isTranslucent = true
@@ -130,9 +139,27 @@ class UploadFileTableViewController: UITableViewController {
     
     //MARK: - Отмена
     @IBAction func cancelButtonPress(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if isHaveChanging {
+           showExitAlert()
+        } else {
+             self.dismiss(animated: true, completion: nil)
+        }
     }
     
+    
+    //MARK - предупреждение о наличии несохраненных изменений
+    private func showExitAlert() {
+        let alert = UIAlertController(title: "Внимание!", message: "Присутствуют не сохраненные изменения, Вы уверенны что хотите выйти?", preferredStyle: .alert)
+        let exitAction = UIAlertAction(title: "Выход", style: .destructive) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(exitAction)
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
     
     private func selectFile() {
         let importMenu = UIDocumentPickerViewController(documentTypes: [String("public.data")], in: .import)
@@ -223,7 +250,7 @@ extension UploadFileTableViewController: UploadFileDelegate {
     }
     
     func uploadFileIsSelected(selectFileName: String, fileName: String, fileType: String, dataFile: Data) {
-        
+        isHaveChanging = true
         fileNameLabel.text = fileName
         stateSelectFile.text = selectFileName
         self.fileType = fileType
@@ -250,12 +277,20 @@ extension UploadFileTableViewController: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        isHaveChanging = true
         controller.controlUploadButtonEnabled(uploadPath: dirrectoryUploadLabel.text, fileName: fileNameLabel.text, dataUpload: fileData)
         if textField == fileNameLabel {
             if fileNameLabel.text?.last == "." || fileNameLabel.text?.last == "/" {
                 fileNameLabel.text?.removeLast()
             }
         }
+    }
+}
+
+//MARK: - UITextViewDelegate
+extension UploadFileTableViewController: UITextViewDelegate {
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        isHaveChanging = true
     }
 }
 

@@ -104,6 +104,7 @@ class TeacherFileInFolderViewController: UIViewController {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
             vc.uploadPath = dirrectory
+            vc.modalPresentationStyle = .popover
             present(vc, animated: true)
         }
     }
@@ -175,7 +176,9 @@ class TeacherFileInFolderViewController: UIViewController {
                 guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? TeacherDetailFileInfoTableViewController else { return }
                 vc.fileData = filesToShow[indexPath.row]
                 vc.indexFile = indexPath.row
+                vc.modalPresentationStyle = .popover
                 present(vc, animated: true)
             }
+            tableView.cellForRow(at: indexPath)?.isSelected = false
         }
     }

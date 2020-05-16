@@ -238,6 +238,7 @@ class TeacherFilesViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(identifier: "uploadFile") as? UploadFileTableViewController else { return }
         vc.uploadPathModel = fileDirectoryData
+        vc.modalPresentationStyle = .popover
         present(vc, animated: true)
     }
     
@@ -383,7 +384,6 @@ extension TeacherFilesViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.isSelected = false
         
         if !isFileMode {
             //inFolder
@@ -398,7 +398,9 @@ extension TeacherFilesViewController: UITableViewDelegate, UITableViewDataSource
             guard let vc = sb.instantiateViewController(identifier: "fileDetal") as? TeacherDetailFileInfoTableViewController else { return }
             vc.fileData = fileData[indexPath.row]
             vc.indexFile = indexPath.row
+            vc.modalPresentationStyle = .popover
             present(vc, animated: true)
         }
+         tableView.cellForRow(at: indexPath)?.isSelected = false
     }
 }

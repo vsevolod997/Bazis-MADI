@@ -39,6 +39,7 @@ class PortfolioController {
             self.delegate.editPortfolioData(self, editData: editPortfolio)
         }
         
+        vc.modalPresentationStyle = .popover
         rootVC.present(vc, animated: true)
     }
     
@@ -61,6 +62,7 @@ class PortfolioController {
          }
         
         vc.dataEduc = portfolio.educ[index]
+        vc.modalPresentationStyle = .popover
         rootVC.present(vc, animated: true)
     }
     
@@ -68,6 +70,7 @@ class PortfolioController {
     func addWork(portfolio: PortfolioModel, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editWork") as? PortfolioWorkEditTableViewController else { return }
+        vc.modalPresentationStyle = .popover
         
         vc.saveCloser = { [weak self] newData in
             guard let self = self else { return }
@@ -84,6 +87,7 @@ class PortfolioController {
     func addEduc(portfolio: PortfolioModel, rootVC: UIViewController) {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editEduc") as? PortfolioEducationTableViewController else { return }
+        vc.modalPresentationStyle = .popover
         
         vc.saveCloser = { [weak self] newData in
             guard let self = self else { return }
@@ -102,6 +106,7 @@ class PortfolioController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: "editInfo") as? PortfolioInfoEditTableViewController else { return }
         vc.allInformation = portfolio
+        vc.modalPresentationStyle = .popover
         
         vc.saveCloser = { [weak self] newData in
             if let portfolio = newData {

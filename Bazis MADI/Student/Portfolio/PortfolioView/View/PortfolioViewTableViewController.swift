@@ -318,6 +318,20 @@ extension PortfolioViewTableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 50
+        } else {
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
 }
 
 //MARK: - редактирование данных

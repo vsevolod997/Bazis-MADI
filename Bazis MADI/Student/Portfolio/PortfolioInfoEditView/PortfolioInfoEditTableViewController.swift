@@ -96,8 +96,10 @@ class PortfolioInfoEditTableViewController: UITableViewController {
     private func controlSaveButtonEnabled() {
         
         if controlChangedData() {
+            isModalInPresentation = false
             saveButton.isEnabled = true
         } else {
+            isModalInPresentation = true 
             saveButton.isEnabled = false
         }
     }

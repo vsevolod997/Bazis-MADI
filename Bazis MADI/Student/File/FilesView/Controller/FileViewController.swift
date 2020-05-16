@@ -310,9 +310,10 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.cellForRow(at: indexPath)?.isSelected = false
         
+        print(isHaveFile, isFileMode)
         if !isFileMode {
             //inFolder
             let sb = UIStoryboard(name: "Main", bundle: nil)
@@ -327,8 +328,11 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
                 guard let vc = sb.instantiateViewController(identifier: "fileDetailMain") as? DetalFileMainViewController else { return }
                 vc.fileData = fileData[indexPath.row]
                 vc.indexFile = indexPath.row
+                vc.modalPresentationStyle = .formSheet
+                //self.navigationController?.pushViewController(vc, animated: true)
                 present(vc, animated: true)
             }
         }
+        tableView.cellForRow(at: indexPath)?.isSelected = false
     }
 }

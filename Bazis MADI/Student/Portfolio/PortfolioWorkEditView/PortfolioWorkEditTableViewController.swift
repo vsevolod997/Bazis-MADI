@@ -195,8 +195,10 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     private func controlSaveButtonEnabled() {
         
         if controlChangedData() {
+            isModalInPresentation = true
             saveButton.isEnabled = true
         } else {
+            isModalInPresentation = false
             saveButton.isEnabled = false
         }
     }
@@ -218,7 +220,7 @@ class PortfolioWorkEditTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonPress(_ sender: Any) {
-        if !controlChangedData() {
+        if controlChangedData() {
             showExitAlert()
         } else {
             dismiss(animated: true, completion: nil)
