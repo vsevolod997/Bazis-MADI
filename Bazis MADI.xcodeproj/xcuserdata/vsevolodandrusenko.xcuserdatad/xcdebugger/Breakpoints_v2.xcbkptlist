@@ -3576,8 +3576,8 @@
             filePath = "Bazis MADI/Teacher/File/DetailFileInformation/View/TeacherDetailFileInfoTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "textViewDidChangeSelection(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4760,8 +4760,8 @@
             filePath = "Bazis MADI/Student/File/DetalFileInformations/View/DetalFileInfoTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "showReviewButtonPres(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4904,8 +4904,8 @@
             filePath = "Bazis MADI/Student/File/DetailFileReviewView/Controller/DetailFileReviewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4920,8 +4920,8 @@
             filePath = "Bazis MADI/Student/File/DetailFileReviewView/Controller/DetailFileReviewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4929,31 +4929,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F418C126-A18C-4101-A11A-3163633749B7"
+            uuid = "A196CDED-E80E-4794-B554-0957081D2F6F"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Bazis MADI/Student/File/DetailFileReviewView/Controller/DetailFileReviewTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A196CDED-E80E-4794-B554-0957081D2F6F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Bazis MADI/Student/File/DetailFileReviewView/Controller/DetailFileReviewTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "downloadFile(nameFile:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5208,8 +5192,8 @@
             filePath = "Bazis MADI/Student/File/UploadFileView/View/UploadFileTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "textViewDidChangeSelection(_:)"
             landmarkType = "7">
          </BreakpointContent>

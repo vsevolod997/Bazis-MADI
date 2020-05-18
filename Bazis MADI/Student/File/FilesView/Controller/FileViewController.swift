@@ -313,7 +313,6 @@ extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print(isHaveFile, isFileMode)
         if !isFileMode {
             //inFolder
             let sb = UIStoryboard(name: "Main", bundle: nil)

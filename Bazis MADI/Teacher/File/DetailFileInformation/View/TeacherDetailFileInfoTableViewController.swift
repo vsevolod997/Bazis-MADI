@@ -11,26 +11,28 @@ import UIKit
 class TeacherDetailFileInfoTableViewController: UITableViewController {
     
     @IBOutlet weak var fileNameLabel: Title6LabelUILabel!
-    
     //@IBOutlet weak var recCountLabel: CountLabelUILabel!
     @IBOutlet weak var fileImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var deliteButton: CancelButtonUIButton!
-    
     @IBOutlet weak var saveDescButton: DoneButtonUIButton!
     @IBOutlet weak var textField: InfoTextViewUITextView!
     @IBOutlet weak var cancelButton: InputButton1UIButton!
     @IBOutlet weak var loadFileButton: UIButton!
     @IBOutlet weak var donloadProgress: UIProgressView!
     
-    private var isSave = true
-    private var isDonloadingFile = false
+    private var isSave = true {
+        didSet {
+            isModalInPresentation = !isSave
+        }
+    }
+    
+    private var isDownloadFile = false
     
     weak var delegate: ShowReviewDelegate!
     
     public var indexFile: Int!
     public var fileData: FileToShowModel!
-    
     private var fileDesc: DescModel!
     private var controller = FileDetalController()
     
@@ -67,9 +69,9 @@ class TeacherDetailFileInfoTableViewController: UITableViewController {
     
     //MARK: - сохрвнение файла
     @IBAction func saveFileButtonPress(_ sender: Any) {
-        if !isDonloadingFile {
+        if !isDownloadFile {
             
-            isDonloadingFile = true
+            isDownloadFile = true
             let urlString = "https://bazis.madi.ru/stud/api/file/download"
             let fileURL = URL(string: urlString)
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
@@ -142,7 +144,6 @@ extension TeacherDetailFileInfoTableViewController: InfoFileDelegate {
     func loadDescFile(fileDesc: DescModel, controller: FileDetalController) {
         self.fileDesc = fileDesc
         self.textField.text = fileDesc.text
-        //self.recCountLabel.text = String(fileDesc.ref.count)
     }
     
     func setNewDescFile(fileDiscString: String, controller: FileDetalController) {
@@ -192,7 +193,6 @@ extension TeacherDetailFileInfoTableViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         
         let procentLoad = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
-        
         
         DispatchQueue.main.async {
             self.donloadProgress.progress = procentLoad

@@ -47,7 +47,6 @@ class UploadFileTableViewController: UITableViewController {
     
     private func setupView() {
         
-        
         controller.delegate = self
         uploadButton.isEnabled = false
         

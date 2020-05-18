@@ -11,6 +11,8 @@ import UIKit
 //MARK: - ShowReviewDelegate
 protocol ShowReviewDelegate: class {
     func showReviewDelegate(fileReview: [ReviewModel])
+    
+    func setupModalClose(isHaveChanging: Bool)
 }
 
 class DetalFileInfoTableViewController: UITableViewController {
@@ -29,14 +31,17 @@ class DetalFileInfoTableViewController: UITableViewController {
     @IBOutlet weak var donloadProgress: UIProgressView!
 
     
-    private var isSave = true
+    private var isSave = true {
+        didSet {
+            delegate.setupModalClose(isHaveChanging: !isSave)
+        }
+    }
     private var isDonloadingFile = false
     
     weak var delegate: ShowReviewDelegate!
     
     public var indexFile: Int!
     public var fileData: FileToShowModel!
-    
     private var fileDesc: DescModel!
     
     private var controller = FileDetalController()

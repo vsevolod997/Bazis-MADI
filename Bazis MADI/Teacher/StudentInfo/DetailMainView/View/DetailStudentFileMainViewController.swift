@@ -76,7 +76,7 @@ class DetailStudentFileMainViewController: UIViewController {
         reviewNavView = navController
     }
     
-    
+    // кнопка выбора\отмены
     private func createButtonView() {
         let buttonView = UIView()
         buttonView.backgroundColor = SystemColor.colorFill

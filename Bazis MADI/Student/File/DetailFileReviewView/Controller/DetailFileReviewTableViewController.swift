@@ -22,12 +22,30 @@ class DetailFileReviewTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         addGestue()
     }
     
+    private func setupView() {
+        title = "Рецензии"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:SystemColor.whiteColor]
+        navigationController?.navigationBar.tintColor = SystemColor.whiteColor
+        navigationController?.navigationBar.barTintColor = SystemColor.blueColor
+    }
+    
+    //жесты закрытия
     private func addGestue() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(backGestue))
-        view.addGestureRecognizer(tap)
+        let swipeRigth = UISwipeGestureRecognizer(target: self, action: #selector(backGestue))
+        swipeRigth.direction = .right
+        view.addGestureRecognizer(swipeRigth)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(backGestue))
+        swipeDown.direction = .down
+        view.addGestureRecognizer(swipeDown)
+    }
+    
+    @objc func backGestue() {
+        delegate.closeFileReview()
     }
     
     private func downloadFile(nameFile: String) {
@@ -42,10 +60,6 @@ class DetailFileReviewTableViewController: UITableViewController {
         
         let task = session.downloadTask(with: request)
         task.resume()
-    }
-    
-    @objc func backGestue() {
-        delegate.closeFileReview()
     }
 }
 
