@@ -139,6 +139,8 @@
 		42D5F0B72441FC9300BDFF29 /* SearchStudentHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0B62441FC9300BDFF29 /* SearchStudentHttpService.swift */; };
 		42D5F0BA244200C700BDFF29 /* StudentInGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0B9244200C700BDFF29 /* StudentInGroupModel.swift */; };
 		42D5F0BD244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5F0BC244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift */; };
+		42D91A4C2485259500AC4768 /* StudentInfoHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D91A4B2485259500AC4768 /* StudentInfoHttpService.swift */; };
+		42D91A5424852D9E00AC4768 /* FullStudInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D91A5324852D9E00AC4768 /* FullStudInfoModel.swift */; };
 		42DE33732409188200139FB8 /* ShowMoreUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE33722409188200139FB8 /* ShowMoreUIButton.swift */; };
 		42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */; };
 		42DEC2E923FA80C70026425A /* NewPassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DEC2E823FA80C70026425A /* NewPassModel.swift */; };
@@ -295,6 +297,8 @@
 		42D5F0B62441FC9300BDFF29 /* SearchStudentHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStudentHttpService.swift; sourceTree = "<group>"; };
 		42D5F0B9244200C700BDFF29 /* StudentInGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInGroupModel.swift; sourceTree = "<group>"; };
 		42D5F0BC244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDetailFileInfoTableViewController.swift; sourceTree = "<group>"; };
+		42D91A4B2485259500AC4768 /* StudentInfoHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoHttpService.swift; sourceTree = "<group>"; };
+		42D91A5324852D9E00AC4768 /* FullStudInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStudInfoModel.swift; sourceTree = "<group>"; };
 		42DE33722409188200139FB8 /* ShowMoreUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMoreUIButton.swift; sourceTree = "<group>"; };
 		42DE3374240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRspByGroupTableViewCell.swift; sourceTree = "<group>"; };
 		42DEC2E823FA80C70026425A /* NewPassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPassModel.swift; sourceTree = "<group>"; };
@@ -974,7 +978,8 @@
 		42B28886244468AC00D702DE /* StudentInfoView */ = {
 			isa = PBXGroup;
 			children = (
-				42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */,
+				42D91A5224852D7700AC4768 /* Model */,
+				42D91A492485250E00AC4768 /* Controller */,
 			);
 			path = StudentInfoView;
 			sourceTree = "<group>";
@@ -1298,6 +1303,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		42D91A492485250E00AC4768 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42D91A4A2485252300AC4768 /* HTTPService */,
+				42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		42D91A4A2485252300AC4768 /* HTTPService */ = {
+			isa = PBXGroup;
+			children = (
+				42D91A4B2485259500AC4768 /* StudentInfoHttpService.swift */,
+			);
+			path = HTTPService;
+			sourceTree = "<group>";
+		};
+		42D91A5224852D7700AC4768 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42D91A5324852D9E00AC4768 /* FullStudInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		42DE3377240ABFC800139FB8 /* UILabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1573,6 +1603,7 @@
 				425468012398ED18001D26AA /* UserLoginData.swift in Sources */,
 				429E90DB243E1E6F00416ABD /* UploadUIView.swift in Sources */,
 				42AEAD5E241AA644005430D2 /* CancelButtonUIButton.swift in Sources */,
+				42D91A4C2485259500AC4768 /* StudentInfoHttpService.swift in Sources */,
 				42DE3375240AA45500139FB8 /* ObjectRspByGroupTableViewCell.swift in Sources */,
 				42B5AFCC24561B3800DE1975 /* StudentDetailFileTableViewController.swift in Sources */,
 				42B21D5923D49D6600E1EC17 /* Title5LabelUILabel.swift in Sources */,
@@ -1635,6 +1666,7 @@
 				427732622449B49400982DCD /* StudentUspevHttpService.swift in Sources */,
 				42D5F0BD244311CE00BDFF29 /* TeacherDetailFileInfoTableViewController.swift in Sources */,
 				424DE37323C65EC400389B53 /* RaspisanieExamModel.swift in Sources */,
+				42D91A5424852D9E00AC4768 /* FullStudInfoModel.swift in Sources */,
 				42EEE9D3242B6C9D00EC2D80 /* DetalFileInfoTableViewController.swift in Sources */,
 				42F672FE241D4E8A00865044 /* PortfolioEducationTableViewController.swift in Sources */,
 				42D41BFA23C758AF0077DE0C /* ExamUIView.swift in Sources */,

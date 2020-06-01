@@ -625,7 +625,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9V-27-4Mc" userLabel="время" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="80" width="78" height="49"/>
+                                            <rect key="frame" x="20" y="80" width="77" height="49"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -714,7 +714,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnn-yB-eJE" customClass="Title1LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="117" y="11" width="277" height="86"/>
+                                                    <rect key="frame" x="117" y="11" width="243" height="86"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="86" id="jNL-pL-J8a"/>
                                                     </constraints>
@@ -746,23 +746,33 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7L-4D-5Hg" customClass="Title7LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="111" width="81" height="21"/>
+                                                    <rect key="frame" x="15" y="113" width="81" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2I-hh-tIH">
+                                                    <rect key="frame" x="369" y="12" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="1Si-Aq-r9N"/>
+                                                        <constraint firstAttribute="height" constant="29.333333333333329" id="NY1-1e-CBk"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="info.circle" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="C2I-hh-tIH" firstAttribute="leading" secondItem="qnn-yB-eJE" secondAttribute="trailing" constant="9" id="04g-HR-hlD"/>
                                                 <constraint firstItem="B3J-Yu-kGy" firstAttribute="top" secondItem="xmh-Be-AHh" secondAttribute="top" constant="11" id="7Ho-qU-Xq5"/>
                                                 <constraint firstItem="qnn-yB-eJE" firstAttribute="top" secondItem="B3J-Yu-kGy" secondAttribute="top" id="9xe-jN-rGi"/>
                                                 <constraint firstItem="B3J-Yu-kGy" firstAttribute="leading" secondItem="xmh-Be-AHh" secondAttribute="leading" constant="15" id="Fc2-Yx-jCf"/>
                                                 <constraint firstItem="BHO-TS-dkl" firstAttribute="leading" secondItem="qnn-yB-eJE" secondAttribute="leading" id="Plu-DJ-UFN"/>
-                                                <constraint firstAttribute="trailing" secondItem="qnn-yB-eJE" secondAttribute="trailing" constant="20" id="XfF-lf-hoH"/>
-                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="leading" secondItem="B3J-Yu-kGy" secondAttribute="leading" id="akC-dM-Aa3"/>
+                                                <constraint firstAttribute="trailing" secondItem="qnn-yB-eJE" secondAttribute="trailing" constant="54" id="XfF-lf-hoH"/>
+                                                <constraint firstItem="C2I-hh-tIH" firstAttribute="top" secondItem="qnn-yB-eJE" secondAttribute="top" id="bph-3Z-3nZ"/>
+                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="top" secondItem="B3J-Yu-kGy" secondAttribute="bottom" constant="21" id="eYc-Ra-sh9"/>
                                                 <constraint firstItem="qnn-yB-eJE" firstAttribute="leading" secondItem="B3J-Yu-kGy" secondAttribute="trailing" constant="21" id="g8Q-aV-u7w"/>
-                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="top" secondItem="B3J-Yu-kGy" secondAttribute="bottom" constant="19" id="hJT-g8-uTs"/>
+                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="trailing" secondItem="B3J-Yu-kGy" secondAttribute="trailing" id="raW-Ml-iZq"/>
+                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="leading" secondItem="B3J-Yu-kGy" secondAttribute="leading" id="zCe-6y-SUa"/>
                                                 <constraint firstItem="BHO-TS-dkl" firstAttribute="top" secondItem="qnn-yB-eJE" secondAttribute="bottom" constant="8" id="zLj-VT-VGY"/>
-                                                <constraint firstItem="d7L-4D-5Hg" firstAttribute="trailing" secondItem="B3J-Yu-kGy" secondAttribute="trailing" id="zrG-Gx-YE0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -857,7 +867,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1C-Dr-f1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5261" y="-1408"/>
+            <point key="canvasLocation" x="5260.8695652173919" y="-1408.2589285714284"/>
         </scene>
         <!--Student File View Controller-->
         <scene sceneID="eOd-jM-twd">
@@ -1020,21 +1030,21 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgJ-5Q-bqe" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="11" width="291" height="40"/>
+                                                    <rect key="frame" x="103" y="11" width="290" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-Pj-Yc7" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="61" width="291" height="21"/>
+                                                    <rect key="frame" x="103" y="61" width="290" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qso-e7-iQq" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="90" width="291" height="39"/>
+                                                    <rect key="frame" x="103" y="90" width="290" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1184,7 +1194,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E56-Em-6mR" customClass="InfoTextViewUITextView" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="375" height="151"/>
+                                                    <rect key="frame" x="19" y="11" width="376" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1415,7 +1425,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re2-cf-uSu" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="4" y="128" width="385" height="21"/>
+                                                    <rect key="frame" x="4" y="128" width="384" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1485,7 +1495,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для редактирования, нажмите на карточку" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7W3-Pz-EYT" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="2" y="124" width="388" height="21"/>
+                                                    <rect key="frame" x="1" y="124" width="388" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1612,7 +1622,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJM-NI-6eF" userLabel="hour" customClass="TitleT1WLabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="200" y="13" width="172" height="21"/>
+                                                    <rect key="frame" x="199" y="13" width="173" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1692,7 +1702,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnL-fL-zoi" userLabel="hour" customClass="TitleT1WLabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="201" y="13" width="174" height="21"/>
+                                                    <rect key="frame" x="201" y="13" width="173" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2032,7 +2042,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-Am-iv5" customClass="InfoTextViewUITextView" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="375" height="151"/>
+                                                    <rect key="frame" x="19" y="11" width="376" height="151"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2057,7 +2067,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Рецензия отсутствует" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TV-2n-gcf" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="91" y="11" width="232" height="47"/>
+                                                    <rect key="frame" x="90" y="11" width="233" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2151,21 +2161,21 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1c-XT-R0U" customClass="Title5LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="11" width="291" height="40"/>
+                                                    <rect key="frame" x="103" y="11" width="290" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCC-VV-P7R" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="61" width="291" height="21"/>
+                                                    <rect key="frame" x="103" y="61" width="290" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4g-nr-YVK" customClass="Title3LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="90" width="291" height="39"/>
+                                                    <rect key="frame" x="103" y="90" width="290" height="39"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -2424,6 +2434,7 @@
         <image name="file" width="514" height="521"/>
         <image name="folder" width="512" height="512"/>
         <image name="home" width="30" height="30"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="portfolio" width="512" height="512"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="statistic" width="512" height="512"/>

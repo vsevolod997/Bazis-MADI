@@ -55,7 +55,7 @@ class StudentInfoTableViewController: UITableViewController {
     }
     
     @IBAction func sentMessageButtonPress(_ sender: Any) {
-        
+        print("buttonPressss")
     }
     
     private func showUspevView() {

@@ -779,10 +779,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="reviewCell" id="5jy-QF-XBk" customClass="ReviewTableViewCell" customModule="МАДИ" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="92.333335876464844"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="92.666664123535156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5jy-QF-XBk" id="pbQ-m6-sIM">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92.333335876464844"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92.666664123535156"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FileName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCf-Xh-0fE" customClass="Title6LabelUILabel" customModule="МАДИ" customModuleProvider="target">
@@ -796,11 +796,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Tn-yZ-f9v">
-                                            <rect key="frame" x="20" y="79.333333333333329" width="374" height="2"/>
+                                            <rect key="frame" x="20" y="79.666666666666671" width="374" height="2"/>
                                             <color key="progressTintColor" name="ColorBlue"/>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwO-Ov-ydw" customClass="Title2LabelUILabel" customModule="МАДИ" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="50" width="374" height="21.333333333333329"/>
+                                            <rect key="frame" x="20" y="50" width="374" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -2306,7 +2306,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-vh-1FV">
-                                                    <rect key="frame" x="319" y="7" width="52" height="31"/>
+                                                    <rect key="frame" x="319" y="7" width="51" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitcherChanged:" destination="blW-mk-IJI" eventType="valueChanged" id="3aS-jH-mKq"/>
@@ -2695,7 +2695,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U7n-Qm-rO3">
-                                                    <rect key="frame" x="304" y="7" width="52" height="31"/>
+                                                    <rect key="frame" x="303" y="7" width="52" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                     <connections>
                                                         <action selector="printSwitchSelection:" destination="VYT-GB-fOH" eventType="valueChanged" id="4WX-gz-X87"/>

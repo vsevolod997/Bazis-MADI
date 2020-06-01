@@ -19,7 +19,7 @@ struct OrderModel {
         for data in datas {
             var elem: [OrderLineModel] = []
             var title: String = ""
-            for str in  data {
+            for str in data {
                 if str.key == "name" {
                     title = str.value as! String
                 } else {
