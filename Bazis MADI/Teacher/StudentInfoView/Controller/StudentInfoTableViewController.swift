@@ -58,6 +58,13 @@ class StudentInfoTableViewController: UITableViewController {
         print("buttonPressss")
     }
     
+    @IBAction func infoButtonPress(_ sender: Any) {
+        let sb = UIStoryboard(name: "Teacher", bundle: nil)
+        guard let vc = sb.instantiateViewController(identifier: "studFullInfo") as? StudentFullInfoTableViewController else { return }
+        vc.studentUIC = studentInfo.idc
+        present(vc, animated: true)
+    }
+    
     private func showUspevView() {
         //uspev
         let sb = UIStoryboard(name: "Teacher", bundle: nil)

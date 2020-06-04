@@ -22,8 +22,10 @@ struct FullStudInfoModel {
             if str.key == "name" {
                 title = str.value as! String
             } else {
-                let line = OrderLineModel(key: str.key + ":", value: str.value)
-                elem.append(line)
+                if str.key != "" {
+                    let line = OrderLineModel(key: str.key + ":", value: str.value)
+                    elem.append(line)
+                }
             }
         }
         let sortedBuff = elem.sorted { (key1, key2) -> Bool in

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4205CBBE2488F1AE00ECB53A /* StudentFullInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205CBBD2488F1AE00ECB53A /* StudentFullInfoTableViewController.swift */; };
 		4209120323BE58A4005307F5 /* Teacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4209120223BE58A4005307F5 /* Teacher.storyboard */; };
 		420ACEFA23FE7EB100C64DD1 /* Title6LabelUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420ACEF923FE7EB100C64DD1 /* Title6LabelUILabel.swift */; };
 		420ACEFE23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420ACEFD23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift */; };
@@ -163,6 +164,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4205CBBD2488F1AE00ECB53A /* StudentFullInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFullInfoTableViewController.swift; sourceTree = "<group>"; };
 		4209120223BE58A4005307F5 /* Teacher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teacher.storyboard; sourceTree = "<group>"; };
 		420ACEF923FE7EB100C64DD1 /* Title6LabelUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title6LabelUILabel.swift; sourceTree = "<group>"; };
 		420ACEFD23FFD6A400C64DD1 /* RaspisanieModelInfoByTeacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaspisanieModelInfoByTeacher.swift; sourceTree = "<group>"; };
@@ -331,9 +333,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4205CBB92488EEFD00ECB53A /* StudentFullInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				4205CBBA2488EF4900ECB53A /* Controller */,
+				42D91A5224852D7700AC4768 /* Model */,
+			);
+			path = StudentFullInfoView;
+			sourceTree = "<group>";
+		};
+		4205CBBA2488EF4900ECB53A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				42D91A4A2485252300AC4768 /* HTTPService */,
+				4205CBBD2488F1AE00ECB53A /* StudentFullInfoTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4209120623BF9808005307F5 /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
+				4205CBB92488EEFD00ECB53A /* StudentFullInfoView */,
 				4251FF022451D8AB00EAFB13 /* SearchStudentsView */,
 				42B5AFC62456191900DE1975 /* StudentInfo */,
 				421BABE924462C300000C8C3 /* StudentUspevView */,
@@ -978,7 +999,6 @@
 		42B28886244468AC00D702DE /* StudentInfoView */ = {
 			isa = PBXGroup;
 			children = (
-				42D91A5224852D7700AC4768 /* Model */,
 				42D91A492485250E00AC4768 /* Controller */,
 			);
 			path = StudentInfoView;
@@ -1306,7 +1326,6 @@
 		42D91A492485250E00AC4768 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				42D91A4A2485252300AC4768 /* HTTPService */,
 				42B28887244468EA00D702DE /* StudentInfoTableViewController.swift */,
 			);
 			path = Controller;
@@ -1694,6 +1713,7 @@
 				42A8316223C0B8690012BC66 /* HttpServiceRaspisanieTeacher.swift in Sources */,
 				42FC7B2B23CD08F600855FAD /* TableRaspisanieByGroupUIView.swift in Sources */,
 				4248818923CA19AC003BB98F /* UserTitleUILabel.swift in Sources */,
+				4205CBBE2488F1AE00ECB53A /* StudentFullInfoTableViewController.swift in Sources */,
 				4245396F2399623200126ED6 /* CloseViewUIView.swift in Sources */,
 				4248818523C9D0EE003BB98F /* TableRaspisanieByTeacherUIView.swift in Sources */,
 				4214FDC123AF96EA00F543C9 /* DayRaspisUIView.swift in Sources */,
